@@ -211,26 +211,26 @@ public class AnalysisItemProviderAdapterFactory extends AnalysisAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.analysis.AnalysisColumnizer} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.analysis.AnalysisSheet} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AnalysisColumnizerItemProvider analysisColumnizerItemProvider;
+	protected AnalysisSheetItemProvider analysisSheetItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.analysis.AnalysisColumnizer}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.analysis.AnalysisSheet}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAnalysisColumnizerAdapter() {
-		if (analysisColumnizerItemProvider == null) {
-			analysisColumnizerItemProvider = new AnalysisColumnizerItemProvider(this);
+	public Adapter createAnalysisSheetAdapter() {
+		if (analysisSheetItemProvider == null) {
+			analysisSheetItemProvider = new AnalysisSheetItemProvider(this);
 		}
 
-		return analysisColumnizerItemProvider;
+		return analysisSheetItemProvider;
 	}
 
 	/**
@@ -361,7 +361,7 @@ public class AnalysisItemProviderAdapterFactory extends AnalysisAdapterFactory i
 		if (analysisDocItemProvider != null) analysisDocItemProvider.dispose();
 		if (analysisElementItemProvider != null) analysisElementItemProvider.dispose();
 		if (analysisElementKeyItemProvider != null) analysisElementKeyItemProvider.dispose();
-		if (analysisColumnizerItemProvider != null) analysisColumnizerItemProvider.dispose();
+		if (analysisSheetItemProvider != null) analysisSheetItemProvider.dispose();
 		if (analysisCategoryItemProvider != null) analysisCategoryItemProvider.dispose();
 	}
 

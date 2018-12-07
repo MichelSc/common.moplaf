@@ -11,6 +11,12 @@
     </eOperations>
     <eOperations name="refresh"/>
     <eOperations name="flush"/>
+    <eOperations name="addElement">
+      <eParameters name="element" eType="#//AnalysisElement"/>
+    </eOperations>
+    <eOperations name="removeElement">
+      <eParameters name="element" eType="#//AnalysisElement"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Categorizers" upperBound="-1"
         eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Categorizer"
         containment="true"/>
@@ -33,7 +39,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Docs" upperBound="-1" eType="#//AnalysisDoc"
         containment="true" eOpposite="#//AnalysisDoc/Analysis"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Sheets" upperBound="-1"
-        eType="#//AnalysisColumnizer" containment="true" eOpposite="#//AnalysisColumnizer/Analysis"/>
+        eType="#//AnalysisSheet" containment="true" eOpposite="#//AnalysisSheet/Analysis"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AnalysisDomain" eSuperTypes="../../com.misc.common.moplaf.job.emf/model/job.ecore#//TaskDomain ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataToolContext">
     <eOperations name="getNewDataTools" upperBound="-1" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataTool">
@@ -86,17 +92,17 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AnalysisElementKey">
     <eOperations name="getKeyValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Sheet" lowerBound="1" eType="#//AnalysisColumnizer"
-        eOpposite="#//AnalysisColumnizer/Keys"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Sheet" lowerBound="1" eType="#//AnalysisSheet"
+        eOpposite="#//AnalysisSheet/Keys"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Docs" upperBound="-1" eType="#//AnalysisElement"
         eOpposite="#//AnalysisElement/Key"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AnalysisColumnizer">
+  <eClassifiers xsi:type="ecore:EClass" name="AnalysisSheet">
     <eOperations name="addElement">
-      <eParameters name="doc" eType="#//AnalysisElement"/>
+      <eParameters name="element" eType="#//AnalysisElement"/>
     </eOperations>
     <eOperations name="removeElement">
-      <eParameters name="doc" eType="#//AnalysisElement"/>
+      <eParameters name="element" eType="#//AnalysisElement"/>
     </eOperations>
     <eOperations name="getKeyValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
       <eParameters name="element" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>

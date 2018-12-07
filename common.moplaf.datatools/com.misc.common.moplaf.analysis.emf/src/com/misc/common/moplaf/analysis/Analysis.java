@@ -282,8 +282,8 @@ public interface Analysis extends CategoryAbstract, DataToolContext, Columnizers
 
 	/**
 	 * Returns the value of the '<em><b>Sheets</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.analysis.AnalysisColumnizer}.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.analysis.AnalysisColumnizer#getAnalysis <em>Analysis</em>}'.
+	 * The list contents are of type {@link com.misc.common.moplaf.analysis.AnalysisSheet}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.analysis.AnalysisSheet#getAnalysis <em>Analysis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sheets</em>' containment reference list isn't clear,
@@ -292,11 +292,11 @@ public interface Analysis extends CategoryAbstract, DataToolContext, Columnizers
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sheets</em>' containment reference list.
 	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysis_Sheets()
-	 * @see com.misc.common.moplaf.analysis.AnalysisColumnizer#getAnalysis
+	 * @see com.misc.common.moplaf.analysis.AnalysisSheet#getAnalysis
 	 * @model opposite="Analysis" containment="true"
 	 * @generated
 	 */
-	EList<AnalysisColumnizer> getSheets();
+	EList<AnalysisSheet> getSheets();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -329,5 +329,21 @@ public interface Analysis extends CategoryAbstract, DataToolContext, Columnizers
 	 * @generated
 	 */
 	void flush();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addElement(AnalysisElement element);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void removeElement(AnalysisElement element);
 
 } // DocAnalysis

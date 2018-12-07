@@ -123,9 +123,9 @@ public class AnalysisSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AnalysisPackage.ANALYSIS_COLUMNIZER: {
-				AnalysisColumnizer analysisColumnizer = (AnalysisColumnizer)theEObject;
-				T result = caseAnalysisColumnizer(analysisColumnizer);
+			case AnalysisPackage.ANALYSIS_SHEET: {
+				AnalysisSheet analysisSheet = (AnalysisSheet)theEObject;
+				T result = caseAnalysisSheet(analysisSheet);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -232,17 +232,17 @@ public class AnalysisSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Columnizer</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Sheet</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Columnizer</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Sheet</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAnalysisColumnizer(AnalysisColumnizer object) {
+	public T caseAnalysisSheet(AnalysisSheet object) {
 		return null;
 	}
 

@@ -3,9 +3,9 @@
 package com.misc.common.moplaf.analysis.provider;
 
 
-import com.misc.common.moplaf.analysis.AnalysisColumnizer;
 import com.misc.common.moplaf.analysis.AnalysisFactory;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
+import com.misc.common.moplaf.analysis.AnalysisSheet;
 
 import java.util.Collection;
 import java.util.List;
@@ -28,12 +28,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.analysis.AnalysisColumnizer} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.analysis.AnalysisSheet} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AnalysisColumnizerItemProvider 
+public class AnalysisSheetItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -47,7 +47,7 @@ public class AnalysisColumnizerItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AnalysisColumnizerItemProvider(AdapterFactory adapterFactory) {
+	public AnalysisSheetItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -78,9 +78,9 @@ public class AnalysisColumnizerItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AnalysisColumnizer_Columnizer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AnalysisColumnizer_Columnizer_feature", "_UI_AnalysisColumnizer_type"),
-				 AnalysisPackage.Literals.ANALYSIS_COLUMNIZER__COLUMNIZER,
+				 getString("_UI_AnalysisSheet_Columnizer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AnalysisSheet_Columnizer_feature", "_UI_AnalysisSheet_type"),
+				 AnalysisPackage.Literals.ANALYSIS_SHEET__COLUMNIZER,
 				 true,
 				 false,
 				 true,
@@ -101,7 +101,7 @@ public class AnalysisColumnizerItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS_COLUMNIZER__KEYS);
+			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS_SHEET__KEYS);
 		}
 		return childrenFeatures;
 	}
@@ -120,14 +120,14 @@ public class AnalysisColumnizerItemProvider
 	}
 
 	/**
-	 * This returns AnalysisColumnizer.gif.
+	 * This returns AnalysisSheet.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AnalysisColumnizer"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AnalysisSheet"));
 	}
 
 	/**
@@ -138,7 +138,7 @@ public class AnalysisColumnizerItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_AnalysisColumnizer_type");
+		return getString("_UI_AnalysisSheet_type");
 	}
 
 
@@ -153,8 +153,8 @@ public class AnalysisColumnizerItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(AnalysisColumnizer.class)) {
-			case AnalysisPackage.ANALYSIS_COLUMNIZER__KEYS:
+		switch (notification.getFeatureID(AnalysisSheet.class)) {
+			case AnalysisPackage.ANALYSIS_SHEET__KEYS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -174,7 +174,7 @@ public class AnalysisColumnizerItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.ANALYSIS_COLUMNIZER__KEYS,
+				(AnalysisPackage.Literals.ANALYSIS_SHEET__KEYS,
 				 AnalysisFactory.eINSTANCE.createAnalysisElementKey()));
 	}
 

@@ -340,13 +340,31 @@ public interface AnalysisPackage extends EPackage {
 	int ANALYSIS___FLUSH = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 6;
 
 	/**
+	 * The operation id for the '<em>Add Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS___ADD_ELEMENT__ANALYSISELEMENT = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Remove Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS___REMOVE_ELEMENT__ANALYSISELEMENT = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 8;
+
+	/**
 	 * The number of operations of the '<em>Analysis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_OPERATION_COUNT = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 7;
+	int ANALYSIS_OPERATION_COUNT = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisDomainImpl <em>Domain</em>}' class.
@@ -752,14 +770,14 @@ public interface AnalysisPackage extends EPackage {
 	int ANALYSIS_ELEMENT_KEY_OPERATION_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisColumnizerImpl <em>Columnizer</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisSheetImpl <em>Sheet</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.analysis.impl.AnalysisColumnizerImpl
-	 * @see com.misc.common.moplaf.analysis.impl.AnalysisPackageImpl#getAnalysisColumnizer()
+	 * @see com.misc.common.moplaf.analysis.impl.AnalysisSheetImpl
+	 * @see com.misc.common.moplaf.analysis.impl.AnalysisPackageImpl#getAnalysisSheet()
 	 * @generated
 	 */
-	int ANALYSIS_COLUMNIZER = 6;
+	int ANALYSIS_SHEET = 6;
 
 	/**
 	 * The feature id for the '<em><b>Keys</b></em>' containment reference.
@@ -768,7 +786,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_COLUMNIZER__KEYS = 0;
+	int ANALYSIS_SHEET__KEYS = 0;
 
 	/**
 	 * The feature id for the '<em><b>Analysis</b></em>' container reference.
@@ -777,7 +795,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_COLUMNIZER__ANALYSIS = 1;
+	int ANALYSIS_SHEET__ANALYSIS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Columnizer</b></em>' reference.
@@ -786,16 +804,16 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_COLUMNIZER__COLUMNIZER = 2;
+	int ANALYSIS_SHEET__COLUMNIZER = 2;
 
 	/**
-	 * The number of structural features of the '<em>Columnizer</em>' class.
+	 * The number of structural features of the '<em>Sheet</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_COLUMNIZER_FEATURE_COUNT = 3;
+	int ANALYSIS_SHEET_FEATURE_COUNT = 3;
 
 	/**
 	 * The operation id for the '<em>Add Element</em>' operation.
@@ -804,7 +822,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_COLUMNIZER___ADD_ELEMENT__ANALYSISELEMENT = 0;
+	int ANALYSIS_SHEET___ADD_ELEMENT__ANALYSISELEMENT = 0;
 
 	/**
 	 * The operation id for the '<em>Remove Element</em>' operation.
@@ -813,7 +831,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_COLUMNIZER___REMOVE_ELEMENT__ANALYSISELEMENT = 1;
+	int ANALYSIS_SHEET___REMOVE_ELEMENT__ANALYSISELEMENT = 1;
 
 	/**
 	 * The operation id for the '<em>Get Key Value</em>' operation.
@@ -822,16 +840,16 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_COLUMNIZER___GET_KEY_VALUE__EOBJECT = 2;
+	int ANALYSIS_SHEET___GET_KEY_VALUE__EOBJECT = 2;
 
 	/**
-	 * The number of operations of the '<em>Columnizer</em>' class.
+	 * The number of operations of the '<em>Sheet</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_COLUMNIZER_OPERATION_COUNT = 3;
+	int ANALYSIS_SHEET_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisCategoryImpl <em>Category</em>}' class.
@@ -1153,6 +1171,26 @@ public interface AnalysisPackage extends EPackage {
 	EOperation getAnalysis__Flush();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.Analysis#addElement(com.misc.common.moplaf.analysis.AnalysisElement) <em>Add Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Element</em>' operation.
+	 * @see com.misc.common.moplaf.analysis.Analysis#addElement(com.misc.common.moplaf.analysis.AnalysisElement)
+	 * @generated
+	 */
+	EOperation getAnalysis__AddElement__AnalysisElement();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.Analysis#removeElement(com.misc.common.moplaf.analysis.AnalysisElement) <em>Remove Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove Element</em>' operation.
+	 * @see com.misc.common.moplaf.analysis.Analysis#removeElement(com.misc.common.moplaf.analysis.AnalysisElement)
+	 * @generated
+	 */
+	EOperation getAnalysis__RemoveElement__AnalysisElement();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.analysis.AnalysisDomain <em>Domain</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1429,77 +1467,77 @@ public interface AnalysisPackage extends EPackage {
 	EOperation getAnalysisElementKey__GetKeyValue();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.analysis.AnalysisColumnizer <em>Columnizer</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.analysis.AnalysisSheet <em>Sheet</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Columnizer</em>'.
-	 * @see com.misc.common.moplaf.analysis.AnalysisColumnizer
+	 * @return the meta object for class '<em>Sheet</em>'.
+	 * @see com.misc.common.moplaf.analysis.AnalysisSheet
 	 * @generated
 	 */
-	EClass getAnalysisColumnizer();
+	EClass getAnalysisSheet();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.analysis.AnalysisColumnizer#getKeys <em>Keys</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.analysis.AnalysisSheet#getKeys <em>Keys</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Keys</em>'.
-	 * @see com.misc.common.moplaf.analysis.AnalysisColumnizer#getKeys()
-	 * @see #getAnalysisColumnizer()
+	 * @see com.misc.common.moplaf.analysis.AnalysisSheet#getKeys()
+	 * @see #getAnalysisSheet()
 	 * @generated
 	 */
-	EReference getAnalysisColumnizer_Keys();
+	EReference getAnalysisSheet_Keys();
 
 	/**
-	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.analysis.AnalysisColumnizer#getAnalysis <em>Analysis</em>}'.
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.analysis.AnalysisSheet#getAnalysis <em>Analysis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the container reference '<em>Analysis</em>'.
-	 * @see com.misc.common.moplaf.analysis.AnalysisColumnizer#getAnalysis()
-	 * @see #getAnalysisColumnizer()
+	 * @see com.misc.common.moplaf.analysis.AnalysisSheet#getAnalysis()
+	 * @see #getAnalysisSheet()
 	 * @generated
 	 */
-	EReference getAnalysisColumnizer_Analysis();
+	EReference getAnalysisSheet_Analysis();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.analysis.AnalysisColumnizer#getColumnizer <em>Columnizer</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.analysis.AnalysisSheet#getColumnizer <em>Columnizer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Columnizer</em>'.
-	 * @see com.misc.common.moplaf.analysis.AnalysisColumnizer#getColumnizer()
-	 * @see #getAnalysisColumnizer()
+	 * @see com.misc.common.moplaf.analysis.AnalysisSheet#getColumnizer()
+	 * @see #getAnalysisSheet()
 	 * @generated
 	 */
-	EReference getAnalysisColumnizer_Columnizer();
+	EReference getAnalysisSheet_Columnizer();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.AnalysisColumnizer#addElement(com.misc.common.moplaf.analysis.AnalysisElement) <em>Add Element</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.AnalysisSheet#addElement(com.misc.common.moplaf.analysis.AnalysisElement) <em>Add Element</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Element</em>' operation.
-	 * @see com.misc.common.moplaf.analysis.AnalysisColumnizer#addElement(com.misc.common.moplaf.analysis.AnalysisElement)
+	 * @see com.misc.common.moplaf.analysis.AnalysisSheet#addElement(com.misc.common.moplaf.analysis.AnalysisElement)
 	 * @generated
 	 */
-	EOperation getAnalysisColumnizer__AddElement__AnalysisElement();
+	EOperation getAnalysisSheet__AddElement__AnalysisElement();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.AnalysisColumnizer#removeElement(com.misc.common.moplaf.analysis.AnalysisElement) <em>Remove Element</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.AnalysisSheet#removeElement(com.misc.common.moplaf.analysis.AnalysisElement) <em>Remove Element</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Remove Element</em>' operation.
-	 * @see com.misc.common.moplaf.analysis.AnalysisColumnizer#removeElement(com.misc.common.moplaf.analysis.AnalysisElement)
+	 * @see com.misc.common.moplaf.analysis.AnalysisSheet#removeElement(com.misc.common.moplaf.analysis.AnalysisElement)
 	 * @generated
 	 */
-	EOperation getAnalysisColumnizer__RemoveElement__AnalysisElement();
+	EOperation getAnalysisSheet__RemoveElement__AnalysisElement();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.AnalysisColumnizer#getKeyValue(org.eclipse.emf.ecore.EObject) <em>Get Key Value</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.AnalysisSheet#getKeyValue(org.eclipse.emf.ecore.EObject) <em>Get Key Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Key Value</em>' operation.
-	 * @see com.misc.common.moplaf.analysis.AnalysisColumnizer#getKeyValue(org.eclipse.emf.ecore.EObject)
+	 * @see com.misc.common.moplaf.analysis.AnalysisSheet#getKeyValue(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getAnalysisColumnizer__GetKeyValue__EObject();
+	EOperation getAnalysisSheet__GetKeyValue__EObject();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.analysis.AnalysisCategory <em>Category</em>}'.
@@ -1682,6 +1720,22 @@ public interface AnalysisPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ANALYSIS___FLUSH = eINSTANCE.getAnalysis__Flush();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Element</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ANALYSIS___ADD_ELEMENT__ANALYSISELEMENT = eINSTANCE.getAnalysis__AddElement__AnalysisElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove Element</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ANALYSIS___REMOVE_ELEMENT__ANALYSISELEMENT = eINSTANCE.getAnalysis__RemoveElement__AnalysisElement();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisDomainImpl <em>Domain</em>}' class.
@@ -1902,14 +1956,14 @@ public interface AnalysisPackage extends EPackage {
 		EOperation ANALYSIS_ELEMENT_KEY___GET_KEY_VALUE = eINSTANCE.getAnalysisElementKey__GetKeyValue();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisColumnizerImpl <em>Columnizer</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisSheetImpl <em>Sheet</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.analysis.impl.AnalysisColumnizerImpl
-		 * @see com.misc.common.moplaf.analysis.impl.AnalysisPackageImpl#getAnalysisColumnizer()
+		 * @see com.misc.common.moplaf.analysis.impl.AnalysisSheetImpl
+		 * @see com.misc.common.moplaf.analysis.impl.AnalysisPackageImpl#getAnalysisSheet()
 		 * @generated
 		 */
-		EClass ANALYSIS_COLUMNIZER = eINSTANCE.getAnalysisColumnizer();
+		EClass ANALYSIS_SHEET = eINSTANCE.getAnalysisSheet();
 
 		/**
 		 * The meta object literal for the '<em><b>Keys</b></em>' containment reference feature.
@@ -1917,7 +1971,7 @@ public interface AnalysisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ANALYSIS_COLUMNIZER__KEYS = eINSTANCE.getAnalysisColumnizer_Keys();
+		EReference ANALYSIS_SHEET__KEYS = eINSTANCE.getAnalysisSheet_Keys();
 
 		/**
 		 * The meta object literal for the '<em><b>Analysis</b></em>' container reference feature.
@@ -1925,7 +1979,7 @@ public interface AnalysisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ANALYSIS_COLUMNIZER__ANALYSIS = eINSTANCE.getAnalysisColumnizer_Analysis();
+		EReference ANALYSIS_SHEET__ANALYSIS = eINSTANCE.getAnalysisSheet_Analysis();
 
 		/**
 		 * The meta object literal for the '<em><b>Columnizer</b></em>' reference feature.
@@ -1933,7 +1987,7 @@ public interface AnalysisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ANALYSIS_COLUMNIZER__COLUMNIZER = eINSTANCE.getAnalysisColumnizer_Columnizer();
+		EReference ANALYSIS_SHEET__COLUMNIZER = eINSTANCE.getAnalysisSheet_Columnizer();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Element</b></em>' operation.
@@ -1941,7 +1995,7 @@ public interface AnalysisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ANALYSIS_COLUMNIZER___ADD_ELEMENT__ANALYSISELEMENT = eINSTANCE.getAnalysisColumnizer__AddElement__AnalysisElement();
+		EOperation ANALYSIS_SHEET___ADD_ELEMENT__ANALYSISELEMENT = eINSTANCE.getAnalysisSheet__AddElement__AnalysisElement();
 
 		/**
 		 * The meta object literal for the '<em><b>Remove Element</b></em>' operation.
@@ -1949,7 +2003,7 @@ public interface AnalysisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ANALYSIS_COLUMNIZER___REMOVE_ELEMENT__ANALYSISELEMENT = eINSTANCE.getAnalysisColumnizer__RemoveElement__AnalysisElement();
+		EOperation ANALYSIS_SHEET___REMOVE_ELEMENT__ANALYSISELEMENT = eINSTANCE.getAnalysisSheet__RemoveElement__AnalysisElement();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Key Value</b></em>' operation.
@@ -1957,7 +2011,7 @@ public interface AnalysisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ANALYSIS_COLUMNIZER___GET_KEY_VALUE__EOBJECT = eINSTANCE.getAnalysisColumnizer__GetKeyValue__EObject();
+		EOperation ANALYSIS_SHEET___GET_KEY_VALUE__EOBJECT = eINSTANCE.getAnalysisSheet__GetKeyValue__EObject();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisCategoryImpl <em>Category</em>}' class.

@@ -102,8 +102,8 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 				return createAnalysisElementKeyAdapter();
 			}
 			@Override
-			public Adapter caseAnalysisColumnizer(AnalysisColumnizer object) {
-				return createAnalysisColumnizerAdapter();
+			public Adapter caseAnalysisSheet(AnalysisSheet object) {
+				return createAnalysisSheetAdapter();
 			}
 			@Override
 			public Adapter caseAnalysisCategory(AnalysisCategory object) {
@@ -254,16 +254,16 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.analysis.AnalysisColumnizer <em>Columnizer</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.analysis.AnalysisSheet <em>Sheet</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.analysis.AnalysisColumnizer
+	 * @see com.misc.common.moplaf.analysis.AnalysisSheet
 	 * @generated
 	 */
-	public Adapter createAnalysisColumnizerAdapter() {
+	public Adapter createAnalysisSheetAdapter() {
 		return null;
 	}
 

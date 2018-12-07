@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface AnalysisElementKey extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Sheet</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.analysis.AnalysisColumnizer#getKeys <em>Keys</em>}'.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.analysis.AnalysisSheet#getKeys <em>Keys</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sheet</em>' container reference isn't clear,
@@ -34,13 +34,13 @@ public interface AnalysisElementKey extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sheet</em>' container reference.
-	 * @see #setSheet(AnalysisColumnizer)
+	 * @see #setSheet(AnalysisSheet)
 	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisElementKey_Sheet()
-	 * @see com.misc.common.moplaf.analysis.AnalysisColumnizer#getKeys
+	 * @see com.misc.common.moplaf.analysis.AnalysisSheet#getKeys
 	 * @model opposite="Keys" required="true" transient="false"
 	 * @generated
 	 */
-	AnalysisColumnizer getSheet();
+	AnalysisSheet getSheet();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.AnalysisElementKey#getSheet <em>Sheet</em>}' container reference.
@@ -50,7 +50,7 @@ public interface AnalysisElementKey extends EObject {
 	 * @see #getSheet()
 	 * @generated
 	 */
-	void setSheet(AnalysisColumnizer value);
+	void setSheet(AnalysisSheet value);
 
 	/**
 	 * Returns the value of the '<em><b>Docs</b></em>' reference list.

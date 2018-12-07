@@ -2,11 +2,11 @@
  */
 package com.misc.common.moplaf.analysis.impl;
 
-import com.misc.common.moplaf.analysis.AnalysisColumnizer;
 import com.misc.common.moplaf.analysis.AnalysisElement;
 import com.misc.common.moplaf.analysis.AnalysisElementKey;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 
+import com.misc.common.moplaf.analysis.AnalysisSheet;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -75,9 +75,9 @@ public class AnalysisElementKeyImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AnalysisColumnizer getSheet() {
+	public AnalysisSheet getSheet() {
 		if (eContainerFeatureID() != AnalysisPackage.ANALYSIS_ELEMENT_KEY__SHEET) return null;
-		return (AnalysisColumnizer)eInternalContainer();
+		return (AnalysisSheet)eInternalContainer();
 	}
 
 	/**
@@ -85,7 +85,7 @@ public class AnalysisElementKeyImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSheet(AnalysisColumnizer newSheet, NotificationChain msgs) {
+	public NotificationChain basicSetSheet(AnalysisSheet newSheet, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newSheet, AnalysisPackage.ANALYSIS_ELEMENT_KEY__SHEET, msgs);
 		return msgs;
 	}
@@ -95,7 +95,7 @@ public class AnalysisElementKeyImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSheet(AnalysisColumnizer newSheet) {
+	public void setSheet(AnalysisSheet newSheet) {
 		if (newSheet != eInternalContainer() || (eContainerFeatureID() != AnalysisPackage.ANALYSIS_ELEMENT_KEY__SHEET && newSheet != null)) {
 			if (EcoreUtil.isAncestor(this, newSheet))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -103,7 +103,7 @@ public class AnalysisElementKeyImpl extends MinimalEObjectImpl.Container impleme
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newSheet != null)
-				msgs = ((InternalEObject)newSheet).eInverseAdd(this, AnalysisPackage.ANALYSIS_COLUMNIZER__KEYS, AnalysisColumnizer.class, msgs);
+				msgs = ((InternalEObject)newSheet).eInverseAdd(this, AnalysisPackage.ANALYSIS_SHEET__KEYS, AnalysisSheet.class, msgs);
 			msgs = basicSetSheet(newSheet, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -146,7 +146,7 @@ public class AnalysisElementKeyImpl extends MinimalEObjectImpl.Container impleme
 			case AnalysisPackage.ANALYSIS_ELEMENT_KEY__SHEET:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetSheet((AnalysisColumnizer)otherEnd, msgs);
+				return basicSetSheet((AnalysisSheet)otherEnd, msgs);
 			case AnalysisPackage.ANALYSIS_ELEMENT_KEY__DOCS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDocs()).basicAdd(otherEnd, msgs);
 		}
@@ -178,7 +178,7 @@ public class AnalysisElementKeyImpl extends MinimalEObjectImpl.Container impleme
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case AnalysisPackage.ANALYSIS_ELEMENT_KEY__SHEET:
-				return eInternalContainer().eInverseRemove(this, AnalysisPackage.ANALYSIS_COLUMNIZER__KEYS, AnalysisColumnizer.class, msgs);
+				return eInternalContainer().eInverseRemove(this, AnalysisPackage.ANALYSIS_SHEET__KEYS, AnalysisSheet.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -209,7 +209,7 @@ public class AnalysisElementKeyImpl extends MinimalEObjectImpl.Container impleme
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case AnalysisPackage.ANALYSIS_ELEMENT_KEY__SHEET:
-				setSheet((AnalysisColumnizer)newValue);
+				setSheet((AnalysisSheet)newValue);
 				return;
 			case AnalysisPackage.ANALYSIS_ELEMENT_KEY__DOCS:
 				getDocs().clear();
@@ -228,7 +228,7 @@ public class AnalysisElementKeyImpl extends MinimalEObjectImpl.Container impleme
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case AnalysisPackage.ANALYSIS_ELEMENT_KEY__SHEET:
-				setSheet((AnalysisColumnizer)null);
+				setSheet((AnalysisSheet)null);
 				return;
 			case AnalysisPackage.ANALYSIS_ELEMENT_KEY__DOCS:
 				getDocs().clear();

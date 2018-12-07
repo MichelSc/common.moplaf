@@ -76,13 +76,13 @@ public interface AnalysisFactory extends EFactory {
 	AnalysisElementKey createAnalysisElementKey();
 
 	/**
-	 * Returns a new object of class '<em>Columnizer</em>'.
+	 * Returns a new object of class '<em>Sheet</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Columnizer</em>'.
+	 * @return a new object of class '<em>Sheet</em>'.
 	 * @generated
 	 */
-	AnalysisColumnizer createAnalysisColumnizer();
+	AnalysisSheet createAnalysisSheet();
 
 	/**
 	 * Returns a new object of class '<em>Category</em>'.

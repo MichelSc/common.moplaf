@@ -7,10 +7,10 @@ import com.misc.common.moplaf.analysis.AnalysisElement;
 import com.misc.common.moplaf.analysis.AnalysisElementKey;
 import com.misc.common.moplaf.analysis.AnalysisFactory;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
+import com.misc.common.moplaf.analysis.AnalysisSheet;
 import com.misc.common.moplaf.analysis.DataTools;
 import com.misc.common.moplaf.analysis.Analysis;
 import com.misc.common.moplaf.analysis.AnalysisCategory;
-import com.misc.common.moplaf.analysis.AnalysisColumnizer;
 import com.misc.common.moplaf.analysis.AnalysisDoc;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.file.FilePackage;
@@ -79,7 +79,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass analysisColumnizerEClass = null;
+	private EClass analysisSheetEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -305,6 +305,24 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 */
 	public EOperation getAnalysis__Flush() {
 		return analysisEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAnalysis__AddElement__AnalysisElement() {
+		return analysisEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAnalysis__RemoveElement__AnalysisElement() {
+		return analysisEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -546,8 +564,8 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAnalysisColumnizer() {
-		return analysisColumnizerEClass;
+	public EClass getAnalysisSheet() {
+		return analysisSheetEClass;
 	}
 
 	/**
@@ -555,8 +573,8 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAnalysisColumnizer_Keys() {
-		return (EReference)analysisColumnizerEClass.getEStructuralFeatures().get(0);
+	public EReference getAnalysisSheet_Keys() {
+		return (EReference)analysisSheetEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -564,8 +582,8 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAnalysisColumnizer_Analysis() {
-		return (EReference)analysisColumnizerEClass.getEStructuralFeatures().get(1);
+	public EReference getAnalysisSheet_Analysis() {
+		return (EReference)analysisSheetEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -573,8 +591,8 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAnalysisColumnizer_Columnizer() {
-		return (EReference)analysisColumnizerEClass.getEStructuralFeatures().get(2);
+	public EReference getAnalysisSheet_Columnizer() {
+		return (EReference)analysisSheetEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -582,8 +600,8 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAnalysisColumnizer__AddElement__AnalysisElement() {
-		return analysisColumnizerEClass.getEOperations().get(0);
+	public EOperation getAnalysisSheet__AddElement__AnalysisElement() {
+		return analysisSheetEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -591,8 +609,8 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAnalysisColumnizer__RemoveElement__AnalysisElement() {
-		return analysisColumnizerEClass.getEOperations().get(1);
+	public EOperation getAnalysisSheet__RemoveElement__AnalysisElement() {
+		return analysisSheetEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -600,8 +618,8 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAnalysisColumnizer__GetKeyValue__EObject() {
-		return analysisColumnizerEClass.getEOperations().get(2);
+	public EOperation getAnalysisSheet__GetKeyValue__EObject() {
+		return analysisSheetEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -667,6 +685,8 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		createEOperation(analysisEClass, ANALYSIS___ADD_DOC__DOC);
 		createEOperation(analysisEClass, ANALYSIS___REFRESH);
 		createEOperation(analysisEClass, ANALYSIS___FLUSH);
+		createEOperation(analysisEClass, ANALYSIS___ADD_ELEMENT__ANALYSISELEMENT);
+		createEOperation(analysisEClass, ANALYSIS___REMOVE_ELEMENT__ANALYSISELEMENT);
 
 		analysisDomainEClass = createEClass(ANALYSIS_DOMAIN);
 		createEReference(analysisDomainEClass, ANALYSIS_DOMAIN__SUPER_DOMAIN);
@@ -699,13 +719,13 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		createEReference(analysisElementKeyEClass, ANALYSIS_ELEMENT_KEY__DOCS);
 		createEOperation(analysisElementKeyEClass, ANALYSIS_ELEMENT_KEY___GET_KEY_VALUE);
 
-		analysisColumnizerEClass = createEClass(ANALYSIS_COLUMNIZER);
-		createEReference(analysisColumnizerEClass, ANALYSIS_COLUMNIZER__KEYS);
-		createEReference(analysisColumnizerEClass, ANALYSIS_COLUMNIZER__ANALYSIS);
-		createEReference(analysisColumnizerEClass, ANALYSIS_COLUMNIZER__COLUMNIZER);
-		createEOperation(analysisColumnizerEClass, ANALYSIS_COLUMNIZER___ADD_ELEMENT__ANALYSISELEMENT);
-		createEOperation(analysisColumnizerEClass, ANALYSIS_COLUMNIZER___REMOVE_ELEMENT__ANALYSISELEMENT);
-		createEOperation(analysisColumnizerEClass, ANALYSIS_COLUMNIZER___GET_KEY_VALUE__EOBJECT);
+		analysisSheetEClass = createEClass(ANALYSIS_SHEET);
+		createEReference(analysisSheetEClass, ANALYSIS_SHEET__KEYS);
+		createEReference(analysisSheetEClass, ANALYSIS_SHEET__ANALYSIS);
+		createEReference(analysisSheetEClass, ANALYSIS_SHEET__COLUMNIZER);
+		createEOperation(analysisSheetEClass, ANALYSIS_SHEET___ADD_ELEMENT__ANALYSISELEMENT);
+		createEOperation(analysisSheetEClass, ANALYSIS_SHEET___REMOVE_ELEMENT__ANALYSISELEMENT);
+		createEOperation(analysisSheetEClass, ANALYSIS_SHEET___GET_KEY_VALUE__EOBJECT);
 
 		analysisCategoryEClass = createEClass(ANALYSIS_CATEGORY);
 		createEReference(analysisCategoryEClass, ANALYSIS_CATEGORY__ANALYSIS);
@@ -767,7 +787,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		initEAttribute(getAnalysis_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Analysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnalysis_Remarks(), ecorePackage.getEString(), "Remarks", null, 0, 1, Analysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAnalysis_Docs(), this.getAnalysisDoc(), this.getAnalysisDoc_Analysis(), "Docs", null, 0, -1, Analysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAnalysis_Sheets(), this.getAnalysisColumnizer(), this.getAnalysisColumnizer_Analysis(), "Sheets", null, 0, -1, Analysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAnalysis_Sheets(), this.getAnalysisSheet(), this.getAnalysisSheet_Analysis(), "Sheets", null, 0, -1, Analysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getAnalysis__AddTool__DataTool(), null, "addTool", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theDatatoolsPackage.getDataTool(), "tool", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -778,6 +798,12 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		initEOperation(getAnalysis__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getAnalysis__Flush(), null, "flush", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getAnalysis__AddElement__AnalysisElement(), null, "addElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getAnalysisElement(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getAnalysis__RemoveElement__AnalysisElement(), null, "removeElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getAnalysisElement(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(analysisDomainEClass, AnalysisDomain.class, "AnalysisDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAnalysisDomain_SuperDomain(), this.getAnalysisDomain(), this.getAnalysisDomain_SubDomains(), "SuperDomain", null, 0, 1, AnalysisDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -813,23 +839,23 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		addEParameter(op, theDatatoolsPackage.getCategoryAbstract(), "category", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(analysisElementKeyEClass, AnalysisElementKey.class, "AnalysisElementKey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAnalysisElementKey_Sheet(), this.getAnalysisColumnizer(), this.getAnalysisColumnizer_Keys(), "Sheet", null, 1, 1, AnalysisElementKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAnalysisElementKey_Sheet(), this.getAnalysisSheet(), this.getAnalysisSheet_Keys(), "Sheet", null, 1, 1, AnalysisElementKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAnalysisElementKey_Docs(), this.getAnalysisElement(), this.getAnalysisElement_Key(), "Docs", null, 0, -1, AnalysisElementKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getAnalysisElementKey__GetKeyValue(), ecorePackage.getEJavaObject(), "getKeyValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(analysisColumnizerEClass, AnalysisColumnizer.class, "AnalysisColumnizer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAnalysisColumnizer_Keys(), this.getAnalysisElementKey(), this.getAnalysisElementKey_Sheet(), "Keys", null, 0, 1, AnalysisColumnizer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAnalysisColumnizer_Analysis(), this.getAnalysis(), this.getAnalysis_Sheets(), "Analysis", null, 1, 1, AnalysisColumnizer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAnalysisColumnizer_Columnizer(), theDatatoolsPackage.getColumnizerAbstract(), null, "Columnizer", null, 0, 1, AnalysisColumnizer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(analysisSheetEClass, AnalysisSheet.class, "AnalysisSheet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAnalysisSheet_Keys(), this.getAnalysisElementKey(), this.getAnalysisElementKey_Sheet(), "Keys", null, 0, 1, AnalysisSheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAnalysisSheet_Analysis(), this.getAnalysis(), this.getAnalysis_Sheets(), "Analysis", null, 1, 1, AnalysisSheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAnalysisSheet_Columnizer(), theDatatoolsPackage.getColumnizerAbstract(), null, "Columnizer", null, 0, 1, AnalysisSheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getAnalysisColumnizer__AddElement__AnalysisElement(), null, "addElement", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getAnalysisElement(), "doc", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getAnalysisSheet__AddElement__AnalysisElement(), null, "addElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getAnalysisElement(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getAnalysisColumnizer__RemoveElement__AnalysisElement(), null, "removeElement", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getAnalysisElement(), "doc", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getAnalysisSheet__RemoveElement__AnalysisElement(), null, "removeElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getAnalysisElement(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getAnalysisColumnizer__GetKeyValue__EObject(), ecorePackage.getEJavaObject(), "getKeyValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getAnalysisSheet__GetKeyValue__EObject(), ecorePackage.getEJavaObject(), "getKeyValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(analysisCategoryEClass, AnalysisCategory.class, "AnalysisCategory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

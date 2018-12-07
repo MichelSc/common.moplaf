@@ -8,23 +8,23 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Columnizer</b></em>'.
+ * A representation of the model object '<em><b>Sheet</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.analysis.AnalysisColumnizer#getKeys <em>Keys</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.AnalysisColumnizer#getAnalysis <em>Analysis</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.AnalysisColumnizer#getColumnizer <em>Columnizer</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.AnalysisSheet#getKeys <em>Keys</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.AnalysisSheet#getAnalysis <em>Analysis</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.AnalysisSheet#getColumnizer <em>Columnizer</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisColumnizer()
+ * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisSheet()
  * @model
  * @generated
  */
-public interface AnalysisColumnizer extends EObject {
+public interface AnalysisSheet extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Keys</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.analysis.AnalysisElementKey#getSheet <em>Sheet</em>}'.
@@ -36,7 +36,7 @@ public interface AnalysisColumnizer extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Keys</em>' containment reference.
 	 * @see #setKeys(AnalysisElementKey)
-	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisColumnizer_Keys()
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisSheet_Keys()
 	 * @see com.misc.common.moplaf.analysis.AnalysisElementKey#getSheet
 	 * @model opposite="Sheet" containment="true"
 	 * @generated
@@ -44,7 +44,7 @@ public interface AnalysisColumnizer extends EObject {
 	AnalysisElementKey getKeys();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.AnalysisColumnizer#getKeys <em>Keys</em>}' containment reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.AnalysisSheet#getKeys <em>Keys</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Keys</em>' containment reference.
@@ -64,7 +64,7 @@ public interface AnalysisColumnizer extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Analysis</em>' container reference.
 	 * @see #setAnalysis(Analysis)
-	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisColumnizer_Analysis()
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisSheet_Analysis()
 	 * @see com.misc.common.moplaf.analysis.Analysis#getSheets
 	 * @model opposite="Sheets" required="true" transient="false"
 	 * @generated
@@ -72,7 +72,7 @@ public interface AnalysisColumnizer extends EObject {
 	Analysis getAnalysis();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.AnalysisColumnizer#getAnalysis <em>Analysis</em>}' container reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.AnalysisSheet#getAnalysis <em>Analysis</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Analysis</em>' container reference.
@@ -91,14 +91,14 @@ public interface AnalysisColumnizer extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Columnizer</em>' reference.
 	 * @see #setColumnizer(ColumnizerAbstract)
-	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisColumnizer_Columnizer()
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisSheet_Columnizer()
 	 * @model
 	 * @generated
 	 */
 	ColumnizerAbstract getColumnizer();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.AnalysisColumnizer#getColumnizer <em>Columnizer</em>}' reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.AnalysisSheet#getColumnizer <em>Columnizer</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Columnizer</em>' reference.
@@ -113,7 +113,7 @@ public interface AnalysisColumnizer extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void addElement(AnalysisElement doc);
+	void addElement(AnalysisElement element);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,7 +121,7 @@ public interface AnalysisColumnizer extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void removeElement(AnalysisElement doc);
+	void removeElement(AnalysisElement element);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -131,4 +131,4 @@ public interface AnalysisColumnizer extends EObject {
 	 */
 	Object getKeyValue(EObject element);
 
-} // AnalysisColumnizer
+} // AnalysisSheet

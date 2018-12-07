@@ -6,8 +6,8 @@ import com.misc.common.moplaf.analysis.AnalysisDomain;
 import com.misc.common.moplaf.analysis.AnalysisElement;
 import com.misc.common.moplaf.analysis.AnalysisFactory;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
+import com.misc.common.moplaf.analysis.AnalysisSheet;
 import com.misc.common.moplaf.analysis.Analysis;
-import com.misc.common.moplaf.analysis.AnalysisColumnizer;
 import com.misc.common.moplaf.analysis.AnalysisDoc;
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.common.IMoplafObject;
@@ -27,6 +27,7 @@ import com.misc.common.moplaf.datatools.util.ObjectSet;
 import com.misc.common.moplaf.job.Doc;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.stream.Collectors;
 
@@ -221,7 +222,7 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<AnalysisColumnizer> sheets;
+	protected EList<AnalysisSheet> sheets;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -521,9 +522,9 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<AnalysisColumnizer> getSheets() {
+	public EList<AnalysisSheet> getSheets() {
 		if (sheets == null) {
-			sheets = new EObjectContainmentWithInverseEList<AnalysisColumnizer>(AnalysisColumnizer.class, this, AnalysisPackage.ANALYSIS__SHEETS, AnalysisPackage.ANALYSIS_COLUMNIZER__ANALYSIS);
+			sheets = new EObjectContainmentWithInverseEList<AnalysisSheet>(AnalysisSheet.class, this, AnalysisPackage.ANALYSIS__SHEETS, AnalysisPackage.ANALYSIS_SHEET__ANALYSIS);
 		}
 		return sheets;
 	}
@@ -541,6 +542,23 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 	 * <!-- end-user-doc -->
 	 */
 	public void refresh() {
+		// synch the columnizers
+		HashSet<ColumnizerAbstract> sheets_tobe = new HashSet<ColumnizerAbstract>();
+		sheets_tobe.addAll(this.getColumnizers());
+		Iterator<AnalysisSheet> sheet_asis_iterator = this.getSheets().iterator();
+		while ( sheet_asis_iterator.hasNext()) {
+			AnalysisSheet sheet_asis = sheet_asis_iterator.next();
+			if ( !sheets_tobe.remove(sheet_asis.getColumnizer()) ) {
+				sheet_asis_iterator.remove();
+			}
+		}
+		for ( ColumnizerAbstract sheet_tobe : sheets_tobe) {
+			AnalysisSheet new_sheet = AnalysisFactory.eINSTANCE.createAnalysisSheet();
+			new_sheet.setColumnizer(sheet_tobe);
+			this.getSheets().add(new_sheet);
+		}
+		
+		// extract the data
 		Extractor extractor = this.getExtractor();
 		boolean complete = true;
 		ObjectSet els_tobe = new ObjectSet();
@@ -562,7 +580,9 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 				AnalysisElement asis = iterator_asis.next();
 				if ( !outs.remove(asis.getElement())) {
 					// the asis is not tobe
-					iterator_asis.remove();
+					// an analysis element is removed
+					this.removeElement(asis);
+					iterator_asis.remove(); 
 				} else {
 					els_tobe.add(asis.getElement());
 				}
@@ -571,8 +591,10 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 			for ( EObject to_add : outs) {
 				AnalysisElement new_analysis_ele = AnalysisFactory.eINSTANCE.createAnalysisElement();
 				new_analysis_ele.setElement(to_add);
-				doc.getElements().add(new_analysis_ele);
+				// an analysis element is added
+				doc.getElements().add(new_analysis_ele); 
 				els_tobe.add(new_analysis_ele);
+				this.addElement(new_analysis_ele);
 			}
 		} // traverse the docs
 		this.setComplete(complete);
@@ -616,6 +638,26 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 		this.getSubCategories().clear();
 		for ( AnalysisDoc doc : this.getDocs()) {
 			doc.flush();
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void addElement(AnalysisElement element) {
+		for ( AnalysisSheet sheet: this.getSheets()) {
+			sheet.addElement(element);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void removeElement(AnalysisElement element) {
+		for ( AnalysisSheet sheet: this.getSheets()) {
+			sheet.removeElement(element);
 		}
 	}
 
@@ -805,7 +847,7 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 				return;
 			case AnalysisPackage.ANALYSIS__SHEETS:
 				getSheets().clear();
-				getSheets().addAll((Collection<? extends AnalysisColumnizer>)newValue);
+				getSheets().addAll((Collection<? extends AnalysisSheet>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -991,6 +1033,12 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 				return null;
 			case AnalysisPackage.ANALYSIS___FLUSH:
 				flush();
+				return null;
+			case AnalysisPackage.ANALYSIS___ADD_ELEMENT__ANALYSISELEMENT:
+				addElement((AnalysisElement)arguments.get(0));
+				return null;
+			case AnalysisPackage.ANALYSIS___REMOVE_ELEMENT__ANALYSISELEMENT:
+				removeElement((AnalysisElement)arguments.get(0));
 				return null;
 			case AnalysisPackage.ANALYSIS___CONSTRUCT_CATEGORY:
 				return constructCategory();

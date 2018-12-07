@@ -62,7 +62,7 @@ public class AnalysisFactoryImpl extends EFactoryImpl implements AnalysisFactory
 			case AnalysisPackage.ANALYSIS_DOC: return createAnalysisDoc();
 			case AnalysisPackage.ANALYSIS_ELEMENT: return createAnalysisElement();
 			case AnalysisPackage.ANALYSIS_ELEMENT_KEY: return createAnalysisElementKey();
-			case AnalysisPackage.ANALYSIS_COLUMNIZER: return createAnalysisColumnizer();
+			case AnalysisPackage.ANALYSIS_SHEET: return createAnalysisSheet();
 			case AnalysisPackage.ANALYSIS_CATEGORY: return createAnalysisCategory();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -134,9 +134,9 @@ public class AnalysisFactoryImpl extends EFactoryImpl implements AnalysisFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AnalysisColumnizer createAnalysisColumnizer() {
-		AnalysisColumnizerImpl analysisColumnizer = new AnalysisColumnizerImpl();
-		return analysisColumnizer;
+	public AnalysisSheet createAnalysisSheet() {
+		AnalysisSheetImpl analysisSheet = new AnalysisSheetImpl();
+		return analysisSheet;
 	}
 
 	/**
