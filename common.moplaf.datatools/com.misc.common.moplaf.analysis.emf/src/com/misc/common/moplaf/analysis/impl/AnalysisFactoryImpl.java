@@ -56,9 +56,14 @@ public class AnalysisFactoryImpl extends EFactoryImpl implements AnalysisFactory
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case AnalysisPackage.DOC_ANALYSIS: return createDocAnalysis();
+			case AnalysisPackage.ANALYSIS: return createAnalysis();
 			case AnalysisPackage.ANALYSIS_DOMAIN: return createAnalysisDomain();
 			case AnalysisPackage.DATA_TOOLS: return createDataTools();
+			case AnalysisPackage.ANALYSIS_DOC: return createAnalysisDoc();
+			case AnalysisPackage.ANALYSIS_ELEMENT: return createAnalysisElement();
+			case AnalysisPackage.ANALYSIS_ELEMENT_KEY: return createAnalysisElementKey();
+			case AnalysisPackage.ANALYSIS_COLUMNIZER: return createAnalysisColumnizer();
+			case AnalysisPackage.ANALYSIS_CATEGORY: return createAnalysisCategory();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -69,9 +74,9 @@ public class AnalysisFactoryImpl extends EFactoryImpl implements AnalysisFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Analysis createDocAnalysis() {
-		AnalysisImpl docAnalysis = new AnalysisImpl();
-		return docAnalysis;
+	public Analysis createAnalysis() {
+		AnalysisImpl analysis = new AnalysisImpl();
+		return analysis;
 	}
 
 	/**
@@ -92,6 +97,56 @@ public class AnalysisFactoryImpl extends EFactoryImpl implements AnalysisFactory
 	public DataTools createDataTools() {
 		DataToolsImpl dataTools = new DataToolsImpl();
 		return dataTools;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AnalysisDoc createAnalysisDoc() {
+		AnalysisDocImpl analysisDoc = new AnalysisDocImpl();
+		return analysisDoc;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AnalysisElement createAnalysisElement() {
+		AnalysisElementImpl analysisElement = new AnalysisElementImpl();
+		return analysisElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AnalysisElementKey createAnalysisElementKey() {
+		AnalysisElementKeyImpl analysisElementKey = new AnalysisElementKeyImpl();
+		return analysisElementKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AnalysisColumnizer createAnalysisColumnizer() {
+		AnalysisColumnizerImpl analysisColumnizer = new AnalysisColumnizerImpl();
+		return analysisColumnizer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AnalysisCategory createAnalysisCategory() {
+		AnalysisCategoryImpl analysisCategory = new AnalysisCategoryImpl();
+		return analysisCategory;
 	}
 
 	/**

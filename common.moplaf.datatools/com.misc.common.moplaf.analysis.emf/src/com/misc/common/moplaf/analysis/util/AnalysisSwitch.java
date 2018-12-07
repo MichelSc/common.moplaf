@@ -3,7 +3,10 @@
 package com.misc.common.moplaf.analysis.util;
 
 import com.misc.common.moplaf.analysis.*;
+import com.misc.common.moplaf.datatools.CategorizerSubject;
+import com.misc.common.moplaf.datatools.Category;
 import com.misc.common.moplaf.datatools.CategoryAbstract;
+import com.misc.common.moplaf.datatools.CategoryFactory;
 import com.misc.common.moplaf.datatools.Columnizers;
 import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.job.DocRef;
@@ -73,13 +76,13 @@ public class AnalysisSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case AnalysisPackage.DOC_ANALYSIS: {
-				Analysis docAnalysis = (Analysis)theEObject;
-				T result = caseDocAnalysis(docAnalysis);
-				if (result == null) result = caseCategoryAbstract(docAnalysis);
-				if (result == null) result = caseDocRef(docAnalysis);
-				if (result == null) result = caseDataToolContext(docAnalysis);
-				if (result == null) result = caseColumnizers(docAnalysis);
+			case AnalysisPackage.ANALYSIS: {
+				Analysis analysis = (Analysis)theEObject;
+				T result = caseAnalysis(analysis);
+				if (result == null) result = caseCategoryAbstract(analysis);
+				if (result == null) result = caseDataToolContext(analysis);
+				if (result == null) result = caseColumnizers(analysis);
+				if (result == null) result = caseCategoryFactory(analysis);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -100,22 +103,56 @@ public class AnalysisSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case AnalysisPackage.ANALYSIS_DOC: {
+				AnalysisDoc analysisDoc = (AnalysisDoc)theEObject;
+				T result = caseAnalysisDoc(analysisDoc);
+				if (result == null) result = caseDocRef(analysisDoc);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AnalysisPackage.ANALYSIS_ELEMENT: {
+				AnalysisElement analysisElement = (AnalysisElement)theEObject;
+				T result = caseAnalysisElement(analysisElement);
+				if (result == null) result = caseCategorizerSubject(analysisElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AnalysisPackage.ANALYSIS_ELEMENT_KEY: {
+				AnalysisElementKey analysisElementKey = (AnalysisElementKey)theEObject;
+				T result = caseAnalysisElementKey(analysisElementKey);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AnalysisPackage.ANALYSIS_COLUMNIZER: {
+				AnalysisColumnizer analysisColumnizer = (AnalysisColumnizer)theEObject;
+				T result = caseAnalysisColumnizer(analysisColumnizer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AnalysisPackage.ANALYSIS_CATEGORY: {
+				AnalysisCategory analysisCategory = (AnalysisCategory)theEObject;
+				T result = caseAnalysisCategory(analysisCategory);
+				if (result == null) result = caseCategory(analysisCategory);
+				if (result == null) result = caseCategoryAbstract(analysisCategory);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Doc Analysis</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Analysis</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Doc Analysis</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Analysis</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDocAnalysis(Analysis object) {
+	public T caseAnalysis(Analysis object) {
 		return null;
 	}
 
@@ -150,6 +187,81 @@ public class AnalysisSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Doc</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Doc</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnalysisDoc(AnalysisDoc object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnalysisElement(AnalysisElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element Key</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element Key</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnalysisElementKey(AnalysisElementKey object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Columnizer</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Columnizer</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnalysisColumnizer(AnalysisColumnizer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Category</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Category</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnalysisCategory(AnalysisCategory object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Category Abstract</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -180,6 +292,36 @@ public class AnalysisSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Categorizer Subject</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Categorizer Subject</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategorizerSubject(CategorizerSubject object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Category</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Category</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategory(Category object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Data Tool Context</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -206,6 +348,21 @@ public class AnalysisSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseColumnizers(Columnizers object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Category Factory</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Category Factory</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategoryFactory(CategoryFactory object) {
 		return null;
 	}
 

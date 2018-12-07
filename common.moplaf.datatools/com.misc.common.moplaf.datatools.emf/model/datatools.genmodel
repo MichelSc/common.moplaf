@@ -190,6 +190,8 @@
           ecoreFeature="ecore:EAttribute datatools.ecore#//CategoryAbstract/NbElements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/SubCategories"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/Elements"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/SuperCategory"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/RootCategory"/>
       <genOperations ecoreOperation="datatools.ecore#//CategoryAbstract/getSubcategory">
         <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/getSubcategory/value"/>
       </genOperations>
@@ -202,6 +204,9 @@
         <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/refresh/els_tobe"/>
         <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/refresh/categorizers"/>
         <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/refresh/level"/>
+      </genOperations>
+      <genOperations ecoreOperation="datatools.ecore#//CategoryAbstract/isIn">
+        <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/isIn/super_category"/>
       </genOperations>
     </genClasses>
     <genClasses provider="Stateful" ecoreClass="datatools.ecore#//Category" labelFeature="#//datatools/Category/CategoryLabel">

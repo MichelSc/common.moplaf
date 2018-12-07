@@ -3959,13 +3959,31 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORY_ABSTRACT__ELEMENTS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Super Category</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_ABSTRACT__SUPER_CATEGORY = 3;
+
+	/**
+	 * The feature id for the '<em><b>Root Category</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_ABSTRACT__ROOT_CATEGORY = 4;
+
+	/**
 	 * The number of structural features of the '<em>Category Abstract</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_ABSTRACT_FEATURE_COUNT = 3;
+	int CATEGORY_ABSTRACT_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Get Subcategory</em>' operation.
@@ -3995,13 +4013,22 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORY_ABSTRACT___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT = 2;
 
 	/**
+	 * The operation id for the '<em>Is In</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_ABSTRACT___IS_IN__CATEGORYABSTRACT = 3;
+
+	/**
 	 * The number of operations of the '<em>Category Abstract</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_ABSTRACT_OPERATION_COUNT = 3;
+	int CATEGORY_ABSTRACT_OPERATION_COUNT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Nb Elements</b></em>' attribute.
@@ -4029,6 +4056,24 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CATEGORY__ELEMENTS = CATEGORY_ABSTRACT__ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Super Category</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__SUPER_CATEGORY = CATEGORY_ABSTRACT__SUPER_CATEGORY;
+
+	/**
+	 * The feature id for the '<em><b>Root Category</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__ROOT_CATEGORY = CATEGORY_ABSTRACT__ROOT_CATEGORY;
 
 	/**
 	 * The feature id for the '<em><b>Category Label</b></em>' attribute.
@@ -4083,6 +4128,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CATEGORY___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT = CATEGORY_ABSTRACT___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT;
+
+	/**
+	 * The operation id for the '<em>Is In</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY___IS_IN__CATEGORYABSTRACT = CATEGORY_ABSTRACT___IS_IN__CATEGORYABSTRACT;
 
 	/**
 	 * The number of operations of the '<em>Category</em>' class.
@@ -5581,6 +5635,28 @@ public interface DatatoolsPackage extends EPackage {
 	EReference getCategoryAbstract_Elements();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getSuperCategory <em>Super Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Super Category</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getSuperCategory()
+	 * @see #getCategoryAbstract()
+	 * @generated
+	 */
+	EReference getCategoryAbstract_SuperCategory();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getRootCategory <em>Root Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Root Category</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getRootCategory()
+	 * @see #getCategoryAbstract()
+	 * @generated
+	 */
+	EReference getCategoryAbstract_RootCategory();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getSubcategory(org.eclipse.emf.ecore.EObject) <em>Get Subcategory</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5609,6 +5685,16 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getCategoryAbstract__Refresh__CategoryFactory_ObjectSet_EList_int();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#isIn(com.misc.common.moplaf.datatools.CategoryAbstract) <em>Is In</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is In</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#isIn(com.misc.common.moplaf.datatools.CategoryAbstract)
+	 * @generated
+	 */
+	EOperation getCategoryAbstract__IsIn__CategoryAbstract();
 
 	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.datatools.DataToolType <em>Data Tool Type</em>}'.
@@ -6639,6 +6725,22 @@ public interface DatatoolsPackage extends EPackage {
 		EReference CATEGORY_ABSTRACT__ELEMENTS = eINSTANCE.getCategoryAbstract_Elements();
 
 		/**
+		 * The meta object literal for the '<em><b>Super Category</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CATEGORY_ABSTRACT__SUPER_CATEGORY = eINSTANCE.getCategoryAbstract_SuperCategory();
+
+		/**
+		 * The meta object literal for the '<em><b>Root Category</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CATEGORY_ABSTRACT__ROOT_CATEGORY = eINSTANCE.getCategoryAbstract_RootCategory();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Subcategory</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6661,6 +6763,14 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation CATEGORY_ABSTRACT___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT = eINSTANCE.getCategoryAbstract__Refresh__CategoryFactory_ObjectSet_EList_int();
+
+		/**
+		 * The meta object literal for the '<em><b>Is In</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CATEGORY_ABSTRACT___IS_IN__CATEGORYABSTRACT = eINSTANCE.getCategoryAbstract__IsIn__CategoryAbstract();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.DataToolType <em>Data Tool Type</em>}' enum.

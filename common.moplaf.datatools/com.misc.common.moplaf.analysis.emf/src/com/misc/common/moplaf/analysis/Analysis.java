@@ -5,11 +5,11 @@ package com.misc.common.moplaf.analysis;
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.CategoryAbstract;
+import com.misc.common.moplaf.datatools.CategoryFactory;
 import com.misc.common.moplaf.datatools.Columnizers;
 import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.datatools.Extractor;
-import com.misc.common.moplaf.job.DocRef;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -31,13 +31,15 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.analysis.Analysis#getRefreshFeedback <em>Refresh Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.Analysis#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.Analysis#getRemarks <em>Remarks</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.Analysis#getDocs <em>Docs</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.Analysis#getSheets <em>Sheets</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis()
+ * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysis()
  * @model
  * @generated
  */
-public interface Analysis extends CategoryAbstract, DocRef, DataToolContext, Columnizers {
+public interface Analysis extends CategoryAbstract, DataToolContext, Columnizers, CategoryFactory {
 	/**
 	 * Returns the value of the '<em><b>Extractor</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -48,7 +50,7 @@ public interface Analysis extends CategoryAbstract, DocRef, DataToolContext, Col
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Extractor</em>' containment reference.
 	 * @see #setExtractor(Extractor)
-	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis_Extractor()
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysis_Extractor()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -74,7 +76,7 @@ public interface Analysis extends CategoryAbstract, DocRef, DataToolContext, Col
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Complete</em>' attribute.
 	 * @see #setComplete(boolean)
-	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis_Complete()
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysis_Complete()
 	 * @model
 	 * @generated
 	 */
@@ -101,7 +103,7 @@ public interface Analysis extends CategoryAbstract, DocRef, DataToolContext, Col
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Max Elements</em>' attribute.
 	 * @see #setMaxElements(int)
-	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis_MaxElements()
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysis_MaxElements()
 	 * @model default="1000000"
 	 * @generated
 	 */
@@ -127,7 +129,7 @@ public interface Analysis extends CategoryAbstract, DocRef, DataToolContext, Col
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Categorizers</em>' containment reference list.
-	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis_Categorizers()
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysis_Categorizers()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -142,7 +144,7 @@ public interface Analysis extends CategoryAbstract, DocRef, DataToolContext, Col
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
-	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis_Description()
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysis_Description()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
@@ -158,7 +160,7 @@ public interface Analysis extends CategoryAbstract, DocRef, DataToolContext, Col
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Data Tools</em>' reference list.
-	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis_DataTools()
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysis_DataTools()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
@@ -175,7 +177,7 @@ public interface Analysis extends CategoryAbstract, DocRef, DataToolContext, Col
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Domain</em>' container reference.
 	 * @see #setDomain(AnalysisDomain)
-	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis_Domain()
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysis_Domain()
 	 * @see com.misc.common.moplaf.analysis.AnalysisDomain#getAnalyses
 	 * @model opposite="Analyses" required="true" transient="false"
 	 * @generated
@@ -201,7 +203,7 @@ public interface Analysis extends CategoryAbstract, DocRef, DataToolContext, Col
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Refresh Feedback</em>' attribute.
-	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis_RefreshFeedback()
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysis_RefreshFeedback()
 	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
@@ -217,7 +219,7 @@ public interface Analysis extends CategoryAbstract, DocRef, DataToolContext, Col
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis_Name()
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysis_Name()
 	 * @model
 	 * @generated
 	 */
@@ -243,7 +245,7 @@ public interface Analysis extends CategoryAbstract, DocRef, DataToolContext, Col
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Remarks</em>' attribute.
 	 * @see #setRemarks(String)
-	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis_Remarks()
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysis_Remarks()
 	 * @model
 	 * @generated
 	 */
@@ -258,6 +260,42 @@ public interface Analysis extends CategoryAbstract, DocRef, DataToolContext, Col
 	 * @generated
 	 */
 	void setRemarks(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Docs</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.analysis.AnalysisDoc}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.analysis.AnalysisDoc#getAnalysis <em>Analysis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Docs</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Docs</em>' containment reference list.
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysis_Docs()
+	 * @see com.misc.common.moplaf.analysis.AnalysisDoc#getAnalysis
+	 * @model opposite="Analysis" containment="true"
+	 * @generated
+	 */
+	EList<AnalysisDoc> getDocs();
+
+	/**
+	 * Returns the value of the '<em><b>Sheets</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.analysis.AnalysisColumnizer}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.analysis.AnalysisColumnizer#getAnalysis <em>Analysis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sheets</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sheets</em>' containment reference list.
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysis_Sheets()
+	 * @see com.misc.common.moplaf.analysis.AnalysisColumnizer#getAnalysis
+	 * @model opposite="Analysis" containment="true"
+	 * @generated
+	 */
+	EList<AnalysisColumnizer> getSheets();
 
 	/**
 	 * <!-- begin-user-doc -->

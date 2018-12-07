@@ -196,12 +196,19 @@
       <eParameters name="categorizers" upperBound="-1" eType="#//Categorizer"/>
       <eParameters name="level" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
+    <eOperations name="isIn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="super_category" eType="#//CategoryAbstract"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="NbElements" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SubCategories" upperBound="-1"
         eType="#//Category" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SuperCategory" eType="#//CategoryAbstract"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="RootCategory" eType="#//CategoryAbstract"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Category" eSuperTypes="#//CategoryAbstract">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CategoryLabel" ordered="false"

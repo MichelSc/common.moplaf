@@ -39,8 +39,10 @@ public class AnalysisServices {
 
     public EList<DataTool> getNewExtractors(Analysis analysis) {
     	AnalysisDomain domain = analysis.getDomain();
-    	Doc doc = analysis.getDoc();
-    	return this.getNewExtractors(domain, doc);
+    	if ( analysis.getDocs().isEmpty()) {
+    		return null;
+    	}
+    	return this.getNewExtractors(domain, analysis.getDocs().get(0).getDoc());
     }
 
     public EList<DataTool> getNewColumnizers(AnalysisDomain domain, EClass element_type) {

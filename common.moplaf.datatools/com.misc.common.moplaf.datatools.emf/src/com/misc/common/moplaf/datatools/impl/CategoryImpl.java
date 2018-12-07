@@ -3,10 +3,12 @@
 package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.Category;
+import com.misc.common.moplaf.datatools.CategoryAbstract;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -123,6 +125,18 @@ public class CategoryImpl extends CategoryAbstractImpl implements Category {
 		categoryValue = newCategoryValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.CATEGORY__CATEGORY_VALUE, oldCategoryValue, categoryValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public CategoryAbstract basicGetSuperCategory() {
+		InternalEObject container = this.eContainer;
+		if ( container instanceof CategoryAbstract) {
+			return (CategoryAbstract) container;
+		}
+		return null;
 	}
 
 

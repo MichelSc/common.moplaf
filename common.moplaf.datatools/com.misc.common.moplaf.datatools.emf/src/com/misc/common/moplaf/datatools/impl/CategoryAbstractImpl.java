@@ -41,6 +41,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl#getNbElements <em>Nb Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl#getSubCategories <em>Sub Categories</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl#getSuperCategory <em>Super Category</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl#getRootCategory <em>Root Category</em>}</li>
  * </ul>
  *
  * @generated
@@ -126,6 +128,47 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 			elements = new EObjectResolvingEList<EObject>(EObject.class, this, DatatoolsPackage.CATEGORY_ABSTRACT__ELEMENTS);
 		}
 		return elements;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CategoryAbstract getSuperCategory() {
+		CategoryAbstract superCategory = basicGetSuperCategory();
+		return superCategory != null && superCategory.eIsProxy() ? (CategoryAbstract)eResolveProxy((InternalEObject)superCategory) : superCategory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public CategoryAbstract basicGetSuperCategory() {
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CategoryAbstract getRootCategory() {
+		CategoryAbstract rootCategory = basicGetRootCategory();
+		return rootCategory != null && rootCategory.eIsProxy() ? (CategoryAbstract)eResolveProxy((InternalEObject)rootCategory) : rootCategory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public CategoryAbstract basicGetRootCategory() {
+		CategoryAbstract parent = this.getSuperCategory();
+		if ( parent==null ) {
+			return this;
+		} else {
+			return parent.getRootCategory();
+		}
 	}
 
 	/**
@@ -228,6 +271,21 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public boolean isIn(CategoryAbstract super_category) {
+		if ( this==super_category) {
+			return true;
+		}
+		CategoryAbstract parent = this.getSuperCategory();
+		if ( parent==null ) {
+			return false;
+		}
+		return parent.isIn(super_category);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -253,6 +311,12 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 				return getSubCategories();
 			case DatatoolsPackage.CATEGORY_ABSTRACT__ELEMENTS:
 				return getElements();
+			case DatatoolsPackage.CATEGORY_ABSTRACT__SUPER_CATEGORY:
+				if (resolve) return getSuperCategory();
+				return basicGetSuperCategory();
+			case DatatoolsPackage.CATEGORY_ABSTRACT__ROOT_CATEGORY:
+				if (resolve) return getRootCategory();
+				return basicGetRootCategory();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -310,6 +374,10 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 				return subCategories != null && !subCategories.isEmpty();
 			case DatatoolsPackage.CATEGORY_ABSTRACT__ELEMENTS:
 				return elements != null && !elements.isEmpty();
+			case DatatoolsPackage.CATEGORY_ABSTRACT__SUPER_CATEGORY:
+				return basicGetSuperCategory() != null;
+			case DatatoolsPackage.CATEGORY_ABSTRACT__ROOT_CATEGORY:
+				return basicGetRootCategory() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -330,6 +398,8 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 			case DatatoolsPackage.CATEGORY_ABSTRACT___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT:
 				refresh((CategoryFactory)arguments.get(0), (ObjectSet)arguments.get(1), (EList<Categorizer>)arguments.get(2), (Integer)arguments.get(3));
 				return null;
+			case DatatoolsPackage.CATEGORY_ABSTRACT___IS_IN__CATEGORYABSTRACT:
+				return isIn((CategoryAbstract)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

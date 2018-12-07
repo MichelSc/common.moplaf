@@ -105,7 +105,7 @@ public class AnalysisDomainImpl extends TaskDomainImpl implements AnalysisDomain
 	 */
 	public EList<Analysis> getAnalyses() {
 		if (analyses == null) {
-			analyses = new EObjectContainmentWithInverseEList<Analysis>(Analysis.class, this, AnalysisPackage.ANALYSIS_DOMAIN__ANALYSES, AnalysisPackage.DOC_ANALYSIS__DOMAIN);
+			analyses = new EObjectContainmentWithInverseEList<Analysis>(Analysis.class, this, AnalysisPackage.ANALYSIS_DOMAIN__ANALYSES, AnalysisPackage.ANALYSIS__DOMAIN);
 		}
 		return analyses;
 	}

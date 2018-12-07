@@ -1349,6 +1349,24 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getCategoryAbstract_SuperCategory() {
+		return (EReference)categoryAbstractEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCategoryAbstract_RootCategory() {
+		return (EReference)categoryAbstractEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getCategoryAbstract__GetSubcategory__EObject() {
 		return categoryAbstractEClass.getEOperations().get(0);
 	}
@@ -1369,6 +1387,15 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 */
 	public EOperation getCategoryAbstract__Refresh__CategoryFactory_ObjectSet_EList_int() {
 		return categoryAbstractEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getCategoryAbstract__IsIn__CategoryAbstract() {
+		return categoryAbstractEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -1626,9 +1653,12 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		createEAttribute(categoryAbstractEClass, CATEGORY_ABSTRACT__NB_ELEMENTS);
 		createEReference(categoryAbstractEClass, CATEGORY_ABSTRACT__SUB_CATEGORIES);
 		createEReference(categoryAbstractEClass, CATEGORY_ABSTRACT__ELEMENTS);
+		createEReference(categoryAbstractEClass, CATEGORY_ABSTRACT__SUPER_CATEGORY);
+		createEReference(categoryAbstractEClass, CATEGORY_ABSTRACT__ROOT_CATEGORY);
 		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT);
 		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT);
 		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT);
+		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___IS_IN__CATEGORYABSTRACT);
 
 		categoryEClass = createEClass(CATEGORY);
 		createEAttribute(categoryEClass, CATEGORY__CATEGORY_LABEL);
@@ -1879,6 +1909,8 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		initEAttribute(getCategoryAbstract_NbElements(), ecorePackage.getEInt(), "NbElements", null, 0, 1, CategoryAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getCategoryAbstract_SubCategories(), this.getCategory(), null, "SubCategories", null, 0, -1, CategoryAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCategoryAbstract_Elements(), ecorePackage.getEObject(), null, "Elements", null, 0, -1, CategoryAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCategoryAbstract_SuperCategory(), this.getCategoryAbstract(), null, "SuperCategory", null, 0, 1, CategoryAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getCategoryAbstract_RootCategory(), this.getCategoryAbstract(), null, "RootCategory", null, 0, 1, CategoryAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getCategoryAbstract__GetSubcategory__EObject(), this.getCategory(), "getSubcategory", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1892,6 +1924,9 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		addEParameter(op, this.getEObjectsSet(), "els_tobe", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getCategorizer(), "categorizers", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "level", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getCategoryAbstract__IsIn__CategoryAbstract(), ecorePackage.getEBoolean(), "isIn", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCategoryAbstract(), "super_category", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(categoryEClass, Category.class, "Category", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCategory_CategoryLabel(), ecorePackage.getEString(), "CategoryLabel", null, 0, 1, Category.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

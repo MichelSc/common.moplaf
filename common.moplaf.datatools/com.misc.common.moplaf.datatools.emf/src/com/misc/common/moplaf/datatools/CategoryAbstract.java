@@ -22,6 +22,8 @@ import com.misc.common.moplaf.datatools.util.ObjectSet;
  *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getNbElements <em>Nb Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getSubCategories <em>Sub Categories</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getElements <em>Elements</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getSuperCategory <em>Super Category</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getRootCategory <em>Root Category</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract()
@@ -81,6 +83,36 @@ public interface CategoryAbstract extends EObject {
 	EList<EObject> getElements();
 
 	/**
+	 * Returns the value of the '<em><b>Super Category</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Super Category</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Super Category</em>' reference.
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract_SuperCategory()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	CategoryAbstract getSuperCategory();
+
+	/**
+	 * Returns the value of the '<em><b>Root Category</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Root Category</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Root Category</em>' reference.
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract_RootCategory()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	CategoryAbstract getRootCategory();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
@@ -103,5 +135,13 @@ public interface CategoryAbstract extends EObject {
 	 * @generated
 	 */
 	void refresh(CategoryFactory factory, ObjectSet els_tobe, EList<Categorizer> categorizers, int level);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean isIn(CategoryAbstract super_category);
 
 } // CategoryAbstract
