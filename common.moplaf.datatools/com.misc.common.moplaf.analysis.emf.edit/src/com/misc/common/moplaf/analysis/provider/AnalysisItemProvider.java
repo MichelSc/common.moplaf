@@ -14,7 +14,6 @@ import com.misc.common.moplaf.datatools.provider.CategoryAbstractItemProvider;
 import com.misc.common.moplaf.emf.edit.command.BaseCommand;
 import com.misc.common.moplaf.emf.edit.command.FlushCommand;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
-import com.misc.common.moplaf.job.JobPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -61,11 +60,10 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDocPropertyDescriptor(object);
-			addExtractorPropertyDescriptor(object);
 			addCompletePropertyDescriptor(object);
 			addMaxElementsPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
+			addDataToolsPropertyDescriptor(object);
 			addRefreshFeedbackPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addRemarksPropertyDescriptor(object);
@@ -83,50 +81,6 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Doc feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDocPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DocRef_Doc_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocRef_Doc_feature", "_UI_DocRef_type"),
-				 JobPackage.Literals.DOC_REF__DOC,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI__10DocumentPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Extractor feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addExtractorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DocAnalysis_Extractor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Extractor_feature", "_UI_DocAnalysis_type"),
-				 AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI__20ConfigSetUpPropertyCategory"),
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Complete feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -137,14 +91,14 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DocAnalysis_Complete_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Complete_feature", "_UI_DocAnalysis_type"),
-				 AnalysisPackage.Literals.DOC_ANALYSIS__COMPLETE,
-				 false,
+				 getString("_UI_Analysis_Complete_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Analysis_Complete_feature", "_UI_Analysis_type"),
+				 AnalysisPackage.Literals.ANALYSIS__COMPLETE,
+				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__30DataPropertyCategory"),
+				 null,
 				 null));
 	}
 
@@ -159,14 +113,14 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DocAnalysis_MaxElements_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_MaxElements_feature", "_UI_DocAnalysis_type"),
-				 AnalysisPackage.Literals.DOC_ANALYSIS__MAX_ELEMENTS,
-				 false,
+				 getString("_UI_Analysis_MaxElements_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Analysis_MaxElements_feature", "_UI_Analysis_type"),
+				 AnalysisPackage.Literals.ANALYSIS__MAX_ELEMENTS,
+				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 getString("_UI__30DataPropertyCategory"),
+				 null,
 				 null));
 	}
 
@@ -181,14 +135,36 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DocAnalysis_Description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Description_feature", "_UI_DocAnalysis_type"),
-				 AnalysisPackage.Literals.DOC_ANALYSIS__DESCRIPTION,
+				 getString("_UI_Analysis_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Analysis_Description_feature", "_UI_Analysis_type"),
+				 AnalysisPackage.Literals.ANALYSIS__DESCRIPTION,
 				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10AnalysisPropertyCategory"),
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Data Tools feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDataToolsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Analysis_DataTools_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Analysis_DataTools_feature", "_UI_Analysis_type"),
+				 AnalysisPackage.Literals.ANALYSIS__DATA_TOOLS,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
 				 null));
 	}
 
@@ -203,14 +179,14 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DocAnalysis_RefreshFeedback_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_RefreshFeedback_feature", "_UI_DocAnalysis_type"),
-				 AnalysisPackage.Literals.DOC_ANALYSIS__REFRESH_FEEDBACK,
+				 getString("_UI_Analysis_RefreshFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Analysis_RefreshFeedback_feature", "_UI_Analysis_type"),
+				 AnalysisPackage.Literals.ANALYSIS__REFRESH_FEEDBACK,
 				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10EnabledPropertyCategory"),
+				 null,
 				 null));
 	}
 
@@ -225,14 +201,14 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DocAnalysis_Name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Name_feature", "_UI_DocAnalysis_type"),
-				 AnalysisPackage.Literals.DOC_ANALYSIS__NAME,
+				 getString("_UI_Analysis_Name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Analysis_Name_feature", "_UI_Analysis_type"),
+				 AnalysisPackage.Literals.ANALYSIS__NAME,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10AnalysisPropertyCategory"),
+				 null,
 				 null));
 	}
 
@@ -247,14 +223,14 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DocAnalysis_Remarks_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Remarks_feature", "_UI_DocAnalysis_type"),
-				 AnalysisPackage.Literals.DOC_ANALYSIS__REMARKS,
-				 true,
+				 getString("_UI_Analysis_Remarks_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Analysis_Remarks_feature", "_UI_Analysis_type"),
+				 AnalysisPackage.Literals.ANALYSIS__REMARKS,
 				 true,
 				 false,
+				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10AnalysisPropertyCategory"),
+				 null,
 				 null));
 	}
 
@@ -270,10 +246,11 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(JobPackage.Literals.DOC_REF__DOC);
 			childrenFeatures.add(DatatoolsPackage.Literals.COLUMNIZERS__COLUMNIZERS);
-			childrenFeatures.add(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR);
-			childrenFeatures.add(AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIZERS);
+			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR);
+			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS__CATEGORIZERS);
+			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS__DOCS);
+			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS__SHEETS);
 		}
 		return childrenFeatures;
 	}
@@ -309,10 +286,10 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Analysis)object).getDescription();
+		String label = ((Analysis)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_DocAnalysis_type") :
-			getString("_UI_DocAnalysis_type") + " " + label;
+			getString("_UI_Analysis_type") :
+			getString("_UI_Analysis_type") + " " + label;
 	}
 	
 
@@ -328,18 +305,19 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Analysis.class)) {
-			case AnalysisPackage.DOC_ANALYSIS__COMPLETE:
-			case AnalysisPackage.DOC_ANALYSIS__MAX_ELEMENTS:
-			case AnalysisPackage.DOC_ANALYSIS__DESCRIPTION:
-			case AnalysisPackage.DOC_ANALYSIS__REFRESH_FEEDBACK:
-			case AnalysisPackage.DOC_ANALYSIS__NAME:
-			case AnalysisPackage.DOC_ANALYSIS__REMARKS:
+			case AnalysisPackage.ANALYSIS__COMPLETE:
+			case AnalysisPackage.ANALYSIS__MAX_ELEMENTS:
+			case AnalysisPackage.ANALYSIS__DESCRIPTION:
+			case AnalysisPackage.ANALYSIS__REFRESH_FEEDBACK:
+			case AnalysisPackage.ANALYSIS__NAME:
+			case AnalysisPackage.ANALYSIS__REMARKS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case AnalysisPackage.DOC_ANALYSIS__DOC:
-			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZERS:
-			case AnalysisPackage.DOC_ANALYSIS__EXTRACTOR:
-			case AnalysisPackage.DOC_ANALYSIS__CATEGORIZERS:
+			case AnalysisPackage.ANALYSIS__COLUMNIZERS:
+			case AnalysisPackage.ANALYSIS__EXTRACTOR:
+			case AnalysisPackage.ANALYSIS__CATEGORIZERS:
+			case AnalysisPackage.ANALYSIS__DOCS:
+			case AnalysisPackage.ANALYSIS__SHEETS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -358,52 +336,52 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createExtractorType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createExtractorPath()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createFilterRegex()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createFilterAttributeIntRange()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createFilterAND()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createFilterOR()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createExtractorCompound()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createExtractorPipe()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createExtractorUnion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createExtractorIntersection()));
 
 		newChildDescriptors.add
@@ -413,11 +391,11 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIZERS,
+				(AnalysisPackage.Literals.ANALYSIS__CATEGORIZERS,
 				 DatatoolsFactory.eINSTANCE.createCategorizerStructuralFeature()));
 
-		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,    DataToolType.EXTRACTOR);
-		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIZERS, DataToolType.CATEGORIZER);
+		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.ANALYSIS__EXTRACTOR,    DataToolType.EXTRACTOR);
+		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.ANALYSIS__CATEGORIZERS, DataToolType.CATEGORIZER);
 		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, DatatoolsPackage.Literals.COLUMNIZERS__COLUMNIZERS,  DataToolType.COLUMNIZER);
 	}
 

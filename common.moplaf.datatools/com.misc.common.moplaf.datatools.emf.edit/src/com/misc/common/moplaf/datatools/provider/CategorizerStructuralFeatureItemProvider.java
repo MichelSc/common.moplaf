@@ -197,7 +197,7 @@ public class CategorizerStructuralFeatureItemProvider extends CategorizerItemPro
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
 				 null)
 				{
 					@Override

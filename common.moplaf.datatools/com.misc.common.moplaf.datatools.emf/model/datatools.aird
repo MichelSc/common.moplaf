@@ -2004,7 +2004,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_nKAtQ4ErEeiiE9JuI16C7Q"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_nJ28QYErEeiiE9JuI16C7Q" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nJ28QoErEeiiE9JuI16C7Q" x="342" y="510"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nJ28QoErEeiiE9JuI16C7Q" x="348" y="471"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_wrNPAIUCEeiNrpzcp2e02Q" type="2003" element="_wqk84IUCEeiNrpzcp2e02Q">
           <children xmi:type="notation:Node" xmi:id="_wrN2EIUCEeiNrpzcp2e02Q" type="5007"/>
@@ -2080,7 +2080,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_rH44lvn_EeiXRKGRPLhAHg"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_rH44kfn_EeiXRKGRPLhAHg" fontName="Noto Sans" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rH44kvn_EeiXRKGRPLhAHg" x="681" y="492" width="186" height="100"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rH44kvn_EeiXRKGRPLhAHg" x="708" y="540" width="186" height="100"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_uhIUynuZEeidFuGEkYQFRA"/>
         <edges xmi:type="notation:Edge" xmi:id="_wAPXGHuZEeidFuGEkYQFRA" type="4001" element="_wADJ03uZEeidFuGEkYQFRA" source="_wAHbR3uZEeidFuGEkYQFRA" target="_wAG0NHuZEeidFuGEkYQFRA">
@@ -2101,17 +2101,17 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_nKLFUIErEeiiE9JuI16C7Q" type="4001" element="_nJtyVoErEeiiE9JuI16C7Q" source="_nJ28QIErEeiiE9JuI16C7Q" target="_wAG0NHuZEeidFuGEkYQFRA">
           <children xmi:type="notation:Node" xmi:id="_nKNhkIErEeiiE9JuI16C7Q" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nKNhkYErEeiiE9JuI16C7Q" x="-1" y="-9"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nKNhkYErEeiiE9JuI16C7Q" x="1" y="-9"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_nKOIoIErEeiiE9JuI16C7Q" type="6002">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nKOIoYErEeiiE9JuI16C7Q" x="4" y="8"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_nKOIooErEeiiE9JuI16C7Q" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nKOIo4ErEeiiE9JuI16C7Q" y="9"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nKOIo4ErEeiiE9JuI16C7Q" x="1" y="9"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_nKLFUYErEeiiE9JuI16C7Q"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_nKLFUoErEeiiE9JuI16C7Q" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nKLFU4ErEeiiE9JuI16C7Q" points="[-50, -66, 104, 139]$[-112, -148, 42, 57]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nKLFU4ErEeiiE9JuI16C7Q" points="[-62, -62, 106, 107]$[-120, -120, 48, 49]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nKX5oIErEeiiE9JuI16C7Q" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nKX5oYErEeiiE9JuI16C7Q" id="(0.5,0.5)"/>
         </edges>
@@ -2522,6 +2522,9 @@
     <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_rHjhYPn_EeiXRKGRPLhAHg" name="CategorizerSubject" tooltipText="" width="12" height="10">
       <target xmi:type="ecore:EClass" href="datatools.ecore#//CategorizerSubject"/>
       <semanticElements xmi:type="ecore:EClass" href="datatools.ecore#//CategorizerSubject"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_wraLgPn_EeiXRKGRPLhAHg" iconPath="/org.eclipse.emf.ecoretools.design/icons/full/obj16/EClass_interface.gif" borderSize="1" borderSizeComputationExpression="1" borderColor="125,125,125" backgroundStyle="Liquid" foregroundColor="228,228,228">
         <labelFormat>italic</labelFormat>
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@conditionnalStyles.0/@style"/>

@@ -73,6 +73,7 @@ public class CategoryAbstractItemProvider
 
 	// this adds property descriptors for every aggregated property in this category
 	private void addAggregationProperties(CategoryAbstract category) {
+		/*
 		Columnizers cols_set = category.getColumnizerSet();
 		for ( ColumnizerAbstract cols : cols_set.getColumnizers()) {
 			IPropertiesProvider properties = cols.getPropertiesProvider();
@@ -87,6 +88,7 @@ public class CategoryAbstractItemProvider
 				}
 			}
 		}
+		*/
 	}
 	
 	private class CategoryAggregatedPropertyDescriptor implements IItemPropertyDescriptor, IItemLabelProvider{
@@ -255,6 +257,72 @@ public class CategoryAbstractItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Elements feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addElementsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CategoryAbstract_Elements_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CategoryAbstract_Elements_feature", "_UI_CategoryAbstract_type"),
+				 DatatoolsPackage.Literals.CATEGORY_ABSTRACT__ELEMENTS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Super Category feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSuperCategoryPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CategoryAbstract_SuperCategory_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CategoryAbstract_SuperCategory_feature", "_UI_CategoryAbstract_type"),
+				 DatatoolsPackage.Literals.CATEGORY_ABSTRACT__SUPER_CATEGORY,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Root Category feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRootCategoryPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CategoryAbstract_RootCategory_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CategoryAbstract_RootCategory_feature", "_UI_CategoryAbstract_type"),
+				 DatatoolsPackage.Literals.CATEGORY_ABSTRACT__ROOT_CATEGORY,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -361,6 +429,7 @@ public class CategoryAbstractItemProvider
 	/**
 	 * Specified by com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider 
 	 */
+	/*
 	@Override
 	public Object getGrids(Object element) {
 		CategoryAbstract cat = (CategoryAbstract)element;
@@ -490,4 +559,5 @@ public class CategoryAbstractItemProvider
 		}
 		
 	}
+	*/
 }

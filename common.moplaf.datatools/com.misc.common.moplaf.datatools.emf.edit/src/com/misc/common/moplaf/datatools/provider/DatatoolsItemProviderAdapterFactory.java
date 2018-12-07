@@ -507,17 +507,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 	}
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datatools.CategoryAbstract}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCategoryAbstractAdapter() {
-		return new CategoryAbstractItemProvider(this);
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

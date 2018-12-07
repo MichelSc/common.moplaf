@@ -247,7 +247,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___GET_SUBCATEGORY__EOBJECT_2 = DatatoolsPackage.CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT;
+	int ANALYSIS___GET_SUBCATEGORY__EOBJECT = DatatoolsPackage.CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT;
 
 	/**
 	 * The operation id for the '<em>Get Property Aggregation</em>' operation.
@@ -256,7 +256,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT_2 = DatatoolsPackage.CATEGORY_ABSTRACT___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT;
+	int ANALYSIS___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT = DatatoolsPackage.CATEGORY_ABSTRACT___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -265,7 +265,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT_2 = DatatoolsPackage.CATEGORY_ABSTRACT___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT;
+	int ANALYSIS___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT = DatatoolsPackage.CATEGORY_ABSTRACT___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT;
 
 	/**
 	 * The operation id for the '<em>Is In</em>' operation.
@@ -274,7 +274,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___IS_IN__CATEGORYABSTRACT_2 = DatatoolsPackage.CATEGORY_ABSTRACT___IS_IN__CATEGORYABSTRACT;
+	int ANALYSIS___IS_IN__CATEGORYABSTRACT = DatatoolsPackage.CATEGORY_ABSTRACT___IS_IN__CATEGORYABSTRACT;
 
 	/**
 	 * The operation id for the '<em>Get Domain Types</em>' operation.
@@ -904,7 +904,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_CATEGORY___GET_SUBCATEGORY__EOBJECT_2 = DatatoolsPackage.CATEGORY___GET_SUBCATEGORY__EOBJECT;
+	int ANALYSIS_CATEGORY___GET_SUBCATEGORY__EOBJECT = DatatoolsPackage.CATEGORY___GET_SUBCATEGORY__EOBJECT;
 
 	/**
 	 * The operation id for the '<em>Get Property Aggregation</em>' operation.
@@ -913,7 +913,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_CATEGORY___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT_2 = DatatoolsPackage.CATEGORY___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT;
+	int ANALYSIS_CATEGORY___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT = DatatoolsPackage.CATEGORY___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -922,7 +922,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_CATEGORY___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT_2 = DatatoolsPackage.CATEGORY___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT;
+	int ANALYSIS_CATEGORY___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT = DatatoolsPackage.CATEGORY___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT;
 
 	/**
 	 * The operation id for the '<em>Is In</em>' operation.
@@ -931,7 +931,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_CATEGORY___IS_IN__CATEGORYABSTRACT_2 = DatatoolsPackage.CATEGORY___IS_IN__CATEGORYABSTRACT;
+	int ANALYSIS_CATEGORY___IS_IN__CATEGORYABSTRACT = DatatoolsPackage.CATEGORY___IS_IN__CATEGORYABSTRACT;
 
 	/**
 	 * The number of operations of the '<em>Category</em>' class.

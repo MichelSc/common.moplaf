@@ -15,7 +15,6 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.Disposable;
 import org.eclipse.emf.edit.provider.IChangeNotifier;
 import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -52,14 +51,6 @@ public class AnalysisItemProviderAdapterFactory extends AnalysisAdapterFactory i
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
 	/**
-	 * This keeps track of all the item providers created, so that they can be {@link #dispose disposed}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Disposable disposable = new Disposable();
-
-	/**
 	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,14 +73,26 @@ public class AnalysisItemProviderAdapterFactory extends AnalysisAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.analysis.Analysis} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AnalysisItemProvider analysisItemProvider;
+
+	/**
 	 * This creates an adapter for a {@link com.misc.common.moplaf.analysis.Analysis}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createDocAnalysisAdapter() {
-		return new AnalysisItemProvider(this);
+	public Adapter createAnalysisAdapter() {
+		if (analysisItemProvider == null) {
+			analysisItemProvider = new AnalysisItemProvider(this);
+		}
+
+		return analysisItemProvider;
 	}
 
 	/**
@@ -136,6 +139,121 @@ public class AnalysisItemProviderAdapterFactory extends AnalysisAdapterFactory i
 		}
 
 		return dataToolsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.analysis.AnalysisDoc} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AnalysisDocItemProvider analysisDocItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.analysis.AnalysisDoc}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAnalysisDocAdapter() {
+		if (analysisDocItemProvider == null) {
+			analysisDocItemProvider = new AnalysisDocItemProvider(this);
+		}
+
+		return analysisDocItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.analysis.AnalysisElement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AnalysisElementItemProvider analysisElementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.analysis.AnalysisElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAnalysisElementAdapter() {
+		if (analysisElementItemProvider == null) {
+			analysisElementItemProvider = new AnalysisElementItemProvider(this);
+		}
+
+		return analysisElementItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.analysis.AnalysisElementKey} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AnalysisElementKeyItemProvider analysisElementKeyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.analysis.AnalysisElementKey}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAnalysisElementKeyAdapter() {
+		if (analysisElementKeyItemProvider == null) {
+			analysisElementKeyItemProvider = new AnalysisElementKeyItemProvider(this);
+		}
+
+		return analysisElementKeyItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.analysis.AnalysisColumnizer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AnalysisColumnizerItemProvider analysisColumnizerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.analysis.AnalysisColumnizer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAnalysisColumnizerAdapter() {
+		if (analysisColumnizerItemProvider == null) {
+			analysisColumnizerItemProvider = new AnalysisColumnizerItemProvider(this);
+		}
+
+		return analysisColumnizerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.analysis.AnalysisCategory} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AnalysisCategoryItemProvider analysisCategoryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.analysis.AnalysisCategory}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAnalysisCategoryAdapter() {
+		if (analysisCategoryItemProvider == null) {
+			analysisCategoryItemProvider = new AnalysisCategoryItemProvider(this);
+		}
+
+		return analysisCategoryItemProvider;
 	}
 
 	/**
@@ -197,20 +315,6 @@ public class AnalysisItemProviderAdapterFactory extends AnalysisAdapterFactory i
 	}
 
 	/**
-	 * Associates an adapter with a notifier via the base implementation, then records it to ensure it will be disposed.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected void associate(Adapter adapter, Notifier target) {
-		super.associate(adapter, target);
-		if (adapter != null) {
-			disposable.add(adapter);
-		}
-	}
-
-	/**
 	 * This adds a listener.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -251,7 +355,14 @@ public class AnalysisItemProviderAdapterFactory extends AnalysisAdapterFactory i
 	 * @generated
 	 */
 	public void dispose() {
-		disposable.dispose();
+		if (analysisItemProvider != null) analysisItemProvider.dispose();
+		if (analysisDomainItemProvider != null) analysisDomainItemProvider.dispose();
+		if (dataToolsItemProvider != null) dataToolsItemProvider.dispose();
+		if (analysisDocItemProvider != null) analysisDocItemProvider.dispose();
+		if (analysisElementItemProvider != null) analysisElementItemProvider.dispose();
+		if (analysisElementKeyItemProvider != null) analysisElementKeyItemProvider.dispose();
+		if (analysisColumnizerItemProvider != null) analysisColumnizerItemProvider.dispose();
+		if (analysisCategoryItemProvider != null) analysisCategoryItemProvider.dispose();
 	}
 
 }
