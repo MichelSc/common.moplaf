@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 
 import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.common.util.PropertiesProvider;
+import com.misc.common.moplaf.datatools.util.ObjectSet;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,13 +20,12 @@ import com.misc.common.moplaf.common.util.PropertiesProvider;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getNbElements <em>Nb Elements</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getElements <em>Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getSubCategories <em>Sub Categories</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getColumnizerSet <em>Columnizer Set</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface CategoryAbstract extends EObject {
@@ -49,22 +49,6 @@ public interface CategoryAbstract extends EObject {
 	int getNbElements();
 
 	/**
-	 * Returns the value of the '<em><b>Elements</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Elements</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Elements</em>' reference list.
-	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract_Elements()
-	 * @model
-	 * @generated
-	 */
-	EList<EObject> getElements();
-
-	/**
 	 * Returns the value of the '<em><b>Sub Categories</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.datatools.Category}.
 	 * <!-- begin-user-doc -->
@@ -81,19 +65,20 @@ public interface CategoryAbstract extends EObject {
 	EList<Category> getSubCategories();
 
 	/**
-	 * Returns the value of the '<em><b>Columnizer Set</b></em>' reference.
+	 * Returns the value of the '<em><b>Elements</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Columnizer Set</em>' reference isn't clear,
+	 * If the meaning of the '<em>Elements</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Columnizer Set</em>' reference.
-	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract_ColumnizerSet()
-	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @return the value of the '<em>Elements</em>' reference list.
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract_Elements()
+	 * @model
 	 * @generated
 	 */
-	Columnizers getColumnizerSet();
+	EList<EObject> getElements();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -110,5 +95,13 @@ public interface CategoryAbstract extends EObject {
 	 * @generated
 	 */
 	Object getPropertyAggregation(IPropertiesProvider provider, Object property);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model els_tobeDataType="com.misc.common.moplaf.datatools.EObjectsSet" categorizersMany="true"
+	 * @generated
+	 */
+	void refresh(CategoryFactory factory, ObjectSet els_tobe, EList<Categorizer> categorizers, int level);
 
 } // CategoryAbstract

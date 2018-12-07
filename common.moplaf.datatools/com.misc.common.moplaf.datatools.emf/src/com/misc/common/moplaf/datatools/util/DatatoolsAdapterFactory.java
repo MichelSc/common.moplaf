@@ -196,6 +196,10 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 				return createColumnizerColumnOclAdapter();
 			}
 			@Override
+			public Adapter caseCategoryFactory(CategoryFactory object) {
+				return createCategoryFactoryAdapter();
+			}
+			@Override
 			public Adapter caseCategoryAbstract(CategoryAbstract object) {
 				return createCategoryAbstractAdapter();
 			}
@@ -214,6 +218,10 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseCategorizerOcl(CategorizerOcl object) {
 				return createCategorizerOclAdapter();
+			}
+			@Override
+			public Adapter caseCategorizerSubject(CategorizerSubject object) {
+				return createCategorizerSubjectAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -316,6 +324,34 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCategorizerOclAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.CategorizerSubject <em>Categorizer Subject</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.CategorizerSubject
+	 * @generated
+	 */
+	public Adapter createCategorizerSubjectAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.CategoryFactory <em>Category Factory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.CategoryFactory
+	 * @generated
+	 */
+	public Adapter createCategoryFactoryAdapter() {
 		return null;
 	}
 

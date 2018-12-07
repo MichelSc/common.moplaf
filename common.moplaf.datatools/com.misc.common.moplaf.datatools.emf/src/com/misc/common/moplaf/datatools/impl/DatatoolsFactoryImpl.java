@@ -74,7 +74,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 			case DatatoolsPackage.COLUMNIZER_ABSTRACT: return createColumnizerAbstract();
 			case DatatoolsPackage.COLUMNIZER: return createColumnizer();
 			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE: return createColumnizerColumnAttribute();
-			case DatatoolsPackage.CATEGORY_ABSTRACT: return createCategoryAbstract();
 			case DatatoolsPackage.CATEGORY: return createCategory();
 			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE: return createCategorizerStructuralFeature();
 			default:
@@ -308,16 +307,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	public Columnizers createColumnizers() {
 		ColumnizersImpl columnizers = new ColumnizersImpl();
 		return columnizers;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CategoryAbstract createCategoryAbstract() {
-		CategoryAbstractImpl categoryAbstract = new CategoryAbstractImpl();
-		return categoryAbstract;
 	}
 
 	/**

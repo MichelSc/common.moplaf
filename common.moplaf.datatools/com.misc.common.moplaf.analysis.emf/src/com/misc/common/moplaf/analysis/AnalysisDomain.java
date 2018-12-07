@@ -76,8 +76,8 @@ public interface AnalysisDomain extends TaskDomain, DataToolContext {
 
 	/**
 	 * Returns the value of the '<em><b>Analyses</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.analysis.DocAnalysis}.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.analysis.DocAnalysis#getDomain <em>Domain</em>}'.
+	 * The list contents are of type {@link com.misc.common.moplaf.analysis.Analysis}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.analysis.Analysis#getDomain <em>Domain</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Analyses</em>' containment reference list isn't clear,
@@ -86,11 +86,11 @@ public interface AnalysisDomain extends TaskDomain, DataToolContext {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Analyses</em>' containment reference list.
 	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisDomain_Analyses()
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis#getDomain
+	 * @see com.misc.common.moplaf.analysis.Analysis#getDomain
 	 * @model opposite="Domain" containment="true"
 	 * @generated
 	 */
-	EList<DocAnalysis> getAnalyses();
+	EList<Analysis> getAnalyses();
 
 	/**
 	 * Returns the value of the '<em><b>Data Tools</b></em>' containment reference list.

@@ -195,7 +195,7 @@ public class CategorizerStructuralFeatureImpl extends CategorizerImpl implements
 	 * 
 	 */
 	@Override
-	public Object getCategoryValue(EObject object) {
+	protected Object getCategoryValueImpl(EObject object) {
 		EClass target_type = this.getTargetType();
 		if ( target_type==null ) {
 			return null;

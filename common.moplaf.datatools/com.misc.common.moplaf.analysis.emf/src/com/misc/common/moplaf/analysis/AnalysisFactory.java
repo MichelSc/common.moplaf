@@ -28,7 +28,7 @@ public interface AnalysisFactory extends EFactory {
 	 * @return a new object of class '<em>Doc Analysis</em>'.
 	 * @generated
 	 */
-	DocAnalysis createDocAnalysis();
+	Analysis createDocAnalysis();
 
 	/**
 	 * Returns a new object of class '<em>Domain</em>'.

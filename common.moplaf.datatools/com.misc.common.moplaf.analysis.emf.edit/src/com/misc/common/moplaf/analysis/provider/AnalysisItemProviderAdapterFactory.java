@@ -82,14 +82,14 @@ public class AnalysisItemProviderAdapterFactory extends AnalysisAdapterFactory i
 	}
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.analysis.DocAnalysis}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.analysis.Analysis}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Adapter createDocAnalysisAdapter() {
-		return new DocAnalysisItemProvider(this);
+		return new AnalysisItemProvider(this);
 	}
 
 	/**

@@ -74,7 +74,7 @@ public class AnalysisSwitch<T> extends Switch<T> {
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case AnalysisPackage.DOC_ANALYSIS: {
-				DocAnalysis docAnalysis = (DocAnalysis)theEObject;
+				Analysis docAnalysis = (Analysis)theEObject;
 				T result = caseDocAnalysis(docAnalysis);
 				if (result == null) result = caseCategoryAbstract(docAnalysis);
 				if (result == null) result = caseDocRef(docAnalysis);
@@ -115,7 +115,7 @@ public class AnalysisSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDocAnalysis(DocAnalysis object) {
+	public T caseDocAnalysis(Analysis object) {
 		return null;
 	}
 

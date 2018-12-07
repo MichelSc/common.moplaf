@@ -69,8 +69,8 @@ public class AnalysisFactoryImpl extends EFactoryImpl implements AnalysisFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DocAnalysis createDocAnalysis() {
-		DocAnalysisImpl docAnalysis = new DocAnalysisImpl();
+	public Analysis createDocAnalysis() {
+		AnalysisImpl docAnalysis = new AnalysisImpl();
 		return docAnalysis;
 	}
 

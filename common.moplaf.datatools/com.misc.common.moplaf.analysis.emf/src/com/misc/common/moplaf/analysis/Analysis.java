@@ -21,23 +21,23 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getExtractor <em>Extractor</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#isComplete <em>Complete</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getMaxElements <em>Max Elements</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getCategorizers <em>Categorizers</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getDescription <em>Description</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getDataTools <em>Data Tools</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getDomain <em>Domain</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getRefreshFeedback <em>Refresh Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getName <em>Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.DocAnalysis#getRemarks <em>Remarks</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.Analysis#getExtractor <em>Extractor</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.Analysis#isComplete <em>Complete</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.Analysis#getMaxElements <em>Max Elements</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.Analysis#getCategorizers <em>Categorizers</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.Analysis#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.Analysis#getDataTools <em>Data Tools</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.Analysis#getDomain <em>Domain</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.Analysis#getRefreshFeedback <em>Refresh Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.Analysis#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.Analysis#getRemarks <em>Remarks</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.analysis.AnalysisPackage#getDocAnalysis()
  * @model
  * @generated
  */
-public interface DocAnalysis extends CategoryAbstract, DocRef, DataToolContext, Columnizers {
+public interface Analysis extends CategoryAbstract, DocRef, DataToolContext, Columnizers {
 	/**
 	 * Returns the value of the '<em><b>Extractor</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -55,7 +55,7 @@ public interface DocAnalysis extends CategoryAbstract, DocRef, DataToolContext, 
 	Extractor getExtractor();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.DocAnalysis#getExtractor <em>Extractor</em>}' containment reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.Analysis#getExtractor <em>Extractor</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Extractor</em>' containment reference.
@@ -81,7 +81,7 @@ public interface DocAnalysis extends CategoryAbstract, DocRef, DataToolContext, 
 	boolean isComplete();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.DocAnalysis#isComplete <em>Complete</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.Analysis#isComplete <em>Complete</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Complete</em>' attribute.
@@ -108,7 +108,7 @@ public interface DocAnalysis extends CategoryAbstract, DocRef, DataToolContext, 
 	int getMaxElements();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.DocAnalysis#getMaxElements <em>Max Elements</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.Analysis#getMaxElements <em>Max Elements</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Max Elements</em>' attribute.
@@ -183,7 +183,7 @@ public interface DocAnalysis extends CategoryAbstract, DocRef, DataToolContext, 
 	AnalysisDomain getDomain();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.DocAnalysis#getDomain <em>Domain</em>}' container reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.Analysis#getDomain <em>Domain</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Domain</em>' container reference.
@@ -224,7 +224,7 @@ public interface DocAnalysis extends CategoryAbstract, DocRef, DataToolContext, 
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.DocAnalysis#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.Analysis#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -250,7 +250,7 @@ public interface DocAnalysis extends CategoryAbstract, DocRef, DataToolContext, 
 	String getRemarks();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.DocAnalysis#getRemarks <em>Remarks</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.Analysis#getRemarks <em>Remarks</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Remarks</em>' attribute.

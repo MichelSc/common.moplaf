@@ -344,6 +344,12 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DatatoolsPackage.CATEGORY_FACTORY: {
+				CategoryFactory categoryFactory = (CategoryFactory)theEObject;
+				T result = caseCategoryFactory(categoryFactory);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DatatoolsPackage.CATEGORY_ABSTRACT: {
 				CategoryAbstract categoryAbstract = (CategoryAbstract)theEObject;
 				T result = caseCategoryAbstract(categoryAbstract);
@@ -381,6 +387,12 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseCategorizer(categorizerOcl);
 				if (result == null) result = caseDataTool(categorizerOcl);
 				if (result == null) result = caseDataToolAbstract(categorizerOcl);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatatoolsPackage.CATEGORIZER_SUBJECT: {
+				CategorizerSubject categorizerSubject = (CategorizerSubject)theEObject;
+				T result = caseCategorizerSubject(categorizerSubject);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -475,6 +487,36 @@ public class DatatoolsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCategorizerOcl(CategorizerOcl object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Categorizer Subject</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Categorizer Subject</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategorizerSubject(CategorizerSubject object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Category Factory</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Category Factory</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategoryFactory(CategoryFactory object) {
 		return null;
 	}
 

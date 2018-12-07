@@ -4,7 +4,7 @@ package com.misc.common.moplaf.analysis.impl;
 
 import com.misc.common.moplaf.analysis.AnalysisDomain;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
-import com.misc.common.moplaf.analysis.DocAnalysis;
+import com.misc.common.moplaf.analysis.Analysis;
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.common.IMoplafObject;
 import com.misc.common.moplaf.common.util.EObjectListDerived;
@@ -46,23 +46,23 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getDoc <em>Doc</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getColumnizers <em>Columnizers</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getExtractor <em>Extractor</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#isComplete <em>Complete</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getMaxElements <em>Max Elements</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getCategorizers <em>Categorizers</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getDataTools <em>Data Tools</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getDomain <em>Domain</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getRefreshFeedback <em>Refresh Feedback</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl#getRemarks <em>Remarks</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl#getDoc <em>Doc</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl#getColumnizers <em>Columnizers</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl#getExtractor <em>Extractor</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl#isComplete <em>Complete</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl#getMaxElements <em>Max Elements</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl#getCategorizers <em>Categorizers</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl#getDataTools <em>Data Tools</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl#getDomain <em>Domain</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl#getRefreshFeedback <em>Refresh Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl#getRemarks <em>Remarks</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DocAnalysisImpl extends CategoryAbstractImpl implements DocAnalysis, IMoplafObject {
+public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMoplafObject {
 	/**
 	 * The cached value of the '{@link #getDoc() <em>Doc</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -208,7 +208,7 @@ public class DocAnalysisImpl extends CategoryAbstractImpl implements DocAnalysis
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DocAnalysisImpl() {
+	protected AnalysisImpl() {
 		super();
 	}
 

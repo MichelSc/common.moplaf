@@ -4,6 +4,7 @@ package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.Category;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -124,6 +125,7 @@ public class CategoryImpl extends CategoryAbstractImpl implements Category {
 			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.CATEGORY__CATEGORY_VALUE, oldCategoryValue, categoryValue));
 	}
 
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -210,5 +212,6 @@ public class CategoryImpl extends CategoryAbstractImpl implements Category {
 		result.append(')');
 		return result.toString();
 	}
+
 
 } //CategoryImpl

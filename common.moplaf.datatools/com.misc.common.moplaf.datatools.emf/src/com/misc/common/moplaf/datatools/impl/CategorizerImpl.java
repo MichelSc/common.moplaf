@@ -3,9 +3,8 @@
 package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.Categorizer;
-import com.misc.common.moplaf.datatools.Category;
+import com.misc.common.moplaf.datatools.CategorizerSubject;
 import com.misc.common.moplaf.datatools.DataToolType;
-import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
 import java.lang.reflect.InvocationTargetException;
@@ -44,11 +43,18 @@ public abstract class CategorizerImpl extends DataToolImpl implements Categorize
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public Object getCategoryValue(EObject object) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
+		if ( object instanceof CategorizerSubject ) {
+			CategorizerSubject subject = (CategorizerSubject)object;
+			return this.getCategoryValueImpl(subject.getSubject());
+		} else {
+			return this.getCategoryValueImpl(object);
+		}
+		
+	}
+
+	protected Object getCategoryValueImpl(EObject object) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -83,14 +89,6 @@ public abstract class CategorizerImpl extends DataToolImpl implements Categorize
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public Category constructCategory() {
-		return DatatoolsFactory.eINSTANCE.createCategory();
-	}
-
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -101,8 +99,6 @@ public abstract class CategorizerImpl extends DataToolImpl implements Categorize
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case DatatoolsPackage.CATEGORIZER___CONSTRUCT_CATEGORY:
-				return constructCategory();
 			case DatatoolsPackage.CATEGORIZER___GET_CATEGORY_VALUE__EOBJECT:
 				return getCategoryValue((EObject)arguments.get(0));
 			case DatatoolsPackage.CATEGORIZER___GET_CATEGORY_LABEL__OBJECT:

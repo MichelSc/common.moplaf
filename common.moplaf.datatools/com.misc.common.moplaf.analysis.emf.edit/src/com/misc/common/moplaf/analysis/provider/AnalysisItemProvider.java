@@ -5,7 +5,7 @@ package com.misc.common.moplaf.analysis.provider;
 
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 
-import com.misc.common.moplaf.analysis.DocAnalysis;
+import com.misc.common.moplaf.analysis.Analysis;
 import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
@@ -35,19 +35,19 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.analysis.DocAnalysis} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.analysis.Analysis} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
+public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DocAnalysisItemProvider(AdapterFactory adapterFactory) {
+	public AnalysisItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -309,7 +309,7 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DocAnalysis)object).getDescription();
+		String label = ((Analysis)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_DocAnalysis_type") :
 			getString("_UI_DocAnalysis_type") + " " + label;
@@ -327,7 +327,7 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(DocAnalysis.class)) {
+		switch (notification.getFeatureID(Analysis.class)) {
 			case AnalysisPackage.DOC_ANALYSIS__COMPLETE:
 			case AnalysisPackage.DOC_ANALYSIS__MAX_ELEMENTS:
 			case AnalysisPackage.DOC_ANALYSIS__DESCRIPTION:
@@ -438,9 +438,9 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 	 *
 	 */
 	public class DocAnalysisFlushCommand extends FlushCommand{
-		private DocAnalysis analysis;
+		private Analysis analysis;
 		
-		public DocAnalysisFlushCommand(DocAnalysis analysis)	{
+		public DocAnalysisFlushCommand(Analysis analysis)	{
 			super();
 			this.analysis = analysis;
 			
@@ -461,9 +461,9 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 
 
 	public class DocAnalysisRefreshCommand extends RefreshCommand{
-		private DocAnalysis analysis;
+		private Analysis analysis;
 		
-		public DocAnalysisRefreshCommand(DocAnalysis analysis)	{
+		public DocAnalysisRefreshCommand(Analysis analysis)	{
 			super();
 			this.analysis = analysis;
 			
@@ -486,9 +486,9 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 			Class<? extends Command> commandClass,
 			CommandParameter commandParameter) {
 		if  ( commandClass == RefreshCommand.class){
-			return new DocAnalysisRefreshCommand((DocAnalysis) object); 
+			return new DocAnalysisRefreshCommand((Analysis) object); 
 		} else if ( commandClass == FlushCommand.class){
-			return new DocAnalysisFlushCommand((DocAnalysis) object); 
+			return new DocAnalysisFlushCommand((Analysis) object); 
 		} 
 
 		return super.createCommand(object, domain, commandClass, commandParameter);
@@ -498,11 +498,11 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 	 * AddDataToolCommand
 	 */
 	public class AddDataToolCommand extends BaseCommand{
-		private DocAnalysis analysis;
+		private Analysis analysis;
 		private DataTool datatool;
 		
 		// constructor
-		public AddDataToolCommand(DocAnalysis analysis, DataTool datatool)	{
+		public AddDataToolCommand(Analysis analysis, DataTool datatool)	{
 			super("AddDataTool", "Add the DataTool");
 			this.analysis = analysis;
 			this.datatool = datatool;
@@ -520,7 +520,7 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 		}
 	} // class AddDataToolCommand
 	
-	protected Command createDropCommandSingle(EditingDomain domain, DocAnalysis owner, Object droppedObject){ 
+	protected Command createDropCommandSingle(EditingDomain domain, Analysis owner, Object droppedObject){ 
 		if ( droppedObject instanceof DataTool){
 			DataTool dropped_tool = (DataTool) droppedObject;
   	   		AddDataToolCommand cmd = new AddDataToolCommand(owner, dropped_tool);
@@ -529,10 +529,10 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 		return null;
 	}
 	
-	protected Command createDropCommandMulti(EditingDomain domain, DocAnalysis owner, Collection<?> droppedObjects) {
+	protected Command createDropCommandMulti(EditingDomain domain, Analysis owner, Collection<?> droppedObjects) {
     	CompoundCommand compound = new CompoundCommand();
 		for (Object droppedObject : droppedObjects){
-			Command cmd = DocAnalysisItemProvider.this.createDropCommandSingle(domain, owner, droppedObject);
+			Command cmd = AnalysisItemProvider.this.createDropCommandSingle(domain, owner, droppedObject);
 			if ( cmd !=null ) {
 				compound.append(cmd);
 			}
@@ -560,7 +560,7 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 	     */
 	    @Override
 	    protected boolean prepare(){
-			Command cmd = DocAnalysisItemProvider.this.createDropCommandMulti(this.domain, (DocAnalysis) this.owner, this.collection);
+			Command cmd = AnalysisItemProvider.this.createDropCommandMulti(this.domain, (Analysis) this.owner, this.collection);
 			if ( cmd == null ){
 				return super.prepare();
 			}

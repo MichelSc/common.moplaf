@@ -60,10 +60,10 @@ public interface AnalysisPackage extends EPackage {
 	AnalysisPackage eINSTANCE = com.misc.common.moplaf.analysis.impl.AnalysisPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl <em>Doc Analysis</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl <em>Doc Analysis</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.analysis.impl.DocAnalysisImpl
+	 * @see com.misc.common.moplaf.analysis.impl.AnalysisImpl
 	 * @see com.misc.common.moplaf.analysis.impl.AnalysisPackageImpl#getDocAnalysis()
 	 * @generated
 	 */
@@ -462,151 +462,151 @@ public interface AnalysisPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.analysis.DocAnalysis <em>Doc Analysis</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.analysis.Analysis <em>Doc Analysis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Doc Analysis</em>'.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis
+	 * @see com.misc.common.moplaf.analysis.Analysis
 	 * @generated
 	 */
 	EClass getDocAnalysis();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.analysis.DocAnalysis#getExtractor <em>Extractor</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.analysis.Analysis#getExtractor <em>Extractor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Extractor</em>'.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis#getExtractor()
+	 * @see com.misc.common.moplaf.analysis.Analysis#getExtractor()
 	 * @see #getDocAnalysis()
 	 * @generated
 	 */
 	EReference getDocAnalysis_Extractor();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.analysis.DocAnalysis#isComplete <em>Complete</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.analysis.Analysis#isComplete <em>Complete</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Complete</em>'.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis#isComplete()
+	 * @see com.misc.common.moplaf.analysis.Analysis#isComplete()
 	 * @see #getDocAnalysis()
 	 * @generated
 	 */
 	EAttribute getDocAnalysis_Complete();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.analysis.DocAnalysis#getMaxElements <em>Max Elements</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.analysis.Analysis#getMaxElements <em>Max Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Max Elements</em>'.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis#getMaxElements()
+	 * @see com.misc.common.moplaf.analysis.Analysis#getMaxElements()
 	 * @see #getDocAnalysis()
 	 * @generated
 	 */
 	EAttribute getDocAnalysis_MaxElements();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.analysis.DocAnalysis#getCategorizers <em>Categorizers</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.analysis.Analysis#getCategorizers <em>Categorizers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Categorizers</em>'.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis#getCategorizers()
+	 * @see com.misc.common.moplaf.analysis.Analysis#getCategorizers()
 	 * @see #getDocAnalysis()
 	 * @generated
 	 */
 	EReference getDocAnalysis_Categorizers();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.analysis.DocAnalysis#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.analysis.Analysis#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis#getDescription()
+	 * @see com.misc.common.moplaf.analysis.Analysis#getDescription()
 	 * @see #getDocAnalysis()
 	 * @generated
 	 */
 	EAttribute getDocAnalysis_Description();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.analysis.DocAnalysis#getDataTools <em>Data Tools</em>}'.
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.analysis.Analysis#getDataTools <em>Data Tools</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Data Tools</em>'.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis#getDataTools()
+	 * @see com.misc.common.moplaf.analysis.Analysis#getDataTools()
 	 * @see #getDocAnalysis()
 	 * @generated
 	 */
 	EReference getDocAnalysis_DataTools();
 
 	/**
-	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.analysis.DocAnalysis#getDomain <em>Domain</em>}'.
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.analysis.Analysis#getDomain <em>Domain</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the container reference '<em>Domain</em>'.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis#getDomain()
+	 * @see com.misc.common.moplaf.analysis.Analysis#getDomain()
 	 * @see #getDocAnalysis()
 	 * @generated
 	 */
 	EReference getDocAnalysis_Domain();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.analysis.DocAnalysis#getRefreshFeedback <em>Refresh Feedback</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.analysis.Analysis#getRefreshFeedback <em>Refresh Feedback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Refresh Feedback</em>'.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis#getRefreshFeedback()
+	 * @see com.misc.common.moplaf.analysis.Analysis#getRefreshFeedback()
 	 * @see #getDocAnalysis()
 	 * @generated
 	 */
 	EAttribute getDocAnalysis_RefreshFeedback();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.analysis.DocAnalysis#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.analysis.Analysis#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis#getName()
+	 * @see com.misc.common.moplaf.analysis.Analysis#getName()
 	 * @see #getDocAnalysis()
 	 * @generated
 	 */
 	EAttribute getDocAnalysis_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.analysis.DocAnalysis#getRemarks <em>Remarks</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.analysis.Analysis#getRemarks <em>Remarks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Remarks</em>'.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis#getRemarks()
+	 * @see com.misc.common.moplaf.analysis.Analysis#getRemarks()
 	 * @see #getDocAnalysis()
 	 * @generated
 	 */
 	EAttribute getDocAnalysis_Remarks();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.DocAnalysis#refresh() <em>Refresh</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.Analysis#refresh() <em>Refresh</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Refresh</em>' operation.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis#refresh()
+	 * @see com.misc.common.moplaf.analysis.Analysis#refresh()
 	 * @generated
 	 */
 	EOperation getDocAnalysis__Refresh();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.DocAnalysis#addTool(com.misc.common.moplaf.datatools.DataTool) <em>Add Tool</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.Analysis#addTool(com.misc.common.moplaf.datatools.DataTool) <em>Add Tool</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Tool</em>' operation.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis#addTool(com.misc.common.moplaf.datatools.DataTool)
+	 * @see com.misc.common.moplaf.analysis.Analysis#addTool(com.misc.common.moplaf.datatools.DataTool)
 	 * @generated
 	 */
 	EOperation getDocAnalysis__AddTool__DataTool();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.DocAnalysis#flush() <em>Flush</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.Analysis#flush() <em>Flush</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Flush</em>' operation.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis#flush()
+	 * @see com.misc.common.moplaf.analysis.Analysis#flush()
 	 * @generated
 	 */
 	EOperation getDocAnalysis__Flush();
@@ -731,10 +731,10 @@ public interface AnalysisPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.analysis.impl.DocAnalysisImpl <em>Doc Analysis</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl <em>Doc Analysis</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.analysis.impl.DocAnalysisImpl
+		 * @see com.misc.common.moplaf.analysis.impl.AnalysisImpl
 		 * @see com.misc.common.moplaf.analysis.impl.AnalysisPackageImpl#getDocAnalysis()
 		 * @generated
 		 */

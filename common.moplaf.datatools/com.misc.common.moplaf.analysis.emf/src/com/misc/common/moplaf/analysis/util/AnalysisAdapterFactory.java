@@ -75,7 +75,7 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 	protected AnalysisSwitch<Adapter> modelSwitch =
 		new AnalysisSwitch<Adapter>() {
 			@Override
-			public Adapter caseDocAnalysis(DocAnalysis object) {
+			public Adapter caseDocAnalysis(Analysis object) {
 				return createDocAnalysisAdapter();
 			}
 			@Override
@@ -135,13 +135,13 @@ public class AnalysisAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.analysis.DocAnalysis <em>Doc Analysis</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.analysis.Analysis <em>Doc Analysis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.analysis.DocAnalysis
+	 * @see com.misc.common.moplaf.analysis.Analysis
 	 * @generated
 	 */
 	public Adapter createDocAnalysisAdapter() {

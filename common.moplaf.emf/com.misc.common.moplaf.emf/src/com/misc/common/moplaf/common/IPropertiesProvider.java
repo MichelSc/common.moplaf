@@ -98,7 +98,7 @@ public interface IPropertiesProvider extends Constants{
 	 * @return
 	 */
 	default int getPropertyTraits(Object property) {
-		return 0; // no traits per default
+		return TRAITS_NONE; // no traits per default
 	}
 
 	/**
