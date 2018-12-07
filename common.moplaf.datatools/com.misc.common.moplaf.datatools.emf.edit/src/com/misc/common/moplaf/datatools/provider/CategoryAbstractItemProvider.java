@@ -5,15 +5,10 @@ package com.misc.common.moplaf.datatools.provider;
 
 import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.datatools.CategoryAbstract;
-import com.misc.common.moplaf.datatools.ColumnizerAbstract;
-import com.misc.common.moplaf.datatools.Columnizers;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
-import com.misc.common.moplaf.gridview.emf.edit.util.PropertiesProviderGridsProvider;
-
 import java.util.Collection;
-import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -63,13 +58,15 @@ public class CategoryAbstractItemProvider
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		this.itemPropertyDescriptors = null;
-
 		super.getPropertyDescriptors(object);
 		addNbElementsPropertyDescriptor(object);
+		addSuperCategoryPropertyDescriptor(object);
+		addRootCategoryPropertyDescriptor(object);
 		addAggregationProperties((CategoryAbstract)object);
+		return this.itemPropertyDescriptors;
 
-		return itemPropertyDescriptors;
 	}
+	
 
 	// this adds property descriptors for every aggregated property in this category
 	private void addAggregationProperties(CategoryAbstract category) {
@@ -257,28 +254,6 @@ public class CategoryAbstractItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Elements feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addElementsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CategoryAbstract_Elements_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CategoryAbstract_Elements_feature", "_UI_CategoryAbstract_type"),
-				 DatatoolsPackage.Literals.CATEGORY_ABSTRACT__ELEMENTS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Super Category feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -296,7 +271,7 @@ public class CategoryAbstractItemProvider
 				 false,
 				 false,
 				 null,
-				 null,
+				 getString("_UI__30DataPropertyCategory"),
 				 null));
 	}
 
@@ -318,7 +293,7 @@ public class CategoryAbstractItemProvider
 				 false,
 				 false,
 				 null,
-				 null,
+				 getString("_UI__30DataPropertyCategory"),
 				 null));
 	}
 
@@ -389,6 +364,7 @@ public class CategoryAbstractItemProvider
 
 		switch (notification.getFeatureID(CategoryAbstract.class)) {
 			case DatatoolsPackage.CATEGORY_ABSTRACT__NB_ELEMENTS:
+			case DatatoolsPackage.CATEGORY_ABSTRACT__ROOT_CATEGORY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DatatoolsPackage.CATEGORY_ABSTRACT__SUB_CATEGORIES:

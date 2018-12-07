@@ -253,7 +253,7 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 					cat_iterator_asis.remove();
 				} else {
 					// update one level further (recursive)
-					cat_asis.refresh(factory, els_tobe, categorizers, level);
+					cat_asis.refresh(factory, els_tobe, categorizers, level+1);
 				}
 			}
 			for (  Entry<Object, ObjectSet> cat_tobe : cats_tobe.entrySet()) {
@@ -263,7 +263,7 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 				new_cat.setCategoryLabel(criteria.getCategoryLabel(cat_tobe.getKey()));
 				this.getSubCategories().add(new_cat); // owning
 				// fill the cat, recursive
-				new_cat.refresh(factory, cat_tobe.getValue(), categorizers, level);
+				new_cat.refresh(factory, cat_tobe.getValue(), categorizers, level+1);
 			}
 		}
 	}

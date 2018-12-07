@@ -456,7 +456,7 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 		if ( extractor==null ) {
 			return new EnabledFeedback(false, "No extractor");
 		}
-		if ( this.getDocs().stream().allMatch(d -> extractor.isValidRoot(d.getDoc()))){
+		if ( !this.getDocs().stream().allMatch(d -> extractor.isValidRoot(d.getDoc()))){
 			return new EnabledFeedback(false, "Extractor not valid for some document");
 		}
 		return EnabledFeedback.NOFEEDBACK;
@@ -549,9 +549,8 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 		for ( AnalysisDoc doc : this.getDocs()) {
 			// extract
 			ObjectSet ins = new ObjectSet();
-			ins.add(doc);
+			ins.add(doc.getDoc());
 			ObjectSet outs = extractor.extract(ins, this.getMaxElements());
-			els_tobe.addAll(outs);
 			// complete
 			boolean doc_is_complete = outs.isComplete();
 			doc.setComplete(doc_is_complete);
@@ -561,18 +560,22 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 			Iterator<AnalysisElement> iterator_asis = doc.getElements().iterator();
 			while ( iterator_asis.hasNext()) {
 				AnalysisElement asis = iterator_asis.next();
-				if ( !els_tobe.remove(asis.getElement())) {
+				if ( !outs.remove(asis.getElement())) {
 					// the asis is not tobe
 					iterator_asis.remove();
+				} else {
+					els_tobe.add(asis.getElement());
 				}
 			}
 			// add the too few
-			for ( EObject to_add : els_tobe) {
+			for ( EObject to_add : outs) {
 				AnalysisElement new_analysis_ele = AnalysisFactory.eINSTANCE.createAnalysisElement();
 				new_analysis_ele.setElement(to_add);
 				doc.getElements().add(new_analysis_ele);
+				els_tobe.add(new_analysis_ele);
 			}
-		}
+		} // traverse the docs
+		this.setComplete(complete);
 		
 		// refresh the set of elements and the categories
 		this.refresh(this, els_tobe,  this.getCategorizers(), 0);
@@ -611,6 +614,9 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 	public void flush() {
 		this.getElements().clear();
 		this.getSubCategories().clear();
+		for ( AnalysisDoc doc : this.getDocs()) {
+			doc.flush();
+		}
 	}
 
 	/**

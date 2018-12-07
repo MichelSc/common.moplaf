@@ -32,30 +32,21 @@ public class CategoryItemProvider extends CategoryAbstractItemProvider {
 		super(adapterFactory);
 	}
 
+
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public List<IItemPropertyDescriptor> getPropertyDescriptorsGen(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addCategoryLabelPropertyDescriptor(object);
-			addCategoryValuePropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
-	}
-
-	// the list of Properties may change at run time
-	// as the aggregation properties depend on the aggregated columns present at the moment
-	// so every concrete class must empty thelist of itemPropertyDescriptors
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		this.itemPropertyDescriptors = null;
-		return this.getPropertyDescriptorsGen(object);
+		super.getPropertyDescriptors(object);
+		addCategoryLabelPropertyDescriptor(object);
+		addCategoryValuePropertyDescriptor(object);
+		return this.itemPropertyDescriptors;
 	}
+
 
 	/**
 	 * This adds a property descriptor for the Category Label feature.

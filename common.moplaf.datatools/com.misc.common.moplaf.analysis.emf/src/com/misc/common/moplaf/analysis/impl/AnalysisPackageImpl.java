@@ -429,8 +429,26 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAnalysisDoc_NbElements() {
+		return (EAttribute)analysisDocEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getAnalysisDoc__GetElements__Category() {
 		return analysisDocEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAnalysisDoc__Flush() {
+		return analysisDocEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -665,7 +683,9 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		createEReference(analysisDocEClass, ANALYSIS_DOC__ANALYSIS);
 		createEReference(analysisDocEClass, ANALYSIS_DOC__ELEMENTS);
 		createEAttribute(analysisDocEClass, ANALYSIS_DOC__COMPLETE);
+		createEAttribute(analysisDocEClass, ANALYSIS_DOC__NB_ELEMENTS);
 		createEOperation(analysisDocEClass, ANALYSIS_DOC___GET_ELEMENTS__CATEGORY);
+		createEOperation(analysisDocEClass, ANALYSIS_DOC___FLUSH);
 
 		analysisElementEClass = createEClass(ANALYSIS_ELEMENT);
 		createEReference(analysisElementEClass, ANALYSIS_ELEMENT__DOC);
@@ -776,9 +796,12 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		initEReference(getAnalysisDoc_Analysis(), this.getAnalysis(), this.getAnalysis_Docs(), "Analysis", null, 1, 1, AnalysisDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAnalysisDoc_Elements(), this.getAnalysisElement(), this.getAnalysisElement_Doc(), "Elements", null, 0, -1, AnalysisDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnalysisDoc_Complete(), ecorePackage.getEBoolean(), "Complete", null, 0, 1, AnalysisDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysisDoc_NbElements(), ecorePackage.getEInt(), "NbElements", null, 0, 1, AnalysisDoc.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getAnalysisDoc__GetElements__Category(), theDatatoolsPackage.getEObjectsSet(), "getElements", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theDatatoolsPackage.getCategory(), "category", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAnalysisDoc__Flush(), null, "flush", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(analysisElementEClass, AnalysisElement.class, "AnalysisElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAnalysisElement_Doc(), this.getAnalysisDoc(), this.getAnalysisDoc_Elements(), "Doc", null, 1, 1, AnalysisElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -189,9 +189,12 @@
       <genFeatures property="Readonly" createChild="false" propertyCategory="30 Data"
           ecoreFeature="ecore:EAttribute datatools.ecore#//CategoryAbstract/NbElements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/SubCategories"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/Elements"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/SuperCategory"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/RootCategory"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/Elements"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="30 Data"
+          ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/SuperCategory"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="30 Data"
+          ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/RootCategory"/>
       <genOperations ecoreOperation="datatools.ecore#//CategoryAbstract/getSubcategory">
         <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/getSubcategory/value"/>
       </genOperations>

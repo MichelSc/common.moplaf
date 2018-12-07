@@ -22,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.analysis.AnalysisDoc#getAnalysis <em>Analysis</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.AnalysisDoc#getElements <em>Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.AnalysisDoc#isComplete <em>Complete</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.AnalysisDoc#getNbElements <em>Nb Elements</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisDoc()
@@ -102,11 +103,34 @@ public interface AnalysisDoc extends DocRef {
 	void setComplete(boolean value);
 
 	/**
+	 * Returns the value of the '<em><b>Nb Elements</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Nb Elements</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Nb Elements</em>' attribute.
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisDoc_NbElements()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	int getNbElements();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model dataType="com.misc.common.moplaf.datatools.EObjectsSet"
 	 * @generated
 	 */
 	ObjectSet getElements(Category category);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void flush();
 
 } // AnalysisDoc

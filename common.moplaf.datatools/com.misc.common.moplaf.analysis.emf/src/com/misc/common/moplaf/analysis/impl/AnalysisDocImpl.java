@@ -42,6 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisDocImpl#getAnalysis <em>Analysis</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisDocImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisDocImpl#isComplete <em>Complete</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisDocImpl#getNbElements <em>Nb Elements</em>}</li>
  * </ul>
  *
  * @generated
@@ -75,6 +76,16 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 	 * @ordered
 	 */
 	protected boolean complete = COMPLETE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getNbElements() <em>Nb Elements</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNbElements()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int NB_ELEMENTS_EDEFAULT = 0;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -172,12 +183,28 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public int getNbElements() {
+		return this.getElements().size();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public ObjectSet getElements(Category category) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void flush() {
+		this.getElements().clear();
 	}
 
 	/**
@@ -243,6 +270,8 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 				return getElements();
 			case AnalysisPackage.ANALYSIS_DOC__COMPLETE:
 				return isComplete();
+			case AnalysisPackage.ANALYSIS_DOC__NB_ELEMENTS:
+				return getNbElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -305,6 +334,8 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 				return elements != null && !elements.isEmpty();
 			case AnalysisPackage.ANALYSIS_DOC__COMPLETE:
 				return complete != COMPLETE_EDEFAULT;
+			case AnalysisPackage.ANALYSIS_DOC__NB_ELEMENTS:
+				return getNbElements() != NB_ELEMENTS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -319,6 +350,9 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 		switch (operationID) {
 			case AnalysisPackage.ANALYSIS_DOC___GET_ELEMENTS__CATEGORY:
 				return getElements((Category)arguments.get(0));
+			case AnalysisPackage.ANALYSIS_DOC___FLUSH:
+				flush();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

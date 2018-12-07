@@ -5,8 +5,6 @@ package com.misc.common.moplaf.analysis.provider;
 
 import com.misc.common.moplaf.analysis.AnalysisCategory;
 import com.misc.common.moplaf.analysis.AnalysisFactory;
-import com.misc.common.moplaf.analysis.AnalysisPackage;
-
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
 import com.misc.common.moplaf.datatools.provider.CategoryItemProvider;
@@ -18,8 +16,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
@@ -39,53 +35,16 @@ public class AnalysisCategoryItemProvider extends CategoryItemProvider {
 		super(adapterFactory);
 	}
 
+
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addAnalysisPropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Analysis feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAnalysisPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AnalysisCategory_Analysis_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AnalysisCategory_Analysis_feature", "_UI_AnalysisCategory_type"),
-				 AnalysisPackage.Literals.ANALYSIS_CATEGORY__ANALYSIS,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns AnalysisCategory.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AnalysisCategory"));
+		this.itemPropertyDescriptors = null;
+		return super.getPropertyDescriptors(object);
 	}
 
 	/**
@@ -96,8 +55,10 @@ public class AnalysisCategoryItemProvider extends CategoryItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		AnalysisCategory analysisCategory = (AnalysisCategory)object;
-		return getString("_UI_AnalysisCategory_type") + " " + analysisCategory.getNbElements();
+		String label = ((AnalysisCategory)object).getCategoryLabel();
+		return label == null || label.length() == 0 ?
+			getString("_UI_AnalysisCategory_type") :
+			getString("_UI_AnalysisCategory_type") + " " + label;
 	}
 
 

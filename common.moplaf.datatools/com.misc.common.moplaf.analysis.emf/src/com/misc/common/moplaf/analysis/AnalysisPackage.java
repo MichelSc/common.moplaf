@@ -570,13 +570,22 @@ public interface AnalysisPackage extends EPackage {
 	int ANALYSIS_DOC__COMPLETE = JobPackage.DOC_REF_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Nb Elements</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_DOC__NB_ELEMENTS = JobPackage.DOC_REF_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Doc</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_DOC_FEATURE_COUNT = JobPackage.DOC_REF_FEATURE_COUNT + 3;
+	int ANALYSIS_DOC_FEATURE_COUNT = JobPackage.DOC_REF_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Get Elements</em>' operation.
@@ -588,13 +597,22 @@ public interface AnalysisPackage extends EPackage {
 	int ANALYSIS_DOC___GET_ELEMENTS__CATEGORY = JobPackage.DOC_REF_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Flush</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_DOC___FLUSH = JobPackage.DOC_REF_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Doc</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_DOC_OPERATION_COUNT = JobPackage.DOC_REF_OPERATION_COUNT + 1;
+	int ANALYSIS_DOC_OPERATION_COUNT = JobPackage.DOC_REF_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisElementImpl <em>Element</em>}' class.
@@ -1274,6 +1292,17 @@ public interface AnalysisPackage extends EPackage {
 	EAttribute getAnalysisDoc_Complete();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.analysis.AnalysisDoc#getNbElements <em>Nb Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Nb Elements</em>'.
+	 * @see com.misc.common.moplaf.analysis.AnalysisDoc#getNbElements()
+	 * @see #getAnalysisDoc()
+	 * @generated
+	 */
+	EAttribute getAnalysisDoc_NbElements();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.AnalysisDoc#getElements(com.misc.common.moplaf.datatools.Category) <em>Get Elements</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1282,6 +1311,16 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getAnalysisDoc__GetElements__Category();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.AnalysisDoc#flush() <em>Flush</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Flush</em>' operation.
+	 * @see com.misc.common.moplaf.analysis.AnalysisDoc#flush()
+	 * @generated
+	 */
+	EOperation getAnalysisDoc__Flush();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.analysis.AnalysisElement <em>Element</em>}'.
@@ -1755,12 +1794,28 @@ public interface AnalysisPackage extends EPackage {
 		EAttribute ANALYSIS_DOC__COMPLETE = eINSTANCE.getAnalysisDoc_Complete();
 
 		/**
+		 * The meta object literal for the '<em><b>Nb Elements</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANALYSIS_DOC__NB_ELEMENTS = eINSTANCE.getAnalysisDoc_NbElements();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Elements</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation ANALYSIS_DOC___GET_ELEMENTS__CATEGORY = eINSTANCE.getAnalysisDoc__GetElements__Category();
+
+		/**
+		 * The meta object literal for the '<em><b>Flush</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ANALYSIS_DOC___FLUSH = eINSTANCE.getAnalysisDoc__Flush();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisElementImpl <em>Element</em>}' class.

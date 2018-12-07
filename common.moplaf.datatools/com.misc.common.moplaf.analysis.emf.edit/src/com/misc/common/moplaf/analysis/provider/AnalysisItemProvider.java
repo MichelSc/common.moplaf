@@ -56,30 +56,20 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public List<IItemPropertyDescriptor> getPropertyDescriptorsGen(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addCompletePropertyDescriptor(object);
-			addMaxElementsPropertyDescriptor(object);
-			addDescriptionPropertyDescriptor(object);
-			addRefreshFeedbackPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
-			addRemarksPropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
-	}
-
-	// the list of Properties may change at run time
-	// as the aggregation properties depend on the aggregated columns present at the moment
-	// so every concrete class must empty thelist of itemPropertyDescriptors
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		this.itemPropertyDescriptors = null;
-		return this.getPropertyDescriptorsGen(object);
+		super.getPropertyDescriptors(object);
+		addCompletePropertyDescriptor(object);
+		addMaxElementsPropertyDescriptor(object);
+		addDescriptionPropertyDescriptor(object);
+		addRefreshFeedbackPropertyDescriptor(object);
+		addNamePropertyDescriptor(object);
+		addRemarksPropertyDescriptor(object);
+		return this.itemPropertyDescriptors;
 	}
+
 
 	/**
 	 * This adds a property descriptor for the Complete feature.
@@ -206,7 +196,7 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 				 getString("_UI_PropertyDescriptor_description", "_UI_Analysis_Remarks_feature", "_UI_Analysis_type"),
 				 AnalysisPackage.Literals.ANALYSIS__REMARKS,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 getString("_UI__10AnalysisPropertyCategory"),

@@ -4,7 +4,6 @@ package com.misc.common.moplaf.analysis.provider;
 
 
 import com.misc.common.moplaf.analysis.AnalysisDoc;
-import com.misc.common.moplaf.analysis.AnalysisFactory;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 
 import com.misc.common.moplaf.job.provider.DocRefItemProvider;
@@ -16,9 +15,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -53,6 +49,7 @@ public class AnalysisDocItemProvider extends DocRefItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addCompletePropertyDescriptor(object);
+			addNbElementsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -80,33 +77,25 @@ public class AnalysisDocItemProvider extends DocRefItemProvider {
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Nb Elements feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS_DOC__ELEMENTS);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	protected void addNbElementsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AnalysisDoc_NbElements_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AnalysisDoc_NbElements_feature", "_UI_AnalysisDoc_type"),
+				 AnalysisPackage.Literals.ANALYSIS_DOC__NB_ELEMENTS,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI__30DataPropertyCategory"),
+				 null));
 	}
 
 	/**
@@ -134,11 +123,10 @@ public class AnalysisDocItemProvider extends DocRefItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AnalysisDoc.class)) {
-			case AnalysisPackage.ANALYSIS_DOC__COMPLETE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case AnalysisPackage.ANALYSIS_DOC__ELEMENTS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			case AnalysisPackage.ANALYSIS_DOC__COMPLETE:
+			case AnalysisPackage.ANALYSIS_DOC__NB_ELEMENTS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -154,11 +142,6 @@ public class AnalysisDocItemProvider extends DocRefItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AnalysisPackage.Literals.ANALYSIS_DOC__ELEMENTS,
-				 AnalysisFactory.eINSTANCE.createAnalysisElement()));
 	}
 
 	/**
