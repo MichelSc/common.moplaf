@@ -75,7 +75,7 @@ public class AnalysisDocItemProvider extends DocRefItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30DataPropertyCategory"),
 				 null));
 	}
 
@@ -107,17 +107,6 @@ public class AnalysisDocItemProvider extends DocRefItemProvider {
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns AnalysisDoc.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AnalysisDoc"));
 	}
 
 	/**

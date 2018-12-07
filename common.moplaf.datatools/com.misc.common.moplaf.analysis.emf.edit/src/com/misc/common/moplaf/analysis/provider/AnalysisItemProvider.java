@@ -14,6 +14,8 @@ import com.misc.common.moplaf.datatools.provider.CategoryAbstractItemProvider;
 import com.misc.common.moplaf.emf.edit.command.BaseCommand;
 import com.misc.common.moplaf.emf.edit.command.FlushCommand;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
+import com.misc.common.moplaf.job.Doc;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -63,7 +65,6 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 			addCompletePropertyDescriptor(object);
 			addMaxElementsPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
-			addDataToolsPropertyDescriptor(object);
 			addRefreshFeedbackPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addRemarksPropertyDescriptor(object);
@@ -98,7 +99,7 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30DataPropertyCategory"),
 				 null));
 	}
 
@@ -120,7 +121,7 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
 				 null));
 	}
 
@@ -142,29 +143,7 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Data Tools feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDataToolsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Analysis_DataTools_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Analysis_DataTools_feature", "_UI_Analysis_type"),
-				 AnalysisPackage.Literals.ANALYSIS__DATA_TOOLS,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
+				 getString("_UI__10AnalysisPropertyCategory"),
 				 null));
 	}
 
@@ -186,7 +165,7 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10EnabledPropertyCategory"),
 				 null));
 	}
 
@@ -208,7 +187,7 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10AnalysisPropertyCategory"),
 				 null));
 	}
 
@@ -230,7 +209,7 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10AnalysisPropertyCategory"),
 				 null));
 	}
 
@@ -247,8 +226,8 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DatatoolsPackage.Literals.COLUMNIZERS__COLUMNIZERS);
-			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR);
 			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS__CATEGORIZERS);
+			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR);
 			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS__DOCS);
 			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS__SHEETS);
 		}
@@ -314,8 +293,8 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AnalysisPackage.ANALYSIS__COLUMNIZERS:
-			case AnalysisPackage.ANALYSIS__EXTRACTOR:
 			case AnalysisPackage.ANALYSIS__CATEGORIZERS:
+			case AnalysisPackage.ANALYSIS__EXTRACTOR:
 			case AnalysisPackage.ANALYSIS__DOCS:
 			case AnalysisPackage.ANALYSIS__SHEETS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -498,12 +477,42 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 		}
 	} // class AddDataToolCommand
 	
+	/*
+	 * AddDocCommand
+	 */
+	public class AddDocCommand extends BaseCommand{
+		private Analysis analysis;
+		private Doc doc;
+		
+		// constructor
+		public AddDocCommand(Analysis analysis, Doc doc)	{
+			super("AddDoc", "Add the Doc");
+			this.analysis = analysis;
+			this.doc      = doc;
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			return isExecutable;
+		}
+
+		@Override
+		public void execute() {
+			this.analysis.addDoc(this.doc);
+		}
+	} // class AddDataToolCommand
+	
 	protected Command createDropCommandSingle(EditingDomain domain, Analysis owner, Object droppedObject){ 
 		if ( droppedObject instanceof DataTool){
 			DataTool dropped_tool = (DataTool) droppedObject;
   	   		AddDataToolCommand cmd = new AddDataToolCommand(owner, dropped_tool);
 		   	return cmd;
-		} 
+		} else if ( droppedObject instanceof Doc ) {
+			Doc dropped_doc = (Doc) droppedObject;
+  	   		AddDocCommand cmd = new AddDocCommand(owner, dropped_doc);
+		   	return cmd;
+		}
 		return null;
 	}
 	

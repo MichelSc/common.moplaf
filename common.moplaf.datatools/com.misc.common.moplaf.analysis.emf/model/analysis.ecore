@@ -3,19 +3,22 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="analysis" nsURI="http://www.misc.com/common/moplaf/analysis/model/0.1"
     nsPrefix="analysis">
   <eClassifiers xsi:type="ecore:EClass" name="Analysis" eSuperTypes="../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//CategoryAbstract ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataToolContext ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Columnizers ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//CategoryFactory">
-    <eOperations name="refresh"/>
     <eOperations name="addTool">
       <eParameters name="tool" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataTool"/>
     </eOperations>
+    <eOperations name="addDoc">
+      <eParameters name="doc" eType="ecore:EClass ../../com.misc.common.moplaf.job.emf/model/job.ecore#//Doc"/>
+    </eOperations>
+    <eOperations name="refresh"/>
     <eOperations name="flush"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Categorizers" upperBound="-1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Categorizer"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Extractor" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Extractor"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Complete" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxElements" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="1000000"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Categorizers" upperBound="-1"
-        eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Categorizer"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="DataTools" upperBound="-1"

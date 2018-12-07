@@ -124,13 +124,22 @@ public interface AnalysisPackage extends EPackage {
 	int ANALYSIS__COLUMNIZERS = DatatoolsPackage.CATEGORY_ABSTRACT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Categorizers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS__CATEGORIZERS = DatatoolsPackage.CATEGORY_ABSTRACT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Extractor</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__EXTRACTOR = DatatoolsPackage.CATEGORY_ABSTRACT_FEATURE_COUNT + 1;
+	int ANALYSIS__EXTRACTOR = DatatoolsPackage.CATEGORY_ABSTRACT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Complete</b></em>' attribute.
@@ -139,7 +148,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__COMPLETE = DatatoolsPackage.CATEGORY_ABSTRACT_FEATURE_COUNT + 2;
+	int ANALYSIS__COMPLETE = DatatoolsPackage.CATEGORY_ABSTRACT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Max Elements</b></em>' attribute.
@@ -148,16 +157,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS__MAX_ELEMENTS = DatatoolsPackage.CATEGORY_ABSTRACT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Categorizers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS__CATEGORIZERS = DatatoolsPackage.CATEGORY_ABSTRACT_FEATURE_COUNT + 4;
+	int ANALYSIS__MAX_ELEMENTS = DatatoolsPackage.CATEGORY_ABSTRACT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -304,22 +304,31 @@ public interface AnalysisPackage extends EPackage {
 	int ANALYSIS___SET_LEAF_CATEGORY__EOBJECT_CATEGORYABSTRACT = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Refresh</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS___REFRESH = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 3;
-
-	/**
 	 * The operation id for the '<em>Add Tool</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___ADD_TOOL__DATATOOL = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 4;
+	int ANALYSIS___ADD_TOOL__DATATOOL = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Add Doc</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS___ADD_DOC__DOC = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS___REFRESH = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Flush</em>' operation.
@@ -328,7 +337,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___FLUSH = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 5;
+	int ANALYSIS___FLUSH = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Analysis</em>' class.
@@ -337,7 +346,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_OPERATION_COUNT = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 6;
+	int ANALYSIS_OPERATION_COUNT = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisDomainImpl <em>Domain</em>}' class.
@@ -1106,6 +1115,16 @@ public interface AnalysisPackage extends EPackage {
 	EOperation getAnalysis__AddTool__DataTool();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.Analysis#addDoc(com.misc.common.moplaf.job.Doc) <em>Add Doc</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Doc</em>' operation.
+	 * @see com.misc.common.moplaf.analysis.Analysis#addDoc(com.misc.common.moplaf.job.Doc)
+	 * @generated
+	 */
+	EOperation getAnalysis__AddDoc__Doc();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.Analysis#flush() <em>Flush</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1608,6 +1627,14 @@ public interface AnalysisPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ANALYSIS___ADD_TOOL__DATATOOL = eINSTANCE.getAnalysis__AddTool__DataTool();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Doc</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ANALYSIS___ADD_DOC__DOC = eINSTANCE.getAnalysis__AddDoc__Doc();
 
 		/**
 		 * The meta object literal for the '<em><b>Flush</b></em>' operation.

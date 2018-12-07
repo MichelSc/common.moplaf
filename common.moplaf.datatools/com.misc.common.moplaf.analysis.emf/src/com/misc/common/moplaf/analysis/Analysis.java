@@ -10,6 +10,7 @@ import com.misc.common.moplaf.datatools.Columnizers;
 import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolContext;
 import com.misc.common.moplaf.datatools.Extractor;
+import com.misc.common.moplaf.job.Doc;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -21,10 +22,10 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.analysis.Analysis#getCategorizers <em>Categorizers</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.Analysis#getExtractor <em>Extractor</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.Analysis#isComplete <em>Complete</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.Analysis#getMaxElements <em>Max Elements</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.Analysis#getCategorizers <em>Categorizers</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.Analysis#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.Analysis#getDataTools <em>Data Tools</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.Analysis#getDomain <em>Domain</em>}</li>
@@ -312,6 +313,14 @@ public interface Analysis extends CategoryAbstract, DataToolContext, Columnizers
 	 * @generated
 	 */
 	void addTool(DataTool tool);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addDoc(Doc doc);
 
 	/**
 	 * <!-- begin-user-doc -->

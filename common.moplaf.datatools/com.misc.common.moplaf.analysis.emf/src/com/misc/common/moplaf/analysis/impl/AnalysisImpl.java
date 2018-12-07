@@ -56,10 +56,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl#getColumnizers <em>Columnizers</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl#getCategorizers <em>Categorizers</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl#getExtractor <em>Extractor</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl#isComplete <em>Complete</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl#getMaxElements <em>Max Elements</em>}</li>
- *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl#getCategorizers <em>Categorizers</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl#getDataTools <em>Data Tools</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisImpl#getDomain <em>Domain</em>}</li>
@@ -82,6 +82,16 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 	 * @ordered
 	 */
 	protected EList<ColumnizerAbstract> columnizers;
+
+	/**
+	 * The cached value of the '{@link #getCategorizers() <em>Categorizers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCategorizers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Categorizer> categorizers;
 
 	/**
 	 * The cached value of the '{@link #getExtractor() <em>Extractor</em>}' containment reference.
@@ -132,16 +142,6 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 	 * @ordered
 	 */
 	protected int maxElements = MAX_ELEMENTS_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getCategorizers() <em>Categorizers</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCategorizers()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Categorizer> categorizers;
 
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -598,6 +598,16 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public void addDoc(Doc doc) {
+		AnalysisDoc analysis_doc = AnalysisFactory.eINSTANCE.createAnalysisDoc();
+		analysis_doc.setDoc(doc);
+		this.getDocs().add(analysis_doc);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public void flush() {
 		this.getElements().clear();
 		this.getSubCategories().clear();
@@ -682,10 +692,10 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 		switch (featureID) {
 			case AnalysisPackage.ANALYSIS__COLUMNIZERS:
 				return ((InternalEList<?>)getColumnizers()).basicRemove(otherEnd, msgs);
-			case AnalysisPackage.ANALYSIS__EXTRACTOR:
-				return basicSetExtractor(null, msgs);
 			case AnalysisPackage.ANALYSIS__CATEGORIZERS:
 				return ((InternalEList<?>)getCategorizers()).basicRemove(otherEnd, msgs);
+			case AnalysisPackage.ANALYSIS__EXTRACTOR:
+				return basicSetExtractor(null, msgs);
 			case AnalysisPackage.ANALYSIS__DOMAIN:
 				return basicSetDomain(null, msgs);
 			case AnalysisPackage.ANALYSIS__DOCS:
@@ -720,14 +730,14 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 		switch (featureID) {
 			case AnalysisPackage.ANALYSIS__COLUMNIZERS:
 				return getColumnizers();
+			case AnalysisPackage.ANALYSIS__CATEGORIZERS:
+				return getCategorizers();
 			case AnalysisPackage.ANALYSIS__EXTRACTOR:
 				return getExtractor();
 			case AnalysisPackage.ANALYSIS__COMPLETE:
 				return isComplete();
 			case AnalysisPackage.ANALYSIS__MAX_ELEMENTS:
 				return getMaxElements();
-			case AnalysisPackage.ANALYSIS__CATEGORIZERS:
-				return getCategorizers();
 			case AnalysisPackage.ANALYSIS__DESCRIPTION:
 				return getDescription();
 			case AnalysisPackage.ANALYSIS__DATA_TOOLS:
@@ -761,6 +771,10 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 				getColumnizers().clear();
 				getColumnizers().addAll((Collection<? extends ColumnizerAbstract>)newValue);
 				return;
+			case AnalysisPackage.ANALYSIS__CATEGORIZERS:
+				getCategorizers().clear();
+				getCategorizers().addAll((Collection<? extends Categorizer>)newValue);
+				return;
 			case AnalysisPackage.ANALYSIS__EXTRACTOR:
 				setExtractor((Extractor)newValue);
 				return;
@@ -769,10 +783,6 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 				return;
 			case AnalysisPackage.ANALYSIS__MAX_ELEMENTS:
 				setMaxElements((Integer)newValue);
-				return;
-			case AnalysisPackage.ANALYSIS__CATEGORIZERS:
-				getCategorizers().clear();
-				getCategorizers().addAll((Collection<? extends Categorizer>)newValue);
 				return;
 			case AnalysisPackage.ANALYSIS__DOMAIN:
 				setDomain((AnalysisDomain)newValue);
@@ -806,6 +816,9 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 			case AnalysisPackage.ANALYSIS__COLUMNIZERS:
 				getColumnizers().clear();
 				return;
+			case AnalysisPackage.ANALYSIS__CATEGORIZERS:
+				getCategorizers().clear();
+				return;
 			case AnalysisPackage.ANALYSIS__EXTRACTOR:
 				setExtractor((Extractor)null);
 				return;
@@ -814,9 +827,6 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 				return;
 			case AnalysisPackage.ANALYSIS__MAX_ELEMENTS:
 				setMaxElements(MAX_ELEMENTS_EDEFAULT);
-				return;
-			case AnalysisPackage.ANALYSIS__CATEGORIZERS:
-				getCategorizers().clear();
 				return;
 			case AnalysisPackage.ANALYSIS__DOMAIN:
 				setDomain((AnalysisDomain)null);
@@ -847,14 +857,14 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 		switch (featureID) {
 			case AnalysisPackage.ANALYSIS__COLUMNIZERS:
 				return columnizers != null && !columnizers.isEmpty();
+			case AnalysisPackage.ANALYSIS__CATEGORIZERS:
+				return categorizers != null && !categorizers.isEmpty();
 			case AnalysisPackage.ANALYSIS__EXTRACTOR:
 				return extractor != null;
 			case AnalysisPackage.ANALYSIS__COMPLETE:
 				return complete != COMPLETE_EDEFAULT;
 			case AnalysisPackage.ANALYSIS__MAX_ELEMENTS:
 				return maxElements != MAX_ELEMENTS_EDEFAULT;
-			case AnalysisPackage.ANALYSIS__CATEGORIZERS:
-				return categorizers != null && !categorizers.isEmpty();
 			case AnalysisPackage.ANALYSIS__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case AnalysisPackage.ANALYSIS__DATA_TOOLS:
@@ -964,11 +974,14 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AnalysisPackage.ANALYSIS___REFRESH:
-				refresh();
-				return null;
 			case AnalysisPackage.ANALYSIS___ADD_TOOL__DATATOOL:
 				addTool((DataTool)arguments.get(0));
+				return null;
+			case AnalysisPackage.ANALYSIS___ADD_DOC__DOC:
+				addDoc((Doc)arguments.get(0));
+				return null;
+			case AnalysisPackage.ANALYSIS___REFRESH:
+				refresh();
 				return null;
 			case AnalysisPackage.ANALYSIS___FLUSH:
 				flush();
