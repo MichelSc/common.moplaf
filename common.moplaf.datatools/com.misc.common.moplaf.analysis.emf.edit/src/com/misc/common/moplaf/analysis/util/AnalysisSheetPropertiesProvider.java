@@ -57,9 +57,8 @@ public class AnalysisSheetPropertiesProvider implements IPropertiesProvider {
 				properties.add(new Property(property, null, 0));
 			}
 		}
-		int doc_index = 0;
 		for ( AnalysisDoc doc : this.docs) {
-			doc_index++;
+			int doc_index = doc.getDocIndex();
 			for ( Object property : propertiesProvider.getProperties()) {
 				if ( !propertiesProvider.isPropertyKey(property) ) {
 					properties.add(new Property(property, doc, doc_index));
@@ -85,6 +84,9 @@ public class AnalysisSheetPropertiesProvider implements IPropertiesProvider {
 		Property analysisProperty = (Property)property;
 		AnalysisElementKey keyElement = (AnalysisElementKey)element;
 		AnalysisElement analysisElement = keyElement.getElement(analysisProperty.getDoc());
+		if ( analysisElement==null) {
+			return null;
+		}
 		EObject object = analysisElement.getElement();
 		IPropertiesProvider propertiesProvider = sheet.getColumnizer().getPropertiesProvider();
 		return propertiesProvider.getPropertyValue(object, analysisProperty.getProperty());

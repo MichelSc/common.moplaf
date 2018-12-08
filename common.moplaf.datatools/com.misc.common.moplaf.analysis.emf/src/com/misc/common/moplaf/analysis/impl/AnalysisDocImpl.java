@@ -6,11 +6,9 @@ import com.misc.common.moplaf.analysis.Analysis;
 import com.misc.common.moplaf.analysis.AnalysisDoc;
 import com.misc.common.moplaf.analysis.AnalysisElement;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
-
 import com.misc.common.moplaf.datatools.Category;
 
 import com.misc.common.moplaf.datatools.util.ObjectSet;
-
 import com.misc.common.moplaf.job.impl.DocRefImpl;
 
 import java.lang.reflect.InvocationTargetException;
@@ -43,6 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisDocImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisDocImpl#isComplete <em>Complete</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisDocImpl#getNbElements <em>Nb Elements</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisDocImpl#getDocIndex <em>Doc Index</em>}</li>
  * </ul>
  *
  * @generated
@@ -86,6 +85,26 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 	 * @ordered
 	 */
 	protected static final int NB_ELEMENTS_EDEFAULT = 0;
+
+	/**
+	 * The default value of the '{@link #getDocIndex() <em>Doc Index</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocIndex()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int DOC_INDEX_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getDocIndex() <em>Doc Index</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocIndex()
+	 * @generated
+	 * @ordered
+	 */
+	protected int docIndex = DOC_INDEX_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -193,6 +212,27 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getDocIndex() {
+		return docIndex;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDocIndex(int newDocIndex) {
+		int oldDocIndex = docIndex;
+		docIndex = newDocIndex;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.ANALYSIS_DOC__DOC_INDEX, oldDocIndex, docIndex));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ObjectSet getElements(Category category) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -272,6 +312,8 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 				return isComplete();
 			case AnalysisPackage.ANALYSIS_DOC__NB_ELEMENTS:
 				return getNbElements();
+			case AnalysisPackage.ANALYSIS_DOC__DOC_INDEX:
+				return getDocIndex();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -295,6 +337,9 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 			case AnalysisPackage.ANALYSIS_DOC__COMPLETE:
 				setComplete((Boolean)newValue);
 				return;
+			case AnalysisPackage.ANALYSIS_DOC__DOC_INDEX:
+				setDocIndex((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -316,6 +361,9 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 			case AnalysisPackage.ANALYSIS_DOC__COMPLETE:
 				setComplete(COMPLETE_EDEFAULT);
 				return;
+			case AnalysisPackage.ANALYSIS_DOC__DOC_INDEX:
+				setDocIndex(DOC_INDEX_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -336,6 +384,8 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 				return complete != COMPLETE_EDEFAULT;
 			case AnalysisPackage.ANALYSIS_DOC__NB_ELEMENTS:
 				return getNbElements() != NB_ELEMENTS_EDEFAULT;
+			case AnalysisPackage.ANALYSIS_DOC__DOC_INDEX:
+				return docIndex != DOC_INDEX_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -369,6 +419,8 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (Complete: ");
 		result.append(complete);
+		result.append(", DocIndex: ");
+		result.append(docIndex);
 		result.append(')');
 		return result.toString();
 	}

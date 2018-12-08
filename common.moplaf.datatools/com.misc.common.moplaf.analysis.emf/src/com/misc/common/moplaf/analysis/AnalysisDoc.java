@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.analysis.AnalysisDoc#getElements <em>Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.AnalysisDoc#isComplete <em>Complete</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.AnalysisDoc#getNbElements <em>Nb Elements</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.AnalysisDoc#getDocIndex <em>Doc Index</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisDoc()
@@ -116,6 +117,32 @@ public interface AnalysisDoc extends DocRef {
 	 * @generated
 	 */
 	int getNbElements();
+
+	/**
+	 * Returns the value of the '<em><b>Doc Index</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Doc Index</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Doc Index</em>' attribute.
+	 * @see #setDocIndex(int)
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisDoc_DocIndex()
+	 * @model
+	 * @generated
+	 */
+	int getDocIndex();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.AnalysisDoc#getDocIndex <em>Doc Index</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Doc Index</em>' attribute.
+	 * @see #getDocIndex()
+	 * @generated
+	 */
+	void setDocIndex(int value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -465,6 +465,15 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAnalysisDoc_DocIndex() {
+		return (EAttribute)analysisDocEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getAnalysisDoc__GetElements__Category() {
 		return analysisDocEClass.getEOperations().get(0);
 	}
@@ -749,6 +758,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		createEReference(analysisDocEClass, ANALYSIS_DOC__ELEMENTS);
 		createEAttribute(analysisDocEClass, ANALYSIS_DOC__COMPLETE);
 		createEAttribute(analysisDocEClass, ANALYSIS_DOC__NB_ELEMENTS);
+		createEAttribute(analysisDocEClass, ANALYSIS_DOC__DOC_INDEX);
 		createEOperation(analysisDocEClass, ANALYSIS_DOC___GET_ELEMENTS__CATEGORY);
 		createEOperation(analysisDocEClass, ANALYSIS_DOC___FLUSH);
 
@@ -874,6 +884,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		initEReference(getAnalysisDoc_Elements(), this.getAnalysisElement(), this.getAnalysisElement_Doc(), "Elements", null, 0, -1, AnalysisDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnalysisDoc_Complete(), ecorePackage.getEBoolean(), "Complete", null, 0, 1, AnalysisDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnalysisDoc_NbElements(), ecorePackage.getEInt(), "NbElements", null, 0, 1, AnalysisDoc.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysisDoc_DocIndex(), ecorePackage.getEInt(), "DocIndex", null, 0, 1, AnalysisDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getAnalysisDoc__GetElements__Category(), theDatatoolsPackage.getEObjectsSet(), "getElements", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theDatatoolsPackage.getCategory(), "category", 0, 1, IS_UNIQUE, IS_ORDERED);

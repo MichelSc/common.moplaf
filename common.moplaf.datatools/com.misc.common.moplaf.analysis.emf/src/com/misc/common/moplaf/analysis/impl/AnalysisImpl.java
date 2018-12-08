@@ -29,6 +29,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.OptionalInt;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -625,7 +626,9 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 	 */
 	public void addDoc(Doc doc) {
 		AnalysisDoc analysis_doc = AnalysisFactory.eINSTANCE.createAnalysisDoc();
+		int index = this.getDocs().stream().mapToInt(d -> d.getDocIndex()).max().orElse(0)+1;
 		analysis_doc.setDoc(doc);
+		analysis_doc.setDocIndex(index);
 		this.getDocs().add(analysis_doc);
 	}
 
