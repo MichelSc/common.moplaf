@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.analysis.AnalysisElementKey#getSheet <em>Sheet</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.AnalysisElementKey#getDocs <em>Docs</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.AnalysisElementKey#getIndexKey <em>Index Key</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisElementKey()
@@ -71,11 +72,37 @@ public interface AnalysisElementKey extends EObject {
 	EList<AnalysisElement> getDocs();
 
 	/**
+	 * Returns the value of the '<em><b>Index Key</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Index Key</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @return the value of the '<em>Index Key</em>' attribute.
+	 * @see #setIndexKey(ElementKey)
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisElementKey_IndexKey()
+	 * @model dataType="com.misc.common.moplaf.analysis.ElementKey" transient="true"
 	 * @generated
 	 */
-	Object getKeyValue();
+	ElementKey getIndexKey();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.AnalysisElementKey#getIndexKey <em>Index Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Index Key</em>' attribute.
+	 * @see #getIndexKey()
+	 * @generated
+	 */
+	void setIndexKey(ElementKey value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="com.misc.common.moplaf.analysis.ElementKey"
+	 * @generated
+	 */
+	ElementKey getKeyValue();
 
 } // AnalysisElementKey

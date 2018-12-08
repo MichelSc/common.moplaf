@@ -4,6 +4,7 @@ package com.misc.common.moplaf.analysis;
 
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -26,7 +27,8 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface AnalysisSheet extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Keys</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Keys</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.analysis.AnalysisElementKey}.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.analysis.AnalysisElementKey#getSheet <em>Sheet</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -34,24 +36,13 @@ public interface AnalysisSheet extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Keys</em>' containment reference.
-	 * @see #setKeys(AnalysisElementKey)
+	 * @return the value of the '<em>Keys</em>' containment reference list.
 	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisSheet_Keys()
 	 * @see com.misc.common.moplaf.analysis.AnalysisElementKey#getSheet
 	 * @model opposite="Sheet" containment="true"
 	 * @generated
 	 */
-	AnalysisElementKey getKeys();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.AnalysisSheet#getKeys <em>Keys</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Keys</em>' containment reference.
-	 * @see #getKeys()
-	 * @generated
-	 */
-	void setKeys(AnalysisElementKey value);
+	EList<AnalysisElementKey> getKeys();
 
 	/**
 	 * Returns the value of the '<em><b>Analysis</b></em>' container reference.
@@ -126,9 +117,17 @@ public interface AnalysisSheet extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model dataType="com.misc.common.moplaf.analysis.ElementKey"
+	 * @generated
+	 */
+	ElementKey getKeyValue(EObject element);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
-	Object getKeyValue(EObject element);
+	void flush();
 
 } // AnalysisSheet

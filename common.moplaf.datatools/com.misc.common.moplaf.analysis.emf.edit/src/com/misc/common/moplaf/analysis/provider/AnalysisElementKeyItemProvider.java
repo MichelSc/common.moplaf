@@ -3,8 +3,10 @@
 package com.misc.common.moplaf.analysis.provider;
 
 
+import com.misc.common.moplaf.analysis.AnalysisElementKey;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 
+import com.misc.common.moplaf.analysis.ElementKey;
 import java.util.Collection;
 import java.util.List;
 
@@ -20,7 +22,9 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.analysis.AnalysisElementKey} object.
@@ -58,6 +62,7 @@ public class AnalysisElementKeyItemProvider
 			super.getPropertyDescriptors(object);
 
 			addDocsPropertyDescriptor(object);
+			addIndexKeyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -85,6 +90,28 @@ public class AnalysisElementKeyItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Index Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIndexKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AnalysisElementKey_IndexKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AnalysisElementKey_IndexKey_feature", "_UI_AnalysisElementKey_type"),
+				 AnalysisPackage.Literals.ANALYSIS_ELEMENT_KEY__INDEX_KEY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns AnalysisElementKey.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,7 +130,11 @@ public class AnalysisElementKeyItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_AnalysisElementKey_type");
+		ElementKey labelValue = ((AnalysisElementKey)object).getIndexKey();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_AnalysisElementKey_type") :
+			getString("_UI_AnalysisElementKey_type") + " " + label;
 	}
 
 
@@ -117,6 +148,12 @@ public class AnalysisElementKeyItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(AnalysisElementKey.class)) {
+			case AnalysisPackage.ANALYSIS_ELEMENT_KEY__INDEX_KEY:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

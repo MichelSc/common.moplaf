@@ -6,6 +6,7 @@ import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.job.JobPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -743,13 +744,22 @@ public interface AnalysisPackage extends EPackage {
 	int ANALYSIS_ELEMENT_KEY__DOCS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Index Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_ELEMENT_KEY__INDEX_KEY = 2;
+
+	/**
 	 * The number of structural features of the '<em>Element Key</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_ELEMENT_KEY_FEATURE_COUNT = 2;
+	int ANALYSIS_ELEMENT_KEY_FEATURE_COUNT = 3;
 
 	/**
 	 * The operation id for the '<em>Get Key Value</em>' operation.
@@ -780,7 +790,7 @@ public interface AnalysisPackage extends EPackage {
 	int ANALYSIS_SHEET = 6;
 
 	/**
-	 * The feature id for the '<em><b>Keys</b></em>' containment reference.
+	 * The feature id for the '<em><b>Keys</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -843,13 +853,22 @@ public interface AnalysisPackage extends EPackage {
 	int ANALYSIS_SHEET___GET_KEY_VALUE__EOBJECT = 2;
 
 	/**
+	 * The operation id for the '<em>Flush</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_SHEET___FLUSH = 3;
+
+	/**
 	 * The number of operations of the '<em>Sheet</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_SHEET_OPERATION_COUNT = 3;
+	int ANALYSIS_SHEET_OPERATION_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisCategoryImpl <em>Category</em>}' class.
@@ -986,6 +1005,17 @@ public interface AnalysisPackage extends EPackage {
 	 * @ordered
 	 */
 	int ANALYSIS_CATEGORY_OPERATION_COUNT = DatatoolsPackage.CATEGORY_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '<em>Element Key</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.analysis.ElementKey
+	 * @see com.misc.common.moplaf.analysis.impl.AnalysisPackageImpl#getElementKey()
+	 * @generated
+	 */
+	int ELEMENT_KEY = 8;
 
 
 	/**
@@ -1457,6 +1487,17 @@ public interface AnalysisPackage extends EPackage {
 	EReference getAnalysisElementKey_Docs();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.analysis.AnalysisElementKey#getIndexKey <em>Index Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Index Key</em>'.
+	 * @see com.misc.common.moplaf.analysis.AnalysisElementKey#getIndexKey()
+	 * @see #getAnalysisElementKey()
+	 * @generated
+	 */
+	EAttribute getAnalysisElementKey_IndexKey();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.AnalysisElementKey#getKeyValue() <em>Get Key Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1477,10 +1518,10 @@ public interface AnalysisPackage extends EPackage {
 	EClass getAnalysisSheet();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.analysis.AnalysisSheet#getKeys <em>Keys</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.analysis.AnalysisSheet#getKeys <em>Keys</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Keys</em>'.
+	 * @return the meta object for the containment reference list '<em>Keys</em>'.
 	 * @see com.misc.common.moplaf.analysis.AnalysisSheet#getKeys()
 	 * @see #getAnalysisSheet()
 	 * @generated
@@ -1540,6 +1581,16 @@ public interface AnalysisPackage extends EPackage {
 	EOperation getAnalysisSheet__GetKeyValue__EObject();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.AnalysisSheet#flush() <em>Flush</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Flush</em>' operation.
+	 * @see com.misc.common.moplaf.analysis.AnalysisSheet#flush()
+	 * @generated
+	 */
+	EOperation getAnalysisSheet__Flush();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.analysis.AnalysisCategory <em>Category</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1559,6 +1610,17 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAnalysisCategory_Analysis();
+
+	/**
+	 * Returns the meta object for data type '{@link com.misc.common.moplaf.analysis.ElementKey <em>Element Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Element Key</em>'.
+	 * @see com.misc.common.moplaf.analysis.ElementKey
+	 * @model instanceClass="com.misc.common.moplaf.analysis.ElementKey"
+	 * @generated
+	 */
+	EDataType getElementKey();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1948,6 +2010,14 @@ public interface AnalysisPackage extends EPackage {
 		EReference ANALYSIS_ELEMENT_KEY__DOCS = eINSTANCE.getAnalysisElementKey_Docs();
 
 		/**
+		 * The meta object literal for the '<em><b>Index Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANALYSIS_ELEMENT_KEY__INDEX_KEY = eINSTANCE.getAnalysisElementKey_IndexKey();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Key Value</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1966,7 +2036,7 @@ public interface AnalysisPackage extends EPackage {
 		EClass ANALYSIS_SHEET = eINSTANCE.getAnalysisSheet();
 
 		/**
-		 * The meta object literal for the '<em><b>Keys</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Keys</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2014,6 +2084,14 @@ public interface AnalysisPackage extends EPackage {
 		EOperation ANALYSIS_SHEET___GET_KEY_VALUE__EOBJECT = eINSTANCE.getAnalysisSheet__GetKeyValue__EObject();
 
 		/**
+		 * The meta object literal for the '<em><b>Flush</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ANALYSIS_SHEET___FLUSH = eINSTANCE.getAnalysisSheet__Flush();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisCategoryImpl <em>Category</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2030,6 +2108,16 @@ public interface AnalysisPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ANALYSIS_CATEGORY__ANALYSIS = eINSTANCE.getAnalysisCategory_Analysis();
+
+		/**
+		 * The meta object literal for the '<em>Element Key</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.analysis.ElementKey
+		 * @see com.misc.common.moplaf.analysis.impl.AnalysisPackageImpl#getElementKey()
+		 * @generated
+		 */
+		EDataType ELEMENT_KEY = eINSTANCE.getElementKey();
 
 	}
 

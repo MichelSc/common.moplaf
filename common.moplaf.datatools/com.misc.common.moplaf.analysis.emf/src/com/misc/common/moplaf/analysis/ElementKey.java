@@ -8,13 +8,13 @@
  * Contributors:
  *     Michel Schaffers - initial API and implementation
  *******************************************************************************/
-package com.misc.common.moplaf.dbsynch;
+package com.misc.common.moplaf.analysis;
 
 import com.misc.common.moplaf.common.CompositeKey;
 
-public class TableRowKey extends CompositeKey {
+public class ElementKey extends CompositeKey {
 
-	public TableRowKey(Object[] keys) {
+	public ElementKey(Object[] keys) {
 		super(keys);
 	}
 }

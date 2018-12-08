@@ -122,10 +122,14 @@ public class PropertiesProvider implements IPropertiesProvider {
 	/*
 	 * Convenience methods for adding an path/attribute property
 	 */
-	public Property addProperty(EReference[] refs, EAttribute attribute, int width, int aggregation) {
+	public Property addProperty(EReference[] refs, EAttribute attribute, int width, int aggregation, int traits) {
 		PropertyFeature property_feature = new PropertyFeature(refs, attribute, width, aggregation);
+		property_feature.setPropertyTraits(traits);
 		this.properties.add(property_feature);
 		return property_feature;
+	}
+	public Property addProperty(EReference[] refs, EAttribute attribute, int width, int aggregation) {
+		return this.addProperty(refs, attribute, width, aggregation, TRAITS_NONE);
 	}
 	public Property addProperty(EReference[] refs, EAttribute attribute, int width) {
 		return this.addProperty(refs, attribute, width, AGGREGATE_NONE);
@@ -138,9 +142,12 @@ public class PropertiesProvider implements IPropertiesProvider {
 	/*
 	 * Convenience method for adding an attribute column
 	 */
-	public Property addProperty(EAttribute attribute, int width, int aggregation) {
+	public Property addProperty(EAttribute attribute, int width, int aggregation, int traits) {
 		EReference[] empty_path = {};
-		return this.addProperty(empty_path , attribute, width, aggregation);
+		return this.addProperty(empty_path , attribute, width, aggregation, traits);
+	}
+	public Property addProperty(EAttribute attribute, int width, int aggregation) {
+		return this.addProperty(attribute, width, aggregation, TRAITS_NONE);
 	}
 
 	public Property addProperty(EAttribute attribute, int width) {
@@ -150,7 +157,6 @@ public class PropertiesProvider implements IPropertiesProvider {
 	public Property addProperty(EAttribute attribute) {
 		return this.addProperty(attribute, DEFAULT_WIDTH, AGGREGATE_NONE);
 	}
-
 	
 	/**
 	 * Specified by IPropertiesProvider

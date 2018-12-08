@@ -7,6 +7,7 @@ import com.misc.common.moplaf.analysis.AnalysisElementKey;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 
 import com.misc.common.moplaf.analysis.AnalysisSheet;
+import com.misc.common.moplaf.analysis.ElementKey;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisElementKeyImpl#getSheet <em>Sheet</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisElementKeyImpl#getDocs <em>Docs</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisElementKeyImpl#getIndexKey <em>Index Key</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,6 +52,25 @@ public class AnalysisElementKeyImpl extends MinimalEObjectImpl.Container impleme
 	 * @ordered
 	 */
 	protected EList<AnalysisElement> docs;
+
+	/**
+	 * The default value of the '{@link #getIndexKey() <em>Index Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIndexKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ElementKey INDEX_KEY_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getIndexKey() <em>Index Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIndexKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected ElementKey indexKey = INDEX_KEY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -128,7 +149,28 @@ public class AnalysisElementKeyImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getKeyValue() {
+	public ElementKey getIndexKey() {
+		return indexKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIndexKey(ElementKey newIndexKey) {
+		ElementKey oldIndexKey = indexKey;
+		indexKey = newIndexKey;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.ANALYSIS_ELEMENT_KEY__INDEX_KEY, oldIndexKey, indexKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ElementKey getKeyValue() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -195,6 +237,8 @@ public class AnalysisElementKeyImpl extends MinimalEObjectImpl.Container impleme
 				return getSheet();
 			case AnalysisPackage.ANALYSIS_ELEMENT_KEY__DOCS:
 				return getDocs();
+			case AnalysisPackage.ANALYSIS_ELEMENT_KEY__INDEX_KEY:
+				return getIndexKey();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -215,6 +259,9 @@ public class AnalysisElementKeyImpl extends MinimalEObjectImpl.Container impleme
 				getDocs().clear();
 				getDocs().addAll((Collection<? extends AnalysisElement>)newValue);
 				return;
+			case AnalysisPackage.ANALYSIS_ELEMENT_KEY__INDEX_KEY:
+				setIndexKey((ElementKey)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -233,6 +280,9 @@ public class AnalysisElementKeyImpl extends MinimalEObjectImpl.Container impleme
 			case AnalysisPackage.ANALYSIS_ELEMENT_KEY__DOCS:
 				getDocs().clear();
 				return;
+			case AnalysisPackage.ANALYSIS_ELEMENT_KEY__INDEX_KEY:
+				setIndexKey(INDEX_KEY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -249,6 +299,8 @@ public class AnalysisElementKeyImpl extends MinimalEObjectImpl.Container impleme
 				return getSheet() != null;
 			case AnalysisPackage.ANALYSIS_ELEMENT_KEY__DOCS:
 				return docs != null && !docs.isEmpty();
+			case AnalysisPackage.ANALYSIS_ELEMENT_KEY__INDEX_KEY:
+				return INDEX_KEY_EDEFAULT == null ? indexKey != null : !INDEX_KEY_EDEFAULT.equals(indexKey);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -265,6 +317,22 @@ public class AnalysisElementKeyImpl extends MinimalEObjectImpl.Container impleme
 				return getKeyValue();
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (IndexKey: ");
+		result.append(indexKey);
+		result.append(')');
+		return result.toString();
 	}
 
 } //AnalysisElementKeyImpl

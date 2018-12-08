@@ -5,12 +5,19 @@ package com.misc.common.moplaf.analysis.impl;
 import com.misc.common.moplaf.analysis.Analysis;
 import com.misc.common.moplaf.analysis.AnalysisElement;
 import com.misc.common.moplaf.analysis.AnalysisElementKey;
+import com.misc.common.moplaf.analysis.AnalysisFactory;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 import com.misc.common.moplaf.analysis.AnalysisSheet;
 
+import com.misc.common.moplaf.analysis.ElementKey;
+import com.misc.common.moplaf.common.Constants;
+import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -24,7 +31,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,15 +51,69 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * @generated
  */
 public class AnalysisSheetImpl extends MinimalEObjectImpl.Container implements AnalysisSheet {
+	
 	/**
-	 * The cached value of the '{@link #getKeys() <em>Keys</em>}' containment reference.
+	 * Index on the key objects
+	 */
+	private HashMap<ElementKey, AnalysisElementKey> analysisKeyIndex = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	private void indexAnalysisKey(AnalysisElementKey element_key, ElementKey key) {
+		if ( this.analysisKeyIndex!=null){
+			this.analysisKeyIndex.put(key, element_key);
+			element_key.setIndexKey(key);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	private void unindexAnalysisKey(AnalysisElementKey element_key) {
+		if ( analysisKeyIndex!=null){
+			this.analysisKeyIndex.remove(element_key.getIndexKey());
+			element_key.setIndexKey(null);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	private void refreshIndex() {
+		// brute force refresh
+		// we will do beter when we will know how the refresh is needed
+		this.analysisKeyIndex = new HashMap<ElementKey, AnalysisElementKey>();
+		for ( AnalysisElementKey element_key : this.getKeys()){
+			ElementKey key = this.getKeyValue(element_key);
+			this.indexAnalysisKey(element_key, key);
+		}
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	private AnalysisElementKey getAnalysisElementKey(ElementKey key) {
+		if ( this.analysisKeyIndex==null){
+			this.refreshIndex();
+		}
+		AnalysisElementKey element_key = this.analysisKeyIndex.get(key);
+		return element_key;
+	}
+
+	/**
+	 * The cached value of the '{@link #getKeys() <em>Keys</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getKeys()
 	 * @generated
 	 * @ordered
 	 */
-	protected AnalysisElementKey keys;
+	protected EList<AnalysisElementKey> keys;
 
 	/**
 	 * The cached value of the '{@link #getColumnizer() <em>Columnizer</em>}' reference.
@@ -86,42 +149,11 @@ public class AnalysisSheetImpl extends MinimalEObjectImpl.Container implements A
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AnalysisElementKey getKeys() {
+	public EList<AnalysisElementKey> getKeys() {
+		if (keys == null) {
+			keys = new EObjectContainmentWithInverseEList<AnalysisElementKey>(AnalysisElementKey.class, this, AnalysisPackage.ANALYSIS_SHEET__KEYS, AnalysisPackage.ANALYSIS_ELEMENT_KEY__SHEET);
+		}
 		return keys;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetKeys(AnalysisElementKey newKeys, NotificationChain msgs) {
-		AnalysisElementKey oldKeys = keys;
-		keys = newKeys;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AnalysisPackage.ANALYSIS_SHEET__KEYS, oldKeys, newKeys);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setKeys(AnalysisElementKey newKeys) {
-		if (newKeys != keys) {
-			NotificationChain msgs = null;
-			if (keys != null)
-				msgs = ((InternalEObject)keys).eInverseRemove(this, AnalysisPackage.ANALYSIS_ELEMENT_KEY__SHEET, AnalysisElementKey.class, msgs);
-			if (newKeys != null)
-				msgs = ((InternalEObject)newKeys).eInverseAdd(this, AnalysisPackage.ANALYSIS_ELEMENT_KEY__SHEET, AnalysisElementKey.class, msgs);
-			msgs = basicSetKeys(newKeys, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.ANALYSIS_SHEET__KEYS, newKeys, newKeys));
 	}
 
 	/**
@@ -206,23 +238,56 @@ public class AnalysisSheetImpl extends MinimalEObjectImpl.Container implements A
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void addElement(AnalysisElement element) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		ElementKey key = this.getKeyValue(element.getElement());
+		AnalysisElementKey  element_key = this.getAnalysisElementKey(key);
+		if ( element_key == null) {
+			element_key = AnalysisFactory.eINSTANCE.createAnalysisElementKey();
+			this.getKeys().add(element_key);
+			this.indexAnalysisKey(element_key, key);
+		}
+		element_key.getDocs().add(element);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void removeElement(AnalysisElement element) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		ElementKey key = this.getKeyValue(element);
+		AnalysisElementKey  element_key = this.getAnalysisElementKey(key);
+		element_key.getDocs().remove(element);
+		if ( element_key.getDocs().size()==0 ) {
+			this.unindexAnalysisKey(element_key);
+			this.getKeys().remove(element_key);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public ElementKey getKeyValue(EObject element) {
+		IPropertiesProvider properties = this.getColumnizer().getPropertiesProvider();
+		ArrayList<Object> keys = new ArrayList<>();
+		for ( Object property : properties.getProperties()) {
+			if ( (properties.getPropertyTraits(property)&Constants.TRAITS_KEY) == Constants.TRAITS_KEY) {
+				keys.add(properties.getPropertyValue(element, property));
+			}
+		}
+		if ( keys.size()==0 ) {
+			keys.add(element);
+		}
+		return new ElementKey(keys.toArray());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void flush() {
+		this.getKeys().clear();
 	}
 
 	/**
@@ -230,24 +295,12 @@ public class AnalysisSheetImpl extends MinimalEObjectImpl.Container implements A
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getKeyValue(EObject element) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AnalysisPackage.ANALYSIS_SHEET__KEYS:
-				if (keys != null)
-					msgs = ((InternalEObject)keys).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AnalysisPackage.ANALYSIS_SHEET__KEYS, null, msgs);
-				return basicSetKeys((AnalysisElementKey)otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getKeys()).basicAdd(otherEnd, msgs);
 			case AnalysisPackage.ANALYSIS_SHEET__ANALYSIS:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -265,7 +318,7 @@ public class AnalysisSheetImpl extends MinimalEObjectImpl.Container implements A
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AnalysisPackage.ANALYSIS_SHEET__KEYS:
-				return basicSetKeys(null, msgs);
+				return ((InternalEList<?>)getKeys()).basicRemove(otherEnd, msgs);
 			case AnalysisPackage.ANALYSIS_SHEET__ANALYSIS:
 				return basicSetAnalysis(null, msgs);
 		}
@@ -310,11 +363,13 @@ public class AnalysisSheetImpl extends MinimalEObjectImpl.Container implements A
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case AnalysisPackage.ANALYSIS_SHEET__KEYS:
-				setKeys((AnalysisElementKey)newValue);
+				getKeys().clear();
+				getKeys().addAll((Collection<? extends AnalysisElementKey>)newValue);
 				return;
 			case AnalysisPackage.ANALYSIS_SHEET__ANALYSIS:
 				setAnalysis((Analysis)newValue);
@@ -335,7 +390,7 @@ public class AnalysisSheetImpl extends MinimalEObjectImpl.Container implements A
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case AnalysisPackage.ANALYSIS_SHEET__KEYS:
-				setKeys((AnalysisElementKey)null);
+				getKeys().clear();
 				return;
 			case AnalysisPackage.ANALYSIS_SHEET__ANALYSIS:
 				setAnalysis((Analysis)null);
@@ -356,7 +411,7 @@ public class AnalysisSheetImpl extends MinimalEObjectImpl.Container implements A
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case AnalysisPackage.ANALYSIS_SHEET__KEYS:
-				return keys != null;
+				return keys != null && !keys.isEmpty();
 			case AnalysisPackage.ANALYSIS_SHEET__ANALYSIS:
 				return getAnalysis() != null;
 			case AnalysisPackage.ANALYSIS_SHEET__COLUMNIZER:
@@ -381,6 +436,9 @@ public class AnalysisSheetImpl extends MinimalEObjectImpl.Container implements A
 				return null;
 			case AnalysisPackage.ANALYSIS_SHEET___GET_KEY_VALUE__EOBJECT:
 				return getKeyValue((EObject)arguments.get(0));
+			case AnalysisPackage.ANALYSIS_SHEET___FLUSH:
+				flush();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

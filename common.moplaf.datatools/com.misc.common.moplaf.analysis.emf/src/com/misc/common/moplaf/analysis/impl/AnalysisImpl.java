@@ -639,6 +639,9 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 		for ( AnalysisDoc doc : this.getDocs()) {
 			doc.flush();
 		}
+		for ( AnalysisSheet sheet : this.getSheets()) {
+			sheet.flush();
+		}
 	}
 
 	/**

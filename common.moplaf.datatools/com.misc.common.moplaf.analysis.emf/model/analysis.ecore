@@ -91,11 +91,13 @@
         eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//CategoryAbstract"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AnalysisElementKey">
-    <eOperations name="getKeyValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eOperations name="getKeyValue" eType="#//ElementKey"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Sheet" lowerBound="1" eType="#//AnalysisSheet"
         eOpposite="#//AnalysisSheet/Keys"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Docs" upperBound="-1" eType="#//AnalysisElement"
         eOpposite="#//AnalysisElement/Key"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IndexKey" eType="#//ElementKey"
+        transient="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AnalysisSheet">
     <eOperations name="addElement">
@@ -104,10 +106,11 @@
     <eOperations name="removeElement">
       <eParameters name="element" eType="#//AnalysisElement"/>
     </eOperations>
-    <eOperations name="getKeyValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
+    <eOperations name="getKeyValue" eType="#//ElementKey">
       <eParameters name="element" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Keys" eType="#//AnalysisElementKey"
+    <eOperations name="flush"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Keys" upperBound="-1" eType="#//AnalysisElementKey"
         containment="true" eOpposite="#//AnalysisElementKey/Sheet"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Analysis" lowerBound="1"
         eType="#//Analysis" eOpposite="#//Analysis/Sheets"/>
@@ -117,4 +120,5 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Analysis" lowerBound="1"
         eType="#//Analysis" changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="ElementKey" instanceClassName="com.misc.common.moplaf.analysis.ElementKey"/>
 </ecore:EPackage>

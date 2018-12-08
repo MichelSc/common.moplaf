@@ -58,7 +58,6 @@ public class AnalysisElementItemProvider
 			super.getPropertyDescriptors(object);
 
 			addKeyPropertyDescriptor(object);
-			addElementPropertyDescriptor(object);
 			addCategoryPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -78,28 +77,6 @@ public class AnalysisElementItemProvider
 				 getString("_UI_AnalysisElement_Key_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AnalysisElement_Key_feature", "_UI_AnalysisElement_type"),
 				 AnalysisPackage.Literals.ANALYSIS_ELEMENT__KEY,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Element feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addElementPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AnalysisElement_Element_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AnalysisElement_Element_feature", "_UI_AnalysisElement_type"),
-				 AnalysisPackage.Literals.ANALYSIS_ELEMENT__ELEMENT,
 				 true,
 				 false,
 				 true,
