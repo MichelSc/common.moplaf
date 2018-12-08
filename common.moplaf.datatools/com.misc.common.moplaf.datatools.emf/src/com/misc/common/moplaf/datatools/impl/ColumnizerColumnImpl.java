@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl#getColumnWidth <em>Column Width</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl#getColumnizer <em>Columnizer</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl#getAggregationType <em>Aggregation Type</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl#isKey <em>Key</em>}</li>
  * </ul>
  *
  * @generated
@@ -98,6 +99,26 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	 * @ordered
 	 */
 	protected AggregationType aggregationType = AGGREGATION_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isKey() <em>Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean KEY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isKey() <em>Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean key = KEY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -227,6 +248,27 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isKey() {
+		return key;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setKey(boolean newKey) {
+		boolean oldKey = key;
+		key = newKey;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.COLUMNIZER_COLUMN__KEY, oldKey, key));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object getValue(EObject object) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -305,6 +347,8 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 				return getColumnizer();
 			case DatatoolsPackage.COLUMNIZER_COLUMN__AGGREGATION_TYPE:
 				return getAggregationType();
+			case DatatoolsPackage.COLUMNIZER_COLUMN__KEY:
+				return isKey();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -330,6 +374,9 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 			case DatatoolsPackage.COLUMNIZER_COLUMN__AGGREGATION_TYPE:
 				setAggregationType((AggregationType)newValue);
 				return;
+			case DatatoolsPackage.COLUMNIZER_COLUMN__KEY:
+				setKey((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -354,6 +401,9 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 			case DatatoolsPackage.COLUMNIZER_COLUMN__AGGREGATION_TYPE:
 				setAggregationType(AGGREGATION_TYPE_EDEFAULT);
 				return;
+			case DatatoolsPackage.COLUMNIZER_COLUMN__KEY:
+				setKey(KEY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -374,6 +424,8 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 				return getColumnizer() != null;
 			case DatatoolsPackage.COLUMNIZER_COLUMN__AGGREGATION_TYPE:
 				return aggregationType != AGGREGATION_TYPE_EDEFAULT;
+			case DatatoolsPackage.COLUMNIZER_COLUMN__KEY:
+				return key != KEY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -410,6 +462,8 @@ public abstract class ColumnizerColumnImpl extends MinimalEObjectImpl.Container 
 		result.append(columnWidth);
 		result.append(", AggregationType: ");
 		result.append(aggregationType);
+		result.append(", Key: ");
+		result.append(key);
 		result.append(')');
 		return result.toString();
 	}

@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnWidth <em>Column Width</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnizer <em>Columnizer</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getAggregationType <em>Aggregation Type</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.ColumnizerColumn#isKey <em>Key</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getColumnizerColumn()
@@ -133,6 +134,32 @@ public interface ColumnizerColumn extends EObject {
 	 * @generated
 	 */
 	void setAggregationType(AggregationType value);
+
+	/**
+	 * Returns the value of the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Key</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Key</em>' attribute.
+	 * @see #setKey(boolean)
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getColumnizerColumn_Key()
+	 * @model
+	 * @generated
+	 */
+	boolean isKey();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#isKey <em>Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Key</em>' attribute.
+	 * @see #isKey()
+	 * @generated
+	 */
+	void setKey(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

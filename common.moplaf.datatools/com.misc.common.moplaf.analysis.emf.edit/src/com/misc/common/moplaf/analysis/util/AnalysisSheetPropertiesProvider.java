@@ -10,11 +10,20 @@ import com.misc.common.moplaf.analysis.AnalysisDoc;
 import com.misc.common.moplaf.analysis.AnalysisElement;
 import com.misc.common.moplaf.analysis.AnalysisElementKey;
 import com.misc.common.moplaf.common.IPropertiesProvider;
+import com.misc.common.moplaf.datatools.CategoryAbstract;
 
 public class AnalysisSheetPropertiesProvider implements IPropertiesProvider {
-	
 	private AnalysisSheet sheet;
 	private EList<AnalysisDoc> docs;
+	private CategoryAbstract category;
+
+	public AnalysisSheetPropertiesProvider(AnalysisSheet sheet, EList<AnalysisDoc> docs, CategoryAbstract category) {
+		super();
+		this.sheet = sheet;
+		this.docs = docs;
+		this.category = category;
+	}
+
 	private class Property {
 		private Object property;
 		private AnalysisDoc doc;
@@ -40,12 +49,6 @@ public class AnalysisSheetPropertiesProvider implements IPropertiesProvider {
 		public boolean isDoc() {
 			return this.doc!=null;
 		}
-	}
-
-	public AnalysisSheetPropertiesProvider(AnalysisSheet sheet, EList<AnalysisDoc> docs) {
-		super();
-		this.sheet = sheet;
-		this.docs = docs;
 	}
 
 	@Override
@@ -85,6 +88,9 @@ public class AnalysisSheetPropertiesProvider implements IPropertiesProvider {
 		AnalysisElementKey keyElement = (AnalysisElementKey)element;
 		AnalysisElement analysisElement = keyElement.getElement(analysisProperty.getDoc());
 		if ( analysisElement==null) {
+			return null;
+		}
+		if ( !analysisElement.isInCategory(this.category)) {
 			return null;
 		}
 		EObject object = analysisElement.getElement();

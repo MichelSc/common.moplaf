@@ -572,7 +572,7 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider implement
 		
 		PropertiesProviderGridsProvider grids_provider = PropertiesProviderGridsProvider.constructPropertiesProviderGridsProvider();
 		for ( AnalysisSheet sheet : analysis.getSheets()) {
-			IPropertiesProvider properties = new AnalysisSheetPropertiesProvider(sheet, docs);
+			IPropertiesProvider properties = new AnalysisSheetPropertiesProvider(sheet, docs, analysis);
 			String sheet_name = sheet.getColumnizer().getSheetLabel();
 			grids_provider.addSheet(sheet_name, sheet.getKeys(), properties).setAggregation(false);
 		}

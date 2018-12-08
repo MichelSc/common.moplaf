@@ -200,7 +200,7 @@ public class AnalysisDocItemProvider extends DocRefItemProvider implements IItem
 		
 		PropertiesProviderGridsProvider grids_provider = PropertiesProviderGridsProvider.constructPropertiesProviderGridsProvider();
 		for ( AnalysisSheet sheet : analysis.getSheets()) {
-			IPropertiesProvider properties = new AnalysisSheetPropertiesProvider(sheet, docs);
+			IPropertiesProvider properties = new AnalysisSheetPropertiesProvider(sheet, docs, analysis);
 			List<AnalysisElementKey> keys = doc.getElements().stream().map(e -> e.getKey()).collect(Collectors.toList());
 			String sheet_name = sheet.getColumnizer().getSheetLabel();
 			grids_provider.addSheet(sheet_name, keys, properties).setAggregation(false);

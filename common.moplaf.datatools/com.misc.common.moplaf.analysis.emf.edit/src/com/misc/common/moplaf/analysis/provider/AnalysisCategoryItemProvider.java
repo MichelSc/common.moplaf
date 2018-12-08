@@ -3,28 +3,39 @@
 package com.misc.common.moplaf.analysis.provider;
 
 
+import com.misc.common.moplaf.analysis.Analysis;
 import com.misc.common.moplaf.analysis.AnalysisCategory;
+import com.misc.common.moplaf.analysis.AnalysisDoc;
+import com.misc.common.moplaf.analysis.AnalysisElement;
+import com.misc.common.moplaf.analysis.AnalysisElementKey;
 import com.misc.common.moplaf.analysis.AnalysisFactory;
+import com.misc.common.moplaf.analysis.AnalysisSheet;
+import com.misc.common.moplaf.analysis.util.AnalysisSheetPropertiesProvider;
+import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
 import com.misc.common.moplaf.datatools.provider.CategoryItemProvider;
+import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
+import com.misc.common.moplaf.gridview.emf.edit.util.PropertiesProviderGridsProvider;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.analysis.AnalysisCategory} object.
  * <!-- begin-user-doc -->
+ * @implements IItemGridsProvider
  * <!-- end-user-doc -->
  * @generated
  */
-public class AnalysisCategoryItemProvider extends CategoryItemProvider {
+public class AnalysisCategoryItemProvider extends CategoryItemProvider implements IItemGridsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -103,4 +114,22 @@ public class AnalysisCategoryItemProvider extends CategoryItemProvider {
 		return AnalysisEditPlugin.INSTANCE;
 	}
 
+	/**
+	 * Specified by com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider 
+	 */
+	@Override
+	public Object getGrids(Object element) {
+		AnalysisCategory category = (AnalysisCategory)element;
+		Analysis analysis = category.getAnalysis();
+		EList<AnalysisDoc> docs = analysis.getDocs();
+		
+		PropertiesProviderGridsProvider grids_provider = PropertiesProviderGridsProvider.constructPropertiesProviderGridsProvider();
+		for ( AnalysisSheet sheet : analysis.getSheets()) {
+			IPropertiesProvider properties = new AnalysisSheetPropertiesProvider(sheet, docs, category);
+			List<AnalysisElementKey> keys = category.getElements().stream().map(e -> ((AnalysisElement)e).getKey()).collect(Collectors.toList());
+			String sheet_name = sheet.getColumnizer().getSheetLabel();
+			grids_provider.addSheet(sheet_name, keys, properties).setAggregation(false);
+		}
+		return grids_provider;
+	}
 }

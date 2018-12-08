@@ -3607,13 +3607,22 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_COLUMN__AGGREGATION_TYPE = 3;
 
 	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN__KEY = 4;
+
+	/**
 	 * The number of structural features of the '<em>Columnizer Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_FEATURE_COUNT = 4;
+	int COLUMNIZER_COLUMN_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Get Value</em>' operation.
@@ -3751,13 +3760,22 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_COLUMN_ATTRIBUTE__AGGREGATION_TYPE = NAVIGATION_PATH_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_ATTRIBUTE__KEY = NAVIGATION_PATH_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Attribute</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE__ATTRIBUTE = NAVIGATION_PATH_FEATURE_COUNT + 4;
+	int COLUMNIZER_COLUMN_ATTRIBUTE__ATTRIBUTE = NAVIGATION_PATH_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Columnizer Column Attribute</em>' class.
@@ -3766,7 +3784,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE_FEATURE_COUNT = NAVIGATION_PATH_FEATURE_COUNT + 5;
+	int COLUMNIZER_COLUMN_ATTRIBUTE_FEATURE_COUNT = NAVIGATION_PATH_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get Type</em>' operation.
@@ -3839,6 +3857,15 @@ public interface DatatoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COLUMNIZER_COLUMN_OCL__AGGREGATION_TYPE = COLUMNIZER_COLUMN__AGGREGATION_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_OCL__KEY = COLUMNIZER_COLUMN__KEY;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' attribute.
@@ -5286,6 +5313,17 @@ public interface DatatoolsPackage extends EPackage {
 	EAttribute getColumnizerColumn_AggregationType();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#isKey <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key</em>'.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerColumn#isKey()
+	 * @see #getColumnizerColumn()
+	 * @generated
+	 */
+	EAttribute getColumnizerColumn_Key();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getValue(org.eclipse.emf.ecore.EObject) <em>Get Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6441,6 +6479,14 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COLUMNIZER_COLUMN__AGGREGATION_TYPE = eINSTANCE.getColumnizerColumn_AggregationType();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMNIZER_COLUMN__KEY = eINSTANCE.getColumnizerColumn_Key();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Value</b></em>' operation.

@@ -377,6 +377,19 @@ public class ColumnizerImpl extends ColumnizerAbstractImpl implements Columnizer
 		AggregationType aggregation = column.getAggregationType();
 		return aggregation.toIPropertiesProviderAggregation();
 	}
+	
+	/**
+	 * Specified by IPropertiesProvider
+	 */
+	@Override
+	public int getPropertyTraits(Object property) {
+		ColumnizerColumn column = (ColumnizerColumn)property;
+		int traits = TRAITS_NONE;
+		if ( column.isKey() ) {
+			traits &= TRAITS_KEY;
+		}
+		return traits;
+	}
 
 	/**
 	 * Specified by IPropertiesProvider
