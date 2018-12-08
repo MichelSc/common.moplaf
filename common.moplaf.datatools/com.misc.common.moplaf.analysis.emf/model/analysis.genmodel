@@ -79,6 +79,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisElementKey/Docs"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//AnalysisElementKey/IndexKey"/>
       <genOperations ecoreOperation="analysis.ecore#//AnalysisElementKey/getKeyValue"/>
+      <genOperations ecoreOperation="analysis.ecore#//AnalysisElementKey/getElement">
+        <genParameters ecoreParameter="analysis.ecore#//AnalysisElementKey/getElement/doc"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="analysis.ecore#//AnalysisSheet">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisSheet/Keys"/>

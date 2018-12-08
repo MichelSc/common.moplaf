@@ -771,13 +771,22 @@ public interface AnalysisPackage extends EPackage {
 	int ANALYSIS_ELEMENT_KEY___GET_KEY_VALUE = 0;
 
 	/**
+	 * The operation id for the '<em>Get Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_ELEMENT_KEY___GET_ELEMENT__ANALYSISDOC = 1;
+
+	/**
 	 * The number of operations of the '<em>Element Key</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_ELEMENT_KEY_OPERATION_COUNT = 1;
+	int ANALYSIS_ELEMENT_KEY_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisSheetImpl <em>Sheet</em>}' class.
@@ -1508,6 +1517,16 @@ public interface AnalysisPackage extends EPackage {
 	EOperation getAnalysisElementKey__GetKeyValue();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.AnalysisElementKey#getElement(com.misc.common.moplaf.analysis.AnalysisDoc) <em>Get Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Element</em>' operation.
+	 * @see com.misc.common.moplaf.analysis.AnalysisElementKey#getElement(com.misc.common.moplaf.analysis.AnalysisDoc)
+	 * @generated
+	 */
+	EOperation getAnalysisElementKey__GetElement__AnalysisDoc();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.analysis.AnalysisSheet <em>Sheet</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2024,6 +2043,14 @@ public interface AnalysisPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ANALYSIS_ELEMENT_KEY___GET_KEY_VALUE = eINSTANCE.getAnalysisElementKey__GetKeyValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ANALYSIS_ELEMENT_KEY___GET_ELEMENT__ANALYSISDOC = eINSTANCE.getAnalysisElementKey__GetElement__AnalysisDoc();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisSheetImpl <em>Sheet</em>}' class.

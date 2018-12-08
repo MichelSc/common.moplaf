@@ -4,8 +4,11 @@ package com.misc.common.moplaf.analysis.provider;
 
 
 import com.misc.common.moplaf.analysis.AnalysisPackage;
-
+import com.misc.common.moplaf.analysis.AnalysisSheet;
+import com.misc.common.moplaf.analysis.util.AnalysisSheetPropertiesProvider;
+import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.analysis.Analysis;
+import com.misc.common.moplaf.analysis.AnalysisDoc;
 import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
@@ -14,6 +17,8 @@ import com.misc.common.moplaf.datatools.provider.CategoryAbstractItemProvider;
 import com.misc.common.moplaf.emf.edit.command.BaseCommand;
 import com.misc.common.moplaf.emf.edit.command.FlushCommand;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
+import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
+import com.misc.common.moplaf.gridview.emf.edit.util.PropertiesProviderGridsProvider;
 import com.misc.common.moplaf.job.Doc;
 
 import java.util.Collection;
@@ -23,7 +28,7 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -38,10 +43,11 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.analysis.Analysis} object.
  * <!-- begin-user-doc -->
+ * @implements IItemGridsProvider
  * <!-- end-user-doc -->
  * @generated
  */
-public class AnalysisItemProvider extends CategoryAbstractItemProvider {
+public class AnalysisItemProvider extends CategoryAbstractItemProvider implements IItemGridsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -555,5 +561,22 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider {
 			int operation, Collection<?> collection) {
 		return new DataToolsDropCommand(domain, owner, location, operations, operation, collection);
 	}
-	
+
+	/**
+	 * Specified by com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider 
+	 */
+	@Override
+	public Object getGrids(Object element) {
+		Analysis analysis = (Analysis)element;
+		EList<AnalysisDoc> docs = analysis.getDocs();
+		
+		PropertiesProviderGridsProvider grids_provider = PropertiesProviderGridsProvider.constructPropertiesProviderGridsProvider();
+		for ( AnalysisSheet sheet : analysis.getSheets()) {
+			IPropertiesProvider properties = new AnalysisSheetPropertiesProvider(sheet, docs);
+			String sheet_name = sheet.getColumnizer().getSheetLabel();
+			grids_provider.addSheet(sheet_name, sheet.getKeys(), properties).setAggregation(false);
+		}
+		return grids_provider;
+	}
+
 }

@@ -582,6 +582,15 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getAnalysisElementKey__GetElement__AnalysisDoc() {
+		return analysisElementKeyEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAnalysisSheet() {
 		return analysisSheetEClass;
 	}
@@ -755,6 +764,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		createEReference(analysisElementKeyEClass, ANALYSIS_ELEMENT_KEY__DOCS);
 		createEAttribute(analysisElementKeyEClass, ANALYSIS_ELEMENT_KEY__INDEX_KEY);
 		createEOperation(analysisElementKeyEClass, ANALYSIS_ELEMENT_KEY___GET_KEY_VALUE);
+		createEOperation(analysisElementKeyEClass, ANALYSIS_ELEMENT_KEY___GET_ELEMENT__ANALYSISDOC);
 
 		analysisSheetEClass = createEClass(ANALYSIS_SHEET);
 		createEReference(analysisSheetEClass, ANALYSIS_SHEET__KEYS);
@@ -885,6 +895,9 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		initEAttribute(getAnalysisElementKey_IndexKey(), this.getElementKey(), "IndexKey", null, 0, 1, AnalysisElementKey.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getAnalysisElementKey__GetKeyValue(), this.getElementKey(), "getKeyValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getAnalysisElementKey__GetElement__AnalysisDoc(), this.getAnalysisElement(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getAnalysisDoc(), "doc", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(analysisSheetEClass, AnalysisSheet.class, "AnalysisSheet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAnalysisSheet_Keys(), this.getAnalysisElementKey(), this.getAnalysisElementKey_Sheet(), "Keys", null, 0, -1, AnalysisSheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

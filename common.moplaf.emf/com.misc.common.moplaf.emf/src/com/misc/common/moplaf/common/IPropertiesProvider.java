@@ -365,4 +365,9 @@ public interface IPropertiesProvider extends Constants{
 		}
 		return "unknown";
 	}
+	default public boolean isPropertyKey(Object property) {
+		int traits = this.getPropertyTraits(property);
+		boolean iskey = (traits&TRAITS_KEY)==TRAITS_KEY;
+		return iskey;
+	}
 }

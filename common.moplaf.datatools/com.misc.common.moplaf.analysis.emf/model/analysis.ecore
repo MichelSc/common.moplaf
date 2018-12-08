@@ -92,6 +92,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AnalysisElementKey">
     <eOperations name="getKeyValue" eType="#//ElementKey"/>
+    <eOperations name="getElement" eType="#//AnalysisElement">
+      <eParameters name="doc" eType="#//AnalysisDoc"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Sheet" lowerBound="1" eType="#//AnalysisSheet"
         eOpposite="#//AnalysisSheet/Keys"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Docs" upperBound="-1" eType="#//AnalysisElement"

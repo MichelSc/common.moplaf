@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.analysis.impl;
 
+import com.misc.common.moplaf.analysis.AnalysisDoc;
 import com.misc.common.moplaf.analysis.AnalysisElement;
 import com.misc.common.moplaf.analysis.AnalysisElementKey;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
@@ -168,12 +169,21 @@ public class AnalysisElementKeyImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public ElementKey getKeyValue() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return indexKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public AnalysisElement getElement(AnalysisDoc doc) {
+		if ( doc==null ) {
+			return this.getDocs().get(0);
+		} else {
+			return this.getDocs().stream().filter(e -> e.getDoc()==doc).findAny().orElse(null);
+		}
 	}
 
 	/**
@@ -315,6 +325,8 @@ public class AnalysisElementKeyImpl extends MinimalEObjectImpl.Container impleme
 		switch (operationID) {
 			case AnalysisPackage.ANALYSIS_ELEMENT_KEY___GET_KEY_VALUE:
 				return getKeyValue();
+			case AnalysisPackage.ANALYSIS_ELEMENT_KEY___GET_ELEMENT__ANALYSISDOC:
+				return getElement((AnalysisDoc)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

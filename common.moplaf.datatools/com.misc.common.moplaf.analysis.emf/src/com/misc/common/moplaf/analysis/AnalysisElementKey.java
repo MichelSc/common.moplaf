@@ -105,4 +105,12 @@ public interface AnalysisElementKey extends EObject {
 	 */
 	ElementKey getKeyValue();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	AnalysisElement getElement(AnalysisDoc doc);
+
 } // AnalysisElementKey

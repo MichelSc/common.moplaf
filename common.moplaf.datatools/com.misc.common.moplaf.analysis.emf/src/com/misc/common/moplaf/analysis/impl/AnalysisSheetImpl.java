@@ -10,7 +10,6 @@ import com.misc.common.moplaf.analysis.AnalysisPackage;
 import com.misc.common.moplaf.analysis.AnalysisSheet;
 
 import com.misc.common.moplaf.analysis.ElementKey;
-import com.misc.common.moplaf.common.Constants;
 import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 
@@ -272,7 +271,7 @@ public class AnalysisSheetImpl extends MinimalEObjectImpl.Container implements A
 		IPropertiesProvider properties = this.getColumnizer().getPropertiesProvider();
 		ArrayList<Object> keys = new ArrayList<>();
 		for ( Object property : properties.getProperties()) {
-			if ( (properties.getPropertyTraits(property)&Constants.TRAITS_KEY) == Constants.TRAITS_KEY) {
+			if ( properties.isPropertyKey(property) ) {
 				keys.add(properties.getPropertyValue(element, property));
 			}
 		}

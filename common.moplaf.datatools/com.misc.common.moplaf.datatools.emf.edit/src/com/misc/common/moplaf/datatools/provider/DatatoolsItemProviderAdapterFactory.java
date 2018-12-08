@@ -3,7 +3,6 @@
 package com.misc.common.moplaf.datatools.provider;
 
 import com.misc.common.moplaf.datatools.util.DatatoolsAdapterFactory;
-import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -78,7 +77,6 @@ public class DatatoolsItemProviderAdapterFactory extends DatatoolsAdapterFactory
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
-		supportedTypes.add(IItemGridsProvider.class);
 	}
 
 	/**
