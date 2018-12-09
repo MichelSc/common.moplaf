@@ -2,13 +2,12 @@
  */
 package com.misc.common.moplaf.analysis;
 
-import com.misc.common.moplaf.datatools.Category;
-
-import com.misc.common.moplaf.datatools.util.ObjectSet;
-
+import com.misc.common.moplaf.common.IPropertiesProvider;
+import com.misc.common.moplaf.datatools.CategoryAbstract;
 import com.misc.common.moplaf.job.DocRef;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -147,10 +146,10 @@ public interface AnalysisDoc extends DocRef {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="com.misc.common.moplaf.datatools.EObjectsSet"
+	 * @model
 	 * @generated
 	 */
-	ObjectSet getElements(Category category);
+	EList<EObject> getElements(CategoryAbstract category);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -159,5 +158,13 @@ public interface AnalysisDoc extends DocRef {
 	 * @generated
 	 */
 	void flush();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model providerDataType="com.misc.common.moplaf.datatools.IPropertiesProvider"
+	 * @generated
+	 */
+	Object getPropertyAggregation(IPropertiesProvider provider, Object property, CategoryAbstract category);
 
 } // AnalysisDoc

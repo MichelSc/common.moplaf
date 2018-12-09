@@ -108,8 +108,7 @@ public class AnalysisCategoryItemProvider extends CategoryItemProvider implement
 		@Override
 		public Object getPropertyValue(Object object) {
 			CategoryAbstract category = (CategoryAbstract)object;
-			Analysis analysis = doc.getAnalysis();
-			Object value = analysis.getPropertyAggregation(this.properties, this.property, category, this.doc);
+			Object value = this.doc.getPropertyAggregation(this.properties, this.property, category);
 			return value;
 		}
 

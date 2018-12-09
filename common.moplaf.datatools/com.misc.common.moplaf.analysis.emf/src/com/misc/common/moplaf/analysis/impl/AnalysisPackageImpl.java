@@ -339,15 +339,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAnalysis__GetPropertyAggregation__IPropertiesProvider_Object_CategoryAbstract_AnalysisDoc() {
-		return analysisEClass.getEOperations().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getAnalysisDomain() {
 		return analysisDomainEClass;
 	}
@@ -483,7 +474,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAnalysisDoc__GetElements__Category() {
+	public EOperation getAnalysisDoc__GetElements__CategoryAbstract() {
 		return analysisDocEClass.getEOperations().get(0);
 	}
 
@@ -494,6 +485,15 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 */
 	public EOperation getAnalysisDoc__Flush() {
 		return analysisDocEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAnalysisDoc__GetPropertyAggregation__IPropertiesProvider_Object_CategoryAbstract() {
+		return analysisDocEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -750,7 +750,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		createEOperation(analysisEClass, ANALYSIS___FLUSH);
 		createEOperation(analysisEClass, ANALYSIS___ADD_ELEMENT__ANALYSISELEMENT);
 		createEOperation(analysisEClass, ANALYSIS___REMOVE_ELEMENT__ANALYSISELEMENT);
-		createEOperation(analysisEClass, ANALYSIS___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT_CATEGORYABSTRACT_ANALYSISDOC);
 
 		analysisDomainEClass = createEClass(ANALYSIS_DOMAIN);
 		createEReference(analysisDomainEClass, ANALYSIS_DOMAIN__SUPER_DOMAIN);
@@ -769,8 +768,9 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		createEAttribute(analysisDocEClass, ANALYSIS_DOC__COMPLETE);
 		createEAttribute(analysisDocEClass, ANALYSIS_DOC__NB_ELEMENTS);
 		createEAttribute(analysisDocEClass, ANALYSIS_DOC__DOC_INDEX);
-		createEOperation(analysisDocEClass, ANALYSIS_DOC___GET_ELEMENTS__CATEGORY);
+		createEOperation(analysisDocEClass, ANALYSIS_DOC___GET_ELEMENTS__CATEGORYABSTRACT);
 		createEOperation(analysisDocEClass, ANALYSIS_DOC___FLUSH);
+		createEOperation(analysisDocEClass, ANALYSIS_DOC___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT_CATEGORYABSTRACT);
 
 		analysisElementEClass = createEClass(ANALYSIS_ELEMENT);
 		createEReference(analysisElementEClass, ANALYSIS_ELEMENT__DOC);
@@ -876,12 +876,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		op = initEOperation(getAnalysis__RemoveElement__AnalysisElement(), null, "removeElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getAnalysisElement(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getAnalysis__GetPropertyAggregation__IPropertiesProvider_Object_CategoryAbstract_AnalysisDoc(), ecorePackage.getEJavaObject(), "getPropertyAggregation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theDatatoolsPackage.getIPropertiesProvider(), "provider", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEJavaObject(), "property", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theDatatoolsPackage.getCategoryAbstract(), "category", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getAnalysisDoc(), "doc", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(analysisDomainEClass, AnalysisDomain.class, "AnalysisDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAnalysisDomain_SuperDomain(), this.getAnalysisDomain(), this.getAnalysisDomain_SubDomains(), "SuperDomain", null, 0, 1, AnalysisDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAnalysisDomain_SubDomains(), this.getAnalysisDomain(), this.getAnalysisDomain_SuperDomain(), "SubDomains", null, 0, -1, AnalysisDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -902,10 +896,15 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		initEAttribute(getAnalysisDoc_NbElements(), ecorePackage.getEInt(), "NbElements", null, 0, 1, AnalysisDoc.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnalysisDoc_DocIndex(), ecorePackage.getEInt(), "DocIndex", null, 0, 1, AnalysisDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getAnalysisDoc__GetElements__Category(), theDatatoolsPackage.getEObjectsSet(), "getElements", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theDatatoolsPackage.getCategory(), "category", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getAnalysisDoc__GetElements__CategoryAbstract(), ecorePackage.getEObject(), "getElements", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theDatatoolsPackage.getCategoryAbstract(), "category", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getAnalysisDoc__Flush(), null, "flush", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getAnalysisDoc__GetPropertyAggregation__IPropertiesProvider_Object_CategoryAbstract(), ecorePackage.getEJavaObject(), "getPropertyAggregation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theDatatoolsPackage.getIPropertiesProvider(), "provider", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "property", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theDatatoolsPackage.getCategoryAbstract(), "category", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(analysisElementEClass, AnalysisElement.class, "AnalysisElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAnalysisElement_Doc(), this.getAnalysisDoc(), this.getAnalysisDoc_Elements(), "Doc", null, 1, 1, AnalysisElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

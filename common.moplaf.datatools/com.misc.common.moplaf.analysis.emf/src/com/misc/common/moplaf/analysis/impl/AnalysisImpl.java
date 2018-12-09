@@ -11,7 +11,6 @@ import com.misc.common.moplaf.analysis.Analysis;
 import com.misc.common.moplaf.analysis.AnalysisDoc;
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.common.IMoplafObject;
-import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.common.util.EObjectListDerived;
 import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.Category;
@@ -30,7 +29,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -668,26 +666,6 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 		}
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public Object getPropertyAggregation(IPropertiesProvider provider, Object property, CategoryAbstract category, AnalysisDoc doc) {
-		// we must select all the elements belonging to this doc and this category
-		// we can start from this doc: no good, as we will traverse the whole doc each time
-		// we can start form the category: good, as this is a smaller set
-		List<EObject> objects = category.getElements().stream()
-					.map(e->(AnalysisElement)e)
-					.filter(e->e.getDoc()==doc)
-					.map(e->e.getElement())
-					.collect(Collectors.toList());
-		
-		Object value = property==null
-				? objects.size()
-				: provider.getAggregationValue(objects, property);
-				
-		return value;
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1068,8 +1046,6 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 			case AnalysisPackage.ANALYSIS___REMOVE_ELEMENT__ANALYSISELEMENT:
 				removeElement((AnalysisElement)arguments.get(0));
 				return null;
-			case AnalysisPackage.ANALYSIS___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT_CATEGORYABSTRACT_ANALYSISDOC:
-				return getPropertyAggregation((IPropertiesProvider)arguments.get(0), arguments.get(1), (CategoryAbstract)arguments.get(2), (AnalysisDoc)arguments.get(3));
 			case AnalysisPackage.ANALYSIS___CONSTRUCT_CATEGORY:
 				return constructCategory();
 			case AnalysisPackage.ANALYSIS___SET_LEAF_CATEGORY__EOBJECT_CATEGORYABSTRACT:

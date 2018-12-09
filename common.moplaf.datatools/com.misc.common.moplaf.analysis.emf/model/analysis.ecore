@@ -17,12 +17,6 @@
     <eOperations name="removeElement">
       <eParameters name="element" eType="#//AnalysisElement"/>
     </eOperations>
-    <eOperations name="getPropertyAggregation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
-      <eParameters name="provider" eType="ecore:EDataType ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//IPropertiesProvider"/>
-      <eParameters name="property" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-      <eParameters name="category" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//CategoryAbstract"/>
-      <eParameters name="doc" eType="#//AnalysisDoc"/>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Categorizers" upperBound="-1"
         eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Categorizer"
         containment="true"/>
@@ -71,10 +65,15 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AnalysisDoc" eSuperTypes="../../com.misc.common.moplaf.job.emf/model/job.ecore#//DocRef">
-    <eOperations name="getElements" eType="ecore:EDataType ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//EObjectsSet">
-      <eParameters name="category" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Category"/>
+    <eOperations name="getElements" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject">
+      <eParameters name="category" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//CategoryAbstract"/>
     </eOperations>
     <eOperations name="flush"/>
+    <eOperations name="getPropertyAggregation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
+      <eParameters name="provider" eType="ecore:EDataType ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//IPropertiesProvider"/>
+      <eParameters name="property" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="category" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//CategoryAbstract"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Analysis" lowerBound="1"
         eType="#//Analysis" eOpposite="#//Analysis/Docs"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"

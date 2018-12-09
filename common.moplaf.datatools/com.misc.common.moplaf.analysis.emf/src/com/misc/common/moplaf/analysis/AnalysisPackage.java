@@ -350,22 +350,13 @@ public interface AnalysisPackage extends EPackage {
 	int ANALYSIS___REMOVE_ELEMENT__ANALYSISELEMENT = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 8;
 
 	/**
-	 * The operation id for the '<em>Get Property Aggregation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT_CATEGORYABSTRACT_ANALYSISDOC = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 9;
-
-	/**
 	 * The number of operations of the '<em>Analysis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_OPERATION_COUNT = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 10;
+	int ANALYSIS_OPERATION_COUNT = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisDomainImpl <em>Domain</em>}' class.
@@ -622,7 +613,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_DOC___GET_ELEMENTS__CATEGORY = JobPackage.DOC_REF_OPERATION_COUNT + 0;
+	int ANALYSIS_DOC___GET_ELEMENTS__CATEGORYABSTRACT = JobPackage.DOC_REF_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Flush</em>' operation.
@@ -634,13 +625,22 @@ public interface AnalysisPackage extends EPackage {
 	int ANALYSIS_DOC___FLUSH = JobPackage.DOC_REF_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Get Property Aggregation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_DOC___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT_CATEGORYABSTRACT = JobPackage.DOC_REF_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Doc</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_DOC_OPERATION_COUNT = JobPackage.DOC_REF_OPERATION_COUNT + 2;
+	int ANALYSIS_DOC_OPERATION_COUNT = JobPackage.DOC_REF_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisElementImpl <em>Element</em>}' class.
@@ -1230,16 +1230,6 @@ public interface AnalysisPackage extends EPackage {
 	EOperation getAnalysis__RemoveElement__AnalysisElement();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.Analysis#getPropertyAggregation(com.misc.common.moplaf.common.IPropertiesProvider, java.lang.Object, com.misc.common.moplaf.datatools.CategoryAbstract, com.misc.common.moplaf.analysis.AnalysisDoc) <em>Get Property Aggregation</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Property Aggregation</em>' operation.
-	 * @see com.misc.common.moplaf.analysis.Analysis#getPropertyAggregation(com.misc.common.moplaf.common.IPropertiesProvider, java.lang.Object, com.misc.common.moplaf.datatools.CategoryAbstract, com.misc.common.moplaf.analysis.AnalysisDoc)
-	 * @generated
-	 */
-	EOperation getAnalysis__GetPropertyAggregation__IPropertiesProvider_Object_CategoryAbstract_AnalysisDoc();
-
-	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.analysis.AnalysisDomain <em>Domain</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1401,14 +1391,14 @@ public interface AnalysisPackage extends EPackage {
 	EAttribute getAnalysisDoc_DocIndex();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.AnalysisDoc#getElements(com.misc.common.moplaf.datatools.Category) <em>Get Elements</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.AnalysisDoc#getElements(com.misc.common.moplaf.datatools.CategoryAbstract) <em>Get Elements</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Elements</em>' operation.
-	 * @see com.misc.common.moplaf.analysis.AnalysisDoc#getElements(com.misc.common.moplaf.datatools.Category)
+	 * @see com.misc.common.moplaf.analysis.AnalysisDoc#getElements(com.misc.common.moplaf.datatools.CategoryAbstract)
 	 * @generated
 	 */
-	EOperation getAnalysisDoc__GetElements__Category();
+	EOperation getAnalysisDoc__GetElements__CategoryAbstract();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.AnalysisDoc#flush() <em>Flush</em>}' operation.
@@ -1419,6 +1409,16 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getAnalysisDoc__Flush();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.AnalysisDoc#getPropertyAggregation(com.misc.common.moplaf.common.IPropertiesProvider, java.lang.Object, com.misc.common.moplaf.datatools.CategoryAbstract) <em>Get Property Aggregation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Property Aggregation</em>' operation.
+	 * @see com.misc.common.moplaf.analysis.AnalysisDoc#getPropertyAggregation(com.misc.common.moplaf.common.IPropertiesProvider, java.lang.Object, com.misc.common.moplaf.datatools.CategoryAbstract)
+	 * @generated
+	 */
+	EOperation getAnalysisDoc__GetPropertyAggregation__IPropertiesProvider_Object_CategoryAbstract();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.analysis.AnalysisElement <em>Element</em>}'.
@@ -1840,14 +1840,6 @@ public interface AnalysisPackage extends EPackage {
 		EOperation ANALYSIS___REMOVE_ELEMENT__ANALYSISELEMENT = eINSTANCE.getAnalysis__RemoveElement__AnalysisElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Property Aggregation</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ANALYSIS___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT_CATEGORYABSTRACT_ANALYSISDOC = eINSTANCE.getAnalysis__GetPropertyAggregation__IPropertiesProvider_Object_CategoryAbstract_AnalysisDoc();
-
-		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisDomainImpl <em>Domain</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1979,7 +1971,7 @@ public interface AnalysisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ANALYSIS_DOC___GET_ELEMENTS__CATEGORY = eINSTANCE.getAnalysisDoc__GetElements__Category();
+		EOperation ANALYSIS_DOC___GET_ELEMENTS__CATEGORYABSTRACT = eINSTANCE.getAnalysisDoc__GetElements__CategoryAbstract();
 
 		/**
 		 * The meta object literal for the '<em><b>Flush</b></em>' operation.
@@ -1988,6 +1980,14 @@ public interface AnalysisPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ANALYSIS_DOC___FLUSH = eINSTANCE.getAnalysisDoc__Flush();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Property Aggregation</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ANALYSIS_DOC___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT_CATEGORYABSTRACT = eINSTANCE.getAnalysisDoc__GetPropertyAggregation__IPropertiesProvider_Object_CategoryAbstract();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisElementImpl <em>Element</em>}' class.

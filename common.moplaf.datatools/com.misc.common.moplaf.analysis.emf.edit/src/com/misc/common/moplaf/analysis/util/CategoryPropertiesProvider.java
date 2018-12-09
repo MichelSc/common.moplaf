@@ -40,7 +40,7 @@ public class CategoryPropertiesProvider implements IPropertiesProvider {
 		}
 		public Object getPropertyValue(Object row) {
 			CategoryAbstract category = (CategoryAbstract)row;
-			Object value = CategoryPropertiesProvider.this.analysis.getPropertyAggregation(this.provider, this.property, category, this.doc);
+			Object value = this.doc.getPropertyAggregation(this.provider, this.property, category);
 			return value;
 		}
 		public int getPropertyType(Object property) {

@@ -6,21 +6,22 @@ import com.misc.common.moplaf.analysis.Analysis;
 import com.misc.common.moplaf.analysis.AnalysisDoc;
 import com.misc.common.moplaf.analysis.AnalysisElement;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
-import com.misc.common.moplaf.datatools.Category;
-
-import com.misc.common.moplaf.datatools.util.ObjectSet;
+import com.misc.common.moplaf.common.IPropertiesProvider;
+import com.misc.common.moplaf.datatools.CategoryAbstract;
 import com.misc.common.moplaf.job.impl.DocRefImpl;
 
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -231,13 +232,18 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public ObjectSet getElements(Category category) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	public EList<EObject> getElements(CategoryAbstract category) {
+		// we must select all the elements belonging to this doc and this category
+		// we can start from this doc: no good, as we will traverse the whole doc each time
+		// we can start form the category: good, as this is a smaller set
+		EList<EObject> objects = category.getElements().stream()
+					.map(e->(AnalysisElement)e)
+					.filter(e->e.getDoc()==doc)
+					.map(e->e.getElement())
+					.collect(Collectors.toCollection(BasicEList::new));	
+		return objects;
+		}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -245,6 +251,20 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 	 */
 	public void flush() {
 		this.getElements().clear();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Object getPropertyAggregation(IPropertiesProvider provider, Object property, CategoryAbstract category) {
+		EList<EObject> objects = this.getElements(category);
+		
+		Object value = property==null
+				? objects.size()
+				: provider.getAggregationValue(objects, property);
+				
+		return value;
 	}
 
 	/**
@@ -398,11 +418,13 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AnalysisPackage.ANALYSIS_DOC___GET_ELEMENTS__CATEGORY:
-				return getElements((Category)arguments.get(0));
+			case AnalysisPackage.ANALYSIS_DOC___GET_ELEMENTS__CATEGORYABSTRACT:
+				return getElements((CategoryAbstract)arguments.get(0));
 			case AnalysisPackage.ANALYSIS_DOC___FLUSH:
 				flush();
 				return null;
+			case AnalysisPackage.ANALYSIS_DOC___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT_CATEGORYABSTRACT:
+				return getPropertyAggregation((IPropertiesProvider)arguments.get(0), arguments.get(1), (CategoryAbstract)arguments.get(2));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
