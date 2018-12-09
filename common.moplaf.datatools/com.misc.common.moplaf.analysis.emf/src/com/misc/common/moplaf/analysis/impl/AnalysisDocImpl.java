@@ -239,7 +239,7 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 		// we can start form the category: good, as this is a smaller set
 		EList<EObject> objects = category.getElements().stream()
 					.map(e->(AnalysisElement)e)
-					.filter(e->e.getDoc()==doc)
+					.filter(e->e.getDoc()==this)
 					.map(e->e.getElement())
 					.collect(Collectors.toCollection(BasicEList::new));	
 		return objects;

@@ -11,10 +11,10 @@ import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.datatools.CategoryAbstract;
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 
-public class CategoryPropertiesProvider implements IPropertiesProvider {
+public class AnalysisCategoryPropertiesProvider implements IPropertiesProvider {
 	private Analysis analysis;
 	private IPropertiesProvider provider;
-	public CategoryPropertiesProvider(IPropertiesProvider provider, Analysis analysis) {
+	public AnalysisCategoryPropertiesProvider(IPropertiesProvider provider, Analysis analysis) {
 		this.provider = provider;
 		this.analysis = analysis;
 	}

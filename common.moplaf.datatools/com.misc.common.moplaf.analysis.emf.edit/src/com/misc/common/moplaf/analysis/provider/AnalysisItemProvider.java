@@ -6,7 +6,7 @@ package com.misc.common.moplaf.analysis.provider;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 import com.misc.common.moplaf.analysis.AnalysisSheet;
 import com.misc.common.moplaf.analysis.util.AnalysisSheetPropertiesProvider;
-import com.misc.common.moplaf.analysis.util.CategoryPropertiesProvider;
+import com.misc.common.moplaf.analysis.util.AnalysisCategoryPropertiesProvider;
 import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.analysis.Analysis;
 import com.misc.common.moplaf.analysis.AnalysisDoc;
@@ -582,7 +582,7 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider implement
 		grids_provider.addSheet("Categories",
 				DatatoolsPackage.Literals.CATEGORY_ABSTRACT__SUB_CATEGORIES, 
 				DatatoolsPackage.Literals.CATEGORY__CATEGORY_LABEL, 
-				new CategoryPropertiesProvider(CategoryAbstract.PROPERTIES, analysis))
+				new AnalysisCategoryPropertiesProvider(CategoryAbstract.PROPERTIES, analysis))
 			.setSheetTraits(IItemGridsProvider.TRAITS_BARCHART);
 
 		return grids_provider;
