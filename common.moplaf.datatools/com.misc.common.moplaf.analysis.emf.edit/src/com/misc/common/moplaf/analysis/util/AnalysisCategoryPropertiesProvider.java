@@ -19,8 +19,8 @@ public class AnalysisCategoryPropertiesProvider implements IPropertiesProvider {
 		this.analysis = analysis;
 	}
 	private class AggregationProperty {
-		IPropertiesProvider provider; // the provider for the aggregated property
-		Object property; // the aggregated property
+		IPropertiesProvider provider; // the provider for the aggregated property, null for a null property
+		Object property; // the aggregated property, if null, then the count of
 		AnalysisDoc doc; // the doc to aggregate on
 		public AggregationProperty(IPropertiesProvider provider, Object property, AnalysisDoc doc) {
 			super();
@@ -97,7 +97,14 @@ public class AnalysisCategoryPropertiesProvider implements IPropertiesProvider {
 	@Override
 	public int getPropertyTraits(Object property) {
 		if ( property instanceof AggregationProperty) {
-			return Constants.TRAITS_NONE;
+			AggregationProperty aggregation_property = (AggregationProperty)property;
+			if ( aggregation_property.property==null) {
+				// count property
+				return Constants.TRAITS_BARCHART;
+			} else {
+				// normal aggregated property
+				return Constants.TRAITS_NONE;
+			}
 		}
 		return this.provider.getPropertyTraits(property);
 	}

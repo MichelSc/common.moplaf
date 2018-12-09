@@ -32,7 +32,7 @@ import com.misc.common.moplaf.datatools.util.ObjectSet;
  */
 public interface CategoryAbstract extends EObject {
 	static IPropertiesProvider PROPERTIES = new PropertiesProvider() {{
-		addProperty(DatatoolsPackage.Literals.CATEGORY_ABSTRACT__NB_ELEMENTS, 70).setPropertyTraits(1); // TODO
+		addProperty(DatatoolsPackage.Literals.CATEGORY_ABSTRACT__NB_ELEMENTS, 70);
 	}};
 
 	/**

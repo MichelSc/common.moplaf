@@ -389,6 +389,7 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		SheetDelegate delegate = (SheetDelegate)grid;
 		return delegate.getCellValue(row, column);
 	}
+	
 	@Override
 	public int getCellType(Object element, Object grid, Object row, Object column) {
 		SheetDelegate delegate = (SheetDelegate)grid;
@@ -400,4 +401,18 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		SheetDelegate delegate = (SheetDelegate)grid;
 		return delegate.compareRows(row1, row2, column, ascending);
 	}
+
+	@Override
+	public Object getCellForeground(Object element, Object grid, Object row, Object column) {
+		// TODO Auto-generated method stub
+		return IItemGridsProvider.super.getCellForeground(element, grid, row, column);
+	}
+
+	@Override
+	public Object getCellBackground(Object element, Object grid, Object row, Object column) {
+		// TODO Auto-generated method stub
+		return IItemGridsProvider.super.getCellBackground(element, grid, row, column);
+	}
+	
+	
 }
