@@ -623,6 +623,15 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public EnabledFeedback isValidInput(Doc doc) {
+		// TODO: implement this method
+		return EnabledFeedback.NOFEEDBACK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public void addDoc(Doc doc) {
 		AnalysisDoc analysis_doc = AnalysisFactory.eINSTANCE.createAnalysisDoc();
 		int index = this.getDocs().stream().mapToInt(d -> d.getDocIndex()).max().orElse(0)+1;
@@ -1028,17 +1037,19 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AnalysisPackage.ANALYSIS___ADD_TOOL__DATATOOL:
-				addTool((DataTool)arguments.get(0));
-				return null;
-			case AnalysisPackage.ANALYSIS___ADD_DOC__DOC:
-				addDoc((Doc)arguments.get(0));
+			case AnalysisPackage.ANALYSIS___FLUSH:
+				flush();
 				return null;
 			case AnalysisPackage.ANALYSIS___REFRESH:
 				refresh();
 				return null;
-			case AnalysisPackage.ANALYSIS___FLUSH:
-				flush();
+			case AnalysisPackage.ANALYSIS___ADD_TOOL__DATATOOL:
+				addTool((DataTool)arguments.get(0));
+				return null;
+			case AnalysisPackage.ANALYSIS___IS_VALID_INPUT__DOC:
+				return isValidInput((Doc)arguments.get(0));
+			case AnalysisPackage.ANALYSIS___ADD_DOC__DOC:
+				addDoc((Doc)arguments.get(0));
 				return null;
 			case AnalysisPackage.ANALYSIS___ADD_ELEMENT__ANALYSISELEMENT:
 				addElement((AnalysisElement)arguments.get(0));

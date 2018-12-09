@@ -296,22 +296,13 @@ public interface AnalysisPackage extends EPackage {
 	int ANALYSIS___SET_LEAF_CATEGORY__EOBJECT_CATEGORYABSTRACT = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Add Tool</em>' operation.
+	 * The operation id for the '<em>Flush</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___ADD_TOOL__DATATOOL = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Add Doc</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS___ADD_DOC__DOC = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 4;
+	int ANALYSIS___FLUSH = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -320,16 +311,34 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___REFRESH = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 5;
+	int ANALYSIS___REFRESH = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Flush</em>' operation.
+	 * The operation id for the '<em>Add Tool</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___FLUSH = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 6;
+	int ANALYSIS___ADD_TOOL__DATATOOL = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Is Valid Input</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS___IS_VALID_INPUT__DOC = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Add Doc</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS___ADD_DOC__DOC = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Add Element</em>' operation.
@@ -338,7 +347,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___ADD_ELEMENT__ANALYSISELEMENT = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 7;
+	int ANALYSIS___ADD_ELEMENT__ANALYSISELEMENT = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Remove Element</em>' operation.
@@ -347,7 +356,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS___REMOVE_ELEMENT__ANALYSISELEMENT = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 8;
+	int ANALYSIS___REMOVE_ELEMENT__ANALYSISELEMENT = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Analysis</em>' class.
@@ -356,7 +365,7 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_OPERATION_COUNT = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 9;
+	int ANALYSIS_OPERATION_COUNT = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisDomainImpl <em>Domain</em>}' class.
@@ -1190,6 +1199,16 @@ public interface AnalysisPackage extends EPackage {
 	EOperation getAnalysis__AddTool__DataTool();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.Analysis#isValidInput(com.misc.common.moplaf.job.Doc) <em>Is Valid Input</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid Input</em>' operation.
+	 * @see com.misc.common.moplaf.analysis.Analysis#isValidInput(com.misc.common.moplaf.job.Doc)
+	 * @generated
+	 */
+	EOperation getAnalysis__IsValidInput__Doc();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.Analysis#addDoc(com.misc.common.moplaf.job.Doc) <em>Add Doc</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1806,6 +1825,14 @@ public interface AnalysisPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ANALYSIS___ADD_TOOL__DATATOOL = eINSTANCE.getAnalysis__AddTool__DataTool();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Valid Input</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ANALYSIS___IS_VALID_INPUT__DOC = eINSTANCE.getAnalysis__IsValidInput__Doc();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Doc</b></em>' operation.

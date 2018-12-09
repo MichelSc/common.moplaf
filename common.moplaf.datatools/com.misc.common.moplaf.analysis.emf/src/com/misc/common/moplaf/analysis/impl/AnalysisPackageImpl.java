@@ -286,24 +286,6 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * @generated
 	 */
 	public EOperation getAnalysis__Refresh() {
-		return analysisEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getAnalysis__AddTool__DataTool() {
-		return analysisEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getAnalysis__AddDoc__Doc() {
 		return analysisEClass.getEOperations().get(1);
 	}
 
@@ -312,7 +294,16 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAnalysis__Flush() {
+	public EOperation getAnalysis__AddTool__DataTool() {
+		return analysisEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAnalysis__IsValidInput__Doc() {
 		return analysisEClass.getEOperations().get(3);
 	}
 
@@ -321,7 +312,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAnalysis__AddElement__AnalysisElement() {
+	public EOperation getAnalysis__AddDoc__Doc() {
 		return analysisEClass.getEOperations().get(4);
 	}
 
@@ -330,8 +321,26 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAnalysis__RemoveElement__AnalysisElement() {
+	public EOperation getAnalysis__Flush() {
+		return analysisEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAnalysis__AddElement__AnalysisElement() {
 		return analysisEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAnalysis__RemoveElement__AnalysisElement() {
+		return analysisEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -744,10 +753,11 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		createEAttribute(analysisEClass, ANALYSIS__REMARKS);
 		createEReference(analysisEClass, ANALYSIS__DOCS);
 		createEReference(analysisEClass, ANALYSIS__SHEETS);
-		createEOperation(analysisEClass, ANALYSIS___ADD_TOOL__DATATOOL);
-		createEOperation(analysisEClass, ANALYSIS___ADD_DOC__DOC);
-		createEOperation(analysisEClass, ANALYSIS___REFRESH);
 		createEOperation(analysisEClass, ANALYSIS___FLUSH);
+		createEOperation(analysisEClass, ANALYSIS___REFRESH);
+		createEOperation(analysisEClass, ANALYSIS___ADD_TOOL__DATATOOL);
+		createEOperation(analysisEClass, ANALYSIS___IS_VALID_INPUT__DOC);
+		createEOperation(analysisEClass, ANALYSIS___ADD_DOC__DOC);
 		createEOperation(analysisEClass, ANALYSIS___ADD_ELEMENT__ANALYSISELEMENT);
 		createEOperation(analysisEClass, ANALYSIS___REMOVE_ELEMENT__ANALYSISELEMENT);
 
@@ -860,15 +870,18 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		initEReference(getAnalysis_Docs(), this.getAnalysisDoc(), this.getAnalysisDoc_Analysis(), "Docs", null, 0, -1, Analysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAnalysis_Sheets(), this.getAnalysisSheet(), this.getAnalysisSheet_Analysis(), "Sheets", null, 0, -1, Analysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getAnalysis__AddTool__DataTool(), null, "addTool", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theDatatoolsPackage.getDataTool(), "tool", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getAnalysis__AddDoc__Doc(), null, "addDoc", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theJobPackage.getDoc(), "doc", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getAnalysis__Flush(), null, "flush", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getAnalysis__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getAnalysis__Flush(), null, "flush", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getAnalysis__AddTool__DataTool(), null, "addTool", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theDatatoolsPackage.getDataTool(), "tool", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getAnalysis__IsValidInput__Doc(), theJobPackage.getEnabledFeedback(), "isValidInput", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theJobPackage.getDoc(), "doc", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getAnalysis__AddDoc__Doc(), null, "addDoc", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theJobPackage.getDoc(), "doc", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getAnalysis__AddElement__AnalysisElement(), null, "addElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getAnalysisElement(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);

@@ -317,6 +317,14 @@ public interface Analysis extends CategoryAbstract, DataToolContext, Columnizers
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model dataType="com.misc.common.moplaf.job.EnabledFeedback"
+	 * @generated
+	 */
+	EnabledFeedback isValidInput(Doc doc);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */

@@ -15,6 +15,7 @@ import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.Extractor;
 import com.misc.common.moplaf.job.Doc;
+import com.misc.common.moplaf.job.Task;
 
 /**
  * The services class used by VSM.
@@ -130,6 +131,15 @@ public class AnalysisServices {
     public boolean analysisRefresh(Analysis analysis) {
 		analysis.refresh();
 		return true;
+    }
+    
+    public boolean analysisIsValidInput(Analysis analysis, Doc doc) {
+   		return analysis.isValidInput(doc).isEnabled();
+    }
+    
+    public boolean analysisAddInput(Analysis analysis, Doc doc) {
+    	analysis.addDoc(doc);
+    	return true;
     }
 
 }

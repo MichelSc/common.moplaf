@@ -25,14 +25,17 @@
           ecoreFeature="ecore:EAttribute analysis.ecore#//Analysis/Remarks"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//Analysis/Docs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//Analysis/Sheets"/>
+      <genOperations ecoreOperation="analysis.ecore#//Analysis/flush"/>
+      <genOperations ecoreOperation="analysis.ecore#//Analysis/refresh"/>
       <genOperations ecoreOperation="analysis.ecore#//Analysis/addTool">
         <genParameters ecoreParameter="analysis.ecore#//Analysis/addTool/tool"/>
+      </genOperations>
+      <genOperations ecoreOperation="analysis.ecore#//Analysis/isValidInput">
+        <genParameters ecoreParameter="analysis.ecore#//Analysis/isValidInput/doc"/>
       </genOperations>
       <genOperations ecoreOperation="analysis.ecore#//Analysis/addDoc">
         <genParameters ecoreParameter="analysis.ecore#//Analysis/addDoc/doc"/>
       </genOperations>
-      <genOperations ecoreOperation="analysis.ecore#//Analysis/refresh"/>
-      <genOperations ecoreOperation="analysis.ecore#//Analysis/flush"/>
       <genOperations ecoreOperation="analysis.ecore#//Analysis/addElement">
         <genParameters ecoreParameter="analysis.ecore#//Analysis/addElement/element"/>
       </genOperations>

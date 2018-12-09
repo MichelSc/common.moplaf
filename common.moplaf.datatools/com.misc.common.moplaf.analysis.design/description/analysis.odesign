@@ -172,17 +172,17 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="analysis::DocAnalysis" referenceName="Analyses"/>
+              <firstModelOperations xsi:type="tool:CreateInstance" typeName="analysis::Analysis" referenceName="Analyses"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="di_doctasks_tools_createanalysisinput" label="Create Analysis Input">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="di_doctasks_tools_createanalysisinput" label="Create Analysis Input" precondition="service:preTarget.analysisIsValidInput(preSource)" edgeMappings="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@edgeMappings[name='di_doctasks_analysisdoc']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:target">
-                <subModelOperations xsi:type="tool:SetValue" featureName="Doc" valueExpression="aql:source"/>
+                <subModelOperations xsi:type="tool:Let" variableName="done" valueExpression="service:target.analysisAddInput(source)"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>

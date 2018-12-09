@@ -3,14 +3,17 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="analysis" nsURI="http://www.misc.com/common/moplaf/analysis/model/0.1"
     nsPrefix="analysis">
   <eClassifiers xsi:type="ecore:EClass" name="Analysis" eSuperTypes="../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//CategoryAbstract ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataToolContext ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Columnizers ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//CategoryFactory">
+    <eOperations name="flush"/>
+    <eOperations name="refresh"/>
     <eOperations name="addTool">
       <eParameters name="tool" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataTool"/>
+    </eOperations>
+    <eOperations name="isValidInput" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback">
+      <eParameters name="doc" eType="ecore:EClass ../../com.misc.common.moplaf.job.emf/model/job.ecore#//Doc"/>
     </eOperations>
     <eOperations name="addDoc">
       <eParameters name="doc" eType="ecore:EClass ../../com.misc.common.moplaf.job.emf/model/job.ecore#//Doc"/>
     </eOperations>
-    <eOperations name="refresh"/>
-    <eOperations name="flush"/>
     <eOperations name="addElement">
       <eParameters name="element" eType="#//AnalysisElement"/>
     </eOperations>
