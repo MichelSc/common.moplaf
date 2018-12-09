@@ -339,6 +339,15 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getAnalysis__GetPropertyAggregation__IPropertiesProvider_Object_CategoryAbstract_AnalysisDoc() {
+		return analysisEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAnalysisDomain() {
 		return analysisDomainEClass;
 	}
@@ -741,6 +750,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		createEOperation(analysisEClass, ANALYSIS___FLUSH);
 		createEOperation(analysisEClass, ANALYSIS___ADD_ELEMENT__ANALYSISELEMENT);
 		createEOperation(analysisEClass, ANALYSIS___REMOVE_ELEMENT__ANALYSISELEMENT);
+		createEOperation(analysisEClass, ANALYSIS___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT_CATEGORYABSTRACT_ANALYSISDOC);
 
 		analysisDomainEClass = createEClass(ANALYSIS_DOMAIN);
 		createEReference(analysisDomainEClass, ANALYSIS_DOMAIN__SUPER_DOMAIN);
@@ -865,6 +875,12 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 
 		op = initEOperation(getAnalysis__RemoveElement__AnalysisElement(), null, "removeElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getAnalysisElement(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getAnalysis__GetPropertyAggregation__IPropertiesProvider_Object_CategoryAbstract_AnalysisDoc(), ecorePackage.getEJavaObject(), "getPropertyAggregation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theDatatoolsPackage.getIPropertiesProvider(), "provider", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "property", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theDatatoolsPackage.getCategoryAbstract(), "category", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getAnalysisDoc(), "doc", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(analysisDomainEClass, AnalysisDomain.class, "AnalysisDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAnalysisDomain_SuperDomain(), this.getAnalysisDomain(), this.getAnalysisDomain_SubDomains(), "SuperDomain", null, 0, 1, AnalysisDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

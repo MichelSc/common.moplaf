@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.analysis;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.CategoryAbstract;
 import com.misc.common.moplaf.datatools.CategoryFactory;
@@ -345,5 +346,13 @@ public interface Analysis extends CategoryAbstract, DataToolContext, Columnizers
 	 * @generated
 	 */
 	void removeElement(AnalysisElement element);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model providerDataType="com.misc.common.moplaf.datatools.IPropertiesProvider"
+	 * @generated
+	 */
+	Object getPropertyAggregation(IPropertiesProvider provider, Object property, CategoryAbstract category, AnalysisDoc doc);
 
 } // DocAnalysis

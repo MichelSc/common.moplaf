@@ -39,6 +39,12 @@
       <genOperations ecoreOperation="analysis.ecore#//Analysis/removeElement">
         <genParameters ecoreParameter="analysis.ecore#//Analysis/removeElement/element"/>
       </genOperations>
+      <genOperations ecoreOperation="analysis.ecore#//Analysis/getPropertyAggregation">
+        <genParameters ecoreParameter="analysis.ecore#//Analysis/getPropertyAggregation/provider"/>
+        <genParameters ecoreParameter="analysis.ecore#//Analysis/getPropertyAggregation/property"/>
+        <genParameters ecoreParameter="analysis.ecore#//Analysis/getPropertyAggregation/category"/>
+        <genParameters ecoreParameter="analysis.ecore#//Analysis/getPropertyAggregation/doc"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="analysis.ecore#//AnalysisDomain">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisDomain/SuperDomain"/>

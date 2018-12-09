@@ -123,14 +123,6 @@ public interface CategoryAbstract extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model providerDataType="com.misc.common.moplaf.datatools.IPropertiesProvider"
-	 * @generated
-	 */
-	Object getPropertyAggregation(IPropertiesProvider provider, Object property);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model els_tobeDataType="com.misc.common.moplaf.datatools.EObjectsSet" categorizersMany="true"
 	 * @generated
 	 */

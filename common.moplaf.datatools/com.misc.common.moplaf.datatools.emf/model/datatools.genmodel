@@ -199,10 +199,6 @@
       <genOperations ecoreOperation="datatools.ecore#//CategoryAbstract/getSubcategory">
         <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/getSubcategory/value"/>
       </genOperations>
-      <genOperations ecoreOperation="datatools.ecore#//CategoryAbstract/getPropertyAggregation">
-        <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/getPropertyAggregation/provider"/>
-        <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/getPropertyAggregation/property"/>
-      </genOperations>
       <genOperations ecoreOperation="datatools.ecore#//CategoryAbstract/refresh">
         <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/refresh/factory"/>
         <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/refresh/els_tobe"/>

@@ -187,10 +187,6 @@
     <eOperations name="getSubcategory" eType="#//Category">
       <eParameters name="value" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
-    <eOperations name="getPropertyAggregation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
-      <eParameters name="provider" eType="#//IPropertiesProvider"/>
-      <eParameters name="property" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-    </eOperations>
     <eOperations name="refresh">
       <eParameters name="factory" eType="#//CategoryFactory"/>
       <eParameters name="els_tobe" eType="#//EObjectsSet"/>

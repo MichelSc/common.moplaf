@@ -2,7 +2,6 @@
  */
 package com.misc.common.moplaf.datatools.impl;
 
-import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.Category;
 import com.misc.common.moplaf.datatools.CategoryAbstract;
@@ -179,15 +178,6 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 		return this.getSubCategories().stream().filter(c -> c.getCategoryValue().equals(value)).findAny().orElse(null);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public Object getPropertyAggregation(IPropertiesProvider provider, Object property) {
-//		return provider.getAggregationValue(this.getElements(), property);
-		return null;
-	}
-	
 	private void updateElements(ObjectSet els_tobe) {
 		Iterator<EObject> iterator_asis = this.getElements().iterator();
 		while ( iterator_asis.hasNext()) {
@@ -392,8 +382,6 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 		switch (operationID) {
 			case DatatoolsPackage.CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT:
 				return getSubcategory((EObject)arguments.get(0));
-			case DatatoolsPackage.CATEGORY_ABSTRACT___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT:
-				return getPropertyAggregation((IPropertiesProvider)arguments.get(0), arguments.get(1));
 			case DatatoolsPackage.CATEGORY_ABSTRACT___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT:
 				refresh((CategoryFactory)arguments.get(0), (ObjectSet)arguments.get(1), (EList<Categorizer>)arguments.get(2), (Integer)arguments.get(3));
 				return null;

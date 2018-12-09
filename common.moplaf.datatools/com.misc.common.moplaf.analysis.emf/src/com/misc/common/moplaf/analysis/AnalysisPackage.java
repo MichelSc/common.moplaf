@@ -251,15 +251,6 @@ public interface AnalysisPackage extends EPackage {
 	int ANALYSIS___GET_SUBCATEGORY__EOBJECT = DatatoolsPackage.CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT;
 
 	/**
-	 * The operation id for the '<em>Get Property Aggregation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT = DatatoolsPackage.CATEGORY_ABSTRACT___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT;
-
-	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -359,13 +350,22 @@ public interface AnalysisPackage extends EPackage {
 	int ANALYSIS___REMOVE_ELEMENT__ANALYSISELEMENT = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 8;
 
 	/**
+	 * The operation id for the '<em>Get Property Aggregation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT_CATEGORYABSTRACT_ANALYSISDOC = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 9;
+
+	/**
 	 * The number of operations of the '<em>Analysis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_OPERATION_COUNT = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 9;
+	int ANALYSIS_OPERATION_COUNT = DatatoolsPackage.CATEGORY_ABSTRACT_OPERATION_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisDomainImpl <em>Domain</em>}' class.
@@ -989,15 +989,6 @@ public interface AnalysisPackage extends EPackage {
 	int ANALYSIS_CATEGORY___GET_SUBCATEGORY__EOBJECT = DatatoolsPackage.CATEGORY___GET_SUBCATEGORY__EOBJECT;
 
 	/**
-	 * The operation id for the '<em>Get Property Aggregation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANALYSIS_CATEGORY___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT = DatatoolsPackage.CATEGORY___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT;
-
-	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1237,6 +1228,16 @@ public interface AnalysisPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getAnalysis__RemoveElement__AnalysisElement();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.Analysis#getPropertyAggregation(com.misc.common.moplaf.common.IPropertiesProvider, java.lang.Object, com.misc.common.moplaf.datatools.CategoryAbstract, com.misc.common.moplaf.analysis.AnalysisDoc) <em>Get Property Aggregation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Property Aggregation</em>' operation.
+	 * @see com.misc.common.moplaf.analysis.Analysis#getPropertyAggregation(com.misc.common.moplaf.common.IPropertiesProvider, java.lang.Object, com.misc.common.moplaf.datatools.CategoryAbstract, com.misc.common.moplaf.analysis.AnalysisDoc)
+	 * @generated
+	 */
+	EOperation getAnalysis__GetPropertyAggregation__IPropertiesProvider_Object_CategoryAbstract_AnalysisDoc();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.analysis.AnalysisDomain <em>Domain</em>}'.
@@ -1837,6 +1838,14 @@ public interface AnalysisPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ANALYSIS___REMOVE_ELEMENT__ANALYSISELEMENT = eINSTANCE.getAnalysis__RemoveElement__AnalysisElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Property Aggregation</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ANALYSIS___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT_CATEGORYABSTRACT_ANALYSISDOC = eINSTANCE.getAnalysis__GetPropertyAggregation__IPropertiesProvider_Object_CategoryAbstract_AnalysisDoc();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.analysis.impl.AnalysisDomainImpl <em>Domain</em>}' class.

@@ -1385,7 +1385,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCategoryAbstract__GetPropertyAggregation__IPropertiesProvider_Object() {
+	public EOperation getCategoryAbstract__Refresh__CategoryFactory_ObjectSet_EList_int() {
 		return categoryAbstractEClass.getEOperations().get(1);
 	}
 
@@ -1394,17 +1394,8 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCategoryAbstract__Refresh__CategoryFactory_ObjectSet_EList_int() {
-		return categoryAbstractEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EOperation getCategoryAbstract__IsIn__CategoryAbstract() {
-		return categoryAbstractEClass.getEOperations().get(3);
+		return categoryAbstractEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -1666,7 +1657,6 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		createEReference(categoryAbstractEClass, CATEGORY_ABSTRACT__SUPER_CATEGORY);
 		createEReference(categoryAbstractEClass, CATEGORY_ABSTRACT__ROOT_CATEGORY);
 		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT);
-		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT);
 		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT);
 		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___IS_IN__CATEGORYABSTRACT);
 
@@ -1925,10 +1915,6 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 
 		op = initEOperation(getCategoryAbstract__GetSubcategory__EObject(), this.getCategory(), "getSubcategory", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getCategoryAbstract__GetPropertyAggregation__IPropertiesProvider_Object(), ecorePackage.getEJavaObject(), "getPropertyAggregation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getIPropertiesProvider(), "provider", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEJavaObject(), "property", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getCategoryAbstract__Refresh__CategoryFactory_ObjectSet_EList_int(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getCategoryFactory(), "factory", 0, 1, IS_UNIQUE, IS_ORDERED);
