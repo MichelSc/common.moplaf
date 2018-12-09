@@ -144,6 +144,24 @@ public interface IPropertiesProvider extends Constants{
 	}
 
 	/**
+	 * Return the color used as foreground for the property
+	 * @param property
+	 * @return
+	 */
+	default Color getPropertyForegroundColor(Object property) {
+		return null;
+	}
+
+	/**
+	 * Return the color used as background for the property
+	 * @param property
+	 * @return
+	 */
+	default Color getPropertyBackgroundColor(Object property) {
+		return null;
+	}
+
+	/**
 	 * Compares 2 objects according to a given property.
 	 * The property must be supported by both compared objects.
 	 * Return a negative value if element1 is before element2

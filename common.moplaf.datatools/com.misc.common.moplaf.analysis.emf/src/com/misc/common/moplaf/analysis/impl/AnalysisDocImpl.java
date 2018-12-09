@@ -43,6 +43,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisDocImpl#isComplete <em>Complete</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisDocImpl#getNbElements <em>Nb Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisDocImpl#getDocIndex <em>Doc Index</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.impl.AnalysisDocImpl#getColor <em>Color</em>}</li>
  * </ul>
  *
  * @generated
@@ -106,6 +107,26 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 	 * @ordered
 	 */
 	protected int docIndex = DOC_INDEX_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getColor() <em>Color</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColor()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int COLOR_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getColor() <em>Color</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColor()
+	 * @generated
+	 * @ordered
+	 */
+	protected int color = COLOR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -232,6 +253,27 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getColor() {
+		return color;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setColor(int newColor) {
+		int oldColor = color;
+		color = newColor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AnalysisPackage.ANALYSIS_DOC__COLOR, oldColor, color));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public EList<EObject> getElements(CategoryAbstract category) {
 		// we must select all the elements belonging to this doc and this category
@@ -334,6 +376,8 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 				return getNbElements();
 			case AnalysisPackage.ANALYSIS_DOC__DOC_INDEX:
 				return getDocIndex();
+			case AnalysisPackage.ANALYSIS_DOC__COLOR:
+				return getColor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -360,6 +404,9 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 			case AnalysisPackage.ANALYSIS_DOC__DOC_INDEX:
 				setDocIndex((Integer)newValue);
 				return;
+			case AnalysisPackage.ANALYSIS_DOC__COLOR:
+				setColor((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -384,6 +431,9 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 			case AnalysisPackage.ANALYSIS_DOC__DOC_INDEX:
 				setDocIndex(DOC_INDEX_EDEFAULT);
 				return;
+			case AnalysisPackage.ANALYSIS_DOC__COLOR:
+				setColor(COLOR_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -406,6 +456,8 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 				return getNbElements() != NB_ELEMENTS_EDEFAULT;
 			case AnalysisPackage.ANALYSIS_DOC__DOC_INDEX:
 				return docIndex != DOC_INDEX_EDEFAULT;
+			case AnalysisPackage.ANALYSIS_DOC__COLOR:
+				return color != COLOR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -443,6 +495,8 @@ public class AnalysisDocImpl extends DocRefImpl implements AnalysisDoc {
 		result.append(complete);
 		result.append(", DocIndex: ");
 		result.append(docIndex);
+		result.append(", Color: ");
+		result.append(color);
 		result.append(')');
 		return result.toString();
 	}

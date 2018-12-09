@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.analysis.AnalysisDoc#isComplete <em>Complete</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.AnalysisDoc#getNbElements <em>Nb Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.analysis.AnalysisDoc#getDocIndex <em>Doc Index</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.analysis.AnalysisDoc#getColor <em>Color</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisDoc()
@@ -142,6 +143,32 @@ public interface AnalysisDoc extends DocRef {
 	 * @generated
 	 */
 	void setDocIndex(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Color</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Color</em>' attribute.
+	 * @see #setColor(int)
+	 * @see com.misc.common.moplaf.analysis.AnalysisPackage#getAnalysisDoc_Color()
+	 * @model
+	 * @generated
+	 */
+	int getColor();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.analysis.AnalysisDoc#getColor <em>Color</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Color</em>' attribute.
+	 * @see #getColor()
+	 * @generated
+	 */
+	void setColor(int value);
 
 	/**
 	 * <!-- begin-user-doc -->

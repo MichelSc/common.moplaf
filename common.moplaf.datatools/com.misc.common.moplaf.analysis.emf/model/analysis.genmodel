@@ -63,6 +63,7 @@
       <genFeatures property="Readonly" createChild="false" propertyCategory="30 Data"
           ecoreFeature="ecore:EAttribute analysis.ecore#//AnalysisDoc/NbElements"/>
       <genFeatures createChild="false" propertyCategory="10 Document" ecoreFeature="ecore:EAttribute analysis.ecore#//AnalysisDoc/DocIndex"/>
+      <genFeatures createChild="false" propertyCategory="20 Config Set Up" ecoreFeature="ecore:EAttribute analysis.ecore#//AnalysisDoc/Color"/>
       <genOperations ecoreOperation="analysis.ecore#//AnalysisDoc/getElements">
         <genParameters ecoreParameter="analysis.ecore#//AnalysisDoc/getElements/category"/>
       </genOperations>

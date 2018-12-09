@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import com.misc.common.moplaf.analysis.Analysis;
 import com.misc.common.moplaf.analysis.AnalysisDoc;
 import com.misc.common.moplaf.analysis.AnalysisSheet;
+import com.misc.common.moplaf.common.Color;
 import com.misc.common.moplaf.common.Constants;
 import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.datatools.CategoryAbstract;
@@ -121,6 +122,18 @@ public class AnalysisCategoryPropertiesProvider implements IPropertiesProvider {
 			return 100;
 		}
 		return this.provider.getPropertyDisplayWidth(property);
+	}
+	
+	@Override
+	public Color getPropertyBackgroundColor(Object property) {
+		if ( property instanceof AggregationProperty) {
+			AggregationProperty aggregation_property = (AggregationProperty)property;
+			if ( aggregation_property.property==null) {
+				// count property
+				return new Color(aggregation_property.doc.getColor());
+			}
+		}
+		return null;
 	}
 	@Override
 	public int getPropertyDisplayALignment(Object property) {

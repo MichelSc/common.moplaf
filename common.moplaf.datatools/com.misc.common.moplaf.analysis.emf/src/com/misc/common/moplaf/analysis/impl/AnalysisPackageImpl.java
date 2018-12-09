@@ -483,6 +483,15 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAnalysisDoc_Color() {
+		return (EAttribute)analysisDocEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getAnalysisDoc__GetElements__CategoryAbstract() {
 		return analysisDocEClass.getEOperations().get(0);
 	}
@@ -778,6 +787,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		createEAttribute(analysisDocEClass, ANALYSIS_DOC__COMPLETE);
 		createEAttribute(analysisDocEClass, ANALYSIS_DOC__NB_ELEMENTS);
 		createEAttribute(analysisDocEClass, ANALYSIS_DOC__DOC_INDEX);
+		createEAttribute(analysisDocEClass, ANALYSIS_DOC__COLOR);
 		createEOperation(analysisDocEClass, ANALYSIS_DOC___GET_ELEMENTS__CATEGORYABSTRACT);
 		createEOperation(analysisDocEClass, ANALYSIS_DOC___FLUSH);
 		createEOperation(analysisDocEClass, ANALYSIS_DOC___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT_CATEGORYABSTRACT);
@@ -908,6 +918,7 @@ public class AnalysisPackageImpl extends EPackageImpl implements AnalysisPackage
 		initEAttribute(getAnalysisDoc_Complete(), ecorePackage.getEBoolean(), "Complete", null, 0, 1, AnalysisDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnalysisDoc_NbElements(), ecorePackage.getEInt(), "NbElements", null, 0, 1, AnalysisDoc.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnalysisDoc_DocIndex(), ecorePackage.getEInt(), "DocIndex", null, 0, 1, AnalysisDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnalysisDoc_Color(), ecorePackage.getEInt(), "Color", null, 0, 1, AnalysisDoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getAnalysisDoc__GetElements__CategoryAbstract(), ecorePackage.getEObject(), "getElements", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theDatatoolsPackage.getCategoryAbstract(), "category", 0, 1, IS_UNIQUE, IS_ORDERED);

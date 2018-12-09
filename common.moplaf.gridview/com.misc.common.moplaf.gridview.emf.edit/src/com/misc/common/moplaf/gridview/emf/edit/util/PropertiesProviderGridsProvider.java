@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 
+import com.misc.common.moplaf.common.Color;
 import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.common.util.CompoundPropertiesProvider;
 import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
@@ -44,6 +45,8 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		public String getColumnText(Object column);
 		public int getColumnWidth(Object column);
 		public int getColumnTraits(Object column);
+		public Object getColumnForegroundColor(Object column);
+		public Object getColumnBackgroundColor(Object column);
 		public int getCellType(Object row, Object column);
 		public Object getCellValue(Object row, Object column);
 		public int compareRows(Object row1, Object row2, Object column, boolean ascending);
@@ -108,6 +111,22 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		@Override
 		public int getColumnWidth(Object column) {
 			return this.provider.getPropertyDisplayWidth(column);
+		}
+		@Override
+		public Object getColumnForegroundColor(Object column) {
+			Color color = this.provider.getPropertyForegroundColor(column);
+			if ( color==null ) {
+				return null;
+			}
+			return color.toURI();
+		}
+		@Override
+		public Object getColumnBackgroundColor(Object column) {
+			Color color = this.provider.getPropertyBackgroundColor(column);
+			if ( color==null ) {
+				return null;
+			}
+			return color.toURI();
 		}
 		@Override
 		public int getColumnTraits(Object column) {
@@ -404,14 +423,14 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 
 	@Override
 	public Object getCellForeground(Object element, Object grid, Object row, Object column) {
-		// TODO Auto-generated method stub
-		return IItemGridsProvider.super.getCellForeground(element, grid, row, column);
+		SheetDelegate delegate = (SheetDelegate)grid;
+		return delegate.getColumnForegroundColor(column);
 	}
 
 	@Override
 	public Object getCellBackground(Object element, Object grid, Object row, Object column) {
-		// TODO Auto-generated method stub
-		return IItemGridsProvider.super.getCellBackground(element, grid, row, column);
+		SheetDelegate delegate = (SheetDelegate)grid;
+		return delegate.getColumnBackgroundColor(column);
 	}
 	
 	

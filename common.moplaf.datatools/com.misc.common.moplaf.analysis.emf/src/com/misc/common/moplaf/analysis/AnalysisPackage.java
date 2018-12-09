@@ -607,13 +607,22 @@ public interface AnalysisPackage extends EPackage {
 	int ANALYSIS_DOC__DOC_INDEX = JobPackage.DOC_REF_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANALYSIS_DOC__COLOR = JobPackage.DOC_REF_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Doc</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANALYSIS_DOC_FEATURE_COUNT = JobPackage.DOC_REF_FEATURE_COUNT + 5;
+	int ANALYSIS_DOC_FEATURE_COUNT = JobPackage.DOC_REF_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get Elements</em>' operation.
@@ -1410,6 +1419,17 @@ public interface AnalysisPackage extends EPackage {
 	EAttribute getAnalysisDoc_DocIndex();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.analysis.AnalysisDoc#getColor <em>Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Color</em>'.
+	 * @see com.misc.common.moplaf.analysis.AnalysisDoc#getColor()
+	 * @see #getAnalysisDoc()
+	 * @generated
+	 */
+	EAttribute getAnalysisDoc_Color();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.analysis.AnalysisDoc#getElements(com.misc.common.moplaf.datatools.CategoryAbstract) <em>Get Elements</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1991,6 +2011,14 @@ public interface AnalysisPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ANALYSIS_DOC__DOC_INDEX = eINSTANCE.getAnalysisDoc_DocIndex();
+
+		/**
+		 * The meta object literal for the '<em><b>Color</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANALYSIS_DOC__COLOR = eINSTANCE.getAnalysisDoc_Color();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Elements</b></em>' operation.

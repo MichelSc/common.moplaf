@@ -61,6 +61,7 @@ public class AnalysisDocItemProvider extends DocRefItemProvider implements IItem
 			addCompletePropertyDescriptor(object);
 			addNbElementsPropertyDescriptor(object);
 			addDocIndexPropertyDescriptor(object);
+			addColorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -132,6 +133,28 @@ public class AnalysisDocItemProvider extends DocRefItemProvider implements IItem
 	}
 
 	/**
+	 * This adds a property descriptor for the Color feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addColorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AnalysisDoc_Color_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AnalysisDoc_Color_feature", "_UI_AnalysisDoc_type"),
+				 AnalysisPackage.Literals.ANALYSIS_DOC__COLOR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -189,6 +212,7 @@ public class AnalysisDocItemProvider extends DocRefItemProvider implements IItem
 			case AnalysisPackage.ANALYSIS_DOC__COMPLETE:
 			case AnalysisPackage.ANALYSIS_DOC__NB_ELEMENTS:
 			case AnalysisPackage.ANALYSIS_DOC__DOC_INDEX:
+			case AnalysisPackage.ANALYSIS_DOC__COLOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AnalysisPackage.ANALYSIS_DOC__ELEMENTS:
