@@ -85,12 +85,13 @@ public class AnalysisSheetPropertiesProvider implements IPropertiesProvider {
 	@Override
 	public Object getPropertyValue(Object element, Object property) {
 		Property analysisProperty = (Property)property;
+		AnalysisDoc doc = analysisProperty.getDoc();
 		AnalysisElementKey keyElement = (AnalysisElementKey)element;
 		AnalysisElement analysisElement = keyElement.getElement(analysisProperty.getDoc());
 		if ( analysisElement==null) {
 			return null;
 		}
-		if ( !analysisElement.isInCategory(this.category)) {
+		if ( doc!=null && !analysisElement.isInCategory(this.category)) {
 			return null;
 		}
 		EObject object = analysisElement.getElement();
