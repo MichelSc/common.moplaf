@@ -58,10 +58,12 @@ public class CategoryPropertiesProvider implements IPropertiesProvider {
 			for ( AnalysisSheet sheet : this.analysis.getSheets()) {
 				ColumnizerAbstract columnizer = sheet.getColumnizer();
 				IPropertiesProvider provider = columnizer.getPropertiesProvider();
-				for ( Object property : provider.getProperties()) {
-					if ( provider.getPropertyAggregation(property)!=IPropertiesProvider.AGGREGATE_NONE) {
-						AggregationProperty aggregation_property = new AggregationProperty(provider, property, doc);
-						properties.add(aggregation_property);
+				if ( provider!=null ) {
+					for ( Object property : provider.getProperties()) {
+						if ( provider.getPropertyAggregation(property)!=IPropertiesProvider.AGGREGATE_NONE) {
+							AggregationProperty aggregation_property = new AggregationProperty(provider, property, doc);
+							properties.add(aggregation_property);
+						}
 					}
 				}
 			}

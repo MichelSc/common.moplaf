@@ -9,7 +9,7 @@
   <genPackages prefix="Analysis" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
       ecorePackage="analysis.ecore#/">
     <genDataTypes ecoreDataType="analysis.ecore#//ElementKey"/>
-    <genClasses ecoreClass="analysis.ecore#//Analysis">
+    <genClasses provider="Stateful" ecoreClass="analysis.ecore#//Analysis">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//Analysis/Categorizers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//Analysis/Extractor"/>
       <genFeatures createChild="false" propertyCategory="30 Data" ecoreFeature="ecore:EAttribute analysis.ecore#//Analysis/Complete"/>
@@ -105,7 +105,8 @@
       </genOperations>
       <genOperations ecoreOperation="analysis.ecore#//AnalysisSheet/flush"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="analysis.ecore#//AnalysisCategory" labelFeature="../../com.misc.common.moplaf.datatools.emf/model/datatools.genmodel#//datatools/Category/CategoryLabel">
+    <genClasses provider="Stateful" image="false" ecoreClass="analysis.ecore#//AnalysisCategory"
+        labelFeature="../../com.misc.common.moplaf.datatools.emf/model/datatools.genmodel#//datatools/Category/CategoryLabel">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisCategory/Analysis"/>
     </genClasses>
   </genPackages>
