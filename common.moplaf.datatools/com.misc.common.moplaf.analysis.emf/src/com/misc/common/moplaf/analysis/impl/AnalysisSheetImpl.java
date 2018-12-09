@@ -287,6 +287,7 @@ public class AnalysisSheetImpl extends MinimalEObjectImpl.Container implements A
 	 */
 	public void flush() {
 		this.getKeys().clear();
+		this.analysisKeyIndex=null;
 	}
 
 	/**
