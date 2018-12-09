@@ -386,7 +386,7 @@ public class ColumnizerImpl extends ColumnizerAbstractImpl implements Columnizer
 		ColumnizerColumn column = (ColumnizerColumn)property;
 		int traits = TRAITS_NONE;
 		if ( column.isKey() ) {
-			traits &= TRAITS_KEY;
+			traits |= TRAITS_KEY;
 		}
 		return traits;
 	}

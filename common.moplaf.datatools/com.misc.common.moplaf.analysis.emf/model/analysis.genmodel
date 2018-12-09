@@ -55,7 +55,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="analysis.ecore#//AnalysisDoc">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisDoc/Analysis"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisDoc/Elements"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisDoc/Elements"/>
       <genFeatures createChild="false" propertyCategory="30 Data" ecoreFeature="ecore:EAttribute analysis.ecore#//AnalysisDoc/Complete"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="30 Data"
           ecoreFeature="ecore:EAttribute analysis.ecore#//AnalysisDoc/NbElements"/>

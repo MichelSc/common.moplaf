@@ -29,7 +29,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.OptionalInt;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -585,7 +584,7 @@ public class AnalysisImpl extends CategoryAbstractImpl implements Analysis, IMop
 					this.removeElement(asis);
 					iterator_asis.remove(); 
 				} else {
-					els_tobe.add(asis.getElement());
+					els_tobe.add(asis);
 				}
 			}
 			// add the too few

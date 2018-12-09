@@ -211,9 +211,6 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 */
 	public void refresh(CategoryFactory factory, ObjectSet els_tobe, EList<Categorizer>  categorizers, int level) {
-		// update the elements of this category
-		this.updateElements(els_tobe);
-		
 		// update the subcategories
 		if ( categorizers.size()<=level ) {
 			// there are no deeper levels
@@ -253,7 +250,7 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 					cat_iterator_asis.remove();
 				} else {
 					// update one level further (recursive)
-					cat_asis.refresh(factory, els_tobe, categorizers, level+1);
+					cat_asis.refresh(factory, cat_tobe, categorizers, level+1);
 				}
 			}
 			for (  Entry<Object, ObjectSet> cat_tobe : cats_tobe.entrySet()) {
@@ -266,6 +263,8 @@ public abstract class CategoryAbstractImpl extends MinimalEObjectImpl.Container 
 				new_cat.refresh(factory, cat_tobe.getValue(), categorizers, level+1);
 			}
 		}
+		// update the elements of this category
+		this.updateElements(els_tobe);
 	}
 
 	/**
