@@ -7,7 +7,6 @@ import com.misc.common.moplaf.analysis.Analysis;
 import com.misc.common.moplaf.analysis.AnalysisCategory;
 import com.misc.common.moplaf.analysis.AnalysisDoc;
 import com.misc.common.moplaf.analysis.AnalysisElement;
-import com.misc.common.moplaf.analysis.AnalysisElementKey;
 import com.misc.common.moplaf.analysis.AnalysisFactory;
 import com.misc.common.moplaf.analysis.AnalysisSheet;
 import com.misc.common.moplaf.analysis.util.AnalysisSheetPropertiesProvider;
@@ -126,7 +125,7 @@ public class AnalysisCategoryItemProvider extends CategoryItemProvider implement
 		PropertiesProviderGridsProvider grids_provider = PropertiesProviderGridsProvider.constructPropertiesProviderGridsProvider();
 		for ( AnalysisSheet sheet : analysis.getSheets()) {
 			IPropertiesProvider properties = new AnalysisSheetPropertiesProvider(sheet, docs, category);
-			List<AnalysisElementKey> keys = category.getElements().stream().map(e -> ((AnalysisElement)e).getKey()).collect(Collectors.toList());
+			Collection<?> keys = category.getElements().stream().map(e -> ((AnalysisElement)e).getKey()).collect(Collectors.toSet());
 			String sheet_name = sheet.getColumnizer().getSheetLabel();
 			grids_provider.addSheet(sheet_name, keys, properties).setAggregation(true);
 		}
