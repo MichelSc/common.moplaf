@@ -186,7 +186,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:DoubleClickDescription" name="di_doctasks_tools_action_analysis_doubleclisk" label="Double click on analysis" precondition="aql: self.oclIsTypeOf(analysis::DocAnalysis) and self.oclAsType(analysis::DocAnalysis).Doc &lt;> null" mappings="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@containerMappings[name='di_doctasks_analysis_container']">
+          <ownedTools xsi:type="tool_1:DoubleClickDescription" name="di_doctasks_tools_action_analysis_doubleclisk" label="Double click on analysis" precondition="aql: self.oclIsTypeOf(analysis::Analysis) and self.oclAsType(analysis::Analysis).Docs->size() > 0" mappings="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@containerMappings[name='di_doctasks_analysis_container']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -198,7 +198,7 @@
                   <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                     <initialOperation/>
                   </buttons>
-                  <page name="di_doctasks_tools_action_analysis_doubleclisk_dialog" domainClass="analysis::DocAnalysis" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.7 //@extensions.0/@categories.0/@groups.8"/>
+                  <page name="di_doctasks_tools_action_analysis_doubleclisk_dialog" domainClass="analysis::Analysis" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.7 //@extensions.0/@categories.0/@groups.8"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -387,7 +387,7 @@
           </onClickOperation>
         </controls>
       </groups>
-      <groups name="pr_group_analysis" label="Group Analysis" labelExpression="Analysis" domainClass="analysis::DocAnalysis" semanticCandidateExpression="var:self">
+      <groups name="pr_group_analysis" label="Group Analysis" labelExpression="Analysis" domainClass="analysis::Analysis" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="pr_group_analysis_description" label="Field Analysis Description" labelExpression="Description" helpExpression="String used by user to recognize the Analysis" isEnabledExpression="aql:false" valueExpression="aql:self.Description">
           <initialOperation>
             <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
@@ -408,7 +408,7 @@
           </initialOperation>
         </controls>
       </groups>
-      <groups name="pr_group_analysis_tools" label="Group Analysis Tools" labelExpression="Set Up" domainClass="analysis::DocAnalysis" semanticCandidateExpression="var:self">
+      <groups name="pr_group_analysis_tools" label="Group Analysis Tools" labelExpression="Set Up" domainClass="analysis::Analysis" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:LabelDescription" name="pr_group_analysis_tools_extractor" label="Extractor" labelExpression="Extractor" displayExpression="aql:self.Extractor.Description">
           <actions labelExpression="New Extractor" imageExpression="/org.eclipse.sirius.ui/icons/full/others/add.gif">
             <initialOperation>
