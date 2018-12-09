@@ -128,7 +128,7 @@ public class AnalysisCategoryItemProvider extends CategoryItemProvider implement
 			IPropertiesProvider properties = new AnalysisSheetPropertiesProvider(sheet, docs, category);
 			List<AnalysisElementKey> keys = category.getElements().stream().map(e -> ((AnalysisElement)e).getKey()).collect(Collectors.toList());
 			String sheet_name = sheet.getColumnizer().getSheetLabel();
-			grids_provider.addSheet(sheet_name, keys, properties).setAggregation(false);
+			grids_provider.addSheet(sheet_name, keys, properties).setAggregation(true);
 		}
 		return grids_provider;
 	}
