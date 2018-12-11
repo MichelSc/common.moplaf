@@ -45,7 +45,7 @@ import com.misc.common.moplaf.emf.editor.action.WriteAction;
 public class ActionContributionMenu  extends ActionContributionItem {
 	@Override
 	public boolean isVisible() {
-		return this.getAction().isEnabled();
+		return this.getAction().isEnabled() || this.getAction().getText() != null;
 	}
 
 	public ActionContributionMenu(IAction action) {
