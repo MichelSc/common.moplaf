@@ -22,22 +22,13 @@ public interface AnalysisFactory extends EFactory {
 	AnalysisFactory eINSTANCE = com.misc.common.moplaf.analysis.impl.AnalysisFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Doc Analysis</em>'.
+	 * Returns a new object of class '<em>Analysis</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Doc Analysis</em>'.
+	 * @return a new object of class '<em>Analysis</em>'.
 	 * @generated
 	 */
-	DocAnalysis createDocAnalysis();
-
-	/**
-	 * Returns a new object of class '<em>Doc Comparison</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Doc Comparison</em>'.
-	 * @generated
-	 */
-	DocComparison createDocComparison();
+	Analysis createAnalysis();
 
 	/**
 	 * Returns a new object of class '<em>Domain</em>'.
@@ -56,6 +47,51 @@ public interface AnalysisFactory extends EFactory {
 	 * @generated
 	 */
 	DataTools createDataTools();
+
+	/**
+	 * Returns a new object of class '<em>Doc</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Doc</em>'.
+	 * @generated
+	 */
+	AnalysisDoc createAnalysisDoc();
+
+	/**
+	 * Returns a new object of class '<em>Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Element</em>'.
+	 * @generated
+	 */
+	AnalysisElement createAnalysisElement();
+
+	/**
+	 * Returns a new object of class '<em>Element Key</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Element Key</em>'.
+	 * @generated
+	 */
+	AnalysisElementKey createAnalysisElementKey();
+
+	/**
+	 * Returns a new object of class '<em>Sheet</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sheet</em>'.
+	 * @generated
+	 */
+	AnalysisSheet createAnalysisSheet();
+
+	/**
+	 * Returns a new object of class '<em>Category</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Category</em>'.
+	 * @generated
+	 */
+	AnalysisCategory createAnalysisCategory();
 
 	/**
 	 * Returns the package supported by this factory.

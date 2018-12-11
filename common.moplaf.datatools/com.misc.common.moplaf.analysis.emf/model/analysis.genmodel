@@ -8,31 +8,40 @@
   <foreignModel>analysis.ecore</foreignModel>
   <genPackages prefix="Analysis" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
       ecorePackage="analysis.ecore#/">
-    <genClasses ecoreClass="analysis.ecore#//DocAnalysis" labelFeature="#//analysis/DocAnalysis/Description">
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/Extractor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//DocAnalysis/Complete"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//DocAnalysis/MaxElements"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/Categorizers"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//DocAnalysis/Description"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/DataTools"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//DocAnalysis/Domain"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//DocAnalysis/RefreshFeedback"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//DocAnalysis/Name"/>
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute analysis.ecore#//DocAnalysis/Remarks"/>
-      <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/refresh"/>
-      <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/addTool">
-        <genParameters ecoreParameter="analysis.ecore#//DocAnalysis/addTool/tool"/>
+    <genDataTypes ecoreDataType="analysis.ecore#//ElementKey"/>
+    <genClasses provider="Stateful" ecoreClass="analysis.ecore#//Analysis">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//Analysis/Categorizers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//Analysis/Extractor"/>
+      <genFeatures createChild="false" propertyCategory="30 Data" ecoreFeature="ecore:EAttribute analysis.ecore#//Analysis/Complete"/>
+      <genFeatures createChild="false" propertyCategory="20 Config Set Up" ecoreFeature="ecore:EAttribute analysis.ecore#//Analysis/MaxElements"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Analysis"
+          ecoreFeature="ecore:EAttribute analysis.ecore#//Analysis/Description"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//Analysis/DataTools"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//Analysis/Domain"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
+          ecoreFeature="ecore:EAttribute analysis.ecore#//Analysis/RefreshFeedback"/>
+      <genFeatures createChild="false" propertyCategory="10 Analysis" ecoreFeature="ecore:EAttribute analysis.ecore#//Analysis/Name"/>
+      <genFeatures createChild="false" propertyCategory="10 Analysis" propertyMultiLine="true"
+          ecoreFeature="ecore:EAttribute analysis.ecore#//Analysis/Remarks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//Analysis/Docs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//Analysis/Sheets"/>
+      <genOperations ecoreOperation="analysis.ecore#//Analysis/flush"/>
+      <genOperations ecoreOperation="analysis.ecore#//Analysis/refresh"/>
+      <genOperations ecoreOperation="analysis.ecore#//Analysis/addTool">
+        <genParameters ecoreParameter="analysis.ecore#//Analysis/addTool/tool"/>
       </genOperations>
-      <genOperations ecoreOperation="analysis.ecore#//DocAnalysis/flush"/>
-    </genClasses>
-    <genClasses ecoreClass="analysis.ecore#//DocComparison">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//DocComparison/Extractor"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//DocComparison/ColumnizerCompare"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//DocComparison/Doc1"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//DocComparison/Doc2"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//DocComparison/Matches"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//DocComparison/Matcher"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//DocComparison/ColumnizerKey"/>
+      <genOperations ecoreOperation="analysis.ecore#//Analysis/isValidInput">
+        <genParameters ecoreParameter="analysis.ecore#//Analysis/isValidInput/doc"/>
+      </genOperations>
+      <genOperations ecoreOperation="analysis.ecore#//Analysis/addDoc">
+        <genParameters ecoreParameter="analysis.ecore#//Analysis/addDoc/doc"/>
+      </genOperations>
+      <genOperations ecoreOperation="analysis.ecore#//Analysis/addElement">
+        <genParameters ecoreParameter="analysis.ecore#//Analysis/addElement/element"/>
+      </genOperations>
+      <genOperations ecoreOperation="analysis.ecore#//Analysis/removeElement">
+        <genParameters ecoreParameter="analysis.ecore#//Analysis/removeElement/element"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="analysis.ecore#//AnalysisDomain">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisDomain/SuperDomain"/>
@@ -46,6 +55,62 @@
     <genClasses ecoreClass="analysis.ecore#//DataTools">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//DataTools/Domain"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//DataTools/DataTools"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="analysis.ecore#//AnalysisDoc">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisDoc/Analysis"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisDoc/Elements"/>
+      <genFeatures createChild="false" propertyCategory="30 Data" ecoreFeature="ecore:EAttribute analysis.ecore#//AnalysisDoc/Complete"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="30 Data"
+          ecoreFeature="ecore:EAttribute analysis.ecore#//AnalysisDoc/NbElements"/>
+      <genFeatures createChild="false" propertyCategory="10 Document" ecoreFeature="ecore:EAttribute analysis.ecore#//AnalysisDoc/DocIndex"/>
+      <genFeatures createChild="false" propertyCategory="20 Config Set Up" ecoreFeature="ecore:EAttribute analysis.ecore#//AnalysisDoc/Color"/>
+      <genOperations ecoreOperation="analysis.ecore#//AnalysisDoc/getElements">
+        <genParameters ecoreParameter="analysis.ecore#//AnalysisDoc/getElements/category"/>
+      </genOperations>
+      <genOperations ecoreOperation="analysis.ecore#//AnalysisDoc/flush"/>
+      <genOperations ecoreOperation="analysis.ecore#//AnalysisDoc/getPropertyAggregation">
+        <genParameters ecoreParameter="analysis.ecore#//AnalysisDoc/getPropertyAggregation/provider"/>
+        <genParameters ecoreParameter="analysis.ecore#//AnalysisDoc/getPropertyAggregation/property"/>
+        <genParameters ecoreParameter="analysis.ecore#//AnalysisDoc/getPropertyAggregation/category"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="analysis.ecore#//AnalysisElement">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisElement/Doc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisElement/Key"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference analysis.ecore#//AnalysisElement/Element"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisElement/Category"/>
+      <genOperations ecoreOperation="analysis.ecore#//AnalysisElement/isInCategory">
+        <genParameters ecoreParameter="analysis.ecore#//AnalysisElement/isInCategory/category"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="analysis.ecore#//AnalysisElementKey">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisElementKey/Sheet"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisElementKey/Docs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute analysis.ecore#//AnalysisElementKey/IndexKey"/>
+      <genOperations ecoreOperation="analysis.ecore#//AnalysisElementKey/getKeyValue"/>
+      <genOperations ecoreOperation="analysis.ecore#//AnalysisElementKey/getElement">
+        <genParameters ecoreParameter="analysis.ecore#//AnalysisElementKey/getElement/doc"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="analysis.ecore#//AnalysisSheet">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisSheet/Keys"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisSheet/Analysis"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisSheet/Columnizer"/>
+      <genOperations ecoreOperation="analysis.ecore#//AnalysisSheet/addElement">
+        <genParameters ecoreParameter="analysis.ecore#//AnalysisSheet/addElement/element"/>
+      </genOperations>
+      <genOperations ecoreOperation="analysis.ecore#//AnalysisSheet/removeElement">
+        <genParameters ecoreParameter="analysis.ecore#//AnalysisSheet/removeElement/element"/>
+      </genOperations>
+      <genOperations ecoreOperation="analysis.ecore#//AnalysisSheet/getKeyValue">
+        <genParameters ecoreParameter="analysis.ecore#//AnalysisSheet/getKeyValue/element"/>
+      </genOperations>
+      <genOperations ecoreOperation="analysis.ecore#//AnalysisSheet/flush"/>
+    </genClasses>
+    <genClasses provider="Stateful" image="false" ecoreClass="analysis.ecore#//AnalysisCategory"
+        labelFeature="../../com.misc.common.moplaf.datatools.emf/model/datatools.genmodel#//datatools/Category/CategoryLabel">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference analysis.ecore#//AnalysisCategory/Analysis"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -71,7 +71,7 @@ public class NavigationReferenceItemProvider extends NavigationAxisItemProvider 
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
 				 null) {
 
 					@Override

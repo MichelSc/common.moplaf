@@ -147,7 +147,7 @@ public class AnalysisDomainItemProvider extends TaskDomainItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(AnalysisPackage.Literals.ANALYSIS_DOMAIN__ANALYSES,
-				 AnalysisFactory.eINSTANCE.createDocAnalysis()));
+				 AnalysisFactory.eINSTANCE.createAnalysis()));
 
 		newChildDescriptors.add
 			(createChildParameter

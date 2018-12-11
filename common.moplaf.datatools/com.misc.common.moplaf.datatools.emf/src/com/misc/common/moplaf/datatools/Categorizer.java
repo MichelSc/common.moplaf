@@ -30,7 +30,7 @@ public interface Categorizer extends DataTool {
 	 * @model
 	 * @generated
 	 */
-	String getCategoryLabel(Object value);
+	String getCategoryLabel(Object object);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -39,13 +39,5 @@ public interface Categorizer extends DataTool {
 	 * @generated
 	 */
 	boolean isValidElementType(EClass type);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	Category constructCategory();
 
 } // Categorizer

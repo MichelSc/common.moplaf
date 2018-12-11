@@ -32,22 +32,21 @@ public class CategoryItemProvider extends CategoryAbstractItemProvider {
 		super(adapterFactory);
 	}
 
+
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addCategoryLabelPropertyDescriptor(object);
-			addCategoryValuePropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
+		this.itemPropertyDescriptors = null;
+		super.getPropertyDescriptors(object);
+		addCategoryLabelPropertyDescriptor(object);
+		addCategoryValuePropertyDescriptor(object);
+		return this.itemPropertyDescriptors;
 	}
+
 
 	/**
 	 * This adds a property descriptor for the Category Label feature.
@@ -67,7 +66,7 @@ public class CategoryItemProvider extends CategoryAbstractItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10CategoryPropertyCategory"),
 				 null));
 	}
 
@@ -89,7 +88,7 @@ public class CategoryItemProvider extends CategoryAbstractItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10CategoryPropertyCategory"),
 				 null));
 	}
 

@@ -74,7 +74,7 @@ public class NavigationPathItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__25ConfigDetailPropertyCategory"),
 				 null));
 	}
 
@@ -96,7 +96,7 @@ public class NavigationPathItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__25ConfigDetailPropertyCategory"),
 				 null));
 	}
 
@@ -118,7 +118,7 @@ public class NavigationPathItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__25ConfigDetailPropertyCategory"),
 				 null));
 	}
 
@@ -140,7 +140,7 @@ public class NavigationPathItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__25ConfigDetailPropertyCategory"),
 				 null));
 	}
 

@@ -15,11 +15,6 @@
       <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//DataToolType/FILTER"/>
       <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//DataToolType/PATH"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="datatools.ecore#//MatchStatus">
-      <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//MatchStatus/BEFORE"/>
-      <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//MatchStatus/AFTER"/>
-      <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//MatchStatus/MATCH"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="datatools.ecore#//AggregationType">
       <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//AggregationType/NONE"/>
       <genEnumLiterals ecoreEnumLiteral="datatools.ecore#//AggregationType/SUM"/>
@@ -31,22 +26,28 @@
     <genDataTypes ecoreDataType="datatools.ecore#//IPropertiesProvider"/>
     <genClasses ecoreClass="datatools.ecore#//NavigationPath" labelFeature="#//datatools/NavigationPath/Path">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//NavigationPath/PathElements"/>
-      <genFeatures property="Readonly" createChild="false" propertySortChoices="true"
-          ecoreFeature="ecore:EReference datatools.ecore#//NavigationPath/SourceType"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
-          ecoreFeature="ecore:EReference datatools.ecore#//NavigationPath/TargetType"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//NavigationPath/Many"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//NavigationPath/Path"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="25 Config Detail"
+          propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//NavigationPath/SourceType"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="25 Config Detail"
+          propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//NavigationPath/TargetType"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="25 Config Detail"
+          ecoreFeature="ecore:EAttribute datatools.ecore#//NavigationPath/Many"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="25 Config Detail"
+          ecoreFeature="ecore:EAttribute datatools.ecore#//NavigationPath/Path"/>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//NavigationAxis">
-      <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
-          ecoreFeature="ecore:EReference datatools.ecore#//NavigationAxis/SourceType"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
-          ecoreFeature="ecore:EReference datatools.ecore#//NavigationAxis/TargetType"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//NavigationAxis/Path"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//NavigationAxis/Previous"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//NavigationAxis/PathElement"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//NavigationAxis/Next"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="25 Config Detail"
+          propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//NavigationAxis/SourceType"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="25 Config Detail"
+          propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//NavigationAxis/TargetType"/>
+      <genFeatures property="None" notify="false" createChild="false" propertyCategory=""
+          ecoreFeature="ecore:EReference datatools.ecore#//NavigationAxis/Path"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="25 Config Detail"
+          ecoreFeature="ecore:EReference datatools.ecore#//NavigationAxis/Previous"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="25 Config Detail"
+          ecoreFeature="ecore:EAttribute datatools.ecore#//NavigationAxis/PathElement"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="25 Config Detail"
+          ecoreFeature="ecore:EReference datatools.ecore#//NavigationAxis/Next"/>
       <genOperations ecoreOperation="datatools.ecore#//NavigationAxis/navigate">
         <genParameters ecoreParameter="datatools.ecore#//NavigationAxis/navigate/in"/>
       </genOperations>
@@ -55,10 +56,12 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//NavigationReference">
-      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//NavigationReference/Reference"/>
+      <genFeatures createChild="false" propertyCategory="20 Config Set Up" propertySortChoices="true"
+          ecoreFeature="ecore:EReference datatools.ecore#//NavigationReference/Reference"/>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//NavigationDowncast">
-      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//NavigationDowncast/DowncastType"/>
+      <genFeatures createChild="false" propertyCategory="20 Config Set Up" propertySortChoices="true"
+          ecoreFeature="ecore:EReference datatools.ecore#//NavigationDowncast/DowncastType"/>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//DataToolContext">
       <genOperations ecoreOperation="datatools.ecore#//DataToolContext/getDomainTypes"/>
@@ -67,13 +70,15 @@
       <genOperations ecoreOperation="datatools.ecore#//DataTool/clone"/>
     </genClasses>
     <genClasses image="false" ecoreClass="datatools.ecore#//DataToolAbstract">
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//DataToolAbstract/Context"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//DataToolAbstract/Description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//DataToolAbstract/Name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//DataToolAbstract/Context"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 DataTool"
+          ecoreFeature="ecore:EAttribute datatools.ecore#//DataToolAbstract/Description"/>
+      <genFeatures createChild="false" propertyCategory="10 DataTool" ecoreFeature="ecore:EAttribute datatools.ecore#//DataToolAbstract/Name"/>
       <genOperations ecoreOperation="datatools.ecore#//DataToolAbstract/getType"/>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//Extractor" labelFeature="#//datatools/DataToolAbstract/Description">
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//Extractor/ExtractedType"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="25 Config Detail"
+          ecoreFeature="ecore:EReference datatools.ecore#//Extractor/ExtractedType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//Extractor/Filter"/>
       <genOperations ecoreOperation="datatools.ecore#//Extractor/extract">
         <genParameters ecoreParameter="datatools.ecore#//Extractor/extract/ins"/>
@@ -84,24 +89,28 @@
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="datatools.ecore#//ExtractorType" labelFeature="#//datatools/DataToolAbstract/Description">
-      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//ExtractorType/TargetType"/>
+      <genFeatures createChild="false" propertyCategory="20 Config Set Up" propertySortChoices="true"
+          ecoreFeature="ecore:EReference datatools.ecore#//ExtractorType/TargetType"/>
     </genClasses>
     <genClasses image="false" ecoreClass="datatools.ecore#//ExtractorPath" labelFeature="#//datatools/DataToolAbstract/Description">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//ExtractorPath/RootType"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="20 Config"
+          propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//ExtractorPath/RootType"/>
     </genClasses>
     <genClasses image="false" ecoreClass="datatools.ecore#//ExtractorOcl" labelFeature="#//datatools/DataToolAbstract/Description">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ExtractorOcl/Expression"/>
+      <genFeatures createChild="false" propertyCategory="20 Config" ecoreFeature="ecore:EAttribute datatools.ecore#//ExtractorOcl/Expression"/>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//Filter" labelFeature="#//datatools/DataToolAbstract/Description">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//Filter/Enabled"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//Filter/Negated"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//Filter/FilteredType"/>
+      <genFeatures createChild="false" propertyCategory="20 Config Set Up" ecoreFeature="ecore:EAttribute datatools.ecore#//Filter/Enabled"/>
+      <genFeatures createChild="false" propertyCategory="20 Config Set Up" ecoreFeature="ecore:EAttribute datatools.ecore#//Filter/Negated"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="25 Config Detail"
+          ecoreFeature="ecore:EReference datatools.ecore#//Filter/FilteredType"/>
       <genOperations ecoreOperation="datatools.ecore#//Filter/satisfiesFilter">
         <genParameters ecoreParameter="datatools.ecore#//Filter/satisfiesFilter/object"/>
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="datatools.ecore#//FilterAttribute" labelFeature="#//datatools/DataToolAbstract/Description">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//FilterAttribute/Attribute"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="20 Config Set Up"
+          propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//FilterAttribute/Attribute"/>
       <genOperations ecoreOperation="datatools.ecore#//FilterAttribute/getAttributeValue">
         <genParameters ecoreParameter="datatools.ecore#//FilterAttribute/getAttributeValue/object"/>
       </genOperations>
@@ -109,16 +118,16 @@
     <genClasses image="false" ecoreClass="datatools.ecore#//FilterAttributeString"
         labelFeature="#//datatools/DataToolAbstract/Description"/>
     <genClasses image="false" ecoreClass="datatools.ecore#//FilterRegex" labelFeature="#//datatools/DataToolAbstract/Description">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//FilterRegex/Pattern"/>
+      <genFeatures createChild="false" propertyCategory="20 Config Set Up" ecoreFeature="ecore:EAttribute datatools.ecore#//FilterRegex/Pattern"/>
     </genClasses>
     <genClasses image="false" ecoreClass="datatools.ecore#//FilterAttributeInt" labelFeature="#//datatools/DataToolAbstract/Description"/>
     <genClasses image="false" ecoreClass="datatools.ecore#//FilterAttributeIntRange"
         labelFeature="#//datatools/DataToolAbstract/Description">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//FilterAttributeIntRange/MinValue"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//FilterAttributeIntRange/MaxValue"/>
+      <genFeatures createChild="false" propertyCategory="20 Config Set Up" ecoreFeature="ecore:EAttribute datatools.ecore#//FilterAttributeIntRange/MinValue"/>
+      <genFeatures createChild="false" propertyCategory="20 Config Set Up" ecoreFeature="ecore:EAttribute datatools.ecore#//FilterAttributeIntRange/MaxValue"/>
     </genClasses>
     <genClasses image="false" ecoreClass="datatools.ecore#//FilterOcl" labelFeature="#//datatools/DataToolAbstract/Description">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//FilterOcl/Expression"/>
+      <genFeatures createChild="false" propertyCategory="20 Config Set Up" ecoreFeature="ecore:EAttribute datatools.ecore#//FilterOcl/Expression"/>
     </genClasses>
     <genClasses image="false" ecoreClass="datatools.ecore#//FilterCompound" labelFeature="#//datatools/DataToolAbstract/Description">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//FilterCompound/Filters"/>
@@ -133,9 +142,14 @@
     <genClasses image="false" ecoreClass="datatools.ecore#//ExtractorUnion" labelFeature="#//datatools/DataToolAbstract/Description"/>
     <genClasses image="false" ecoreClass="datatools.ecore#//ExtractorIntersection"
         labelFeature="#//datatools/DataToolAbstract/Description"/>
+    <genClasses ecoreClass="datatools.ecore#//Columnizers">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//Columnizers/Columnizers"/>
+    </genClasses>
     <genClasses ecoreClass="datatools.ecore#//ColumnizerAbstract">
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerAbstract/SheetLabel"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerAbstract/Aggregation"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="25 Config Detail"
+          ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerAbstract/SheetLabel"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="25 Config Detail"
+          ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerAbstract/Aggregation"/>
       <genOperations ecoreOperation="datatools.ecore#//ColumnizerAbstract/isValidElementType">
         <genParameters ecoreParameter="datatools.ecore#//ColumnizerAbstract/isValidElementType/type"/>
       </genOperations>
@@ -143,36 +157,68 @@
     </genClasses>
     <genClasses image="false" ecoreClass="datatools.ecore#//Columnizer" labelFeature="#//datatools/DataToolAbstract/Description">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//Columnizer/Columns"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//Columnizer/ColumnizedType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//Columnizer/SheetName"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="20 Config Set Up"
+          propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//Columnizer/ColumnizedType"/>
+      <genFeatures createChild="false" propertyCategory="20 Config Set Up" ecoreFeature="ecore:EAttribute datatools.ecore#//Columnizer/SheetName"/>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//ColumnizerColumn">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumn/ColumnName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumn/ColumnWidth"/>
+      <genFeatures createChild="false" propertyCategory="20 Config Set Up" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumn/ColumnName"/>
+      <genFeatures createChild="false" propertyCategory="20 Config Set Up" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumn/ColumnWidth"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//ColumnizerColumn/Columnizer"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumn/AggregationType"/>
+      <genFeatures createChild="false" propertyCategory="20 Config Set Up" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumn/AggregationType"/>
+      <genFeatures createChild="false" propertyCategory="20 Config Set Up" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumn/Key"/>
       <genOperations ecoreOperation="datatools.ecore#//ColumnizerColumn/getValue">
         <genParameters ecoreParameter="datatools.ecore#//ColumnizerColumn/getValue/object"/>
       </genOperations>
       <genOperations ecoreOperation="datatools.ecore#//ColumnizerColumn/getDataType"/>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//ColumnizerColumnAttribute" labelFeature="#//datatools/DataToolAbstract/Description">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//ColumnizerColumnAttribute/Attribute"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="20 Config Set Up"
+          propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//ColumnizerColumnAttribute/Attribute"/>
     </genClasses>
     <genClasses image="false" ecoreClass="datatools.ecore#//ColumnizerColumnOcl" labelFeature="#//datatools/ColumnizerColumn/ColumnName">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumnOcl/Expression"/>
+      <genFeatures createChild="false" propertyCategory="20 Config Set Up" ecoreFeature="ecore:EAttribute datatools.ecore#//ColumnizerColumnOcl/Expression"/>
     </genClasses>
-    <genClasses ecoreClass="datatools.ecore#//Category" labelFeature="#//datatools/Category/CategoryLabel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//Category/CategoryLabel"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//Category/CategoryValue"/>
+    <genClasses image="false" ecoreClass="datatools.ecore#//CategoryFactory">
+      <genOperations ecoreOperation="datatools.ecore#//CategoryFactory/constructCategory"/>
+      <genOperations ecoreOperation="datatools.ecore#//CategoryFactory/setLeafCategory">
+        <genParameters ecoreParameter="datatools.ecore#//CategoryFactory/setLeafCategory/object"/>
+        <genParameters ecoreParameter="datatools.ecore#//CategoryFactory/setLeafCategory/category"/>
+      </genOperations>
+    </genClasses>
+    <genClasses provider="Stateful" ecoreClass="datatools.ecore#//CategoryAbstract">
+      <genFeatures property="Readonly" createChild="false" propertyCategory="30 Data"
+          ecoreFeature="ecore:EAttribute datatools.ecore#//CategoryAbstract/NbElements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/SubCategories"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/Elements"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="30 Data"
+          ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/SuperCategory"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="30 Data"
+          ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/RootCategory"/>
+      <genOperations ecoreOperation="datatools.ecore#//CategoryAbstract/getSubcategory">
+        <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/getSubcategory/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="datatools.ecore#//CategoryAbstract/refresh">
+        <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/refresh/factory"/>
+        <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/refresh/els_tobe"/>
+        <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/refresh/categorizers"/>
+        <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/refresh/level"/>
+      </genOperations>
+      <genOperations ecoreOperation="datatools.ecore#//CategoryAbstract/isIn">
+        <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/isIn/super_category"/>
+      </genOperations>
+    </genClasses>
+    <genClasses provider="Stateful" ecoreClass="datatools.ecore#//Category" labelFeature="#//datatools/Category/CategoryLabel">
+      <genFeatures createChild="false" propertyCategory="10 Category" ecoreFeature="ecore:EAttribute datatools.ecore#//Category/CategoryLabel"/>
+      <genFeatures createChild="false" propertyCategory="10 Category" ecoreFeature="ecore:EAttribute datatools.ecore#//Category/CategoryValue"/>
     </genClasses>
     <genClasses ecoreClass="datatools.ecore#//Categorizer" labelFeature="#//datatools/DataToolAbstract/Description">
-      <genOperations ecoreOperation="datatools.ecore#//Categorizer/constructCategory"/>
       <genOperations ecoreOperation="datatools.ecore#//Categorizer/getCategoryValue">
         <genParameters ecoreParameter="datatools.ecore#//Categorizer/getCategoryValue/object"/>
       </genOperations>
       <genOperations ecoreOperation="datatools.ecore#//Categorizer/getCategoryLabel">
-        <genParameters ecoreParameter="datatools.ecore#//Categorizer/getCategoryLabel/value"/>
+        <genParameters ecoreParameter="datatools.ecore#//Categorizer/getCategoryLabel/object"/>
       </genOperations>
       <genOperations ecoreOperation="datatools.ecore#//Categorizer/isValidElementType">
         <genParameters ecoreParameter="datatools.ecore#//Categorizer/isValidElementType/type"/>
@@ -180,37 +226,16 @@
     </genClasses>
     <genClasses image="false" ecoreClass="datatools.ecore#//CategorizerStructuralFeature"
         labelFeature="#//datatools/DataToolAbstract/Description">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//CategorizerStructuralFeature/Feature"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//CategorizerStructuralFeature/CategorizedType"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="20 Config Set Up"
+          propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//CategorizerStructuralFeature/Feature"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="20 Config Set Up"
+          propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//CategorizerStructuralFeature/CategorizedType"/>
     </genClasses>
     <genClasses image="false" ecoreClass="datatools.ecore#//CategorizerOcl" labelFeature="#//datatools/DataToolAbstract/Description">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//CategorizerOcl/Expression"/>
+      <genFeatures createChild="false" propertyCategory="20 Config Set Up" ecoreFeature="ecore:EAttribute datatools.ecore#//CategorizerOcl/Expression"/>
     </genClasses>
-    <genClasses ecoreClass="datatools.ecore#//Matcher">
-      <genOperations ecoreOperation="datatools.ecore#//Matcher/getMatch">
-        <genParameters ecoreParameter="datatools.ecore#//Matcher/getMatch/ins1"/>
-        <genParameters ecoreParameter="datatools.ecore#//Matcher/getMatch/ins2"/>
-      </genOperations>
-    </genClasses>
-    <genClasses ecoreClass="datatools.ecore#//Match">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//Match/Object1"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//Match/Object2"/>
-    </genClasses>
-    <genClasses ecoreClass="datatools.ecore#//Columnizers">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//Columnizers/Columnizers"/>
-    </genClasses>
-    <genClasses ecoreClass="datatools.ecore#//CategoryAbstract">
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute datatools.ecore#//CategoryAbstract/NbElements"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/Elements"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/SubCategories"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference datatools.ecore#//CategoryAbstract/ColumnizerSet"/>
-      <genOperations ecoreOperation="datatools.ecore#//CategoryAbstract/getSubcategory">
-        <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/getSubcategory/value"/>
-      </genOperations>
-      <genOperations ecoreOperation="datatools.ecore#//CategoryAbstract/getPropertyAggregation">
-        <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/getPropertyAggregation/provider"/>
-        <genParameters ecoreParameter="datatools.ecore#//CategoryAbstract/getPropertyAggregation/property"/>
-      </genOperations>
+    <genClasses image="false" ecoreClass="datatools.ecore#//CategorizerSubject">
+      <genOperations ecoreOperation="datatools.ecore#//CategorizerSubject/getSubject"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

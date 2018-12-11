@@ -22,8 +22,8 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="di_doctasks_analysisdoc" sourceMapping="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@containerMappings[name='di_doctasks_doc_container']" targetMapping="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@containerMappings[name='di_doctasks_analysis_container']" targetFinderExpression="aql:self.Refs->select(o | o.oclIsKindOf(analysis::DocAnalysis) )">
-          <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2" endsCentering="Both">
+        <edgeMappings name="di_doctasks_analysisdoc" semanticCandidatesExpression="aql:self.Analyses.Docs" sourceMapping="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@containerMappings[name='di_doctasks_doc_container']" targetMapping="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@containerMappings[name='di_doctasks_analysis_container']" targetFinderExpression="aql:self.Analysis" sourceFinderExpression="aql:self.Doc" domainClass="analysis::AnalysisDoc" useDomainElement="true">
+          <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -60,7 +60,7 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
           </style>
         </containerMappings>
-        <containerMappings name="di_doctasks_analysis_container" label="anAnalysis container" semanticCandidatesExpression="feature:Analyses" doubleClickDescription="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@toolSections.0/@ownedTools[name='di_doctasks_tools_action_analysis_doubleclisk']" domainClass="analysis::DocAnalysis" childrenPresentation="List">
+        <containerMappings name="di_doctasks_analysis_container" label="anAnalysis container" semanticCandidatesExpression="feature:Analyses" doubleClickDescription="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@toolSections.0/@ownedTools[name='di_doctasks_tools_action_analysis_doubleclisk']" domainClass="analysis::Analysis" childrenPresentation="List">
           <subNodeMappings name="di_doctasks_analysis_container_tools" label="DataTools" semanticCandidatesExpression="feature:DataTools" domainClass="datatools::DataTool">
             <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:Description" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -172,21 +172,21 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:CreateInstance" typeName="analysis::DocAnalysis" referenceName="Analyses"/>
+              <firstModelOperations xsi:type="tool:CreateInstance" typeName="analysis::Analysis" referenceName="Analyses"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="di_doctasks_tools_createanalysisinput" label="Create Analysis Input" edgeMappings="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@edgeMappings[name='di_doctasks_analysisdoc']">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="di_doctasks_tools_createanalysisinput" label="Create Analysis Input" precondition="service:preTarget.analysisIsValidInput(preSource)" edgeMappings="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@edgeMappings[name='di_doctasks_analysisdoc']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:target">
-                <subModelOperations xsi:type="tool:SetValue" featureName="Doc" valueExpression="aql:source"/>
+                <subModelOperations xsi:type="tool:Let" variableName="done" valueExpression="service:target.analysisAddInput(source)"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:DoubleClickDescription" name="di_doctasks_tools_action_analysis_doubleclisk" label="Double click on analysis" precondition="aql: self.oclIsTypeOf(analysis::DocAnalysis) and self.oclAsType(analysis::DocAnalysis).Doc &lt;> null" mappings="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@containerMappings[name='di_doctasks_analysis_container']">
+          <ownedTools xsi:type="tool_1:DoubleClickDescription" name="di_doctasks_tools_action_analysis_doubleclisk" label="Double click on analysis" precondition="aql: self.oclIsTypeOf(analysis::Analysis) and self.oclAsType(analysis::Analysis).Docs->size() > 0" mappings="//@ownedViewpoints[name='vp_analysis']/@ownedRepresentations[name='di_analysis']/@defaultLayer/@containerMappings[name='di_doctasks_analysis_container']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -198,7 +198,7 @@
                   <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                     <initialOperation/>
                   </buttons>
-                  <page name="di_doctasks_tools_action_analysis_doubleclisk_dialog" domainClass="analysis::DocAnalysis" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.7 //@extensions.0/@categories.0/@groups.8"/>
+                  <page name="di_doctasks_tools_action_analysis_doubleclisk_dialog" domainClass="analysis::Analysis" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.7 //@extensions.0/@categories.0/@groups.8"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -387,7 +387,7 @@
           </onClickOperation>
         </controls>
       </groups>
-      <groups name="pr_group_analysis" label="Group Analysis" labelExpression="Analysis" domainClass="analysis::DocAnalysis" semanticCandidateExpression="var:self">
+      <groups name="pr_group_analysis" label="Group Analysis" labelExpression="Analysis" domainClass="analysis::Analysis" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="pr_group_analysis_description" label="Field Analysis Description" labelExpression="Description" helpExpression="String used by user to recognize the Analysis" isEnabledExpression="aql:false" valueExpression="aql:self.Description">
           <initialOperation>
             <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
@@ -408,7 +408,7 @@
           </initialOperation>
         </controls>
       </groups>
-      <groups name="pr_group_analysis_tools" label="Group Analysis Tools" labelExpression="Set Up" domainClass="analysis::DocAnalysis" semanticCandidateExpression="var:self">
+      <groups name="pr_group_analysis_tools" label="Group Analysis Tools" labelExpression="Set Up" domainClass="analysis::Analysis" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:LabelDescription" name="pr_group_analysis_tools_extractor" label="Extractor" labelExpression="Extractor" displayExpression="aql:self.Extractor.Description">
           <actions labelExpression="New Extractor" imageExpression="/org.eclipse.sirius.ui/icons/full/others/add.gif">
             <initialOperation>
@@ -423,8 +423,8 @@
                       <firstModelOperations xsi:type="tool:SetValue" featureName="Extractor" valueExpression="aql:extractor_selected"/>
                     </initialOperation>
                   </buttons>
-                  <page name="pr_group_analysis_tools_extractor" label="Select new extractor" labelExpression="Select a new extractor" domainClass="analysis::DocAnalysis" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.8/@controls.0/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.1/@groups.0"/>
-                  <groups name="di_doctasks_analysis_newextractors" labelExpression="Select Extractor to add" domainClass="analysis::DocAnalysis" semanticCandidateExpression="aql:self">
+                  <page name="pr_group_analysis_tools_extractor" label="Select new extractor" labelExpression="Select a new extractor" domainClass="analysis::Analysis" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.8/@controls.0/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.1/@groups.0"/>
+                  <groups name="di_doctasks_analysis_newextractors" labelExpression="Select Extractor to add" domainClass="analysis::Analysis" semanticCandidateExpression="aql:self">
                     <controls xsi:type="properties:ListDescription" name="di_doctasks_tools_wizard_extractorlist" labelExpression="Extractors" valueExpression="service:self.getNewExtractors()" displayExpression="aql:value.Description">
                       <onClickOperation>
                         <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
@@ -464,8 +464,8 @@
                       </firstModelOperations>
                     </initialOperation>
                   </buttons>
-                  <page name="pr_group_analysis_tools_columnizers" label="Select new columnizers" labelExpression="Select  new columnizers" domainClass="analysis::DocAnalysis" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.8/@controls.1/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.1/@groups.0"/>
-                  <groups name="di_doctasks_analysis_newcolumnizers" labelExpression="Select Columnizers to add" domainClass="analysis::DocAnalysis" semanticCandidateExpression="aql:self">
+                  <page name="pr_group_analysis_tools_columnizers" label="Select new columnizers" labelExpression="Select  new columnizers" domainClass="analysis::Analysis" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.8/@controls.1/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.1/@groups.0"/>
+                  <groups name="di_doctasks_analysis_newcolumnizers" labelExpression="Select Columnizers to add" domainClass="analysis::Analysis" semanticCandidateExpression="aql:self">
                     <controls xsi:type="properties:ListDescription" name="di_doctasks_tools_wizard_columnizerlist" labelExpression="Columnizers" valueExpression="service:self.getNewColumnizers()" displayExpression="aql:value.Description">
                       <onClickOperation>
                         <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
@@ -505,8 +505,8 @@
                       </firstModelOperations>
                     </initialOperation>
                   </buttons>
-                  <page name="pr_group_analysis_tools_categorizers" label="Select new categorizers" labelExpression="Select  new categorizers" domainClass="analysis::DocAnalysis" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.8/@controls.2/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.1/@groups.0"/>
-                  <groups name="di_doctasks_analysis_newcategorizers" labelExpression="Select Categorizers to add" domainClass="analysis::DocAnalysis" semanticCandidateExpression="aql:self">
+                  <page name="pr_group_analysis_tools_categorizers" label="Select new categorizers" labelExpression="Select  new categorizers" domainClass="analysis::Analysis" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.8/@controls.2/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.1/@groups.0"/>
+                  <groups name="di_doctasks_analysis_newcategorizers" labelExpression="Select Categorizers to add" domainClass="analysis::Analysis" semanticCandidateExpression="aql:self">
                     <controls xsi:type="properties:ListDescription" name="di_doctasks_tools_wizard_categorizerlist" labelExpression="Columnizers" valueExpression="service:self.getNewCategorizers()" displayExpression="aql:value.Description">
                       <onClickOperation>
                         <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">

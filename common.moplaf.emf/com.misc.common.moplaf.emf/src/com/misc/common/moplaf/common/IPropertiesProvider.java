@@ -98,7 +98,7 @@ public interface IPropertiesProvider extends Constants{
 	 * @return
 	 */
 	default int getPropertyTraits(Object property) {
-		return 0; // no traits per default
+		return TRAITS_NONE; // no traits per default
 	}
 
 	/**
@@ -141,6 +141,24 @@ public interface IPropertiesProvider extends Constants{
 		default: 
 			return NO_ALIGN;
 		}
+	}
+
+	/**
+	 * Return the color used as foreground for the property
+	 * @param property
+	 * @return
+	 */
+	default Color getPropertyForegroundColor(Object property) {
+		return null;
+	}
+
+	/**
+	 * Return the color used as background for the property
+	 * @param property
+	 * @return
+	 */
+	default Color getPropertyBackgroundColor(Object property) {
+		return null;
 	}
 
 	/**
@@ -353,7 +371,7 @@ public interface IPropertiesProvider extends Constants{
 		case AGGREGATE_COUNT:
 			return DATA_TYPE_INT;
 		}
-		return DATA_TYPE_UNKOWN;
+		return AGGREGATE_NONE;
 	}
 	
 	default public String getAggregationText(int aggregation) {
@@ -364,5 +382,10 @@ public interface IPropertiesProvider extends Constants{
 		case AGGREGATE_COUNT: return "count";
 		}
 		return "unknown";
+	}
+	default public boolean isPropertyKey(Object property) {
+		int traits = this.getPropertyTraits(property);
+		boolean iskey = (traits&TRAITS_KEY)==TRAITS_KEY;
+		return iskey;
 	}
 }

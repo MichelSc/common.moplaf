@@ -136,6 +136,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorPipe" eSuperTypes="#//ExtractorCompound"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorUnion" eSuperTypes="#//ExtractorLogic"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExtractorIntersection" eSuperTypes="#//ExtractorLogic"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Columnizers">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Columnizers" upperBound="-1"
+        eType="#//ColumnizerAbstract" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColumnizerAbstract" eSuperTypes="#//DataTool">
     <eOperations name="isValidElementType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="type" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
@@ -162,6 +166,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Columnizer" lowerBound="1"
         eType="#//Columnizer" eOpposite="#//Columnizer/Columns"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="AggregationType" eType="#//AggregationType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColumnizerColumnAttribute" eSuperTypes="#//NavigationPath #//ColumnizerColumn">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Attribute" lowerBound="1"
@@ -171,18 +176,48 @@
       eSuperTypes="#//ColumnizerColumn">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CategoryFactory" abstract="true" interface="true">
+    <eOperations name="constructCategory" eType="#//Category"/>
+    <eOperations name="setLeafCategory">
+      <eParameters name="object" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      <eParameters name="category" eType="#//CategoryAbstract"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CategoryAbstract" abstract="true">
+    <eOperations name="getSubcategory" eType="#//Category">
+      <eParameters name="value" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+    <eOperations name="refresh">
+      <eParameters name="factory" eType="#//CategoryFactory"/>
+      <eParameters name="els_tobe" eType="#//EObjectsSet"/>
+      <eParameters name="categorizers" upperBound="-1" eType="#//Categorizer"/>
+      <eParameters name="level" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="isIn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="super_category" eType="#//CategoryAbstract"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="NbElements" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SubCategories" upperBound="-1"
+        eType="#//Category" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SuperCategory" eType="#//CategoryAbstract"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="RootCategory" eType="#//CategoryAbstract"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Category" eSuperTypes="#//CategoryAbstract">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CategoryLabel" ordered="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CategoryValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Categorizer" abstract="true" eSuperTypes="#//DataTool">
-    <eOperations name="constructCategory" eType="#//Category"/>
     <eOperations name="getCategoryValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
       <eParameters name="object" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
     <eOperations name="getCategoryLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="object" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eOperations>
     <eOperations name="isValidElementType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="type" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
@@ -196,48 +231,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="CategorizerOcl" abstract="true" eSuperTypes="#//Categorizer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="MatchStatus">
-    <eLiterals name="BEFORE"/>
-    <eLiterals name="AFTER" value="1"/>
-    <eLiterals name="MATCH" value="2"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Matcher" eSuperTypes="#//DataTool">
-    <eOperations name="getMatch" eType="#//MatchStatus">
-      <eParameters name="ins1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-      <eParameters name="ins2" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    </eOperations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Match">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Object1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Object2" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Columnizers">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Columnizers" upperBound="-1"
-        eType="#//ColumnizerAbstract" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="IPropertiesProvider" instanceClassName="com.misc.common.moplaf.common.IPropertiesProvider"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CategoryAbstract">
-    <eOperations name="getSubcategory" eType="#//Category">
-      <eParameters name="value" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    </eOperations>
-    <eOperations name="getPropertyAggregation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
-      <eParameters name="provider" eType="#//IPropertiesProvider"/>
-      <eParameters name="property" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="NbElements" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
-        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SubCategories" upperBound="-1"
-        eType="#//Category" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ColumnizerSet" eType="#//Columnizers"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AggregationType">
     <eLiterals name="NONE"/>
     <eLiterals name="SUM" value="1"/>
     <eLiterals name="COUNT" value="2"/>
     <eLiterals name="MIN" value="3"/>
     <eLiterals name="MAX" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CategorizerSubject" abstract="true"
+      interface="true">
+    <eOperations name="getSubject" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </eClassifiers>
 </ecore:EPackage>

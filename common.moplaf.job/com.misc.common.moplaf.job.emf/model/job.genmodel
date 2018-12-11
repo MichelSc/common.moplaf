@@ -160,8 +160,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference job.ecore#//Runs/Runs"/>
     </genClasses>
     <genClasses ecoreClass="job.ecore#//Doc">
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//Doc/CloneFeedback"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//Doc/FlushFeedback"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
+          ecoreFeature="ecore:EAttribute job.ecore#//Doc/CloneFeedback"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
+          ecoreFeature="ecore:EAttribute job.ecore#//Doc/FlushFeedback"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="20 Doc"
           ecoreFeature="ecore:EAttribute job.ecore#//Doc/Description"/>
       <genFeatures createChild="false" propertyCategory="20 Doc" ecoreFeature="ecore:EAttribute job.ecore#//Doc/Loaded"/>
@@ -173,8 +175,8 @@
       <genOperations ecoreOperation="job.ecore#//Doc/load"/>
     </genClasses>
     <genClasses ecoreClass="job.ecore#//DocRef">
-      <genFeatures children="true" createChild="false" propertySortChoices="true"
-          ecoreFeature="ecore:EReference job.ecore#//DocRef/Doc"/>
+      <genFeatures children="true" createChild="false" propertyCategory="10 Document"
+          propertySortChoices="true" ecoreFeature="ecore:EReference job.ecore#//DocRef/Doc"/>
     </genClasses>
     <genClasses ecoreClass="job.ecore#//DocsHolder">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference job.ecore#//DocsHolder/Docs"/>

@@ -5,15 +5,9 @@ package com.misc.common.moplaf.datatools.provider;
 
 import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.datatools.CategoryAbstract;
-import com.misc.common.moplaf.datatools.ColumnizerAbstract;
-import com.misc.common.moplaf.datatools.Columnizers;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
-import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
-import com.misc.common.moplaf.gridview.emf.edit.util.PropertiesProviderGridsProvider;
-
 import java.util.Collection;
-import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -37,14 +31,13 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.datatools.CategoryAbstract} object.
  * <!-- begin-user-doc -->
- * @implements IItemGridsProvider
  * <!-- end-user-doc -->
  * @generated
  */
 public class CategoryAbstractItemProvider 
 	extends ItemProviderAdapter
 	implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemGridsProvider {
+		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -59,20 +52,24 @@ public class CategoryAbstractItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
+		this.itemPropertyDescriptors = null;
+		super.getPropertyDescriptors(object);
+		addNbElementsPropertyDescriptor(object);
+		addSuperCategoryPropertyDescriptor(object);
+		addRootCategoryPropertyDescriptor(object);
+		addAggregationProperties((CategoryAbstract)object);
+		return this.itemPropertyDescriptors;
 
-			addNbElementsPropertyDescriptor(object);
-			addElementsPropertyDescriptor(object);
-			addColumnizerSetPropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
 	}
+	
 
+	// this adds property descriptors for every aggregated property in this category
+	protected void addAggregationProperties(CategoryAbstract category) {
+	}
+	
 	/**
 	 * This adds a property descriptor for the Nb Elements feature.
 	 * <!-- begin-user-doc -->
@@ -91,51 +88,51 @@ public class CategoryAbstractItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30DataPropertyCategory"),
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Elements feature.
+	 * This adds a property descriptor for the Super Category feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addElementsPropertyDescriptor(Object object) {
+	protected void addSuperCategoryPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CategoryAbstract_Elements_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CategoryAbstract_Elements_feature", "_UI_CategoryAbstract_type"),
-				 DatatoolsPackage.Literals.CATEGORY_ABSTRACT__ELEMENTS,
-				 true,
+				 getString("_UI_CategoryAbstract_SuperCategory_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CategoryAbstract_SuperCategory_feature", "_UI_CategoryAbstract_type"),
+				 DatatoolsPackage.Literals.CATEGORY_ABSTRACT__SUPER_CATEGORY,
 				 false,
-				 true,
+				 false,
+				 false,
 				 null,
-				 null,
+				 getString("_UI__30DataPropertyCategory"),
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Columnizer Set feature.
+	 * This adds a property descriptor for the Root Category feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addColumnizerSetPropertyDescriptor(Object object) {
+	protected void addRootCategoryPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CategoryAbstract_ColumnizerSet_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CategoryAbstract_ColumnizerSet_feature", "_UI_CategoryAbstract_type"),
-				 DatatoolsPackage.Literals.CATEGORY_ABSTRACT__COLUMNIZER_SET,
+				 getString("_UI_CategoryAbstract_RootCategory_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CategoryAbstract_RootCategory_feature", "_UI_CategoryAbstract_type"),
+				 DatatoolsPackage.Literals.CATEGORY_ABSTRACT__ROOT_CATEGORY,
 				 false,
 				 false,
 				 false,
 				 null,
-				 null,
+				 getString("_UI__30DataPropertyCategory"),
 				 null));
 	}
 
@@ -206,6 +203,7 @@ public class CategoryAbstractItemProvider
 
 		switch (notification.getFeatureID(CategoryAbstract.class)) {
 			case DatatoolsPackage.CATEGORY_ABSTRACT__NB_ELEMENTS:
+			case DatatoolsPackage.CATEGORY_ABSTRACT__ROOT_CATEGORY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DatatoolsPackage.CATEGORY_ABSTRACT__SUB_CATEGORIES:
@@ -243,136 +241,4 @@ public class CategoryAbstractItemProvider
 		return DatatoolsEditPlugin.INSTANCE;
 	}
 	
-	/**
-	 * Specified by com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider 
-	 */
-	@Override
-	public Object getGrids(Object element) {
-		CategoryAbstract cat = (CategoryAbstract)element;
-
-		PropertiesProviderGridsProvider grids_provider = PropertiesProviderGridsProvider.constructPropertiesProviderGridsProvider()
-				;
-		
-		Columnizers columnizers = cat.getColumnizerSet(); 
-		if ( columnizers!=null ) {
-			for ( ColumnizerAbstract columnizer : columnizers.getColumnizers()) {
-				IPropertiesProvider properties_columnizer = columnizer.getPropertiesProvider();
-				grids_provider.addSheet(columnizer.getSheetLabel(),
-						                cat.getElements(),
-						                properties_columnizer).setAggregation(columnizer.isAggregation());
-			}
-		}
-		
-		grids_provider.addSheet("Categories",
-								DatatoolsPackage.Literals.CATEGORY_ABSTRACT__SUB_CATEGORIES, 
-								DatatoolsPackage.Literals.CATEGORY__CATEGORY_LABEL, 
-								new CategoryPropertiesProvider(CategoryAbstract.PROPERTIES, cat))
-					  .setSheetTraits(IItemGridsProvider.TRAITS_BARCHART);
-		
-		return grids_provider;
-	}
-	
-	private static class CategoryPropertiesProvider implements IPropertiesProvider {
-		private CategoryAbstract category;
-		private IPropertiesProvider provider;
-		public CategoryPropertiesProvider(IPropertiesProvider provider, CategoryAbstract category) {
-			this.provider = provider;
-			this.category = category;
-		}
-		private class AggregationProperty {
-			IPropertiesProvider provider;
-			Object property;
-			public AggregationProperty(IPropertiesProvider provider, Object property) {
-				super();
-				this.provider = provider;
-				this.property = property;
-			}
-			public String getPropertyText() {
-				String property_text = this.provider.getPropertyText(this.property);
-				int aggregation = this.provider.getPropertyAggregation(this.property);
-				String aggregation_text = this.provider.getAggregationText(aggregation);
-				return String.format("%s (%s)", property_text, aggregation_text);
-				}
-			public Object getPropertyValue(Object row) {
-				CategoryAbstract category = (CategoryAbstract)row;
-				Object value = category.getPropertyAggregation(this.provider, this.property);
-				return value;
-			}
-			public int getPropertyType(Object property) {
-				return this.provider.getAggregationType(this.property);
-			}
-			public int getPropertyTraits(Object property) {
-				return 0; // no traits
-			}
-		}
-		@Override
-		public Collection<?> getProperties() {
-			LinkedList<Object> properties = new LinkedList<Object>();
-			properties.addAll(this.provider.getProperties());
-			for ( ColumnizerAbstract columnizer : this.category.getColumnizerSet().getColumnizers()) {
-				IPropertiesProvider provider = columnizer.getPropertiesProvider();
-				for ( Object property : provider.getProperties()) {
-					if ( provider.getPropertyAggregation(property)!=IPropertiesProvider.AGGREGATE_NONE) {
-						AggregationProperty aggregation_property = new AggregationProperty(provider, property);
-						properties.add(aggregation_property);
-					}
-				}
-			}
-			return properties;
-		}
-		@Override
-		public String getPropertyText(Object property) {
-			if ( property instanceof AggregationProperty) {
-				AggregationProperty aggregation_property = (AggregationProperty)property;
-				return aggregation_property.getPropertyText();
-			}
-			return this.provider.getPropertyText(property);
-		}
-		@Override
-		public Object getPropertyValue(Object element, Object property) {
-			if ( property instanceof AggregationProperty) {
-				AggregationProperty aggregation_property = (AggregationProperty)property;
-				return aggregation_property.getPropertyValue(element);
-			}
-			return this.provider.getPropertyValue(element, property);
-		}
-		@Override
-		public int getPropertyType(Object property) {
-			if ( property instanceof AggregationProperty) {
-				AggregationProperty aggregation_property = (AggregationProperty)property;
-				return aggregation_property.getPropertyType(property);
-			}
-			return this.provider.getPropertyType(property);
-		}
-		@Override
-		public int getPropertyTraits(Object property) {
-			if ( property instanceof AggregationProperty) {
-				AggregationProperty aggregation_property = (AggregationProperty)property;
-				return aggregation_property.getPropertyTraits(property);
-			}
-			return this.provider.getPropertyTraits(property);
-		}
-		@Override
-		public int getPropertyAggregation(Object property) {
-			if ( property instanceof AggregationProperty) {
-				return IPropertiesProvider.AGGREGATE_NONE;
-			}
-			return this.provider.getPropertyAggregation(property);
-		}
-		@Override
-		public int getPropertyDisplayWidth(Object property) {
-			if ( property instanceof AggregationProperty) {
-				return 100;
-			}
-			return this.provider.getPropertyDisplayWidth(property);
-		}
-		@Override
-		public int getPropertyDisplayALignment(Object property) {
-			if ( property instanceof AggregationProperty) {
-				return IPropertiesProvider.HORIZONTAL_ALIGN_RIGHT;
-			}
-			return this.provider.getPropertyDisplayALignment(property);
-		}
-		
-	}
 }

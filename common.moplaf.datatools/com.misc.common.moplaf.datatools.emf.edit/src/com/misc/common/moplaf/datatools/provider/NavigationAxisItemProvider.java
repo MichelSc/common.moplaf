@@ -87,7 +87,7 @@ public class NavigationAxisItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__25ConfigDetailPropertyCategory"),
 				 null));
 	}
 
@@ -109,7 +109,7 @@ public class NavigationAxisItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__25ConfigDetailPropertyCategory"),
 				 null));
 	}
 
@@ -131,7 +131,7 @@ public class NavigationAxisItemProvider
 				 false,
 				 false,
 				 null,
-				 null,
+				 getString("_UI__25ConfigDetailPropertyCategory"),
 				 null));
 	}
 
@@ -153,7 +153,7 @@ public class NavigationAxisItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__25ConfigDetailPropertyCategory"),
 				 null));
 	}
 
@@ -175,7 +175,7 @@ public class NavigationAxisItemProvider
 				 false,
 				 false,
 				 null,
-				 null,
+				 getString("_UI__25ConfigDetailPropertyCategory"),
 				 null));
 	}
 

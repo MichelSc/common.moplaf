@@ -2,8 +2,6 @@
  */
 package com.misc.common.moplaf.datatools;
 
-
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Category</b></em>'.

@@ -75,7 +75,7 @@ public class FilterAttributeItemProvider extends FilterItemProvider {
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
 				 null) {
 				
 				@Override
@@ -92,10 +92,11 @@ public class FilterAttributeItemProvider extends FilterItemProvider {
 	 * This adds a property descriptor for the Target Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	protected void addTargetTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(new ItemPropertyDescriptor
+			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_NavigationPath_TargetType_feature"),
@@ -105,20 +106,8 @@ public class FilterAttributeItemProvider extends FilterItemProvider {
 				 false,
 				 true,
 				 null,
-				 null,
-				 null) {
-				
-				@Override
-				public Collection<?> getChoiceOfValues(Object object) {
-					FilterAttribute extractor = (FilterAttribute)object;
-					EClass target_type = extractor.getTargetType();
-					if ( target_type==null ) {
-						return null;
-					}
-					return target_type.getEAllAttributes();
-				}
-				
-			});
+				 getString("_UI__25ConfigDetailPropertyCategory"),
+				 null));
 	}
 
 	/**
@@ -139,7 +128,7 @@ public class FilterAttributeItemProvider extends FilterItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__25ConfigDetailPropertyCategory"),
 				 null));
 	}
 
@@ -162,7 +151,7 @@ public class FilterAttributeItemProvider extends FilterItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__25ConfigDetailPropertyCategory"),
 				 null));
 	}
 
@@ -183,7 +172,7 @@ public class FilterAttributeItemProvider extends FilterItemProvider {
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
 				 null) {
 				@Override
 				public Collection<?> getChoiceOfValues(Object object) {

@@ -67,7 +67,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategorizer()
 	 * @generated
 	 */
-	int CATEGORIZER = 32;
+	int CATEGORIZER = 35;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.CategoryImpl <em>Category</em>}' class.
@@ -77,7 +77,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategory()
 	 * @generated
 	 */
-	int CATEGORY = 31;
+	int CATEGORY = 34;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.DataToolImpl <em>Data Tool</em>}' class.
@@ -107,7 +107,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizer()
 	 * @generated
 	 */
-	int COLUMNIZER = 27;
+	int COLUMNIZER = 28;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorTypeImpl <em>Extractor Type</em>}' class.
@@ -197,7 +197,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerColumn()
 	 * @generated
 	 */
-	int COLUMNIZER_COLUMN = 28;
+	int COLUMNIZER_COLUMN = 29;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl <em>Columnizer Column Attribute</em>}' class.
@@ -207,7 +207,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerColumnAttribute()
 	 * @generated
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE = 29;
+	int COLUMNIZER_COLUMN_ATTRIBUTE = 30;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnOclImpl <em>Columnizer Column Ocl</em>}' class.
@@ -217,7 +217,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerColumnOcl()
 	 * @generated
 	 */
-	int COLUMNIZER_COLUMN_OCL = 30;
+	int COLUMNIZER_COLUMN_OCL = 31;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.NavigationPathImpl <em>Navigation Path</em>}' class.
@@ -258,26 +258,6 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	int NAVIGATION_DOWNCAST = 3;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.MatcherImpl <em>Matcher</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.MatcherImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getMatcher()
-	 * @generated
-	 */
-	int MATCHER = 35;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.MatchImpl <em>Match</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.MatchImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getMatch()
-	 * @generated
-	 */
-	int MATCH = 36;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.DataToolAbstractImpl <em>Data Tool Abstract</em>}' class.
@@ -2711,7 +2691,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerAbstract()
 	 * @generated
 	 */
-	int COLUMNIZER_ABSTRACT = 26;
+	int COLUMNIZER_ABSTRACT = 27;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.CategorizerStructuralFeatureImpl <em>Categorizer Structural Feature</em>}' class.
@@ -2721,7 +2701,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategorizerStructuralFeature()
 	 * @generated
 	 */
-	int CATEGORIZER_STRUCTURAL_FEATURE = 33;
+	int CATEGORIZER_STRUCTURAL_FEATURE = 36;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.CategorizerOclImpl <em>Categorizer Ocl</em>}' class.
@@ -2731,7 +2711,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategorizerOcl()
 	 * @generated
 	 */
-	int CATEGORIZER_OCL = 34;
+	int CATEGORIZER_OCL = 37;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -3319,6 +3299,53 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_INTERSECTION_OPERATION_COUNT = EXTRACTOR_LOGIC_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl <em>Category Abstract</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategoryAbstract()
+	 * @generated
+	 */
+	int CATEGORY_ABSTRACT = 33;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizersImpl <em>Columnizers</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.ColumnizersImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizers()
+	 * @generated
+	 */
+	int COLUMNIZERS = 26;
+
+	/**
+	 * The feature id for the '<em><b>Columnizers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZERS__COLUMNIZERS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Columnizers</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZERS_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Columnizers</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZERS_OPERATION_COUNT = 0;
+
+	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3580,13 +3607,22 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_COLUMN__AGGREGATION_TYPE = 3;
 
 	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN__KEY = 4;
+
+	/**
 	 * The number of structural features of the '<em>Columnizer Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_FEATURE_COUNT = 4;
+	int COLUMNIZER_COLUMN_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Get Value</em>' operation.
@@ -3724,13 +3760,22 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_COLUMN_ATTRIBUTE__AGGREGATION_TYPE = NAVIGATION_PATH_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_ATTRIBUTE__KEY = NAVIGATION_PATH_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Attribute</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE__ATTRIBUTE = NAVIGATION_PATH_FEATURE_COUNT + 4;
+	int COLUMNIZER_COLUMN_ATTRIBUTE__ATTRIBUTE = NAVIGATION_PATH_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Columnizer Column Attribute</em>' class.
@@ -3739,7 +3784,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE_FEATURE_COUNT = NAVIGATION_PATH_FEATURE_COUNT + 5;
+	int COLUMNIZER_COLUMN_ATTRIBUTE_FEATURE_COUNT = NAVIGATION_PATH_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get Type</em>' operation.
@@ -3814,6 +3859,15 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_COLUMN_OCL__AGGREGATION_TYPE = COLUMNIZER_COLUMN__AGGREGATION_TYPE;
 
 	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_OCL__KEY = COLUMNIZER_COLUMN__KEY;
+
+	/**
 	 * The feature id for the '<em><b>Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3859,14 +3913,50 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_COLUMN_OCL_OPERATION_COUNT = COLUMNIZER_COLUMN_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl <em>Category Abstract</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.CategoryFactory <em>Category Factory</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategoryAbstract()
+	 * @see com.misc.common.moplaf.datatools.CategoryFactory
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategoryFactory()
 	 * @generated
 	 */
-	int CATEGORY_ABSTRACT = 38;
+	int CATEGORY_FACTORY = 32;
+
+	/**
+	 * The number of structural features of the '<em>Category Factory</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_FACTORY_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Construct Category</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_FACTORY___CONSTRUCT_CATEGORY = 0;
+
+	/**
+	 * The operation id for the '<em>Set Leaf Category</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_FACTORY___SET_LEAF_CATEGORY__EOBJECT_CATEGORYABSTRACT = 1;
+
+	/**
+	 * The number of operations of the '<em>Category Factory</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_FACTORY_OPERATION_COUNT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Nb Elements</b></em>' attribute.
@@ -3878,31 +3968,40 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORY_ABSTRACT__NB_ELEMENTS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_ABSTRACT__ELEMENTS = 1;
-
-	/**
 	 * The feature id for the '<em><b>Sub Categories</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_ABSTRACT__SUB_CATEGORIES = 2;
+	int CATEGORY_ABSTRACT__SUB_CATEGORIES = 1;
 
 	/**
-	 * The feature id for the '<em><b>Columnizer Set</b></em>' reference.
+	 * The feature id for the '<em><b>Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_ABSTRACT__COLUMNIZER_SET = 3;
+	int CATEGORY_ABSTRACT__ELEMENTS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Super Category</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_ABSTRACT__SUPER_CATEGORY = 3;
+
+	/**
+	 * The feature id for the '<em><b>Root Category</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_ABSTRACT__ROOT_CATEGORY = 4;
 
 	/**
 	 * The number of structural features of the '<em>Category Abstract</em>' class.
@@ -3911,7 +4010,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_ABSTRACT_FEATURE_COUNT = 4;
+	int CATEGORY_ABSTRACT_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Get Subcategory</em>' operation.
@@ -3923,13 +4022,22 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT = 0;
 
 	/**
-	 * The operation id for the '<em>Get Property Aggregation</em>' operation.
+	 * The operation id for the '<em>Refresh</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_ABSTRACT___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT = 1;
+	int CATEGORY_ABSTRACT___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT = 1;
+
+	/**
+	 * The operation id for the '<em>Is In</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_ABSTRACT___IS_IN__CATEGORYABSTRACT = 2;
 
 	/**
 	 * The number of operations of the '<em>Category Abstract</em>' class.
@@ -3938,7 +4046,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY_ABSTRACT_OPERATION_COUNT = 2;
+	int CATEGORY_ABSTRACT_OPERATION_COUNT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Nb Elements</b></em>' attribute.
@@ -3950,15 +4058,6 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORY__NB_ELEMENTS = CATEGORY_ABSTRACT__NB_ELEMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__ELEMENTS = CATEGORY_ABSTRACT__ELEMENTS;
-
-	/**
 	 * The feature id for the '<em><b>Sub Categories</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3968,13 +4067,31 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORY__SUB_CATEGORIES = CATEGORY_ABSTRACT__SUB_CATEGORIES;
 
 	/**
-	 * The feature id for the '<em><b>Columnizer Set</b></em>' reference.
+	 * The feature id for the '<em><b>Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__COLUMNIZER_SET = CATEGORY_ABSTRACT__COLUMNIZER_SET;
+	int CATEGORY__ELEMENTS = CATEGORY_ABSTRACT__ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Super Category</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__SUPER_CATEGORY = CATEGORY_ABSTRACT__SUPER_CATEGORY;
+
+	/**
+	 * The feature id for the '<em><b>Root Category</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__ROOT_CATEGORY = CATEGORY_ABSTRACT__ROOT_CATEGORY;
 
 	/**
 	 * The feature id for the '<em><b>Category Label</b></em>' attribute.
@@ -4013,13 +4130,22 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORY___GET_SUBCATEGORY__EOBJECT = CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT;
 
 	/**
-	 * The operation id for the '<em>Get Property Aggregation</em>' operation.
+	 * The operation id for the '<em>Refresh</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT = CATEGORY_ABSTRACT___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT;
+	int CATEGORY___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT = CATEGORY_ABSTRACT___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT;
+
+	/**
+	 * The operation id for the '<em>Is In</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY___IS_IN__CATEGORYABSTRACT = CATEGORY_ABSTRACT___IS_IN__CATEGORYABSTRACT;
 
 	/**
 	 * The number of operations of the '<em>Category</em>' class.
@@ -4085,22 +4211,13 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORIZER___CLONE = DATA_TOOL___CLONE;
 
 	/**
-	 * The operation id for the '<em>Construct Category</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORIZER___CONSTRUCT_CATEGORY = DATA_TOOL_OPERATION_COUNT + 0;
-
-	/**
 	 * The operation id for the '<em>Get Category Value</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORIZER___GET_CATEGORY_VALUE__EOBJECT = DATA_TOOL_OPERATION_COUNT + 1;
+	int CATEGORIZER___GET_CATEGORY_VALUE__EOBJECT = DATA_TOOL_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Category Label</em>' operation.
@@ -4109,7 +4226,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORIZER___GET_CATEGORY_LABEL__OBJECT = DATA_TOOL_OPERATION_COUNT + 2;
+	int CATEGORIZER___GET_CATEGORY_LABEL__OBJECT = DATA_TOOL_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Valid Element Type</em>' operation.
@@ -4118,7 +4235,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORIZER___IS_VALID_ELEMENT_TYPE__ECLASS = DATA_TOOL_OPERATION_COUNT + 3;
+	int CATEGORIZER___IS_VALID_ELEMENT_TYPE__ECLASS = DATA_TOOL_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Categorizer</em>' class.
@@ -4127,7 +4244,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORIZER_OPERATION_COUNT = DATA_TOOL_OPERATION_COUNT + 4;
+	int CATEGORIZER_OPERATION_COUNT = DATA_TOOL_OPERATION_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -4247,15 +4364,6 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORIZER_STRUCTURAL_FEATURE___CLONE = CATEGORIZER___CLONE;
 
 	/**
-	 * The operation id for the '<em>Construct Category</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORIZER_STRUCTURAL_FEATURE___CONSTRUCT_CATEGORY = CATEGORIZER___CONSTRUCT_CATEGORY;
-
-	/**
 	 * The operation id for the '<em>Get Category Value</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4355,15 +4463,6 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORIZER_OCL___CLONE = CATEGORIZER___CLONE;
 
 	/**
-	 * The operation id for the '<em>Construct Category</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORIZER_OCL___CONSTRUCT_CATEGORY = CATEGORIZER___CONSTRUCT_CATEGORY;
-
-	/**
 	 * The operation id for the '<em>Get Category Value</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4400,149 +4499,41 @@ public interface DatatoolsPackage extends EPackage {
 	int CATEGORIZER_OCL_OPERATION_COUNT = CATEGORIZER_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.CategorizerSubject <em>Categorizer Subject</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.CategorizerSubject
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategorizerSubject()
+	 * @generated
+	 */
+	int CATEGORIZER_SUBJECT = 38;
+
+	/**
+	 * The number of structural features of the '<em>Categorizer Subject</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATCHER__CONTEXT = DATA_TOOL__CONTEXT;
+	int CATEGORIZER_SUBJECT_FEATURE_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * The operation id for the '<em>Get Subject</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATCHER__DESCRIPTION = DATA_TOOL__DESCRIPTION;
+	int CATEGORIZER_SUBJECT___GET_SUBJECT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The number of operations of the '<em>Categorizer Subject</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATCHER__NAME = DATA_TOOL__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Matcher</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATCHER_FEATURE_COUNT = DATA_TOOL_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get Type</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATCHER___GET_TYPE = DATA_TOOL___GET_TYPE;
-
-	/**
-	 * The operation id for the '<em>Clone</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATCHER___CLONE = DATA_TOOL___CLONE;
-
-	/**
-	 * The operation id for the '<em>Get Match</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATCHER___GET_MATCH__EOBJECT_EOBJECT = DATA_TOOL_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Matcher</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATCHER_OPERATION_COUNT = DATA_TOOL_OPERATION_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Object1</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATCH__OBJECT1 = 0;
-
-	/**
-	 * The feature id for the '<em><b>Object2</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATCH__OBJECT2 = 1;
-
-	/**
-	 * The number of structural features of the '<em>Match</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATCH_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Match</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATCH_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizersImpl <em>Columnizers</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.ColumnizersImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizers()
-	 * @generated
-	 */
-	int COLUMNIZERS = 37;
-
-	/**
-	 * The feature id for the '<em><b>Columnizers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMNIZERS__COLUMNIZERS = 0;
-
-	/**
-	 * The number of structural features of the '<em>Columnizers</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMNIZERS_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Columnizers</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMNIZERS_OPERATION_COUNT = 0;
+	int CATEGORIZER_SUBJECT_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.DataToolType <em>Data Tool Type</em>}' enum.
@@ -4555,16 +4546,6 @@ public interface DatatoolsPackage extends EPackage {
 	int DATA_TOOL_TYPE = 39;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.MatchStatus <em>Match Status</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.MatchStatus
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getMatchStatus()
-	 * @generated
-	 */
-	int MATCH_STATUS = 40;
-
-	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.AggregationType <em>Aggregation Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4572,7 +4553,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getAggregationType()
 	 * @generated
 	 */
-	int AGGREGATION_TYPE = 41;
+	int AGGREGATION_TYPE = 40;
 
 	/**
 	 * The meta object id for the '<em>EObjects Set</em>' data type.
@@ -4582,7 +4563,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getEObjectsSet()
 	 * @generated
 	 */
-	int EOBJECTS_SET = 42;
+	int EOBJECTS_SET = 41;
 
 	/**
 	 * The meta object id for the '<em>IProperties Provider</em>' data type.
@@ -4592,7 +4573,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getIPropertiesProvider()
 	 * @generated
 	 */
-	int IPROPERTIES_PROVIDER = 43;
+	int IPROPERTIES_PROVIDER = 42;
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Categorizer <em>Categorizer</em>}'.
@@ -4633,16 +4614,6 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getCategorizer__IsValidElementType__EClass();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Categorizer#constructCategory() <em>Construct Category</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Construct Category</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.Categorizer#constructCategory()
-	 * @generated
-	 */
-	EOperation getCategorizer__ConstructCategory();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Category <em>Category</em>}'.
@@ -4823,6 +4794,56 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCategorizerOcl_Expression();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.CategorizerSubject <em>Categorizer Subject</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Categorizer Subject</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategorizerSubject
+	 * @generated
+	 */
+	EClass getCategorizerSubject();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategorizerSubject#getSubject() <em>Get Subject</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Subject</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.CategorizerSubject#getSubject()
+	 * @generated
+	 */
+	EOperation getCategorizerSubject__GetSubject();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.CategoryFactory <em>Category Factory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Category Factory</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategoryFactory
+	 * @generated
+	 */
+	EClass getCategoryFactory();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryFactory#constructCategory() <em>Construct Category</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Construct Category</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.CategoryFactory#constructCategory()
+	 * @generated
+	 */
+	EOperation getCategoryFactory__ConstructCategory();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryFactory#setLeafCategory(org.eclipse.emf.ecore.EObject, com.misc.common.moplaf.datatools.CategoryAbstract) <em>Set Leaf Category</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Leaf Category</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.CategoryFactory#setLeafCategory(org.eclipse.emf.ecore.EObject, com.misc.common.moplaf.datatools.CategoryAbstract)
+	 * @generated
+	 */
+	EOperation getCategoryFactory__SetLeafCategory__EObject_CategoryAbstract();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorType <em>Extractor Type</em>}'.
@@ -5274,6 +5295,17 @@ public interface DatatoolsPackage extends EPackage {
 	EAttribute getColumnizerColumn_AggregationType();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#isKey <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key</em>'.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerColumn#isKey()
+	 * @see #getColumnizerColumn()
+	 * @generated
+	 */
+	EAttribute getColumnizerColumn_Key();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getValue(org.eclipse.emf.ecore.EObject) <em>Get Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5559,58 +5591,6 @@ public interface DatatoolsPackage extends EPackage {
 	EOperation getNavigationAxis__NavigateMany__EObject();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Matcher <em>Matcher</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Matcher</em>'.
-	 * @see com.misc.common.moplaf.datatools.Matcher
-	 * @generated
-	 */
-	EClass getMatcher();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Matcher#getMatch(org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject) <em>Get Match</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Match</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.Matcher#getMatch(org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EObject)
-	 * @generated
-	 */
-	EOperation getMatcher__GetMatch__EObject_EObject();
-
-	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Match <em>Match</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Match</em>'.
-	 * @see com.misc.common.moplaf.datatools.Match
-	 * @generated
-	 */
-	EClass getMatch();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.Match#getObject1 <em>Object1</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Object1</em>'.
-	 * @see com.misc.common.moplaf.datatools.Match#getObject1()
-	 * @see #getMatch()
-	 * @generated
-	 */
-	EReference getMatch_Object1();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.Match#getObject2 <em>Object2</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Object2</em>'.
-	 * @see com.misc.common.moplaf.datatools.Match#getObject2()
-	 * @see #getMatch()
-	 * @generated
-	 */
-	EReference getMatch_Object2();
-
-	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Columnizers <em>Columnizers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5653,17 +5633,6 @@ public interface DatatoolsPackage extends EPackage {
 	EAttribute getCategoryAbstract_NbElements();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getElements <em>Elements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Elements</em>'.
-	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getElements()
-	 * @see #getCategoryAbstract()
-	 * @generated
-	 */
-	EReference getCategoryAbstract_Elements();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getSubCategories <em>Sub Categories</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5675,15 +5644,37 @@ public interface DatatoolsPackage extends EPackage {
 	EReference getCategoryAbstract_SubCategories();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getColumnizerSet <em>Columnizer Set</em>}'.
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Columnizer Set</em>'.
-	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getColumnizerSet()
+	 * @return the meta object for the reference list '<em>Elements</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getElements()
 	 * @see #getCategoryAbstract()
 	 * @generated
 	 */
-	EReference getCategoryAbstract_ColumnizerSet();
+	EReference getCategoryAbstract_Elements();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getSuperCategory <em>Super Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Super Category</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getSuperCategory()
+	 * @see #getCategoryAbstract()
+	 * @generated
+	 */
+	EReference getCategoryAbstract_SuperCategory();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getRootCategory <em>Root Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Root Category</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getRootCategory()
+	 * @see #getCategoryAbstract()
+	 * @generated
+	 */
+	EReference getCategoryAbstract_RootCategory();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getSubcategory(org.eclipse.emf.ecore.EObject) <em>Get Subcategory</em>}' operation.
@@ -5696,14 +5687,24 @@ public interface DatatoolsPackage extends EPackage {
 	EOperation getCategoryAbstract__GetSubcategory__EObject();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getPropertyAggregation(com.misc.common.moplaf.common.IPropertiesProvider, java.lang.Object) <em>Get Property Aggregation</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#refresh(com.misc.common.moplaf.datatools.CategoryFactory, com.misc.common.moplaf.datatools.util.ObjectSet, org.eclipse.emf.common.util.EList, int) <em>Refresh</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Property Aggregation</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getPropertyAggregation(com.misc.common.moplaf.common.IPropertiesProvider, java.lang.Object)
+	 * @return the meta object for the '<em>Refresh</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#refresh(com.misc.common.moplaf.datatools.CategoryFactory, com.misc.common.moplaf.datatools.util.ObjectSet, org.eclipse.emf.common.util.EList, int)
 	 * @generated
 	 */
-	EOperation getCategoryAbstract__GetPropertyAggregation__IPropertiesProvider_Object();
+	EOperation getCategoryAbstract__Refresh__CategoryFactory_ObjectSet_EList_int();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#isIn(com.misc.common.moplaf.datatools.CategoryAbstract) <em>Is In</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is In</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#isIn(com.misc.common.moplaf.datatools.CategoryAbstract)
+	 * @generated
+	 */
+	EOperation getCategoryAbstract__IsIn__CategoryAbstract();
 
 	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.datatools.DataToolType <em>Data Tool Type</em>}'.
@@ -5714,16 +5715,6 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getDataToolType();
-
-	/**
-	 * Returns the meta object for enum '{@link com.misc.common.moplaf.datatools.MatchStatus <em>Match Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Match Status</em>'.
-	 * @see com.misc.common.moplaf.datatools.MatchStatus
-	 * @generated
-	 */
-	EEnum getMatchStatus();
 
 	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.datatools.AggregationType <em>Aggregation Type</em>}'.
@@ -5888,14 +5879,6 @@ public interface DatatoolsPackage extends EPackage {
 		EOperation CATEGORIZER___IS_VALID_ELEMENT_TYPE__ECLASS = eINSTANCE.getCategorizer__IsValidElementType__EClass();
 
 		/**
-		 * The meta object literal for the '<em><b>Construct Category</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation CATEGORIZER___CONSTRUCT_CATEGORY = eINSTANCE.getCategorizer__ConstructCategory();
-
-		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.CategoryImpl <em>Category</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6040,6 +6023,50 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CATEGORIZER_OCL__EXPRESSION = eINSTANCE.getCategorizerOcl_Expression();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.CategorizerSubject <em>Categorizer Subject</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.CategorizerSubject
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategorizerSubject()
+		 * @generated
+		 */
+		EClass CATEGORIZER_SUBJECT = eINSTANCE.getCategorizerSubject();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Subject</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CATEGORIZER_SUBJECT___GET_SUBJECT = eINSTANCE.getCategorizerSubject__GetSubject();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.CategoryFactory <em>Category Factory</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.CategoryFactory
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategoryFactory()
+		 * @generated
+		 */
+		EClass CATEGORY_FACTORY = eINSTANCE.getCategoryFactory();
+
+		/**
+		 * The meta object literal for the '<em><b>Construct Category</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CATEGORY_FACTORY___CONSTRUCT_CATEGORY = eINSTANCE.getCategoryFactory__ConstructCategory();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Leaf Category</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CATEGORY_FACTORY___SET_LEAF_CATEGORY__EOBJECT_CATEGORYABSTRACT = eINSTANCE.getCategoryFactory__SetLeafCategory__EObject_CategoryAbstract();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorTypeImpl <em>Extractor Type</em>}' class.
@@ -6426,6 +6453,14 @@ public interface DatatoolsPackage extends EPackage {
 		EAttribute COLUMNIZER_COLUMN__AGGREGATION_TYPE = eINSTANCE.getColumnizerColumn_AggregationType();
 
 		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMNIZER_COLUMN__KEY = eINSTANCE.getColumnizerColumn_Key();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Value</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6656,50 +6691,6 @@ public interface DatatoolsPackage extends EPackage {
 		EOperation NAVIGATION_AXIS___NAVIGATE_MANY__EOBJECT = eINSTANCE.getNavigationAxis__NavigateMany__EObject();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.MatcherImpl <em>Matcher</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.datatools.impl.MatcherImpl
-		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getMatcher()
-		 * @generated
-		 */
-		EClass MATCHER = eINSTANCE.getMatcher();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Match</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MATCHER___GET_MATCH__EOBJECT_EOBJECT = eINSTANCE.getMatcher__GetMatch__EObject_EObject();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.MatchImpl <em>Match</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.datatools.impl.MatchImpl
-		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getMatch()
-		 * @generated
-		 */
-		EClass MATCH = eINSTANCE.getMatch();
-
-		/**
-		 * The meta object literal for the '<em><b>Object1</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MATCH__OBJECT1 = eINSTANCE.getMatch_Object1();
-
-		/**
-		 * The meta object literal for the '<em><b>Object2</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MATCH__OBJECT2 = eINSTANCE.getMatch_Object2();
-
-		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizersImpl <em>Columnizers</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6736,14 +6727,6 @@ public interface DatatoolsPackage extends EPackage {
 		EAttribute CATEGORY_ABSTRACT__NB_ELEMENTS = eINSTANCE.getCategoryAbstract_NbElements();
 
 		/**
-		 * The meta object literal for the '<em><b>Elements</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CATEGORY_ABSTRACT__ELEMENTS = eINSTANCE.getCategoryAbstract_Elements();
-
-		/**
 		 * The meta object literal for the '<em><b>Sub Categories</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6752,12 +6735,28 @@ public interface DatatoolsPackage extends EPackage {
 		EReference CATEGORY_ABSTRACT__SUB_CATEGORIES = eINSTANCE.getCategoryAbstract_SubCategories();
 
 		/**
-		 * The meta object literal for the '<em><b>Columnizer Set</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Elements</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CATEGORY_ABSTRACT__COLUMNIZER_SET = eINSTANCE.getCategoryAbstract_ColumnizerSet();
+		EReference CATEGORY_ABSTRACT__ELEMENTS = eINSTANCE.getCategoryAbstract_Elements();
+
+		/**
+		 * The meta object literal for the '<em><b>Super Category</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CATEGORY_ABSTRACT__SUPER_CATEGORY = eINSTANCE.getCategoryAbstract_SuperCategory();
+
+		/**
+		 * The meta object literal for the '<em><b>Root Category</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CATEGORY_ABSTRACT__ROOT_CATEGORY = eINSTANCE.getCategoryAbstract_RootCategory();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Subcategory</b></em>' operation.
@@ -6768,12 +6767,20 @@ public interface DatatoolsPackage extends EPackage {
 		EOperation CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT = eINSTANCE.getCategoryAbstract__GetSubcategory__EObject();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Property Aggregation</b></em>' operation.
+		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation CATEGORY_ABSTRACT___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT = eINSTANCE.getCategoryAbstract__GetPropertyAggregation__IPropertiesProvider_Object();
+		EOperation CATEGORY_ABSTRACT___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT = eINSTANCE.getCategoryAbstract__Refresh__CategoryFactory_ObjectSet_EList_int();
+
+		/**
+		 * The meta object literal for the '<em><b>Is In</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CATEGORY_ABSTRACT___IS_IN__CATEGORYABSTRACT = eINSTANCE.getCategoryAbstract__IsIn__CategoryAbstract();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.DataToolType <em>Data Tool Type</em>}' enum.
@@ -6784,16 +6791,6 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum DATA_TOOL_TYPE = eINSTANCE.getDataToolType();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.MatchStatus <em>Match Status</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.datatools.MatchStatus
-		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getMatchStatus()
-		 * @generated
-		 */
-		EEnum MATCH_STATUS = eINSTANCE.getMatchStatus();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.AggregationType <em>Aggregation Type</em>}' enum.

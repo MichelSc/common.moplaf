@@ -1,8 +1,5 @@
 package com.misc.common.moplaf.datatools.util;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 import org.eclipse.core.runtime.CoreException;
@@ -14,8 +11,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
-import com.misc.common.moplaf.datatools.Categorizer;
-import com.misc.common.moplaf.datatools.Category;
 import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.NavigationAxis;
@@ -108,74 +103,4 @@ public class Util {
 		}
 	}
 	
-	/**
-	 * 
-	 * @param tobes: new set elements, input of the update
-	 * @param categorizers: sequence of Categorizers to be used
-	 * @param level: level of Categorizer used in this call
-	 * @param elements: set of elements to be updated by this call
-	 * @param categories: set of Categories to be updated by this call
-	 */
-	public static void refreshCategories(ObjectSet tobes, 
-			                             EList<Categorizer> categorizers, 
-			                             int level, 
-			                             EList<EObject> elements, 
-			                             EList<Category> categories) {
-		// update the elements of this category
-		Iterator<EObject> iterator_asis = elements.iterator();
-		while ( iterator_asis.hasNext()) {
-			EObject asis = iterator_asis.next();
-			if ( !tobes.remove(asis)) {
-				// the asis is not tobe
-				iterator_asis.remove();
-			}
-		}
-		elements.addAll(tobes);
-		
-		// update the subcategories
-		if ( categorizers.size()<=level ) {
-			// there are no deeper levels
-			categories.clear();
-		} else {
-			// there are deeper levels than the current level
-			Categorizer criteria = categorizers.get(level);
-			HashMap<Object, ObjectSet> cats_tobe  = new HashMap<>();
-			// collect the cats
-			for ( EObject element : elements) {
-				Object cat_value = criteria.getCategoryValue(element);
-				if ( cat_value!=null ) {
-					ObjectSet cat_set = cats_tobe.get(cat_value);
-					if ( cat_set==null ) {
-						cat_set = new ObjectSet();
-						cats_tobe.put(cat_value, cat_set);
-					}
-					cat_set.add(element);
-				}
-			}
-			// traverse the cats asis
-			Iterator<Category> cat_iterator_asis = categories.iterator();
-			while ( cat_iterator_asis.hasNext()){
-				Category cat_asis = cat_iterator_asis.next();
-				Object cat_value = cat_asis.getCategoryValue();
-				ObjectSet cat_tobe = cats_tobe.remove(cat_value);
-				if ( cat_tobe==null ) {
-					// category no longer populated
-					// delete
-					cat_iterator_asis.remove();
-				} else {
-					// update
-					Util.refreshCategories(cat_tobe, categorizers, level+1, cat_asis.getElements(), cat_asis.getSubCategories());
-				}
-			}
-			for (  Entry<Object, ObjectSet> cat_tobe : cats_tobe.entrySet()) {
-				// create the cat
-				Category new_cat = criteria.constructCategory();
-				new_cat.setCategoryValue(cat_tobe.getKey());
-				new_cat.setCategoryLabel(criteria.getCategoryLabel(cat_tobe.getKey()));
-				categories.add(new_cat); // owning
-				// fill the cat, recursive
-				Util.refreshCategories(cat_tobe.getValue(), categorizers, level+1, new_cat.getElements(), new_cat.getSubCategories());
-			}
-		}
-	}
 }

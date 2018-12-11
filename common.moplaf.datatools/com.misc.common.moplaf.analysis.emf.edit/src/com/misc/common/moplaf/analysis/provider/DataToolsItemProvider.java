@@ -176,11 +176,6 @@ public class DataToolsItemProvider extends DataToolContextItemProvider {
 				(AnalysisPackage.Literals.DATA_TOOLS__DATA_TOOLS,
 				 DatatoolsFactory.eINSTANCE.createCategorizerStructuralFeature()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AnalysisPackage.Literals.DATA_TOOLS__DATA_TOOLS,
-				 DatatoolsFactory.eINSTANCE.createMatcher()));
-		
 		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DATA_TOOLS__DATA_TOOLS, DataToolType.EXTRACTOR);
 		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DATA_TOOLS__DATA_TOOLS, DataToolType.COLUMNIZER);
 		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DATA_TOOLS__DATA_TOOLS, DataToolType.CATEGORIZER);

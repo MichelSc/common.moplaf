@@ -28,11 +28,11 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
 
+import com.misc.common.moplaf.common.util.Util;
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayContentProvider;
 import com.misc.common.moplaf.gridview.TablesProvider;
 import com.misc.common.moplaf.gridview.Wrapper;
 import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
-import com.misc.common.moplaf.gridview.emf.edit.util.Util;
 import com.misc.common.moplaf.gridview.TableColumnProvider;
 import com.misc.common.moplaf.gridview.TableRowProvider; 
 

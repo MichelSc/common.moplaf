@@ -5,7 +5,7 @@ package com.misc.common.moplaf.analysis.impl;
 import com.misc.common.moplaf.analysis.AnalysisDomain;
 import com.misc.common.moplaf.analysis.AnalysisPackage;
 import com.misc.common.moplaf.analysis.DataTools;
-import com.misc.common.moplaf.analysis.DocAnalysis;
+import com.misc.common.moplaf.analysis.Analysis;
 
 import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolContext;
@@ -67,7 +67,7 @@ public class AnalysisDomainImpl extends TaskDomainImpl implements AnalysisDomain
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DocAnalysis> analyses;
+	protected EList<Analysis> analyses;
 
 	/**
 	 * The cached value of the '{@link #getDataTools() <em>Data Tools</em>}' containment reference list.
@@ -103,9 +103,9 @@ public class AnalysisDomainImpl extends TaskDomainImpl implements AnalysisDomain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DocAnalysis> getAnalyses() {
+	public EList<Analysis> getAnalyses() {
 		if (analyses == null) {
-			analyses = new EObjectContainmentWithInverseEList<DocAnalysis>(DocAnalysis.class, this, AnalysisPackage.ANALYSIS_DOMAIN__ANALYSES, AnalysisPackage.DOC_ANALYSIS__DOMAIN);
+			analyses = new EObjectContainmentWithInverseEList<Analysis>(Analysis.class, this, AnalysisPackage.ANALYSIS_DOMAIN__ANALYSES, AnalysisPackage.ANALYSIS__DOMAIN);
 		}
 		return analyses;
 	}
@@ -308,7 +308,7 @@ public class AnalysisDomainImpl extends TaskDomainImpl implements AnalysisDomain
 				return;
 			case AnalysisPackage.ANALYSIS_DOMAIN__ANALYSES:
 				getAnalyses().clear();
-				getAnalyses().addAll((Collection<? extends DocAnalysis>)newValue);
+				getAnalyses().addAll((Collection<? extends Analysis>)newValue);
 				return;
 			case AnalysisPackage.ANALYSIS_DOMAIN__DATA_TOOLS:
 				getDataTools().clear();

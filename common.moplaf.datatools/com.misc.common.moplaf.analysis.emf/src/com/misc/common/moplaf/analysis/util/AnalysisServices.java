@@ -7,7 +7,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import com.misc.common.moplaf.analysis.AnalysisDomain;
-import com.misc.common.moplaf.analysis.DocAnalysis;
+import com.misc.common.moplaf.analysis.Analysis;
 import com.misc.common.moplaf.common.Plugin;
 import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
@@ -15,6 +15,7 @@ import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.Extractor;
 import com.misc.common.moplaf.job.Doc;
+import com.misc.common.moplaf.job.Task;
 
 /**
  * The services class used by VSM.
@@ -37,10 +38,12 @@ public class AnalysisServices {
   		return new_tools;
     }
 
-    public EList<DataTool> getNewExtractors(DocAnalysis analysis) {
+    public EList<DataTool> getNewExtractors(Analysis analysis) {
     	AnalysisDomain domain = analysis.getDomain();
-    	Doc doc = analysis.getDoc();
-    	return this.getNewExtractors(domain, doc);
+    	if ( analysis.getDocs().isEmpty()) {
+    		return null;
+    	}
+    	return this.getNewExtractors(domain, analysis.getDocs().get(0).getDoc());
     }
 
     public EList<DataTool> getNewColumnizers(AnalysisDomain domain, EClass element_type) {
@@ -55,7 +58,7 @@ public class AnalysisServices {
   		return new_tools;
     }
     
-    public EList<DataTool> getNewColumnizers(DocAnalysis analysis) {
+    public EList<DataTool> getNewColumnizers(Analysis analysis) {
     	Plugin.INSTANCE.logInfo("Get new columniers");
     	AnalysisDomain domain = analysis.getDomain();
     	Extractor extractor = analysis.getExtractor();
@@ -65,7 +68,7 @@ public class AnalysisServices {
     	return this.getNewColumnizers(domain, type);
     }
     
-    public EList<DataTool> getNewCategorizers(DocAnalysis analysis) {
+    public EList<DataTool> getNewCategorizers(Analysis analysis) {
     	AnalysisDomain domain = analysis.getDomain();
     	Extractor extractor = analysis.getExtractor();
     	if ( extractor == null ) { return null; }
@@ -88,7 +91,7 @@ public class AnalysisServices {
   		return new_tools;
     }
     
-    public boolean docAnalysisSetDataTools(DocAnalysis analysis, Extractor extractor, List<ColumnizerAbstract> columnizers, List<Categorizer> categorizers) {
+    public boolean docAnalysisSetDataTools(Analysis analysis, Extractor extractor, List<ColumnizerAbstract> columnizers, List<Categorizer> categorizers) {
     	analysis.setExtractor(extractor);
     	analysis.getColumnizers().clear();
     	analysis.getColumnizers().addAll(columnizers);
@@ -97,12 +100,12 @@ public class AnalysisServices {
     	return true;
     }
 
-    public boolean docAnalysisAddColumnizers(DocAnalysis analysis, List<ColumnizerAbstract> columnizers) {
+    public boolean docAnalysisAddColumnizers(Analysis analysis, List<ColumnizerAbstract> columnizers) {
     	analysis.getColumnizers().addAll(columnizers);
     	return true;
     }
 
-    public boolean docAnalysisAddCategorizers(DocAnalysis analysis, List<Categorizer> categorizers) {
+    public boolean docAnalysisAddCategorizers(Analysis analysis, List<Categorizer> categorizers) {
     	analysis.getCategorizers().addAll(categorizers);
     	return true;
     }
@@ -112,7 +115,7 @@ public class AnalysisServices {
      * @param self
      * @return
      */
-    public boolean analysisRefreshEnabled(DocAnalysis analysis) {
+    public boolean analysisRefreshEnabled(Analysis analysis) {
     	if ( analysis==null) {
     		return false;
     	}
@@ -125,9 +128,18 @@ public class AnalysisServices {
      * @param self
      * @return
      */
-    public boolean analysisRefresh(DocAnalysis analysis) {
+    public boolean analysisRefresh(Analysis analysis) {
 		analysis.refresh();
 		return true;
+    }
+    
+    public boolean analysisIsValidInput(Analysis analysis, Doc doc) {
+   		return analysis.isValidInput(doc).isEnabled();
+    }
+    
+    public boolean analysisAddInput(Analysis analysis, Doc doc) {
+    	analysis.addDoc(doc);
+    	return true;
     }
 
 }

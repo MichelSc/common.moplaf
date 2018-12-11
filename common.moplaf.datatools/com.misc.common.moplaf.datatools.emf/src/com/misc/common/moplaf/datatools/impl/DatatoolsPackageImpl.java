@@ -7,8 +7,10 @@ import com.misc.common.moplaf.datatools.AggregationType;
 import com.misc.common.moplaf.datatools.Categorizer;
 import com.misc.common.moplaf.datatools.CategorizerOcl;
 import com.misc.common.moplaf.datatools.CategorizerStructuralFeature;
+import com.misc.common.moplaf.datatools.CategorizerSubject;
 import com.misc.common.moplaf.datatools.Category;
 import com.misc.common.moplaf.datatools.CategoryAbstract;
+import com.misc.common.moplaf.datatools.CategoryFactory;
 import com.misc.common.moplaf.datatools.Columnizer;
 import com.misc.common.moplaf.datatools.ColumnizerAbstract;
 import com.misc.common.moplaf.datatools.ColumnizerColumn;
@@ -40,9 +42,6 @@ import com.misc.common.moplaf.datatools.FilterCompound;
 import com.misc.common.moplaf.datatools.FilterOR;
 import com.misc.common.moplaf.datatools.FilterOcl;
 import com.misc.common.moplaf.datatools.FilterRegex;
-import com.misc.common.moplaf.datatools.Match;
-import com.misc.common.moplaf.datatools.MatchStatus;
-import com.misc.common.moplaf.datatools.Matcher;
 import com.misc.common.moplaf.datatools.NavigationAxis;
 import com.misc.common.moplaf.datatools.NavigationDowncast;
 import com.misc.common.moplaf.datatools.NavigationPath;
@@ -106,6 +105,20 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * @generated
 	 */
 	private EClass categorizerOclEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass categorizerSubjectEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass categoryFactoryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -301,20 +314,6 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass matcherEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass matchEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass columnizersEClass = null;
 
 	/**
@@ -330,13 +329,6 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * @generated
 	 */
 	private EEnum dataToolTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum matchStatusEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -449,7 +441,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * @generated
 	 */
 	public EOperation getCategorizer__GetCategoryValue__EObject() {
-		return categorizerEClass.getEOperations().get(1);
+		return categorizerEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -458,7 +450,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * @generated
 	 */
 	public EOperation getCategorizer__GetCategoryLabel__Object() {
-		return categorizerEClass.getEOperations().get(2);
+		return categorizerEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -467,16 +459,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * @generated
 	 */
 	public EOperation getCategorizer__IsValidElementType__EClass() {
-		return categorizerEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getCategorizer__ConstructCategory() {
-		return categorizerEClass.getEOperations().get(0);
+		return categorizerEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -630,6 +613,51 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 */
 	public EAttribute getCategorizerOcl_Expression() {
 		return (EAttribute)categorizerOclEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCategorizerSubject() {
+		return categorizerSubjectEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getCategorizerSubject__GetSubject() {
+		return categorizerSubjectEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCategoryFactory() {
+		return categoryFactoryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getCategoryFactory__ConstructCategory() {
+		return categoryFactoryEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getCategoryFactory__SetLeafCategory__EObject_CategoryAbstract() {
+		return categoryFactoryEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1024,6 +1052,15 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getColumnizerColumn_Key() {
+		return (EAttribute)columnizerColumnEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getColumnizerColumn__GetValue__EObject() {
 		return columnizerColumnEClass.getEOperations().get(0);
 	}
@@ -1267,51 +1304,6 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getMatcher() {
-		return matcherEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getMatcher__GetMatch__EObject_EObject() {
-		return matcherEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getMatch() {
-		return matchEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMatch_Object1() {
-		return (EReference)matchEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMatch_Object2() {
-		return (EReference)matchEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getColumnizers() {
 		return columnizersEClass;
 	}
@@ -1348,7 +1340,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCategoryAbstract_Elements() {
+	public EReference getCategoryAbstract_SubCategories() {
 		return (EReference)categoryAbstractEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1357,7 +1349,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCategoryAbstract_SubCategories() {
+	public EReference getCategoryAbstract_Elements() {
 		return (EReference)categoryAbstractEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1366,8 +1358,17 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCategoryAbstract_ColumnizerSet() {
+	public EReference getCategoryAbstract_SuperCategory() {
 		return (EReference)categoryAbstractEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCategoryAbstract_RootCategory() {
+		return (EReference)categoryAbstractEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1384,8 +1385,17 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCategoryAbstract__GetPropertyAggregation__IPropertiesProvider_Object() {
+	public EOperation getCategoryAbstract__Refresh__CategoryFactory_ObjectSet_EList_int() {
 		return categoryAbstractEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getCategoryAbstract__IsIn__CategoryAbstract() {
+		return categoryAbstractEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -1395,15 +1405,6 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 	 */
 	public EEnum getDataToolType() {
 		return dataToolTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getMatchStatus() {
-		return matchStatusEEnum;
 	}
 
 	/**
@@ -1616,6 +1617,9 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 
 		extractorIntersectionEClass = createEClass(EXTRACTOR_INTERSECTION);
 
+		columnizersEClass = createEClass(COLUMNIZERS);
+		createEReference(columnizersEClass, COLUMNIZERS__COLUMNIZERS);
+
 		columnizerAbstractEClass = createEClass(COLUMNIZER_ABSTRACT);
 		createEAttribute(columnizerAbstractEClass, COLUMNIZER_ABSTRACT__SHEET_LABEL);
 		createEAttribute(columnizerAbstractEClass, COLUMNIZER_ABSTRACT__AGGREGATION);
@@ -1632,6 +1636,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		createEAttribute(columnizerColumnEClass, COLUMNIZER_COLUMN__COLUMN_WIDTH);
 		createEReference(columnizerColumnEClass, COLUMNIZER_COLUMN__COLUMNIZER);
 		createEAttribute(columnizerColumnEClass, COLUMNIZER_COLUMN__AGGREGATION_TYPE);
+		createEAttribute(columnizerColumnEClass, COLUMNIZER_COLUMN__KEY);
 		createEOperation(columnizerColumnEClass, COLUMNIZER_COLUMN___GET_VALUE__EOBJECT);
 		createEOperation(columnizerColumnEClass, COLUMNIZER_COLUMN___GET_DATA_TYPE);
 
@@ -1641,12 +1646,25 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		columnizerColumnOclEClass = createEClass(COLUMNIZER_COLUMN_OCL);
 		createEAttribute(columnizerColumnOclEClass, COLUMNIZER_COLUMN_OCL__EXPRESSION);
 
+		categoryFactoryEClass = createEClass(CATEGORY_FACTORY);
+		createEOperation(categoryFactoryEClass, CATEGORY_FACTORY___CONSTRUCT_CATEGORY);
+		createEOperation(categoryFactoryEClass, CATEGORY_FACTORY___SET_LEAF_CATEGORY__EOBJECT_CATEGORYABSTRACT);
+
+		categoryAbstractEClass = createEClass(CATEGORY_ABSTRACT);
+		createEAttribute(categoryAbstractEClass, CATEGORY_ABSTRACT__NB_ELEMENTS);
+		createEReference(categoryAbstractEClass, CATEGORY_ABSTRACT__SUB_CATEGORIES);
+		createEReference(categoryAbstractEClass, CATEGORY_ABSTRACT__ELEMENTS);
+		createEReference(categoryAbstractEClass, CATEGORY_ABSTRACT__SUPER_CATEGORY);
+		createEReference(categoryAbstractEClass, CATEGORY_ABSTRACT__ROOT_CATEGORY);
+		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT);
+		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT);
+		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___IS_IN__CATEGORYABSTRACT);
+
 		categoryEClass = createEClass(CATEGORY);
 		createEAttribute(categoryEClass, CATEGORY__CATEGORY_LABEL);
 		createEAttribute(categoryEClass, CATEGORY__CATEGORY_VALUE);
 
 		categorizerEClass = createEClass(CATEGORIZER);
-		createEOperation(categorizerEClass, CATEGORIZER___CONSTRUCT_CATEGORY);
 		createEOperation(categorizerEClass, CATEGORIZER___GET_CATEGORY_VALUE__EOBJECT);
 		createEOperation(categorizerEClass, CATEGORIZER___GET_CATEGORY_LABEL__OBJECT);
 		createEOperation(categorizerEClass, CATEGORIZER___IS_VALID_ELEMENT_TYPE__ECLASS);
@@ -1658,27 +1676,11 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		categorizerOclEClass = createEClass(CATEGORIZER_OCL);
 		createEAttribute(categorizerOclEClass, CATEGORIZER_OCL__EXPRESSION);
 
-		matcherEClass = createEClass(MATCHER);
-		createEOperation(matcherEClass, MATCHER___GET_MATCH__EOBJECT_EOBJECT);
-
-		matchEClass = createEClass(MATCH);
-		createEReference(matchEClass, MATCH__OBJECT1);
-		createEReference(matchEClass, MATCH__OBJECT2);
-
-		columnizersEClass = createEClass(COLUMNIZERS);
-		createEReference(columnizersEClass, COLUMNIZERS__COLUMNIZERS);
-
-		categoryAbstractEClass = createEClass(CATEGORY_ABSTRACT);
-		createEAttribute(categoryAbstractEClass, CATEGORY_ABSTRACT__NB_ELEMENTS);
-		createEReference(categoryAbstractEClass, CATEGORY_ABSTRACT__ELEMENTS);
-		createEReference(categoryAbstractEClass, CATEGORY_ABSTRACT__SUB_CATEGORIES);
-		createEReference(categoryAbstractEClass, CATEGORY_ABSTRACT__COLUMNIZER_SET);
-		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT);
-		createEOperation(categoryAbstractEClass, CATEGORY_ABSTRACT___GET_PROPERTY_AGGREGATION__IPROPERTIESPROVIDER_OBJECT);
+		categorizerSubjectEClass = createEClass(CATEGORIZER_SUBJECT);
+		createEOperation(categorizerSubjectEClass, CATEGORIZER_SUBJECT___GET_SUBJECT);
 
 		// Create enums
 		dataToolTypeEEnum = createEEnum(DATA_TOOL_TYPE);
-		matchStatusEEnum = createEEnum(MATCH_STATUS);
 		aggregationTypeEEnum = createEEnum(AGGREGATION_TYPE);
 
 		// Create data types
@@ -1751,7 +1753,6 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		categorizerStructuralFeatureEClass.getESuperTypes().add(this.getCategorizer());
 		categorizerStructuralFeatureEClass.getESuperTypes().add(this.getNavigationPath());
 		categorizerOclEClass.getESuperTypes().add(this.getCategorizer());
-		matcherEClass.getESuperTypes().add(this.getDataTool());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(navigationPathEClass, NavigationPath.class, "NavigationPath", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1862,6 +1863,9 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 
 		initEClass(extractorIntersectionEClass, ExtractorIntersection.class, "ExtractorIntersection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(columnizersEClass, Columnizers.class, "Columnizers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getColumnizers_Columnizers(), this.getColumnizerAbstract(), null, "Columnizers", null, 0, -1, Columnizers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(columnizerAbstractEClass, ColumnizerAbstract.class, "ColumnizerAbstract", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getColumnizerAbstract_SheetLabel(), ecorePackage.getEString(), "SheetLabel", null, 0, 1, ColumnizerAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColumnizerAbstract_Aggregation(), ecorePackage.getEBoolean(), "Aggregation", null, 0, 1, ColumnizerAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -1881,6 +1885,7 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		initEAttribute(getColumnizerColumn_ColumnWidth(), ecorePackage.getEInt(), "ColumnWidth", null, 0, 1, ColumnizerColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getColumnizerColumn_Columnizer(), this.getColumnizer(), this.getColumnizer_Columns(), "Columnizer", null, 1, 1, ColumnizerColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColumnizerColumn_AggregationType(), this.getAggregationType(), "AggregationType", null, 0, 1, ColumnizerColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColumnizerColumn_Key(), ecorePackage.getEBoolean(), "Key", null, 0, 1, ColumnizerColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getColumnizerColumn__GetValue__EObject(), ecorePackage.getEJavaObject(), "getValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "object", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1893,19 +1898,44 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		initEClass(columnizerColumnOclEClass, ColumnizerColumnOcl.class, "ColumnizerColumnOcl", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getColumnizerColumnOcl_Expression(), ecorePackage.getEString(), "Expression", null, 0, 1, ColumnizerColumnOcl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(categoryFactoryEClass, CategoryFactory.class, "CategoryFactory", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getCategoryFactory__ConstructCategory(), this.getCategory(), "constructCategory", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getCategoryFactory__SetLeafCategory__EObject_CategoryAbstract(), null, "setLeafCategory", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEObject(), "object", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCategoryAbstract(), "category", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(categoryAbstractEClass, CategoryAbstract.class, "CategoryAbstract", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCategoryAbstract_NbElements(), ecorePackage.getEInt(), "NbElements", null, 0, 1, CategoryAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getCategoryAbstract_SubCategories(), this.getCategory(), null, "SubCategories", null, 0, -1, CategoryAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCategoryAbstract_Elements(), ecorePackage.getEObject(), null, "Elements", null, 0, -1, CategoryAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCategoryAbstract_SuperCategory(), this.getCategoryAbstract(), null, "SuperCategory", null, 0, 1, CategoryAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getCategoryAbstract_RootCategory(), this.getCategoryAbstract(), null, "RootCategory", null, 0, 1, CategoryAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getCategoryAbstract__GetSubcategory__EObject(), this.getCategory(), "getSubcategory", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getCategoryAbstract__Refresh__CategoryFactory_ObjectSet_EList_int(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCategoryFactory(), "factory", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getEObjectsSet(), "els_tobe", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCategorizer(), "categorizers", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "level", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getCategoryAbstract__IsIn__CategoryAbstract(), ecorePackage.getEBoolean(), "isIn", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCategoryAbstract(), "super_category", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(categoryEClass, Category.class, "Category", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCategory_CategoryLabel(), ecorePackage.getEString(), "CategoryLabel", null, 0, 1, Category.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getCategory_CategoryValue(), ecorePackage.getEJavaObject(), "CategoryValue", null, 0, 1, Category.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(categorizerEClass, Categorizer.class, "Categorizer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEOperation(getCategorizer__ConstructCategory(), this.getCategory(), "constructCategory", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		op = initEOperation(getCategorizer__GetCategoryValue__EObject(), ecorePackage.getEJavaObject(), "getCategoryValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "object", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getCategorizer__GetCategoryLabel__Object(), ecorePackage.getEString(), "getCategoryLabel", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEJavaObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "object", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getCategorizer__IsValidElementType__EClass(), ecorePackage.getEBoolean(), "isValidElementType", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEClass(), "type", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -1917,31 +1947,9 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		initEClass(categorizerOclEClass, CategorizerOcl.class, "CategorizerOcl", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCategorizerOcl_Expression(), ecorePackage.getEString(), "Expression", null, 0, 1, CategorizerOcl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(matcherEClass, Matcher.class, "Matcher", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(categorizerSubjectEClass, CategorizerSubject.class, "CategorizerSubject", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getMatcher__GetMatch__EObject_EObject(), this.getMatchStatus(), "getMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEObject(), "ins1", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEObject(), "ins2", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(matchEClass, Match.class, "Match", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMatch_Object1(), ecorePackage.getEObject(), null, "Object1", null, 0, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMatch_Object2(), ecorePackage.getEObject(), null, "Object2", null, 0, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(columnizersEClass, Columnizers.class, "Columnizers", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getColumnizers_Columnizers(), this.getColumnizerAbstract(), null, "Columnizers", null, 0, -1, Columnizers.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(categoryAbstractEClass, CategoryAbstract.class, "CategoryAbstract", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCategoryAbstract_NbElements(), ecorePackage.getEInt(), "NbElements", null, 0, 1, CategoryAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getCategoryAbstract_Elements(), ecorePackage.getEObject(), null, "Elements", null, 0, -1, CategoryAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCategoryAbstract_SubCategories(), this.getCategory(), null, "SubCategories", null, 0, -1, CategoryAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCategoryAbstract_ColumnizerSet(), this.getColumnizers(), null, "ColumnizerSet", null, 0, 1, CategoryAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getCategoryAbstract__GetSubcategory__EObject(), this.getCategory(), "getSubcategory", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getCategoryAbstract__GetPropertyAggregation__IPropertiesProvider_Object(), ecorePackage.getEJavaObject(), "getPropertyAggregation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getIPropertiesProvider(), "provider", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEJavaObject(), "property", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getCategorizerSubject__GetSubject(), ecorePackage.getEObject(), "getSubject", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(dataToolTypeEEnum, DataToolType.class, "DataToolType");
@@ -1951,11 +1959,6 @@ public class DatatoolsPackageImpl extends EPackageImpl implements DatatoolsPacka
 		addEEnumLiteral(dataToolTypeEEnum, DataToolType.CATEGORIZER);
 		addEEnumLiteral(dataToolTypeEEnum, DataToolType.FILTER);
 		addEEnumLiteral(dataToolTypeEEnum, DataToolType.PATH);
-
-		initEEnum(matchStatusEEnum, MatchStatus.class, "MatchStatus");
-		addEEnumLiteral(matchStatusEEnum, MatchStatus.BEFORE);
-		addEEnumLiteral(matchStatusEEnum, MatchStatus.AFTER);
-		addEEnumLiteral(matchStatusEEnum, MatchStatus.MATCH);
 
 		initEEnum(aggregationTypeEEnum, AggregationType.class, "AggregationType");
 		addEEnumLiteral(aggregationTypeEEnum, AggregationType.NONE);

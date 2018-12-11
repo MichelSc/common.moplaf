@@ -4,8 +4,13 @@ package com.misc.common.moplaf.analysis.provider;
 
 
 import com.misc.common.moplaf.analysis.AnalysisPackage;
-
-import com.misc.common.moplaf.analysis.DocAnalysis;
+import com.misc.common.moplaf.analysis.AnalysisSheet;
+import com.misc.common.moplaf.analysis.util.AnalysisSheetPropertiesProvider;
+import com.misc.common.moplaf.analysis.util.AnalysisCategoryPropertiesProvider;
+import com.misc.common.moplaf.common.IPropertiesProvider;
+import com.misc.common.moplaf.analysis.Analysis;
+import com.misc.common.moplaf.analysis.AnalysisDoc;
+import com.misc.common.moplaf.datatools.CategoryAbstract;
 import com.misc.common.moplaf.datatools.DataTool;
 import com.misc.common.moplaf.datatools.DataToolType;
 import com.misc.common.moplaf.datatools.DatatoolsFactory;
@@ -14,7 +19,10 @@ import com.misc.common.moplaf.datatools.provider.CategoryAbstractItemProvider;
 import com.misc.common.moplaf.emf.edit.command.BaseCommand;
 import com.misc.common.moplaf.emf.edit.command.FlushCommand;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
-import com.misc.common.moplaf.job.JobPackage;
+import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
+import com.misc.common.moplaf.gridview.emf.edit.util.PropertiesProviderGridsProvider;
+import com.misc.common.moplaf.job.Doc;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -22,7 +30,7 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -35,19 +43,20 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.analysis.DocAnalysis} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.analysis.Analysis} object.
  * <!-- begin-user-doc -->
+ * @implements IItemGridsProvider
  * <!-- end-user-doc -->
  * @generated
  */
-public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
+public class AnalysisItemProvider extends CategoryAbstractItemProvider implements IItemGridsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DocAnalysisItemProvider(AdapterFactory adapterFactory) {
+	public AnalysisItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -55,69 +64,20 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addDocPropertyDescriptor(object);
-			addExtractorPropertyDescriptor(object);
-			addCompletePropertyDescriptor(object);
-			addMaxElementsPropertyDescriptor(object);
-			addDescriptionPropertyDescriptor(object);
-			addDataToolsPropertyDescriptor(object);
-			addRefreshFeedbackPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
-			addRemarksPropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
+		this.itemPropertyDescriptors = null;
+		super.getPropertyDescriptors(object);
+		addCompletePropertyDescriptor(object);
+		addMaxElementsPropertyDescriptor(object);
+		addDescriptionPropertyDescriptor(object);
+		addRefreshFeedbackPropertyDescriptor(object);
+		addNamePropertyDescriptor(object);
+		addRemarksPropertyDescriptor(object);
+		return this.itemPropertyDescriptors;
 	}
 
-	/**
-	 * This adds a property descriptor for the Doc feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDocPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DocRef_Doc_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocRef_Doc_feature", "_UI_DocRef_type"),
-				 JobPackage.Literals.DOC_REF__DOC,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Extractor feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addExtractorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DocAnalysis_Extractor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Extractor_feature", "_UI_DocAnalysis_type"),
-				 AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
 
 	/**
 	 * This adds a property descriptor for the Complete feature.
@@ -130,14 +90,14 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DocAnalysis_Complete_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Complete_feature", "_UI_DocAnalysis_type"),
-				 AnalysisPackage.Literals.DOC_ANALYSIS__COMPLETE,
+				 getString("_UI_Analysis_Complete_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Analysis_Complete_feature", "_UI_Analysis_type"),
+				 AnalysisPackage.Literals.ANALYSIS__COMPLETE,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30DataPropertyCategory"),
 				 null));
 	}
 
@@ -152,14 +112,14 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DocAnalysis_MaxElements_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_MaxElements_feature", "_UI_DocAnalysis_type"),
-				 AnalysisPackage.Literals.DOC_ANALYSIS__MAX_ELEMENTS,
+				 getString("_UI_Analysis_MaxElements_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Analysis_MaxElements_feature", "_UI_Analysis_type"),
+				 AnalysisPackage.Literals.ANALYSIS__MAX_ELEMENTS,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
 				 null));
 	}
 
@@ -174,36 +134,14 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DocAnalysis_Description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Description_feature", "_UI_DocAnalysis_type"),
-				 AnalysisPackage.Literals.DOC_ANALYSIS__DESCRIPTION,
+				 getString("_UI_Analysis_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Analysis_Description_feature", "_UI_Analysis_type"),
+				 AnalysisPackage.Literals.ANALYSIS__DESCRIPTION,
 				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Data Tools feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDataToolsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DocAnalysis_DataTools_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_DataTools_feature", "_UI_DocAnalysis_type"),
-				 AnalysisPackage.Literals.DOC_ANALYSIS__DATA_TOOLS,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
+				 getString("_UI__10AnalysisPropertyCategory"),
 				 null));
 	}
 
@@ -218,14 +156,14 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DocAnalysis_RefreshFeedback_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_RefreshFeedback_feature", "_UI_DocAnalysis_type"),
-				 AnalysisPackage.Literals.DOC_ANALYSIS__REFRESH_FEEDBACK,
+				 getString("_UI_Analysis_RefreshFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Analysis_RefreshFeedback_feature", "_UI_Analysis_type"),
+				 AnalysisPackage.Literals.ANALYSIS__REFRESH_FEEDBACK,
 				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10EnabledPropertyCategory"),
 				 null));
 	}
 
@@ -240,14 +178,14 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DocAnalysis_Name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Name_feature", "_UI_DocAnalysis_type"),
-				 AnalysisPackage.Literals.DOC_ANALYSIS__NAME,
+				 getString("_UI_Analysis_Name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Analysis_Name_feature", "_UI_Analysis_type"),
+				 AnalysisPackage.Literals.ANALYSIS__NAME,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10AnalysisPropertyCategory"),
 				 null));
 	}
 
@@ -262,14 +200,14 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DocAnalysis_Remarks_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DocAnalysis_Remarks_feature", "_UI_DocAnalysis_type"),
-				 AnalysisPackage.Literals.DOC_ANALYSIS__REMARKS,
+				 getString("_UI_Analysis_Remarks_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Analysis_Remarks_feature", "_UI_Analysis_type"),
+				 AnalysisPackage.Literals.ANALYSIS__REMARKS,
 				 true,
 				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10AnalysisPropertyCategory"),
 				 null));
 	}
 
@@ -285,10 +223,11 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(JobPackage.Literals.DOC_REF__DOC);
 			childrenFeatures.add(DatatoolsPackage.Literals.COLUMNIZERS__COLUMNIZERS);
-			childrenFeatures.add(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR);
-			childrenFeatures.add(AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIZERS);
+			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS__CATEGORIZERS);
+			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR);
+			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS__DOCS);
+			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS__SHEETS);
 		}
 		return childrenFeatures;
 	}
@@ -324,10 +263,10 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DocAnalysis)object).getDescription();
+		String label = ((Analysis)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_DocAnalysis_type") :
-			getString("_UI_DocAnalysis_type") + " " + label;
+			getString("_UI_Analysis_type") :
+			getString("_UI_Analysis_type") + " " + label;
 	}
 	
 
@@ -342,19 +281,20 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(DocAnalysis.class)) {
-			case AnalysisPackage.DOC_ANALYSIS__COMPLETE:
-			case AnalysisPackage.DOC_ANALYSIS__MAX_ELEMENTS:
-			case AnalysisPackage.DOC_ANALYSIS__DESCRIPTION:
-			case AnalysisPackage.DOC_ANALYSIS__REFRESH_FEEDBACK:
-			case AnalysisPackage.DOC_ANALYSIS__NAME:
-			case AnalysisPackage.DOC_ANALYSIS__REMARKS:
+		switch (notification.getFeatureID(Analysis.class)) {
+			case AnalysisPackage.ANALYSIS__COMPLETE:
+			case AnalysisPackage.ANALYSIS__MAX_ELEMENTS:
+			case AnalysisPackage.ANALYSIS__DESCRIPTION:
+			case AnalysisPackage.ANALYSIS__REFRESH_FEEDBACK:
+			case AnalysisPackage.ANALYSIS__NAME:
+			case AnalysisPackage.ANALYSIS__REMARKS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case AnalysisPackage.DOC_ANALYSIS__DOC:
-			case AnalysisPackage.DOC_ANALYSIS__COLUMNIZERS:
-			case AnalysisPackage.DOC_ANALYSIS__EXTRACTOR:
-			case AnalysisPackage.DOC_ANALYSIS__CATEGORIZERS:
+			case AnalysisPackage.ANALYSIS__COLUMNIZERS:
+			case AnalysisPackage.ANALYSIS__CATEGORIZERS:
+			case AnalysisPackage.ANALYSIS__EXTRACTOR:
+			case AnalysisPackage.ANALYSIS__DOCS:
+			case AnalysisPackage.ANALYSIS__SHEETS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -373,52 +313,52 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createExtractorType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createExtractorPath()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createFilterRegex()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createFilterAttributeIntRange()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createFilterAND()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createFilterOR()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createExtractorCompound()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createExtractorPipe()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createExtractorUnion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,
+				(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR,
 				 DatatoolsFactory.eINSTANCE.createExtractorIntersection()));
 
 		newChildDescriptors.add
@@ -428,11 +368,11 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIZERS,
+				(AnalysisPackage.Literals.ANALYSIS__CATEGORIZERS,
 				 DatatoolsFactory.eINSTANCE.createCategorizerStructuralFeature()));
 
-		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DOC_ANALYSIS__EXTRACTOR,    DataToolType.EXTRACTOR);
-		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.DOC_ANALYSIS__CATEGORIZERS, DataToolType.CATEGORIZER);
+		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.ANALYSIS__EXTRACTOR,    DataToolType.EXTRACTOR);
+		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, AnalysisPackage.Literals.ANALYSIS__CATEGORIZERS, DataToolType.CATEGORIZER);
 		Util.collectNewChildRunDescriptors2(newChildDescriptors, object, DatatoolsPackage.Literals.COLUMNIZERS__COLUMNIZERS,  DataToolType.COLUMNIZER);
 	}
 
@@ -453,9 +393,9 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 	 *
 	 */
 	public class DocAnalysisFlushCommand extends FlushCommand{
-		private DocAnalysis analysis;
+		private Analysis analysis;
 		
-		public DocAnalysisFlushCommand(DocAnalysis analysis)	{
+		public DocAnalysisFlushCommand(Analysis analysis)	{
 			super();
 			this.analysis = analysis;
 			
@@ -476,9 +416,9 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 
 
 	public class DocAnalysisRefreshCommand extends RefreshCommand{
-		private DocAnalysis analysis;
+		private Analysis analysis;
 		
-		public DocAnalysisRefreshCommand(DocAnalysis analysis)	{
+		public DocAnalysisRefreshCommand(Analysis analysis)	{
 			super();
 			this.analysis = analysis;
 			
@@ -501,9 +441,9 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 			Class<? extends Command> commandClass,
 			CommandParameter commandParameter) {
 		if  ( commandClass == RefreshCommand.class){
-			return new DocAnalysisRefreshCommand((DocAnalysis) object); 
+			return new DocAnalysisRefreshCommand((Analysis) object); 
 		} else if ( commandClass == FlushCommand.class){
-			return new DocAnalysisFlushCommand((DocAnalysis) object); 
+			return new DocAnalysisFlushCommand((Analysis) object); 
 		} 
 
 		return super.createCommand(object, domain, commandClass, commandParameter);
@@ -513,11 +453,11 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 	 * AddDataToolCommand
 	 */
 	public class AddDataToolCommand extends BaseCommand{
-		private DocAnalysis analysis;
+		private Analysis analysis;
 		private DataTool datatool;
 		
 		// constructor
-		public AddDataToolCommand(DocAnalysis analysis, DataTool datatool)	{
+		public AddDataToolCommand(Analysis analysis, DataTool datatool)	{
 			super("AddDataTool", "Add the DataTool");
 			this.analysis = analysis;
 			this.datatool = datatool;
@@ -535,19 +475,49 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 		}
 	} // class AddDataToolCommand
 	
-	protected Command createDropCommandSingle(EditingDomain domain, DocAnalysis owner, Object droppedObject){ 
+	/*
+	 * AddDocCommand
+	 */
+	public class AddDocCommand extends BaseCommand{
+		private Analysis analysis;
+		private Doc doc;
+		
+		// constructor
+		public AddDocCommand(Analysis analysis, Doc doc)	{
+			super("AddDoc", "Add the Doc");
+			this.analysis = analysis;
+			this.doc      = doc;
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			return isExecutable;
+		}
+
+		@Override
+		public void execute() {
+			this.analysis.addDoc(this.doc);
+		}
+	} // class AddDataToolCommand
+	
+	protected Command createDropCommandSingle(EditingDomain domain, Analysis owner, Object droppedObject){ 
 		if ( droppedObject instanceof DataTool){
 			DataTool dropped_tool = (DataTool) droppedObject;
   	   		AddDataToolCommand cmd = new AddDataToolCommand(owner, dropped_tool);
 		   	return cmd;
-		} 
+		} else if ( droppedObject instanceof Doc ) {
+			Doc dropped_doc = (Doc) droppedObject;
+  	   		AddDocCommand cmd = new AddDocCommand(owner, dropped_doc);
+		   	return cmd;
+		}
 		return null;
 	}
 	
-	protected Command createDropCommandMulti(EditingDomain domain, DocAnalysis owner, Collection<?> droppedObjects) {
+	protected Command createDropCommandMulti(EditingDomain domain, Analysis owner, Collection<?> droppedObjects) {
     	CompoundCommand compound = new CompoundCommand();
 		for (Object droppedObject : droppedObjects){
-			Command cmd = DocAnalysisItemProvider.this.createDropCommandSingle(domain, owner, droppedObject);
+			Command cmd = AnalysisItemProvider.this.createDropCommandSingle(domain, owner, droppedObject);
 			if ( cmd !=null ) {
 				compound.append(cmd);
 			}
@@ -575,7 +545,7 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 	     */
 	    @Override
 	    protected boolean prepare(){
-			Command cmd = DocAnalysisItemProvider.this.createDropCommandMulti(this.domain, (DocAnalysis) this.owner, this.collection);
+			Command cmd = AnalysisItemProvider.this.createDropCommandMulti(this.domain, (Analysis) this.owner, this.collection);
 			if ( cmd == null ){
 				return super.prepare();
 			}
@@ -593,5 +563,29 @@ public class DocAnalysisItemProvider extends CategoryAbstractItemProvider {
 			int operation, Collection<?> collection) {
 		return new DataToolsDropCommand(domain, owner, location, operations, operation, collection);
 	}
-	
+
+	/**
+	 * Specified by com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider 
+	 */
+	@Override
+	public Object getGrids(Object element) {
+		Analysis analysis = (Analysis)element;
+		EList<AnalysisDoc> docs = analysis.getDocs();
+		
+		PropertiesProviderGridsProvider grids_provider = PropertiesProviderGridsProvider.constructPropertiesProviderGridsProvider();
+		for ( AnalysisSheet sheet : analysis.getSheets()) {
+			IPropertiesProvider properties = new AnalysisSheetPropertiesProvider(sheet, docs, analysis);
+			String sheet_name = sheet.getColumnizer().getSheetLabel();
+			grids_provider.addSheet(sheet_name, sheet.getKeys(), properties).setAggregation(true);
+		}
+		
+		grids_provider.addSheet("Categories",
+				DatatoolsPackage.Literals.CATEGORY_ABSTRACT__SUB_CATEGORIES, 
+				DatatoolsPackage.Literals.CATEGORY__CATEGORY_LABEL, 
+				new AnalysisCategoryPropertiesProvider(CategoryAbstract.PROPERTIES, analysis))
+			.setSheetTraits(IItemGridsProvider.TRAITS_BARCHART);
+
+		return grids_provider;
+	}
+
 }

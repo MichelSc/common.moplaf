@@ -164,7 +164,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link DbSynchPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -178,7 +178,8 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		if (isInited) return (DbSynchPackage)EPackage.Registry.INSTANCE.getEPackage(DbSynchPackage.eNS_URI);
 
 		// Obtain or create and register package
-		DbSynchPackageImpl theDbSynchPackage = (DbSynchPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DbSynchPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DbSynchPackageImpl());
+		Object registeredDbSynchPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		DbSynchPackageImpl theDbSynchPackage = registeredDbSynchPackage instanceof DbSynchPackageImpl ? (DbSynchPackageImpl)registeredDbSynchPackage : new DbSynchPackageImpl();
 
 		isInited = true;
 
@@ -194,7 +195,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		// Mark meta-data to indicate it can't be changed
 		theDbSynchPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(DbSynchPackage.eNS_URI, theDbSynchPackage);
 		return theDbSynchPackage;

@@ -68,7 +68,7 @@ public class ExtractorItemProvider
 				 false,
 				 false,
 				 null,
-				 null,
+				 getString("_UI__25ConfigDetailPropertyCategory"),
 				 null));
 	}
 

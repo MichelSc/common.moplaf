@@ -1139,7 +1139,7 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (TableName: ");
 		result.append(tableName);
 		result.append(", WhereClause: ");
