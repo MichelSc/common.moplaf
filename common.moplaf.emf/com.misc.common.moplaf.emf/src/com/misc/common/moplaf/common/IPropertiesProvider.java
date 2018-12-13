@@ -85,6 +85,16 @@ public interface IPropertiesProvider extends Constants{
 
 	/**
 	 * 
+	 * @param element
+	 * @param property
+	 * @return
+	 */
+	default int getPropertyValueTraits(Object element, Object property) {
+		return TRAITS_NONE;
+	}
+
+	/**
+	 * 
 	 * @param property
 	 * @return
 	 */
@@ -387,5 +397,10 @@ public interface IPropertiesProvider extends Constants{
 		int traits = this.getPropertyTraits(property);
 		boolean iskey = (traits&TRAITS_KEY)==TRAITS_KEY;
 		return iskey;
+	}
+	default public boolean isPropertyValueHighlightKey(Object element, Object property) {
+		int traits = this.getPropertyValueTraits(element, property);
+		boolean is = (traits&TRAITS_HIGHLIGHT)==TRAITS_HIGHLIGHT;
+		return is;
 	}
 }

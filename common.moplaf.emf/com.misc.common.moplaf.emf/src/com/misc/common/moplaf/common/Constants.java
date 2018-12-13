@@ -2,9 +2,10 @@ package com.misc.common.moplaf.common;
 
 public interface Constants {
 	
-	static int TRAITS_NONE     = 0;
-	static int TRAITS_BARCHART = 1; // a bunch of rows with a few columns 
-	static int TRAITS_KEY      = 2; // is part of the identity of the object 
+	static int TRAITS_NONE      = 0;
+	static int TRAITS_BARCHART  = 1; // a bunch of rows with a few columns 
+	static int TRAITS_KEY       = 2; // is part of the identity of the object 
+	static int TRAITS_HIGHLIGHT = 4;
 
 	static int NO_ALIGN                = 0;
 	static int HORIZONTAL_ALIGN_LEFT   = 1;

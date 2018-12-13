@@ -31,6 +31,7 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 	private LinkedList<SheetDelegate> sheets;
 	private static final long serialVersionUID = 1L;
 	
+	private Color highlight_color = Color.COLOR_YELLOW;
 
 	public interface SheetDelegate {
 		public SheetDelegate setSheetText(String text);
@@ -49,6 +50,8 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		public Object getColumnBackgroundColor(Object column);
 		public int getCellType(Object row, Object column);
 		public Object getCellValue(Object row, Object column);
+		public Object getCellBackgroundColor(Object row, Object column);
+		public Object getCellForegroundColor(Object row, Object column);
 		public int compareRows(Object row1, Object row2, Object column, boolean ascending);
 	}
 	
@@ -128,6 +131,7 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 			}
 			return color.toURI();
 		}
+		
 		@Override
 		public int getColumnTraits(Object column) {
 			return this.provider.getPropertyTraits(column);
@@ -194,6 +198,17 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 			if ( row1==this) { return +1; }
 			if ( row2==this) { return -1; }
 			return this.provider.compare(column, row1, row2, ascending);
+		}
+		@Override
+		public Object getCellBackgroundColor(Object row, Object column) {
+			if ( this.provider.isPropertyValueHighlightKey(row, column) ) {
+				return PropertiesProviderGridsProvider.this.highlight_color.toURI();
+			}
+			return null;
+		}
+		@Override
+		public Object getCellForegroundColor(Object row, Object column) {
+			return null;
 		}
 	}
 	
@@ -424,13 +439,21 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 	@Override
 	public Object getCellForeground(Object element, Object grid, Object row, Object column) {
 		SheetDelegate delegate = (SheetDelegate)grid;
-		return delegate.getColumnForegroundColor(column);
+		Object cell_color = delegate.getCellForegroundColor(row, column);
+		if ( cell_color==null ) {  
+			cell_color = delegate.getColumnForegroundColor(column);
+		}
+		return cell_color;
 	}
 
 	@Override
 	public Object getCellBackground(Object element, Object grid, Object row, Object column) {
 		SheetDelegate delegate = (SheetDelegate)grid;
-		return delegate.getColumnBackgroundColor(column);
+		Object cell_color = delegate.getCellBackgroundColor(row, column);
+		if ( cell_color==null ) {  
+			cell_color = delegate.getColumnBackgroundColor(column);
+		}
+		return cell_color;
 	}
 	
 	
