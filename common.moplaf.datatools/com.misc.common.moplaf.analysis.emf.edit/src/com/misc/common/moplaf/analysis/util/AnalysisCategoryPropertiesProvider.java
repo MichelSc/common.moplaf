@@ -136,10 +136,10 @@ public class AnalysisCategoryPropertiesProvider implements IPropertiesProvider {
 		return null;
 	}
 	@Override
-	public int getPropertyDisplayALignment(Object property) {
+	public int getPropertyDisplayAlignment(Object property) {
 		if ( property instanceof AggregationProperty) {
 			return Constants.HORIZONTAL_ALIGN_RIGHT;
 		}
-		return this.provider.getPropertyDisplayALignment(property);
+		return this.provider.getPropertyDisplayAlignment(property);
 	}
 }

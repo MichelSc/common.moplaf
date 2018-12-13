@@ -210,7 +210,7 @@ public class PropertiesProvider implements IPropertiesProvider {
 	 * Specified by IPropertiesProvider
 	 */
 	@Override
-	public int getPropertyDisplayALignment (Object property) {
+	public int getPropertyDisplayAlignment (Object property) {
 		int type = this.getPropertyType(property);
 		switch ( type ) {
 		case DATA_TYPE_STRING: 

@@ -201,7 +201,7 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		}
 		@Override
 		public Object getCellBackgroundColor(Object row, Object column) {
-			if ( this.provider.isPropertyValueHighlightKey(row, column) ) {
+			if ( row != this && this.provider.isPropertyValueHighlightKey(row, column) ) {
 				return PropertiesProviderGridsProvider.this.highlight_color.toURI();
 			}
 			return null;

@@ -138,7 +138,7 @@ public interface IPropertiesProvider extends Constants{
 	 * @param property
 	 * @return
 	 */
-	default int getPropertyDisplayALignment (Object property) {
+	default int getPropertyDisplayAlignment (Object property) {
 		int type = this.getPropertyType(property);
 		switch ( type ) {
 		case DATA_TYPE_STRING: 
@@ -192,6 +192,12 @@ public interface IPropertiesProvider extends Constants{
 
 	static int defaultCompareValues(Object value1, Object value2, int type, boolean ascending) {
 		int sense = ascending ? +1 : -1;
+		if ( value1==null) {
+			return -sense;
+		} 
+		if ( value2==null) {
+			return sense;
+		}
 		switch (type) {
 		case DATA_TYPE_BOOLEAN:
 			Boolean boolean1 = (Boolean)value1;

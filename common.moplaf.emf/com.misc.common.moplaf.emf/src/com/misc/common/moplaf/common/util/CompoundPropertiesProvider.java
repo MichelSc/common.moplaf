@@ -131,10 +131,10 @@ public class CompoundPropertiesProvider implements IPropertiesProvider {
 	 * Specified by IPropertiesProvider
 	 */
 	@Override
-	public int getPropertyDisplayALignment (Object property) {
+	public int getPropertyDisplayAlignment (Object property) {
 		IPropertiesProviderProperty provider_property = (IPropertiesProviderProperty)property;
 		IPropertiesProvider provider = provider_property.provider;
 		Object property_object = provider_property.property;
-		return provider.getPropertyDisplayALignment(property_object);
+		return provider.getPropertyDisplayAlignment(property_object);
 	}
 }
