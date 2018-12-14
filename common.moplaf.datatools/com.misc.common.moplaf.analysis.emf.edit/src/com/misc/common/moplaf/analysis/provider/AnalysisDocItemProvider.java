@@ -23,7 +23,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -155,36 +154,6 @@ public class AnalysisDocItemProvider extends DocRefItemProvider implements IItem
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS_DOC__ELEMENTS);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -209,14 +178,12 @@ public class AnalysisDocItemProvider extends DocRefItemProvider implements IItem
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AnalysisDoc.class)) {
+			case AnalysisPackage.ANALYSIS_DOC__ELEMENTS:
 			case AnalysisPackage.ANALYSIS_DOC__COMPLETE:
 			case AnalysisPackage.ANALYSIS_DOC__NB_ELEMENTS:
 			case AnalysisPackage.ANALYSIS_DOC__DOC_INDEX:
 			case AnalysisPackage.ANALYSIS_DOC__COLOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case AnalysisPackage.ANALYSIS_DOC__ELEMENTS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);

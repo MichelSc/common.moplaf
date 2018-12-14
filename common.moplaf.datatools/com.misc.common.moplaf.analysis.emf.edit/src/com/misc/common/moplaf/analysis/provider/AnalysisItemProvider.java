@@ -227,7 +227,6 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider implement
 			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS__CATEGORIZERS);
 			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS__EXTRACTOR);
 			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS__DOCS);
-			childrenFeatures.add(AnalysisPackage.Literals.ANALYSIS__SHEETS);
 		}
 		return childrenFeatures;
 	}
@@ -288,13 +287,13 @@ public class AnalysisItemProvider extends CategoryAbstractItemProvider implement
 			case AnalysisPackage.ANALYSIS__REFRESH_FEEDBACK:
 			case AnalysisPackage.ANALYSIS__NAME:
 			case AnalysisPackage.ANALYSIS__REMARKS:
+			case AnalysisPackage.ANALYSIS__SHEETS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AnalysisPackage.ANALYSIS__COLUMNIZERS:
 			case AnalysisPackage.ANALYSIS__CATEGORIZERS:
 			case AnalysisPackage.ANALYSIS__EXTRACTOR:
 			case AnalysisPackage.ANALYSIS__DOCS:
-			case AnalysisPackage.ANALYSIS__SHEETS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
