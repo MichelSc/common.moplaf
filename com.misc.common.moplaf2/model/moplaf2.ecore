@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="moplaf2" nsURI="http://www.example.org/moplaf2" nsPrefix="moplaf2">
+  <eClassifiers xsi:type="ecore:EClass" name="BoardEdge" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="InNode" lowerBound="1"
+        eType="#//BoardNode" eOpposite="#//BoardNode/OutEdges"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="OutNode" lowerBound="1"
+        eType="#//BoardNode" eOpposite="#//BoardNode/InEdges"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BoardNode" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Actions" upperBound="-1"
+        eType="#//Action" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Indicators" upperBound="-1"
+        eType="#//KeyIndicator" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="OutEdges" upperBound="-1"
+        eType="#//BoardEdge" eOpposite="#//BoardEdge/InNode"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="InEdges" upperBound="-1"
+        eType="#//BoardEdge" eOpposite="#//BoardEdge/OutNode"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Task" abstract="true" eSuperTypes="#//BoardNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Docs" upperBound="-1" eType="#//TaskDoc"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Params" upperBound="-1"
+        eType="#//Param" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Precedences" upperBound="-1"
+        eType="#//Precedence" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Doc" abstract="true" eSuperTypes="#//BoardNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DocRef">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Doc" lowerBound="1" eType="#//Doc"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="URI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskDoc" eSuperTypes="#//DocRef #//BoardEdge"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TaksInput" eSuperTypes="#//TaskDoc"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskOutput" eSuperTypes="#//TaskDoc"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Action">
+    <eOperations name="do"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Feedback" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Run" eSuperTypes="#//Action"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Cancel" eSuperTypes="#//Action"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Reset" eSuperTypes="#//Action"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Clone" eSuperTypes="#//Action"/>
+  <eClassifiers xsi:type="ecore:EClass" name="KeyIndicator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScopedIndicator" eSuperTypes="#//ValueIndicator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MinValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ValueIndicator" eSuperTypes="#//KeyIndicator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnumeratedIndicator" eSuperTypes="#//KeyIndicator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Literals" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanIndicator" eSuperTypes="#//KeyIndicator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Param">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Params" upperBound="-1"
+        eType="#//Param" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanParam" eSuperTypes="#//Param"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntParam" eSuperTypes="#//Param">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DateParam" eSuperTypes="#//Param">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringParam" eSuperTypes="#//Param">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FilePathParam" eSuperTypes="#//StringParam"/>
+  <eClassifiers xsi:type="ecore:EClass" name="URLParam" eSuperTypes="#//StringParam"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Spreadsheet" eSuperTypes="#//Doc"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Database" abstract="true" eSuperTypes="#//Doc"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Problem" abstract="true" eSuperTypes="#//Doc">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="RootTuples" upperBound="-1"
+        eType="#//Tuple" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Goals" upperBound="-1"
+        eType="#//Goal" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LP" eSuperTypes="#//Problem"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProblemSolution" abstract="true" eSuperTypes="#//Doc">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Problem" upperBound="-1"
+        eType="#//ProblemRef" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
+        eType="#//VariableValue" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProblemSolver" eSuperTypes="#//Task"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DatabaseSyncher" eSuperTypes="#//Task"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SpreadsheetSyncher" eSuperTypes="#//Task"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Transform" eSuperTypes="#//Task"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LPSolution" eSuperTypes="#//ProblemSolution"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LPSolver" eSuperTypes="#//ProblemSolver"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Precedence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Precedence" lowerBound="1"
+        eType="#//Task"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IGridsProvider"/>
+  <eClassifiers xsi:type="ecore:EClass" name="View"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GridView" eSuperTypes="#//View"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TimeplotView" eSuperTypes="#//View"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TimelineView" eSuperTypes="#//View"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ViewFactory">
+    <eOperations name="contruct" eType="#//View">
+      <eParameters name="object" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GridFactory" eSuperTypes="#//ViewFactory"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TimeplotFactory" eSuperTypes="#//ViewFactory"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TimelineFactory" eSuperTypes="#//ViewFactory"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ITimelinesProvider"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ITimeplotsProvider"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//Elements">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Expression" eType="#//Term"
+        eOpposite="#//Term/Variable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tuple">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ElementTuples" upperBound="-1"
+        eType="#//Tuple" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
+        eType="#//Elements" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Elements"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint" eSuperTypes="#//Elements #//Expression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//ConstraintType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RightHandSide" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Terms" eType="#//Term"
+        eOpposite="#//Term/Expression"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Term">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Variable" eType="#//Variable"
+        eOpposite="#//Variable/Expression"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Expression" lowerBound="1"
+        eType="#//Expression" eOpposite="#//Expression/Terms"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Goal" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//GoalType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GoalType">
+    <eLiterals name="Minimize"/>
+    <eLiterals name="Maximize" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ConstraintType">
+    <eLiterals name="GreaterThan"/>
+    <eLiterals name="SmallerThan" value="1"/>
+    <eLiterals name="EqualTo" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProblemRef" eSuperTypes="#//DocRef"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Variable" eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+</ecore:EPackage>
