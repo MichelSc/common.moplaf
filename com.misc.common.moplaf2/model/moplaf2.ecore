@@ -18,7 +18,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="InEdges" upperBound="-1"
         eType="#//BoardEdge" eOpposite="#//BoardEdge/OutNode"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Task" abstract="true" eSuperTypes="#//BoardNode">
+  <eClassifiers xsi:type="ecore:EClass" name="Task" abstract="true" eSuperTypes="#//BoardGraph">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Docs" upperBound="-1" eType="#//TaskDoc"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Params" upperBound="-1"
@@ -26,7 +26,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Precedences" upperBound="-1"
         eType="#//Precedence" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Doc" abstract="true" eSuperTypes="#//BoardNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Doc" abstract="true" eSuperTypes="#//BoardNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="BaseDocs" upperBound="-1"
+        eType="#//BaseDoc" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DocRef">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Doc" lowerBound="1" eType="#//Doc"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="URI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -89,8 +92,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LP" eSuperTypes="#//Problem"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProblemSolution" abstract="true" eSuperTypes="#//Doc">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Problem" upperBound="-1"
-        eType="#//ProblemRef" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
         eType="#//VariableValue" containment="true"/>
   </eClassifiers>
@@ -156,9 +157,16 @@
     <eLiterals name="SmallerThan" value="1"/>
     <eLiterals name="EqualTo" value="2"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ProblemRef" eSuperTypes="#//DocRef"/>
   <eClassifiers xsi:type="ecore:EClass" name="VariableValue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Variable" eType="#//Variable"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BoardGraph" abstract="true" interface="true"
+      eSuperTypes="#//BoardNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Nodes" upperBound="-1"
+        eType="#//BoardNode" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Edges" upperBound="-1"
+        eType="#//BoardEdge" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BaseDoc" eSuperTypes="#//DocRef #//BoardEdge"/>
 </ecore:EPackage>
