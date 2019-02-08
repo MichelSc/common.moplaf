@@ -19,14 +19,24 @@
         eType="#//BoardEdge" eOpposite="#//BoardEdge/OutNode"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Task" abstract="true" eSuperTypes="#//BoardGraph">
+    <eOperations name="clone"/>
+    <eOperations name="start"/>
+    <eOperations name="stop"/>
+    <eOperations name="reset"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Docs" upperBound="-1" eType="#//TaskDoc"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Params" upperBound="-1"
         eType="#//Param" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Precedences" upperBound="-1"
         eType="#//Precedence" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SuperTask" eType="#//Task"
+        eOpposite="#//Task/SubTasks"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SubTasks" upperBound="-1"
+        eType="#//Task" eOpposite="#//Task/SuperTask"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Doc" abstract="true" eSuperTypes="#//BoardNode">
+    <eOperations name="clone"/>
+    <eOperations name="reset"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="BaseDocs" upperBound="-1"
         eType="#//BaseDoc" containment="true"/>
   </eClassifiers>
