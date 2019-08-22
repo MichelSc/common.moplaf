@@ -4,7 +4,6 @@ package com.misc.common.moplaf.datatools.provider;
 
 
 import com.misc.common.moplaf.datatools.ColumnizerColumnAttribute;
-import com.misc.common.moplaf.datatools.DatatoolsFactory;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
 import java.util.Collection;
@@ -12,11 +11,12 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.provider.EAttributeItemProvider;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -25,7 +25,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ColumnizerColumnAttributeItemProvider extends ColumnizerColumnItemProvider {
+public class ColumnizerColumnAttributeItemProvider extends NavigationPathItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -47,54 +47,56 @@ public class ColumnizerColumnAttributeItemProvider extends ColumnizerColumnItemP
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSourceTypePropertyDescriptor(object);
-			addTargetTypePropertyDescriptor(object);
+			addColumnNamePropertyDescriptor(object);
+			addColumnWidthPropertyDescriptor(object);
+			addAggregationTypePropertyDescriptor(object);
+			addKeyPropertyDescriptor(object);
 			addAttributePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Source Type feature.
+	 * This adds a property descriptor for the Column Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSourceTypePropertyDescriptor(Object object) {
+	protected void addColumnNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NavigationPath_SourceType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationPath_SourceType_feature", "_UI_NavigationPath_type"),
-				 DatatoolsPackage.Literals.NAVIGATION_PATH__SOURCE_TYPE,
+				 getString("_UI_ColumnizerColumn_ColumnName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ColumnizerColumn_ColumnName_feature", "_UI_ColumnizerColumn_type"),
+				 DatatoolsPackage.Literals.COLUMNIZER_COLUMN__COLUMN_NAME,
 				 true,
 				 false,
-				 true,
-				 null,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Target Type feature.
+	 * This adds a property descriptor for the Column Width feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTargetTypePropertyDescriptor(Object object) {
+	protected void addColumnWidthPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NavigationPath_TargetType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationPath_TargetType_feature", "_UI_NavigationPath_type"),
-				 DatatoolsPackage.Literals.NAVIGATION_PATH__TARGET_TYPE,
+				 getString("_UI_ColumnizerColumn_ColumnWidth_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ColumnizerColumn_ColumnWidth_feature", "_UI_ColumnizerColumn_type"),
+				 DatatoolsPackage.Literals.COLUMNIZER_COLUMN__COLUMN_WIDTH,
 				 true,
 				 false,
-				 true,
-				 null,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
 				 null));
 	}
 
@@ -102,11 +104,10 @@ public class ColumnizerColumnAttributeItemProvider extends ColumnizerColumnItemP
 	 * This adds a property descriptor for the Attribute feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected void addAttributePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
+			( new ItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_ColumnizerColumnAttribute_Attribute_feature"),
@@ -116,49 +117,80 @@ public class ColumnizerColumnAttributeItemProvider extends ColumnizerColumnItemP
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
+				 null) {
+
+					@Override
+					public Collection<?> getChoiceOfValues(Object object) {
+						ColumnizerColumnAttribute column = (ColumnizerColumnAttribute)object;
+						EClass target_type = column.getTargetType();
+						if ( target_type==null ) { 
+							return null;
+						}
+						return target_type.getEAllAttributes();
+					}
+				
+			});
+	}
+
+	/**
+	 * This adds a property descriptor for the Aggregation Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAggregationTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ColumnizerColumn_AggregationType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ColumnizerColumn_AggregationType_feature", "_UI_ColumnizerColumn_type"),
+				 DatatoolsPackage.Literals.COLUMNIZER_COLUMN__AGGREGATION_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
 				 null));
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Key feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(DatatoolsPackage.Literals.NAVIGATION_PATH__ELEMENTS);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	protected void addKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ColumnizerColumn_Key_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ColumnizerColumn_Key_feature", "_UI_ColumnizerColumn_type"),
+				 DatatoolsPackage.Literals.COLUMNIZER_COLUMN__KEY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
+				 null));
 	}
 
 	/**
 	 * This returns ColumnizerColumnAttribute.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ColumnizerColumnAttribute"));
+		EAttributeItemProvider provider = new EAttributeItemProvider(this.getAdapterFactory());
+		ColumnizerColumnAttribute columnizer = (ColumnizerColumnAttribute)object;
+		EAttribute attribute = columnizer.getAttribute();
+		if ( attribute == null) { 
+			return super.getImage(object); 
+		}
+		return provider.getImage(attribute);
 	}
 
 	/**
@@ -169,7 +201,7 @@ public class ColumnizerColumnAttributeItemProvider extends ColumnizerColumnItemP
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ColumnizerColumnAttribute)object).getName();
+		String label = ((ColumnizerColumnAttribute)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ColumnizerColumnAttribute_type") :
 			getString("_UI_ColumnizerColumnAttribute_type") + " " + label;
@@ -188,8 +220,11 @@ public class ColumnizerColumnAttributeItemProvider extends ColumnizerColumnItemP
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ColumnizerColumnAttribute.class)) {
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__ELEMENTS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_NAME:
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_WIDTH:
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__AGGREGATION_TYPE:
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE__KEY:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -205,21 +240,6 @@ public class ColumnizerColumnAttributeItemProvider extends ColumnizerColumnItemP
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.NAVIGATION_PATH__ELEMENTS,
-				 DatatoolsFactory.eINSTANCE.createNavigationAxis()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.NAVIGATION_PATH__ELEMENTS,
-				 DatatoolsFactory.eINSTANCE.createNavigationReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatoolsPackage.Literals.NAVIGATION_PATH__ELEMENTS,
-				 DatatoolsFactory.eINSTANCE.createNavigationDowncast()));
 	}
 
 }

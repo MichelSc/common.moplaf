@@ -1,19 +1,25 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Editor
-Bundle-SymbolicName: com.misc.common.moplaf.emf.editor
+Bundle-SymbolicName: com.misc.common.moplaf.emf.editor;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.misc.common.moplaf.emf.editor.Activator
 Bundle-Vendor: MISC
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
  com.misc.common.moplaf.emf.edit;bundle-version="1.0.0",
- com.misc.common.moplaf.emf;bundle-version="1.0.0",
- com.misc.common.moplaf.emf.ui;bundle-version="1.0.0"
+ com.misc.common.moplaf.emf;bundle-version="1.0.0";visibility:=reexport,
+ com.misc.common.moplaf.emf.ui;bundle-version="1.0.0";visibility:=reexport,
+ org.eclipse.ui.workbench,
+ org.eclipse.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: com.misc.common.moplaf.emf.editor,
  com.misc.common.moplaf.emf.editor.action,
- com.misc.common.moplaf.emf.editor.provider
+ com.misc.common.moplaf.emf.editor.menus,
+ com.misc.common.moplaf.emf.editor.provider,
+ com.misc.common.moplaf.emf.editor.viewers,
+ com.misc.common.moplaf.emf.editor.views
 Bundle-ClassPath: lib/org.eclipse.nebula.widgets.cdatetime_1.0.0.201606281412.jar,
  .
+Import-Package: org.eclipse.core.resources

@@ -13,17 +13,9 @@ package com.misc.common.moplaf.gridview.emf.editor.viewers;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.eclipse.core.runtime.Assert;
-import org.eclipse.jface.viewers.ContentViewer;
-import org.eclipse.jface.viewers.IBaseLabelProvider;
-import org.eclipse.jface.viewers.IColorProvider;
-import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.IInputProvider;
-import org.eclipse.jface.viewers.ILabelProvider;
-import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
-import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
@@ -42,10 +34,11 @@ import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
+import com.misc.common.moplaf.emf.editor.viewers.ViewerAbstract;
+import com.misc.common.moplaf.gridview.TableColumnProvider;
+import com.misc.common.moplaf.gridview.TableProvider;
+import com.misc.common.moplaf.gridview.TablesProvider;
 import com.misc.common.moplaf.gridview.Wrapper;
-import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridProvider;
-import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridProvider.TableProvider;
-import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridProvider.TableProvider.TableColumnProvider;
 
 
 
@@ -66,7 +59,7 @@ import com.misc.common.moplaf.gridview.emf.editor.provider.AdapterFactoryGridPro
  * @author michel
  *
  */
-public class GridViewer extends ContentViewer {
+public class GridViewer extends ViewerAbstract {
 	
 	private class TableSelectionListener implements ISelectionChangedListener{
 		@Override
@@ -101,8 +94,7 @@ public class GridViewer extends ContentViewer {
 	};
 
 	private Object          selectedElement = null;
-	private ISelection      currentSelection = null;
-	private IColorProvider  colorProvider = null;
+	private TablesProvider  tablesProvider = null;
 	private TabFolder       tabFolder = null;
 	
 	private class Grid  {
@@ -191,72 +183,12 @@ public class GridViewer extends ContentViewer {
 		this.tabFolder = null;
 	}
 
-	// providers management
-	@Override
-	public void setContentProvider(IContentProvider provider) {
-		assertContentProviderType(provider);
-		super.setContentProvider(provider);
+	
+	public void setTablesProvider(TablesProvider provider) {
+		this.tablesProvider = provider;
 	}
 	
-	@Override
-	public void setLabelProvider(IBaseLabelProvider provider) {
-		assertLabelProviderType(provider);
-		super.setLabelProvider(provider);
-	}
-	
-	public void setColorProvider(IColorProvider provider) {
-		this.colorProvider = provider;
-	}
-	
-	/**
-	 * Assert that the content provider is of one of the
-	 * supported types.
-	 * @param provider
-	 */
-	protected void assertContentProviderType(IContentProvider provider) {
-		Assert.isTrue(provider instanceof ITreeContentProvider);
-	}
-	
-	/**
-	 * Assert that the label provider is of one of the
-	 * supported types.
-	 * @param provider
-	 */
-	protected void assertLabelProviderType(IBaseLabelProvider provider) {
-		Assert.isTrue(provider instanceof ILabelProvider);
-	}
-	
-	protected ITreeContentProvider getTreeContentProvider(){
-		return (ITreeContentProvider)this.getContentProvider();
-	}
-	
-	protected ILabelProvider getILabelProvider(){
-		return (ILabelProvider)this.getLabelProvider();
-	}
-	
-	protected IColorProvider getIColorProvider(){
-		return this.colorProvider;
-	}
-	
-	// selection management
-	/**
-	 * Specified by ISelectionProvider.
-	 * Get the selection for this provider
-	 */
-	@Override
-	public ISelection getSelection() {
-		return this.currentSelection;
-	}
-
-	/**
-	 * Specified by ISelectionProvider.
-	 * Get the selection for this provider
-	 */
-	@Override
-	public void setSelection(ISelection selection, boolean reveal) {
-		this.currentSelection = selection;
-	}
-	
+		
 	/**
 	 * Set the selection in the environment.
 	 * Called by the concrete implementation when the selection must change
@@ -267,7 +199,7 @@ public class GridViewer extends ContentViewer {
 			Wrapper wrapper = (Wrapper) selectedObject;
 			selectedObject = wrapper.unwrap();
 		}
-		if ( selectedObject!=this.selectedElement ){
+		if ( selectedObject!=this.selectedElement && selectedObject != null ){
 			this.selectedElement = selectedObject;
 			this.setSelection(new StructuredSelection(selectedObject), false);
 			this.fireSelectionChanged(new SelectionChangedEvent(this, this.getSelection()));
@@ -287,18 +219,19 @@ public class GridViewer extends ContentViewer {
 	}
 	
 	private void collectTableProviders(ArrayList<TableProvider> tables, Object element, int depth) {
-		// the element
-		if (element instanceof TableProvider ) {
-			tables.add((TableProvider)element);
+		ArrayList<TableProvider> tableProviders = this.tablesProvider.getTableProviders(element);
+		if ( tableProviders!=null && tableProviders.size()>0 ) {
+			tables.addAll(tableProviders);
 		}
-		// the children
-		if ( depth<3) {
-			Object[] children_element= this.getTreeContentProvider().getChildren(element);
-			for (Object child_element : children_element) {
-				// the parent of child is modelElement, this is an actual child
-				// this restriction avoids recursion
-				if ( element.getClass().isArray() || this.getTreeContentProvider().getParent(child_element)==element){
-					this.collectTableProviders(tables,  child_element, depth+1);
+		else {
+			if ( depth<2) {
+				Object[] children_element= this.getTreeContentProvider().getChildren(element);
+				for (Object child_element : children_element) {
+					// the parent of child is modelElement, this is an actual child
+					// this restriction avoids recursion
+					if ( element.getClass().isArray() || this.getTreeContentProvider().getParent(child_element)==element){
+						this.collectTableProviders(tables,  child_element, depth+1);
+					}
 				}
 			}
 		}

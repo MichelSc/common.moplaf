@@ -4,10 +4,14 @@ package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.ExtractorType;
+import com.misc.common.moplaf.datatools.util.ObjectSet;
+
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -81,6 +85,7 @@ public class ExtractorTypeImpl extends ExtractorImpl implements ExtractorType {
 		return targetType;
 	}
 
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -150,6 +155,61 @@ public class ExtractorTypeImpl extends ExtractorImpl implements ExtractorType {
 				return targetType != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean isValidRoot(EObject doc) {
+		// valid for any type
+		return true;
+	}
+	
+	@Override
+	public EClass basicGetExtractedType() {
+		return this.getTargetType();
+	}
+
+	@Override
+	protected void collectParamsDescription(List<String> params) {
+		String type = this.getTargetType()==null ? "null" : this.getTargetType().getName();
+		params.add(String.format("type %s", type));
+	}
+
+	@Override
+	protected String getTypeDescription() {
+		return "Extractor all";
+	}
+
+
+	/**
+	 * 
+	 * @param in
+	 * @param outs
+	 */
+	@Override
+	protected ObjectSet extractImpl(ObjectSet ins, int max_elements) {
+		EClass target_type = this.getTargetType();
+		ObjectSet result = new ObjectSet();
+		for(EObject in : ins) {
+			TreeIterator<EObject> content_iterator = in.eAllContents();
+			while ( content_iterator.hasNext()) {
+				EObject object = content_iterator.next();
+				if ( target_type.isInstance(object)) {
+					if ( result.size()<max_elements ) {
+						result.add(object);
+					} else {
+						result.setComplete(false);
+						return result;
+					}
+				}
+			}  // traverse the content
+		}  // traverse the ins
+		if ( !ins.isComplete() ) {
+			result.setComplete(false);
+		}
+		return result;
 	}
 
 } //ExtractorTypeImpl

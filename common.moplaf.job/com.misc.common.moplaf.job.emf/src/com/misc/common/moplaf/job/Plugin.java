@@ -44,6 +44,10 @@ public final class Plugin extends EMFPlugin {
 		this.showMetadata = showMetadata;
 	}
 
+	/** estension ID's 
+	 * 
+	 */
+	public static String EXTENSION_RUN_FACTORY = "com.misc.common.moplaf.job.emf.run_factory";
 	
 	/**
 	 * Keep track of the singleton.

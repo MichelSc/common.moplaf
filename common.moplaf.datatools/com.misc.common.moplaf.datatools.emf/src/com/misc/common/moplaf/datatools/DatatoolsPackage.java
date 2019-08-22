@@ -4,6 +4,8 @@ package com.misc.common.moplaf.datatools;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -58,88 +60,6 @@ public interface DatatoolsPackage extends EPackage {
 	DatatoolsPackage eINSTANCE = com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl <em>Category Abstract</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategoryAbstract()
-	 * @generated
-	 */
-	int CATEGORY_ABSTRACT = 5;
-
-	/**
-	 * The feature id for the '<em><b>Sub Categories</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_ABSTRACT__SUB_CATEGORIES = 0;
-
-	/**
-	 * The feature id for the '<em><b>Elements</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_ABSTRACT__ELEMENTS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Nb Elements</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_ABSTRACT__NB_ELEMENTS = 2;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_ABSTRACT__DESCRIPTION = 3;
-
-	/**
-	 * The feature id for the '<em><b>Columnizer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_ABSTRACT__COLUMNIZER = 4;
-
-	/**
-	 * The number of structural features of the '<em>Category Abstract</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_ABSTRACT_FEATURE_COUNT = 5;
-
-	/**
-	 * The operation id for the '<em>Get Subcategory</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT = 0;
-
-	/**
-	 * The number of operations of the '<em>Category Abstract</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_ABSTRACT_OPERATION_COUNT = 1;
-
-	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.CategorizerImpl <em>Categorizer</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -147,106 +67,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategorizer()
 	 * @generated
 	 */
-	int CATEGORIZER = 0;
-
-	/**
-	 * The feature id for the '<em><b>Sub Categories</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORIZER__SUB_CATEGORIES = CATEGORY_ABSTRACT__SUB_CATEGORIES;
-
-	/**
-	 * The feature id for the '<em><b>Elements</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORIZER__ELEMENTS = CATEGORY_ABSTRACT__ELEMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Nb Elements</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORIZER__NB_ELEMENTS = CATEGORY_ABSTRACT__NB_ELEMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORIZER__DESCRIPTION = CATEGORY_ABSTRACT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Columnizer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORIZER__COLUMNIZER = CATEGORY_ABSTRACT__COLUMNIZER;
-
-	/**
-	 * The feature id for the '<em><b>Criteria</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORIZER__CRITERIA = CATEGORY_ABSTRACT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Categorizer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORIZER_FEATURE_COUNT = CATEGORY_ABSTRACT_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get Subcategory</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORIZER___GET_SUBCATEGORY__EOBJECT = CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Is Valid Root</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORIZER___IS_VALID_ROOT__EOBJECT = CATEGORY_ABSTRACT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Refresh Cats</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORIZER___REFRESH_CATS__EOBJECT = CATEGORY_ABSTRACT_OPERATION_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Categorizer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORIZER_OPERATION_COUNT = CATEGORY_ABSTRACT_OPERATION_COUNT + 2;
+	int CATEGORIZER = 35;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.CategoryImpl <em>Category</em>}' class.
@@ -256,143 +77,17 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategory()
 	 * @generated
 	 */
-	int CATEGORY = 1;
+	int CATEGORY = 34;
 
 	/**
-	 * The feature id for the '<em><b>Sub Categories</b></em>' containment reference list.
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.DataToolImpl <em>Data Tool</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__SUB_CATEGORIES = CATEGORY_ABSTRACT__SUB_CATEGORIES;
-
-	/**
-	 * The feature id for the '<em><b>Elements</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__ELEMENTS = CATEGORY_ABSTRACT__ELEMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Nb Elements</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__NB_ELEMENTS = CATEGORY_ABSTRACT__NB_ELEMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__DESCRIPTION = CATEGORY_ABSTRACT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Columnizer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__COLUMNIZER = CATEGORY_ABSTRACT__COLUMNIZER;
-
-	/**
-	 * The feature id for the '<em><b>Criteria</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__CRITERIA = CATEGORY_ABSTRACT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__VALUE = CATEGORY_ABSTRACT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Category</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_FEATURE_COUNT = CATEGORY_ABSTRACT_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Get Subcategory</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY___GET_SUBCATEGORY__EOBJECT = CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT;
-
-	/**
-	 * The number of operations of the '<em>Category</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_OPERATION_COUNT = CATEGORY_ABSTRACT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaImpl <em>Category Criteria</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.CategoryCriteriaImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategoryCriteria()
+	 * @see com.misc.common.moplaf.datatools.impl.DataToolImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getDataTool()
 	 * @generated
 	 */
-	int CATEGORY_CRITERIA = 2;
-
-	/**
-	 * The number of structural features of the '<em>Category Criteria</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_CRITERIA_FEATURE_COUNT = 0;
-
-	/**
-	 * The operation id for the '<em>Get Category Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_CRITERIA___GET_CATEGORY_VALUE__EOBJECT = 0;
-
-	/**
-	 * The operation id for the '<em>Construct Category</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_CRITERIA___CONSTRUCT_CATEGORY = 1;
-
-	/**
-	 * The number of operations of the '<em>Category Criteria</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_CRITERIA_OPERATION_COUNT = 2;
+	int DATA_TOOL = 5;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorImpl <em>Extractor</em>}' class.
@@ -402,43 +97,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractor()
 	 * @generated
 	 */
-	int EXTRACTOR = 3;
-
-	/**
-	 * The number of structural features of the '<em>Extractor</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FEATURE_COUNT = 0;
-
-	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR___REFRESH_OUTS__ELIST = 0;
-
-	/**
-	 * The operation id for the '<em>Is Valid Root</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR___IS_VALID_ROOT__EOBJECT = 1;
-
-	/**
-	 * The number of operations of the '<em>Extractor</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_OPERATION_COUNT = 2;
+	int EXTRACTOR = 7;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerImpl <em>Columnizer</em>}' class.
@@ -448,25 +107,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizer()
 	 * @generated
 	 */
-	int COLUMNIZER = 4;
-
-	/**
-	 * The number of structural features of the '<em>Columnizer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMNIZER_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Columnizer</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMNIZER_OPERATION_COUNT = 0;
+	int COLUMNIZER = 28;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorTypeImpl <em>Extractor Type</em>}' class.
@@ -476,7 +117,842 @@ public interface DatatoolsPackage extends EPackage {
 	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorType()
 	 * @generated
 	 */
-	int EXTRACTOR_TYPE = 6;
+	int EXTRACTOR_TYPE = 8;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorCompoundImpl <em>Extractor Compound</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.ExtractorCompoundImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorCompound()
+	 * @generated
+	 */
+	int EXTRACTOR_COMPOUND = 21;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorPipeImpl <em>Extractor Pipe</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.ExtractorPipeImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorPipe()
+	 * @generated
+	 */
+	int EXTRACTOR_PIPE = 23;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorLogicImpl <em>Extractor Logic</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.ExtractorLogicImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorLogic()
+	 * @generated
+	 */
+	int EXTRACTOR_LOGIC = 22;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorUnionImpl <em>Extractor Union</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.ExtractorUnionImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorUnion()
+	 * @generated
+	 */
+	int EXTRACTOR_UNION = 24;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorIntersectionImpl <em>Extractor Intersection</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.ExtractorIntersectionImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorIntersection()
+	 * @generated
+	 */
+	int EXTRACTOR_INTERSECTION = 25;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorPathImpl <em>Extractor Path</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.ExtractorPathImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorPath()
+	 * @generated
+	 */
+	int EXTRACTOR_PATH = 9;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorOclImpl <em>Extractor Ocl</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.ExtractorOclImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorOcl()
+	 * @generated
+	 */
+	int EXTRACTOR_OCL = 10;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl <em>Columnizer Column</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerColumn()
+	 * @generated
+	 */
+	int COLUMNIZER_COLUMN = 29;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl <em>Columnizer Column Attribute</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerColumnAttribute()
+	 * @generated
+	 */
+	int COLUMNIZER_COLUMN_ATTRIBUTE = 30;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnOclImpl <em>Columnizer Column Ocl</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.ColumnizerColumnOclImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerColumnOcl()
+	 * @generated
+	 */
+	int COLUMNIZER_COLUMN_OCL = 31;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.NavigationPathImpl <em>Navigation Path</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.NavigationPathImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getNavigationPath()
+	 * @generated
+	 */
+	int NAVIGATION_PATH = 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.NavigationAxisImpl <em>Navigation Axis</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.NavigationAxisImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getNavigationAxis()
+	 * @generated
+	 */
+	int NAVIGATION_AXIS = 1;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.NavigationReferenceImpl <em>Navigation Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.NavigationReferenceImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getNavigationReference()
+	 * @generated
+	 */
+	int NAVIGATION_REFERENCE = 2;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.NavigationDowncastImpl <em>Navigation Downcast</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.NavigationDowncastImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getNavigationDowncast()
+	 * @generated
+	 */
+	int NAVIGATION_DOWNCAST = 3;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.DataToolAbstractImpl <em>Data Tool Abstract</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.DataToolAbstractImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getDataToolAbstract()
+	 * @generated
+	 */
+	int DATA_TOOL_ABSTRACT = 6;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOL_ABSTRACT__CONTEXT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOL_ABSTRACT__DESCRIPTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOL_ABSTRACT__NAME = 2;
+
+	/**
+	 * The number of structural features of the '<em>Data Tool Abstract</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOL_ABSTRACT_FEATURE_COUNT = 3;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOL_ABSTRACT___GET_TYPE = 0;
+
+	/**
+	 * The number of operations of the '<em>Data Tool Abstract</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOL_ABSTRACT_OPERATION_COUNT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_PATH__CONTEXT = DATA_TOOL_ABSTRACT__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_PATH__DESCRIPTION = DATA_TOOL_ABSTRACT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_PATH__NAME = DATA_TOOL_ABSTRACT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_PATH__PATH_ELEMENTS = DATA_TOOL_ABSTRACT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Source Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_PATH__SOURCE_TYPE = DATA_TOOL_ABSTRACT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Target Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_PATH__TARGET_TYPE = DATA_TOOL_ABSTRACT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_PATH__MANY = DATA_TOOL_ABSTRACT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_PATH__PATH = DATA_TOOL_ABSTRACT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Navigation Path</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_PATH_FEATURE_COUNT = DATA_TOOL_ABSTRACT_FEATURE_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_PATH___GET_TYPE = DATA_TOOL_ABSTRACT___GET_TYPE;
+
+	/**
+	 * The number of operations of the '<em>Navigation Path</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_PATH_OPERATION_COUNT = DATA_TOOL_ABSTRACT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Source Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_AXIS__SOURCE_TYPE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Target Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_AXIS__TARGET_TYPE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_AXIS__PATH = 2;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_AXIS__PREVIOUS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Path Element</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_AXIS__PATH_ELEMENT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_AXIS__NEXT = 5;
+
+	/**
+	 * The number of structural features of the '<em>Navigation Axis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_AXIS_FEATURE_COUNT = 6;
+
+	/**
+	 * The operation id for the '<em>Navigate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_AXIS___NAVIGATE__EOBJECT = 0;
+
+	/**
+	 * The operation id for the '<em>Navigate Many</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_AXIS___NAVIGATE_MANY__EOBJECT = 1;
+
+	/**
+	 * The number of operations of the '<em>Navigation Axis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_AXIS_OPERATION_COUNT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Source Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_REFERENCE__SOURCE_TYPE = NAVIGATION_AXIS__SOURCE_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Target Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_REFERENCE__TARGET_TYPE = NAVIGATION_AXIS__TARGET_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_REFERENCE__PATH = NAVIGATION_AXIS__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_REFERENCE__PREVIOUS = NAVIGATION_AXIS__PREVIOUS;
+
+	/**
+	 * The feature id for the '<em><b>Path Element</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_REFERENCE__PATH_ELEMENT = NAVIGATION_AXIS__PATH_ELEMENT;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_REFERENCE__NEXT = NAVIGATION_AXIS__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_REFERENCE__REFERENCE = NAVIGATION_AXIS_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Navigation Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_REFERENCE_FEATURE_COUNT = NAVIGATION_AXIS_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Navigate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_REFERENCE___NAVIGATE__EOBJECT = NAVIGATION_AXIS___NAVIGATE__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Navigate Many</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_REFERENCE___NAVIGATE_MANY__EOBJECT = NAVIGATION_AXIS___NAVIGATE_MANY__EOBJECT;
+
+	/**
+	 * The number of operations of the '<em>Navigation Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_REFERENCE_OPERATION_COUNT = NAVIGATION_AXIS_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Source Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_DOWNCAST__SOURCE_TYPE = NAVIGATION_AXIS__SOURCE_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Target Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_DOWNCAST__TARGET_TYPE = NAVIGATION_AXIS__TARGET_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_DOWNCAST__PATH = NAVIGATION_AXIS__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_DOWNCAST__PREVIOUS = NAVIGATION_AXIS__PREVIOUS;
+
+	/**
+	 * The feature id for the '<em><b>Path Element</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_DOWNCAST__PATH_ELEMENT = NAVIGATION_AXIS__PATH_ELEMENT;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_DOWNCAST__NEXT = NAVIGATION_AXIS__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Downcast Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_DOWNCAST__DOWNCAST_TYPE = NAVIGATION_AXIS_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Navigation Downcast</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_DOWNCAST_FEATURE_COUNT = NAVIGATION_AXIS_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Navigate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_DOWNCAST___NAVIGATE__EOBJECT = NAVIGATION_AXIS___NAVIGATE__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Navigate Many</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_DOWNCAST___NAVIGATE_MANY__EOBJECT = NAVIGATION_AXIS___NAVIGATE_MANY__EOBJECT;
+
+	/**
+	 * The number of operations of the '<em>Navigation Downcast</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAVIGATION_DOWNCAST_OPERATION_COUNT = NAVIGATION_AXIS_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.DataToolContextImpl <em>Data Tool Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.DataToolContextImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getDataToolContext()
+	 * @generated
+	 */
+	int DATA_TOOL_CONTEXT = 4;
+
+	/**
+	 * The number of structural features of the '<em>Data Tool Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOL_CONTEXT_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Get Domain Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOL_CONTEXT___GET_DOMAIN_TYPES = 0;
+
+	/**
+	 * The number of operations of the '<em>Data Tool Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOL_CONTEXT_OPERATION_COUNT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOL__CONTEXT = DATA_TOOL_ABSTRACT__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOL__DESCRIPTION = DATA_TOOL_ABSTRACT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOL__NAME = DATA_TOOL_ABSTRACT__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Data Tool</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOL_FEATURE_COUNT = DATA_TOOL_ABSTRACT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOL___GET_TYPE = DATA_TOOL_ABSTRACT___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Clone</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOL___CLONE = DATA_TOOL_ABSTRACT_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Data Tool</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TOOL_OPERATION_COUNT = DATA_TOOL_ABSTRACT_OPERATION_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR__CONTEXT = DATA_TOOL__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR__DESCRIPTION = DATA_TOOL__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR__NAME = DATA_TOOL__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR__EXTRACTED_TYPE = DATA_TOOL_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR__FILTER = DATA_TOOL_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Extractor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_FEATURE_COUNT = DATA_TOOL_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR___GET_TYPE = DATA_TOOL___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Clone</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR___CLONE = DATA_TOOL___CLONE;
+
+	/**
+	 * The operation id for the '<em>Extract</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR___EXTRACT__OBJECTSET_INT = DATA_TOOL_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Valid Root</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR___IS_VALID_ROOT__EOBJECT = DATA_TOOL_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Extractor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_OPERATION_COUNT = DATA_TOOL_OPERATION_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_TYPE__CONTEXT = EXTRACTOR__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_TYPE__DESCRIPTION = EXTRACTOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_TYPE__NAME = EXTRACTOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_TYPE__EXTRACTED_TYPE = EXTRACTOR__EXTRACTED_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_TYPE__FILTER = EXTRACTOR__FILTER;
 
 	/**
 	 * The feature id for the '<em><b>Target Type</b></em>' reference.
@@ -497,13 +973,31 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_TYPE_FEATURE_COUNT = EXTRACTOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
+	 * The operation id for the '<em>Get Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_TYPE___REFRESH_OUTS__ELIST = EXTRACTOR___REFRESH_OUTS__ELIST;
+	int EXTRACTOR_TYPE___GET_TYPE = EXTRACTOR___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Clone</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_TYPE___CLONE = EXTRACTOR___CLONE;
+
+	/**
+	 * The operation id for the '<em>Extract</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_TYPE___EXTRACT__OBJECTSET_INT = EXTRACTOR___EXTRACT__OBJECTSET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -524,298 +1018,58 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_TYPE_OPERATION_COUNT = EXTRACTOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorCompoundImpl <em>Extractor Compound</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.ExtractorCompoundImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorCompound()
-	 * @generated
-	 */
-	int EXTRACTOR_COMPOUND = 7;
-
-	/**
-	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_COMPOUND__EXTRACTORS = EXTRACTOR_FEATURE_COUNT + 0;
+	int EXTRACTOR_PATH__CONTEXT = EXTRACTOR__CONTEXT;
 
 	/**
-	 * The number of structural features of the '<em>Extractor Compound</em>' class.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_COMPOUND_FEATURE_COUNT = EXTRACTOR_FEATURE_COUNT + 1;
+	int EXTRACTOR_PATH__DESCRIPTION = EXTRACTOR__DESCRIPTION;
 
 	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_COMPOUND___REFRESH_OUTS__ELIST = EXTRACTOR___REFRESH_OUTS__ELIST;
+	int EXTRACTOR_PATH__NAME = EXTRACTOR__NAME;
 
 	/**
-	 * The operation id for the '<em>Is Valid Root</em>' operation.
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_COMPOUND___IS_VALID_ROOT__EOBJECT = EXTRACTOR___IS_VALID_ROOT__EOBJECT;
+	int EXTRACTOR_PATH__EXTRACTED_TYPE = EXTRACTOR__EXTRACTED_TYPE;
 
 	/**
-	 * The number of operations of the '<em>Extractor Compound</em>' class.
+	 * The feature id for the '<em><b>Filter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_COMPOUND_OPERATION_COUNT = EXTRACTOR_OPERATION_COUNT + 0;
+	int EXTRACTOR_PATH__FILTER = EXTRACTOR__FILTER;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractatorPipeImpl <em>Extractator Pipe</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.ExtractatorPipeImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractatorPipe()
-	 * @generated
-	 */
-	int EXTRACTATOR_PIPE = 8;
-
-	/**
-	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTATOR_PIPE__EXTRACTORS = EXTRACTOR_COMPOUND__EXTRACTORS;
-
-	/**
-	 * The number of structural features of the '<em>Extractator Pipe</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTATOR_PIPE_FEATURE_COUNT = EXTRACTOR_COMPOUND_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTATOR_PIPE___REFRESH_OUTS__ELIST = EXTRACTOR_COMPOUND___REFRESH_OUTS__ELIST;
-
-	/**
-	 * The operation id for the '<em>Is Valid Root</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTATOR_PIPE___IS_VALID_ROOT__EOBJECT = EXTRACTOR_COMPOUND___IS_VALID_ROOT__EOBJECT;
-
-	/**
-	 * The number of operations of the '<em>Extractator Pipe</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTATOR_PIPE_OPERATION_COUNT = EXTRACTOR_COMPOUND_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorLogicImpl <em>Extractor Logic</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.ExtractorLogicImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorLogic()
-	 * @generated
-	 */
-	int EXTRACTOR_LOGIC = 9;
-
-	/**
-	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_LOGIC__EXTRACTORS = EXTRACTOR_COMPOUND__EXTRACTORS;
-
-	/**
-	 * The number of structural features of the '<em>Extractor Logic</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_LOGIC_FEATURE_COUNT = EXTRACTOR_COMPOUND_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_LOGIC___REFRESH_OUTS__ELIST = EXTRACTOR_COMPOUND___REFRESH_OUTS__ELIST;
-
-	/**
-	 * The operation id for the '<em>Is Valid Root</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_LOGIC___IS_VALID_ROOT__EOBJECT = EXTRACTOR_COMPOUND___IS_VALID_ROOT__EOBJECT;
-
-	/**
-	 * The number of operations of the '<em>Extractor Logic</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_LOGIC_OPERATION_COUNT = EXTRACTOR_COMPOUND_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorUnionImpl <em>Extractor Union</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.ExtractorUnionImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorUnion()
-	 * @generated
-	 */
-	int EXTRACTOR_UNION = 10;
-
-	/**
-	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_UNION__EXTRACTORS = EXTRACTOR_LOGIC__EXTRACTORS;
-
-	/**
-	 * The number of structural features of the '<em>Extractor Union</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_UNION_FEATURE_COUNT = EXTRACTOR_LOGIC_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_UNION___REFRESH_OUTS__ELIST = EXTRACTOR_LOGIC___REFRESH_OUTS__ELIST;
-
-	/**
-	 * The operation id for the '<em>Is Valid Root</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_UNION___IS_VALID_ROOT__EOBJECT = EXTRACTOR_LOGIC___IS_VALID_ROOT__EOBJECT;
-
-	/**
-	 * The number of operations of the '<em>Extractor Union</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_UNION_OPERATION_COUNT = EXTRACTOR_LOGIC_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorIntersectionImpl <em>Extractor Intersection</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.ExtractorIntersectionImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorIntersection()
-	 * @generated
-	 */
-	int EXTRACTOR_INTERSECTION = 11;
-
-	/**
-	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_INTERSECTION__EXTRACTORS = EXTRACTOR_LOGIC__EXTRACTORS;
-
-	/**
-	 * The number of structural features of the '<em>Extractor Intersection</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_INTERSECTION_FEATURE_COUNT = EXTRACTOR_LOGIC_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_INTERSECTION___REFRESH_OUTS__ELIST = EXTRACTOR_LOGIC___REFRESH_OUTS__ELIST;
-
-	/**
-	 * The operation id for the '<em>Is Valid Root</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_INTERSECTION___IS_VALID_ROOT__EOBJECT = EXTRACTOR_LOGIC___IS_VALID_ROOT__EOBJECT;
-
-	/**
-	 * The number of operations of the '<em>Extractor Intersection</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_INTERSECTION_OPERATION_COUNT = EXTRACTOR_LOGIC_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorPathImpl <em>Extractor Path</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.ExtractorPathImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorPath()
-	 * @generated
-	 */
-	int EXTRACTOR_PATH = 12;
-
-	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_PATH__ELEMENTS = EXTRACTOR_FEATURE_COUNT + 0;
+	int EXTRACTOR_PATH__PATH_ELEMENTS = EXTRACTOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source Type</b></em>' reference.
@@ -836,22 +1090,67 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_PATH__TARGET_TYPE = EXTRACTOR_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PATH__MANY = EXTRACTOR_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PATH__PATH = EXTRACTOR_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Root Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PATH__ROOT_TYPE = EXTRACTOR_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Extractor Path</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_PATH_FEATURE_COUNT = EXTRACTOR_FEATURE_COUNT + 3;
+	int EXTRACTOR_PATH_FEATURE_COUNT = EXTRACTOR_FEATURE_COUNT + 6;
 
 	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
+	 * The operation id for the '<em>Get Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_PATH___REFRESH_OUTS__ELIST = EXTRACTOR___REFRESH_OUTS__ELIST;
+	int EXTRACTOR_PATH___GET_TYPE = EXTRACTOR___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Clone</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PATH___CLONE = EXTRACTOR___CLONE;
+
+	/**
+	 * The operation id for the '<em>Extract</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PATH___EXTRACT__OBJECTSET_INT = EXTRACTOR___EXTRACT__OBJECTSET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -872,14 +1171,49 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_PATH_OPERATION_COUNT = EXTRACTOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorOclImpl <em>Extractor Ocl</em>}' class.
+	 * The feature id for the '<em><b>Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.ExtractorOclImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorOcl()
 	 * @generated
+	 * @ordered
 	 */
-	int EXTRACTOR_OCL = 13;
+	int EXTRACTOR_OCL__CONTEXT = EXTRACTOR__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_OCL__DESCRIPTION = EXTRACTOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_OCL__NAME = EXTRACTOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_OCL__EXTRACTED_TYPE = EXTRACTOR__EXTRACTED_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_OCL__FILTER = EXTRACTOR__FILTER;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' attribute.
@@ -900,13 +1234,31 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_OCL_FEATURE_COUNT = EXTRACTOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
+	 * The operation id for the '<em>Get Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_OCL___REFRESH_OUTS__ELIST = EXTRACTOR___REFRESH_OUTS__ELIST;
+	int EXTRACTOR_OCL___GET_TYPE = EXTRACTOR___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Clone</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_OCL___CLONE = EXTRACTOR___CLONE;
+
+	/**
+	 * The operation id for the '<em>Extract</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_OCL___EXTRACT__OBJECTSET_INT = EXTRACTOR___EXTRACT__OBJECTSET_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid Root</em>' operation.
@@ -927,534 +1279,32 @@ public interface DatatoolsPackage extends EPackage {
 	int EXTRACTOR_OCL_OPERATION_COUNT = EXTRACTOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterImpl <em>Extractor Filter</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.FilterImpl <em>Filter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.ExtractorFilterImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilter()
+	 * @see com.misc.common.moplaf.datatools.impl.FilterImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getFilter()
 	 * @generated
 	 */
-	int EXTRACTOR_FILTER = 14;
+	int FILTER = 11;
 
 	/**
-	 * The number of structural features of the '<em>Extractor Filter</em>' class.
+	 * The feature id for the '<em><b>Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER_FEATURE_COUNT = EXTRACTOR_FEATURE_COUNT + 0;
+	int FILTER__CONTEXT = DATA_TOOL_ABSTRACT__CONTEXT;
 
 	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTRACTOR_FILTER___REFRESH_OUTS__ELIST = EXTRACTOR___REFRESH_OUTS__ELIST;
-
-	/**
-	 * The operation id for the '<em>Is Valid Root</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER___IS_VALID_ROOT__EOBJECT = EXTRACTOR___IS_VALID_ROOT__EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Is Filtered</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER___IS_FILTERED__EOBJECT = EXTRACTOR_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Extractor Filter</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_OPERATION_COUNT = EXTRACTOR_OPERATION_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeImpl <em>Extractor Filter Attribute</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterAttribute()
-	 * @generated
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE = 15;
-
-	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE__ELEMENTS = EXTRACTOR_FILTER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Source Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE__SOURCE_TYPE = EXTRACTOR_FILTER_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Target Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE__TARGET_TYPE = EXTRACTOR_FILTER_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE__ATTRIBUTE = EXTRACTOR_FILTER_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>Extractor Filter Attribute</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_FEATURE_COUNT = EXTRACTOR_FILTER_FEATURE_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE___REFRESH_OUTS__ELIST = EXTRACTOR_FILTER___REFRESH_OUTS__ELIST;
-
-	/**
-	 * The operation id for the '<em>Is Valid Root</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE___IS_VALID_ROOT__EOBJECT = EXTRACTOR_FILTER___IS_VALID_ROOT__EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Is Filtered</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE___IS_FILTERED__EOBJECT = EXTRACTOR_FILTER___IS_FILTERED__EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Get Attribute Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE___GET_ATTRIBUTE_VALUE = EXTRACTOR_FILTER_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Extractor Filter Attribute</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_OPERATION_COUNT = EXTRACTOR_FILTER_OPERATION_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeIntImpl <em>Extractor Filter Attribute Int</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeIntImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterAttributeInt()
-	 * @generated
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT = 16;
-
-	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT__ELEMENTS = EXTRACTOR_FILTER_ATTRIBUTE__ELEMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Source Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT__SOURCE_TYPE = EXTRACTOR_FILTER_ATTRIBUTE__SOURCE_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Target Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT__TARGET_TYPE = EXTRACTOR_FILTER_ATTRIBUTE__TARGET_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT__ATTRIBUTE = EXTRACTOR_FILTER_ATTRIBUTE__ATTRIBUTE;
-
-	/**
-	 * The feature id for the '<em><b>Min Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT__MIN_VALUE = EXTRACTOR_FILTER_ATTRIBUTE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Max Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT__MAX_VALUE = EXTRACTOR_FILTER_ATTRIBUTE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Extractor Filter Attribute Int</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT_FEATURE_COUNT = EXTRACTOR_FILTER_ATTRIBUTE_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT___REFRESH_OUTS__ELIST = EXTRACTOR_FILTER_ATTRIBUTE___REFRESH_OUTS__ELIST;
-
-	/**
-	 * The operation id for the '<em>Is Valid Root</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT___IS_VALID_ROOT__EOBJECT = EXTRACTOR_FILTER_ATTRIBUTE___IS_VALID_ROOT__EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Is Filtered</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT___IS_FILTERED__EOBJECT = EXTRACTOR_FILTER_ATTRIBUTE___IS_FILTERED__EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Get Attribute Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT___GET_ATTRIBUTE_VALUE = EXTRACTOR_FILTER_ATTRIBUTE___GET_ATTRIBUTE_VALUE;
-
-	/**
-	 * The number of operations of the '<em>Extractor Filter Attribute Int</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_ATTRIBUTE_INT_OPERATION_COUNT = EXTRACTOR_FILTER_ATTRIBUTE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterOclImpl <em>Extractor Filter Ocl</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.ExtractorFilterOclImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterOcl()
-	 * @generated
-	 */
-	int EXTRACTOR_FILTER_OCL = 17;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_OCL__EXPRESSION = EXTRACTOR_FILTER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Extractor Filter Ocl</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_OCL_FEATURE_COUNT = EXTRACTOR_FILTER_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Refresh Outs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_OCL___REFRESH_OUTS__ELIST = EXTRACTOR_FILTER___REFRESH_OUTS__ELIST;
-
-	/**
-	 * The operation id for the '<em>Is Valid Root</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_OCL___IS_VALID_ROOT__EOBJECT = EXTRACTOR_FILTER___IS_VALID_ROOT__EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Is Filtered</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_OCL___IS_FILTERED__EOBJECT = EXTRACTOR_FILTER___IS_FILTERED__EOBJECT;
-
-	/**
-	 * The number of operations of the '<em>Extractor Filter Ocl</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTRACTOR_FILTER_OCL_OPERATION_COUNT = EXTRACTOR_FILTER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaAttributeImpl <em>Category Criteria Attribute</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.CategoryCriteriaAttributeImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategoryCriteriaAttribute()
-	 * @generated
-	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE = 18;
-
-	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE__ELEMENTS = CATEGORY_CRITERIA_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Source Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE__SOURCE_TYPE = CATEGORY_CRITERIA_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Target Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE__TARGET_TYPE = CATEGORY_CRITERIA_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE__ATTRIBUTE = CATEGORY_CRITERIA_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>Category Criteria Attribute</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE_FEATURE_COUNT = CATEGORY_CRITERIA_FEATURE_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Get Category Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE___GET_CATEGORY_VALUE__EOBJECT = CATEGORY_CRITERIA___GET_CATEGORY_VALUE__EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Construct Category</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE___CONSTRUCT_CATEGORY = CATEGORY_CRITERIA___CONSTRUCT_CATEGORY;
-
-	/**
-	 * The operation id for the '<em>Get Attribute Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE___GET_ATTRIBUTE_VALUE = CATEGORY_CRITERIA_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Category Criteria Attribute</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_CRITERIA_ATTRIBUTE_OPERATION_COUNT = CATEGORY_CRITERIA_OPERATION_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaOclImpl <em>Category Criteria Ocl</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.CategoryCriteriaOclImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategoryCriteriaOcl()
-	 * @generated
-	 */
-	int CATEGORY_CRITERIA_OCL = 19;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_CRITERIA_OCL__EXPRESSION = CATEGORY_CRITERIA_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Category Criteria Ocl</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_CRITERIA_OCL_FEATURE_COUNT = CATEGORY_CRITERIA_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get Category Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_CRITERIA_OCL___GET_CATEGORY_VALUE__EOBJECT = CATEGORY_CRITERIA___GET_CATEGORY_VALUE__EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Construct Category</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_CRITERIA_OCL___CONSTRUCT_CATEGORY = CATEGORY_CRITERIA___CONSTRUCT_CATEGORY;
-
-	/**
-	 * The number of operations of the '<em>Category Criteria Ocl</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY_CRITERIA_OCL_OPERATION_COUNT = CATEGORY_CRITERIA_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerExplicitImpl <em>Columnizer Explicit</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.ColumnizerExplicitImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerExplicit()
-	 * @generated
-	 */
-	int COLUMNIZER_EXPLICIT = 20;
-
-	/**
-	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMNIZER_EXPLICIT__COLUMNS = COLUMNIZER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Columnizer Explicit</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMNIZER_EXPLICIT_FEATURE_COUNT = COLUMNIZER_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Columnizer Explicit</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMNIZER_EXPLICIT_OPERATION_COUNT = COLUMNIZER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl <em>Columnizer Column</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerColumn()
-	 * @generated
-	 */
-	int COLUMNIZER_COLUMN = 21;
+	int FILTER__DESCRIPTION = DATA_TOOL_ABSTRACT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1463,16 +1313,2307 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN__NAME = 0;
+	int FILTER__NAME = DATA_TOOL_ABSTRACT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN__WIDTH = 1;
+	int FILTER__ENABLED = DATA_TOOL_ABSTRACT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Negated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__NEGATED = DATA_TOOL_ABSTRACT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Filtered Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__FILTERED_TYPE = DATA_TOOL_ABSTRACT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Filter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_FEATURE_COUNT = DATA_TOOL_ABSTRACT_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER___GET_TYPE = DATA_TOOL_ABSTRACT___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Satisfies Filter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER___SATISFIES_FILTER__EOBJECT = DATA_TOOL_ABSTRACT_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Filter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OPERATION_COUNT = DATA_TOOL_ABSTRACT_OPERATION_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.FilterAttributeImpl <em>Filter Attribute</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.FilterAttributeImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getFilterAttribute()
+	 * @generated
+	 */
+	int FILTER_ATTRIBUTE = 12;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE__CONTEXT = FILTER__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE__DESCRIPTION = FILTER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE__NAME = FILTER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE__ENABLED = FILTER__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Negated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE__NEGATED = FILTER__NEGATED;
+
+	/**
+	 * The feature id for the '<em><b>Filtered Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE__FILTERED_TYPE = FILTER__FILTERED_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE__PATH_ELEMENTS = FILTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Source Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE__SOURCE_TYPE = FILTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Target Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE__TARGET_TYPE = FILTER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE__MANY = FILTER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE__PATH = FILTER_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE__ATTRIBUTE = FILTER_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Filter Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_FEATURE_COUNT = FILTER_FEATURE_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE___GET_TYPE = FILTER___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Satisfies Filter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE___SATISFIES_FILTER__EOBJECT = FILTER___SATISFIES_FILTER__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE___GET_ATTRIBUTE_VALUE__EOBJECT = FILTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Filter Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_OPERATION_COUNT = FILTER_OPERATION_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.FilterAttributeStringImpl <em>Filter Attribute String</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.FilterAttributeStringImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getFilterAttributeString()
+	 * @generated
+	 */
+	int FILTER_ATTRIBUTE_STRING = 13;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_STRING__CONTEXT = FILTER_ATTRIBUTE__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_STRING__DESCRIPTION = FILTER_ATTRIBUTE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_STRING__NAME = FILTER_ATTRIBUTE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_STRING__ENABLED = FILTER_ATTRIBUTE__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Negated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_STRING__NEGATED = FILTER_ATTRIBUTE__NEGATED;
+
+	/**
+	 * The feature id for the '<em><b>Filtered Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_STRING__FILTERED_TYPE = FILTER_ATTRIBUTE__FILTERED_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_STRING__PATH_ELEMENTS = FILTER_ATTRIBUTE__PATH_ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Source Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_STRING__SOURCE_TYPE = FILTER_ATTRIBUTE__SOURCE_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Target Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_STRING__TARGET_TYPE = FILTER_ATTRIBUTE__TARGET_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_STRING__MANY = FILTER_ATTRIBUTE__MANY;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_STRING__PATH = FILTER_ATTRIBUTE__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_STRING__ATTRIBUTE = FILTER_ATTRIBUTE__ATTRIBUTE;
+
+	/**
+	 * The number of structural features of the '<em>Filter Attribute String</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_STRING_FEATURE_COUNT = FILTER_ATTRIBUTE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_STRING___GET_TYPE = FILTER_ATTRIBUTE___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Satisfies Filter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_STRING___SATISFIES_FILTER__EOBJECT = FILTER_ATTRIBUTE___SATISFIES_FILTER__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_STRING___GET_ATTRIBUTE_VALUE__EOBJECT = FILTER_ATTRIBUTE___GET_ATTRIBUTE_VALUE__EOBJECT;
+
+	/**
+	 * The number of operations of the '<em>Filter Attribute String</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_STRING_OPERATION_COUNT = FILTER_ATTRIBUTE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.FilterRegexImpl <em>Filter Regex</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.FilterRegexImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getFilterRegex()
+	 * @generated
+	 */
+	int FILTER_REGEX = 14;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_REGEX__CONTEXT = FILTER_ATTRIBUTE_STRING__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_REGEX__DESCRIPTION = FILTER_ATTRIBUTE_STRING__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_REGEX__NAME = FILTER_ATTRIBUTE_STRING__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_REGEX__ENABLED = FILTER_ATTRIBUTE_STRING__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Negated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_REGEX__NEGATED = FILTER_ATTRIBUTE_STRING__NEGATED;
+
+	/**
+	 * The feature id for the '<em><b>Filtered Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_REGEX__FILTERED_TYPE = FILTER_ATTRIBUTE_STRING__FILTERED_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_REGEX__PATH_ELEMENTS = FILTER_ATTRIBUTE_STRING__PATH_ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Source Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_REGEX__SOURCE_TYPE = FILTER_ATTRIBUTE_STRING__SOURCE_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Target Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_REGEX__TARGET_TYPE = FILTER_ATTRIBUTE_STRING__TARGET_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_REGEX__MANY = FILTER_ATTRIBUTE_STRING__MANY;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_REGEX__PATH = FILTER_ATTRIBUTE_STRING__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_REGEX__ATTRIBUTE = FILTER_ATTRIBUTE_STRING__ATTRIBUTE;
+
+	/**
+	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_REGEX__PATTERN = FILTER_ATTRIBUTE_STRING_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Filter Regex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_REGEX_FEATURE_COUNT = FILTER_ATTRIBUTE_STRING_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_REGEX___GET_TYPE = FILTER_ATTRIBUTE_STRING___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Satisfies Filter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_REGEX___SATISFIES_FILTER__EOBJECT = FILTER_ATTRIBUTE_STRING___SATISFIES_FILTER__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_REGEX___GET_ATTRIBUTE_VALUE__EOBJECT = FILTER_ATTRIBUTE_STRING___GET_ATTRIBUTE_VALUE__EOBJECT;
+
+	/**
+	 * The number of operations of the '<em>Filter Regex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_REGEX_OPERATION_COUNT = FILTER_ATTRIBUTE_STRING_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.FilterAttributeIntImpl <em>Filter Attribute Int</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.FilterAttributeIntImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getFilterAttributeInt()
+	 * @generated
+	 */
+	int FILTER_ATTRIBUTE_INT = 15;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT__CONTEXT = FILTER_ATTRIBUTE__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT__DESCRIPTION = FILTER_ATTRIBUTE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT__NAME = FILTER_ATTRIBUTE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT__ENABLED = FILTER_ATTRIBUTE__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Negated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT__NEGATED = FILTER_ATTRIBUTE__NEGATED;
+
+	/**
+	 * The feature id for the '<em><b>Filtered Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT__FILTERED_TYPE = FILTER_ATTRIBUTE__FILTERED_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT__PATH_ELEMENTS = FILTER_ATTRIBUTE__PATH_ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Source Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT__SOURCE_TYPE = FILTER_ATTRIBUTE__SOURCE_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Target Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT__TARGET_TYPE = FILTER_ATTRIBUTE__TARGET_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT__MANY = FILTER_ATTRIBUTE__MANY;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT__PATH = FILTER_ATTRIBUTE__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT__ATTRIBUTE = FILTER_ATTRIBUTE__ATTRIBUTE;
+
+	/**
+	 * The number of structural features of the '<em>Filter Attribute Int</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT_FEATURE_COUNT = FILTER_ATTRIBUTE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT___GET_TYPE = FILTER_ATTRIBUTE___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Satisfies Filter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT___SATISFIES_FILTER__EOBJECT = FILTER_ATTRIBUTE___SATISFIES_FILTER__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT___GET_ATTRIBUTE_VALUE__EOBJECT = FILTER_ATTRIBUTE___GET_ATTRIBUTE_VALUE__EOBJECT;
+
+	/**
+	 * The number of operations of the '<em>Filter Attribute Int</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT_OPERATION_COUNT = FILTER_ATTRIBUTE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.FilterAttributeIntRangeImpl <em>Filter Attribute Int Range</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.FilterAttributeIntRangeImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getFilterAttributeIntRange()
+	 * @generated
+	 */
+	int FILTER_ATTRIBUTE_INT_RANGE = 16;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT_RANGE__CONTEXT = FILTER_ATTRIBUTE_INT__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT_RANGE__DESCRIPTION = FILTER_ATTRIBUTE_INT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT_RANGE__NAME = FILTER_ATTRIBUTE_INT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT_RANGE__ENABLED = FILTER_ATTRIBUTE_INT__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Negated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT_RANGE__NEGATED = FILTER_ATTRIBUTE_INT__NEGATED;
+
+	/**
+	 * The feature id for the '<em><b>Filtered Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT_RANGE__FILTERED_TYPE = FILTER_ATTRIBUTE_INT__FILTERED_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT_RANGE__PATH_ELEMENTS = FILTER_ATTRIBUTE_INT__PATH_ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Source Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT_RANGE__SOURCE_TYPE = FILTER_ATTRIBUTE_INT__SOURCE_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Target Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT_RANGE__TARGET_TYPE = FILTER_ATTRIBUTE_INT__TARGET_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT_RANGE__MANY = FILTER_ATTRIBUTE_INT__MANY;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT_RANGE__PATH = FILTER_ATTRIBUTE_INT__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT_RANGE__ATTRIBUTE = FILTER_ATTRIBUTE_INT__ATTRIBUTE;
+
+	/**
+	 * The feature id for the '<em><b>Min Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT_RANGE__MIN_VALUE = FILTER_ATTRIBUTE_INT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Max Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT_RANGE__MAX_VALUE = FILTER_ATTRIBUTE_INT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Filter Attribute Int Range</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT_RANGE_FEATURE_COUNT = FILTER_ATTRIBUTE_INT_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT_RANGE___GET_TYPE = FILTER_ATTRIBUTE_INT___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Satisfies Filter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT_RANGE___SATISFIES_FILTER__EOBJECT = FILTER_ATTRIBUTE_INT___SATISFIES_FILTER__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT_RANGE___GET_ATTRIBUTE_VALUE__EOBJECT = FILTER_ATTRIBUTE_INT___GET_ATTRIBUTE_VALUE__EOBJECT;
+
+	/**
+	 * The number of operations of the '<em>Filter Attribute Int Range</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ATTRIBUTE_INT_RANGE_OPERATION_COUNT = FILTER_ATTRIBUTE_INT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.FilterOclImpl <em>Filter Ocl</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.FilterOclImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getFilterOcl()
+	 * @generated
+	 */
+	int FILTER_OCL = 17;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OCL__CONTEXT = FILTER__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OCL__DESCRIPTION = FILTER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OCL__NAME = FILTER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OCL__ENABLED = FILTER__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Negated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OCL__NEGATED = FILTER__NEGATED;
+
+	/**
+	 * The feature id for the '<em><b>Filtered Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OCL__FILTERED_TYPE = FILTER__FILTERED_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OCL__EXPRESSION = FILTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Filter Ocl</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OCL_FEATURE_COUNT = FILTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OCL___GET_TYPE = FILTER___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Satisfies Filter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OCL___SATISFIES_FILTER__EOBJECT = FILTER___SATISFIES_FILTER__EOBJECT;
+
+	/**
+	 * The number of operations of the '<em>Filter Ocl</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OCL_OPERATION_COUNT = FILTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.FilterCompoundImpl <em>Filter Compound</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.FilterCompoundImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getFilterCompound()
+	 * @generated
+	 */
+	int FILTER_COMPOUND = 18;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_COMPOUND__CONTEXT = FILTER__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_COMPOUND__DESCRIPTION = FILTER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_COMPOUND__NAME = FILTER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_COMPOUND__ENABLED = FILTER__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Negated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_COMPOUND__NEGATED = FILTER__NEGATED;
+
+	/**
+	 * The feature id for the '<em><b>Filtered Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_COMPOUND__FILTERED_TYPE = FILTER__FILTERED_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Filters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_COMPOUND__FILTERS = FILTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Filter Compound</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_COMPOUND_FEATURE_COUNT = FILTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_COMPOUND___GET_TYPE = FILTER___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Satisfies Filter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_COMPOUND___SATISFIES_FILTER__EOBJECT = FILTER___SATISFIES_FILTER__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Domain Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_COMPOUND___GET_DOMAIN_TYPES = FILTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Filter Compound</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_COMPOUND_OPERATION_COUNT = FILTER_OPERATION_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.FilterANDImpl <em>Filter AND</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.FilterANDImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getFilterAND()
+	 * @generated
+	 */
+	int FILTER_AND = 19;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_AND__CONTEXT = FILTER_COMPOUND__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_AND__DESCRIPTION = FILTER_COMPOUND__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_AND__NAME = FILTER_COMPOUND__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_AND__ENABLED = FILTER_COMPOUND__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Negated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_AND__NEGATED = FILTER_COMPOUND__NEGATED;
+
+	/**
+	 * The feature id for the '<em><b>Filtered Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_AND__FILTERED_TYPE = FILTER_COMPOUND__FILTERED_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Filters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_AND__FILTERS = FILTER_COMPOUND__FILTERS;
+
+	/**
+	 * The number of structural features of the '<em>Filter AND</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_AND_FEATURE_COUNT = FILTER_COMPOUND_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_AND___GET_TYPE = FILTER_COMPOUND___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Satisfies Filter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_AND___SATISFIES_FILTER__EOBJECT = FILTER_COMPOUND___SATISFIES_FILTER__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Domain Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_AND___GET_DOMAIN_TYPES = FILTER_COMPOUND___GET_DOMAIN_TYPES;
+
+	/**
+	 * The number of operations of the '<em>Filter AND</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_AND_OPERATION_COUNT = FILTER_COMPOUND_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.FilterORImpl <em>Filter OR</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.FilterORImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getFilterOR()
+	 * @generated
+	 */
+	int FILTER_OR = 20;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OR__CONTEXT = FILTER_COMPOUND__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OR__DESCRIPTION = FILTER_COMPOUND__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OR__NAME = FILTER_COMPOUND__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OR__ENABLED = FILTER_COMPOUND__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Negated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OR__NEGATED = FILTER_COMPOUND__NEGATED;
+
+	/**
+	 * The feature id for the '<em><b>Filtered Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OR__FILTERED_TYPE = FILTER_COMPOUND__FILTERED_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Filters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OR__FILTERS = FILTER_COMPOUND__FILTERS;
+
+	/**
+	 * The number of structural features of the '<em>Filter OR</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OR_FEATURE_COUNT = FILTER_COMPOUND_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OR___GET_TYPE = FILTER_COMPOUND___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Satisfies Filter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OR___SATISFIES_FILTER__EOBJECT = FILTER_COMPOUND___SATISFIES_FILTER__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Domain Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OR___GET_DOMAIN_TYPES = FILTER_COMPOUND___GET_DOMAIN_TYPES;
+
+	/**
+	 * The number of operations of the '<em>Filter OR</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_OR_OPERATION_COUNT = FILTER_COMPOUND_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerAbstractImpl <em>Columnizer Abstract</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.ColumnizerAbstractImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerAbstract()
+	 * @generated
+	 */
+	int COLUMNIZER_ABSTRACT = 27;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.CategorizerStructuralFeatureImpl <em>Categorizer Structural Feature</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.CategorizerStructuralFeatureImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategorizerStructuralFeature()
+	 * @generated
+	 */
+	int CATEGORIZER_STRUCTURAL_FEATURE = 36;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.CategorizerOclImpl <em>Categorizer Ocl</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.CategorizerOclImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategorizerOcl()
+	 * @generated
+	 */
+	int CATEGORIZER_OCL = 37;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_COMPOUND__CONTEXT = EXTRACTOR__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_COMPOUND__DESCRIPTION = EXTRACTOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_COMPOUND__NAME = EXTRACTOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_COMPOUND__EXTRACTED_TYPE = EXTRACTOR__EXTRACTED_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_COMPOUND__FILTER = EXTRACTOR__FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_COMPOUND__EXTRACTORS = EXTRACTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Extractor Compound</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_COMPOUND_FEATURE_COUNT = EXTRACTOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_COMPOUND___GET_TYPE = EXTRACTOR___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Clone</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_COMPOUND___CLONE = EXTRACTOR___CLONE;
+
+	/**
+	 * The operation id for the '<em>Extract</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_COMPOUND___EXTRACT__OBJECTSET_INT = EXTRACTOR___EXTRACT__OBJECTSET_INT;
+
+	/**
+	 * The operation id for the '<em>Is Valid Root</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_COMPOUND___IS_VALID_ROOT__EOBJECT = EXTRACTOR___IS_VALID_ROOT__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Domain Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_COMPOUND___GET_DOMAIN_TYPES = EXTRACTOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Extractor Compound</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_COMPOUND_OPERATION_COUNT = EXTRACTOR_OPERATION_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_LOGIC__CONTEXT = EXTRACTOR_COMPOUND__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_LOGIC__DESCRIPTION = EXTRACTOR_COMPOUND__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_LOGIC__NAME = EXTRACTOR_COMPOUND__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_LOGIC__EXTRACTED_TYPE = EXTRACTOR_COMPOUND__EXTRACTED_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_LOGIC__FILTER = EXTRACTOR_COMPOUND__FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_LOGIC__EXTRACTORS = EXTRACTOR_COMPOUND__EXTRACTORS;
+
+	/**
+	 * The number of structural features of the '<em>Extractor Logic</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_LOGIC_FEATURE_COUNT = EXTRACTOR_COMPOUND_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_LOGIC___GET_TYPE = EXTRACTOR_COMPOUND___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Clone</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_LOGIC___CLONE = EXTRACTOR_COMPOUND___CLONE;
+
+	/**
+	 * The operation id for the '<em>Extract</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_LOGIC___EXTRACT__OBJECTSET_INT = EXTRACTOR_COMPOUND___EXTRACT__OBJECTSET_INT;
+
+	/**
+	 * The operation id for the '<em>Is Valid Root</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_LOGIC___IS_VALID_ROOT__EOBJECT = EXTRACTOR_COMPOUND___IS_VALID_ROOT__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Domain Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_LOGIC___GET_DOMAIN_TYPES = EXTRACTOR_COMPOUND___GET_DOMAIN_TYPES;
+
+	/**
+	 * The number of operations of the '<em>Extractor Logic</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_LOGIC_OPERATION_COUNT = EXTRACTOR_COMPOUND_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PIPE__CONTEXT = EXTRACTOR_COMPOUND__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PIPE__DESCRIPTION = EXTRACTOR_COMPOUND__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PIPE__NAME = EXTRACTOR_COMPOUND__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PIPE__EXTRACTED_TYPE = EXTRACTOR_COMPOUND__EXTRACTED_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PIPE__FILTER = EXTRACTOR_COMPOUND__FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PIPE__EXTRACTORS = EXTRACTOR_COMPOUND__EXTRACTORS;
+
+	/**
+	 * The number of structural features of the '<em>Extractor Pipe</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PIPE_FEATURE_COUNT = EXTRACTOR_COMPOUND_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PIPE___GET_TYPE = EXTRACTOR_COMPOUND___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Clone</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PIPE___CLONE = EXTRACTOR_COMPOUND___CLONE;
+
+	/**
+	 * The operation id for the '<em>Extract</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PIPE___EXTRACT__OBJECTSET_INT = EXTRACTOR_COMPOUND___EXTRACT__OBJECTSET_INT;
+
+	/**
+	 * The operation id for the '<em>Is Valid Root</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PIPE___IS_VALID_ROOT__EOBJECT = EXTRACTOR_COMPOUND___IS_VALID_ROOT__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Domain Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PIPE___GET_DOMAIN_TYPES = EXTRACTOR_COMPOUND___GET_DOMAIN_TYPES;
+
+	/**
+	 * The number of operations of the '<em>Extractor Pipe</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_PIPE_OPERATION_COUNT = EXTRACTOR_COMPOUND_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_UNION__CONTEXT = EXTRACTOR_LOGIC__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_UNION__DESCRIPTION = EXTRACTOR_LOGIC__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_UNION__NAME = EXTRACTOR_LOGIC__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_UNION__EXTRACTED_TYPE = EXTRACTOR_LOGIC__EXTRACTED_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_UNION__FILTER = EXTRACTOR_LOGIC__FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_UNION__EXTRACTORS = EXTRACTOR_LOGIC__EXTRACTORS;
+
+	/**
+	 * The number of structural features of the '<em>Extractor Union</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_UNION_FEATURE_COUNT = EXTRACTOR_LOGIC_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_UNION___GET_TYPE = EXTRACTOR_LOGIC___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Clone</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_UNION___CLONE = EXTRACTOR_LOGIC___CLONE;
+
+	/**
+	 * The operation id for the '<em>Extract</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_UNION___EXTRACT__OBJECTSET_INT = EXTRACTOR_LOGIC___EXTRACT__OBJECTSET_INT;
+
+	/**
+	 * The operation id for the '<em>Is Valid Root</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_UNION___IS_VALID_ROOT__EOBJECT = EXTRACTOR_LOGIC___IS_VALID_ROOT__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Domain Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_UNION___GET_DOMAIN_TYPES = EXTRACTOR_LOGIC___GET_DOMAIN_TYPES;
+
+	/**
+	 * The number of operations of the '<em>Extractor Union</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_UNION_OPERATION_COUNT = EXTRACTOR_LOGIC_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_INTERSECTION__CONTEXT = EXTRACTOR_LOGIC__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_INTERSECTION__DESCRIPTION = EXTRACTOR_LOGIC__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_INTERSECTION__NAME = EXTRACTOR_LOGIC__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Extracted Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_INTERSECTION__EXTRACTED_TYPE = EXTRACTOR_LOGIC__EXTRACTED_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_INTERSECTION__FILTER = EXTRACTOR_LOGIC__FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Extractors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_INTERSECTION__EXTRACTORS = EXTRACTOR_LOGIC__EXTRACTORS;
+
+	/**
+	 * The number of structural features of the '<em>Extractor Intersection</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_INTERSECTION_FEATURE_COUNT = EXTRACTOR_LOGIC_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_INTERSECTION___GET_TYPE = EXTRACTOR_LOGIC___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Clone</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_INTERSECTION___CLONE = EXTRACTOR_LOGIC___CLONE;
+
+	/**
+	 * The operation id for the '<em>Extract</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_INTERSECTION___EXTRACT__OBJECTSET_INT = EXTRACTOR_LOGIC___EXTRACT__OBJECTSET_INT;
+
+	/**
+	 * The operation id for the '<em>Is Valid Root</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_INTERSECTION___IS_VALID_ROOT__EOBJECT = EXTRACTOR_LOGIC___IS_VALID_ROOT__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Domain Types</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_INTERSECTION___GET_DOMAIN_TYPES = EXTRACTOR_LOGIC___GET_DOMAIN_TYPES;
+
+	/**
+	 * The number of operations of the '<em>Extractor Intersection</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTRACTOR_INTERSECTION_OPERATION_COUNT = EXTRACTOR_LOGIC_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl <em>Category Abstract</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategoryAbstract()
+	 * @generated
+	 */
+	int CATEGORY_ABSTRACT = 33;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizersImpl <em>Columnizers</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.impl.ColumnizersImpl
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizers()
+	 * @generated
+	 */
+	int COLUMNIZERS = 26;
+
+	/**
+	 * The feature id for the '<em><b>Columnizers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZERS__COLUMNIZERS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Columnizers</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZERS_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Columnizers</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZERS_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_ABSTRACT__CONTEXT = DATA_TOOL__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_ABSTRACT__DESCRIPTION = DATA_TOOL__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_ABSTRACT__NAME = DATA_TOOL__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Sheet Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_ABSTRACT__SHEET_LABEL = DATA_TOOL_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Aggregation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_ABSTRACT__AGGREGATION = DATA_TOOL_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Columnizer Abstract</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_ABSTRACT_FEATURE_COUNT = DATA_TOOL_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_ABSTRACT___GET_TYPE = DATA_TOOL___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Clone</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_ABSTRACT___CLONE = DATA_TOOL___CLONE;
+
+	/**
+	 * The operation id for the '<em>Is Valid Element Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_ABSTRACT___IS_VALID_ELEMENT_TYPE__ECLASS = DATA_TOOL_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Properties Provider</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_ABSTRACT___GET_PROPERTIES_PROVIDER = DATA_TOOL_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Columnizer Abstract</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_ABSTRACT_OPERATION_COUNT = DATA_TOOL_OPERATION_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER__CONTEXT = COLUMNIZER_ABSTRACT__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER__DESCRIPTION = COLUMNIZER_ABSTRACT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER__NAME = COLUMNIZER_ABSTRACT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Sheet Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER__SHEET_LABEL = COLUMNIZER_ABSTRACT__SHEET_LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Aggregation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER__AGGREGATION = COLUMNIZER_ABSTRACT__AGGREGATION;
+
+	/**
+	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER__COLUMNS = COLUMNIZER_ABSTRACT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Columnized Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER__COLUMNIZED_TYPE = COLUMNIZER_ABSTRACT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Sheet Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER__SHEET_NAME = COLUMNIZER_ABSTRACT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Columnizer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_FEATURE_COUNT = COLUMNIZER_ABSTRACT_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER___GET_TYPE = COLUMNIZER_ABSTRACT___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Clone</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER___CLONE = COLUMNIZER_ABSTRACT___CLONE;
+
+	/**
+	 * The operation id for the '<em>Is Valid Element Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER___IS_VALID_ELEMENT_TYPE__ECLASS = COLUMNIZER_ABSTRACT___IS_VALID_ELEMENT_TYPE__ECLASS;
+
+	/**
+	 * The operation id for the '<em>Get Properties Provider</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER___GET_PROPERTIES_PROVIDER = COLUMNIZER_ABSTRACT___GET_PROPERTIES_PROVIDER;
+
+	/**
+	 * The number of operations of the '<em>Columnizer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_OPERATION_COUNT = COLUMNIZER_ABSTRACT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Column Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN__COLUMN_NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Column Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN__COLUMN_WIDTH = 1;
+
+	/**
+	 * The feature id for the '<em><b>Columnizer</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN__COLUMNIZER = 2;
+
+	/**
+	 * The feature id for the '<em><b>Aggregation Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN__AGGREGATION_TYPE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN__KEY = 4;
 
 	/**
 	 * The number of structural features of the '<em>Columnizer Column</em>' class.
@@ -1481,7 +3622,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_FEATURE_COUNT = 2;
+	int COLUMNIZER_COLUMN_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Get Value</em>' operation.
@@ -1493,23 +3634,40 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_COLUMN___GET_VALUE__EOBJECT = 0;
 
 	/**
+	 * The operation id for the '<em>Get Data Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN___GET_DATA_TYPE = 1;
+
+	/**
 	 * The number of operations of the '<em>Columnizer Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_OPERATION_COUNT = 1;
+	int COLUMNIZER_COLUMN_OPERATION_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl <em>Columnizer Column Attribute</em>}' class.
+	 * The feature id for the '<em><b>Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerColumnAttribute()
 	 * @generated
+	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE = 22;
+	int COLUMNIZER_COLUMN_ATTRIBUTE__CONTEXT = NAVIGATION_PATH__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_ATTRIBUTE__DESCRIPTION = NAVIGATION_PATH__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1518,25 +3676,16 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE__NAME = COLUMNIZER_COLUMN__NAME;
+	int COLUMNIZER_COLUMN_ATTRIBUTE__NAME = NAVIGATION_PATH__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE__WIDTH = COLUMNIZER_COLUMN__WIDTH;
-
-	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE__ELEMENTS = COLUMNIZER_COLUMN_FEATURE_COUNT + 0;
+	int COLUMNIZER_COLUMN_ATTRIBUTE__PATH_ELEMENTS = NAVIGATION_PATH__PATH_ELEMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Source Type</b></em>' reference.
@@ -1545,7 +3694,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE__SOURCE_TYPE = COLUMNIZER_COLUMN_FEATURE_COUNT + 1;
+	int COLUMNIZER_COLUMN_ATTRIBUTE__SOURCE_TYPE = NAVIGATION_PATH__SOURCE_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Target Type</b></em>' reference.
@@ -1554,7 +3703,70 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE__TARGET_TYPE = COLUMNIZER_COLUMN_FEATURE_COUNT + 2;
+	int COLUMNIZER_COLUMN_ATTRIBUTE__TARGET_TYPE = NAVIGATION_PATH__TARGET_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_ATTRIBUTE__MANY = NAVIGATION_PATH__MANY;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_ATTRIBUTE__PATH = NAVIGATION_PATH__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Column Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_NAME = NAVIGATION_PATH_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Column Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_ATTRIBUTE__COLUMN_WIDTH = NAVIGATION_PATH_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Columnizer</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_ATTRIBUTE__COLUMNIZER = NAVIGATION_PATH_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Aggregation Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_ATTRIBUTE__AGGREGATION_TYPE = NAVIGATION_PATH_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_ATTRIBUTE__KEY = NAVIGATION_PATH_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Attribute</b></em>' reference.
@@ -1563,7 +3775,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE__ATTRIBUTE = COLUMNIZER_COLUMN_FEATURE_COUNT + 3;
+	int COLUMNIZER_COLUMN_ATTRIBUTE__ATTRIBUTE = NAVIGATION_PATH_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Columnizer Column Attribute</em>' class.
@@ -1572,7 +3784,16 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE_FEATURE_COUNT = COLUMNIZER_COLUMN_FEATURE_COUNT + 4;
+	int COLUMNIZER_COLUMN_ATTRIBUTE_FEATURE_COUNT = NAVIGATION_PATH_FEATURE_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_ATTRIBUTE___GET_TYPE = NAVIGATION_PATH___GET_TYPE;
 
 	/**
 	 * The operation id for the '<em>Get Value</em>' operation.
@@ -1581,7 +3802,16 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE___GET_VALUE__EOBJECT = COLUMNIZER_COLUMN___GET_VALUE__EOBJECT;
+	int COLUMNIZER_COLUMN_ATTRIBUTE___GET_VALUE__EOBJECT = NAVIGATION_PATH_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Data Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_ATTRIBUTE___GET_DATA_TYPE = NAVIGATION_PATH_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Columnizer Column Attribute</em>' class.
@@ -1590,35 +3820,52 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_ATTRIBUTE_OPERATION_COUNT = COLUMNIZER_COLUMN_OPERATION_COUNT + 0;
+	int COLUMNIZER_COLUMN_ATTRIBUTE_OPERATION_COUNT = NAVIGATION_PATH_OPERATION_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnOclImpl <em>Columnizer Column Ocl</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.ColumnizerColumnOclImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerColumnOcl()
-	 * @generated
-	 */
-	int COLUMNIZER_COLUMN_OCL = 23;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Column Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_OCL__NAME = COLUMNIZER_COLUMN__NAME;
+	int COLUMNIZER_COLUMN_OCL__COLUMN_NAME = COLUMNIZER_COLUMN__COLUMN_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * The feature id for the '<em><b>Column Width</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMNIZER_COLUMN_OCL__WIDTH = COLUMNIZER_COLUMN__WIDTH;
+	int COLUMNIZER_COLUMN_OCL__COLUMN_WIDTH = COLUMNIZER_COLUMN__COLUMN_WIDTH;
+
+	/**
+	 * The feature id for the '<em><b>Columnizer</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_OCL__COLUMNIZER = COLUMNIZER_COLUMN__COLUMNIZER;
+
+	/**
+	 * The feature id for the '<em><b>Aggregation Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_OCL__AGGREGATION_TYPE = COLUMNIZER_COLUMN__AGGREGATION_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_OCL__KEY = COLUMNIZER_COLUMN__KEY;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' attribute.
@@ -1648,6 +3895,15 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_COLUMN_OCL___GET_VALUE__EOBJECT = COLUMNIZER_COLUMN___GET_VALUE__EOBJECT;
 
 	/**
+	 * The operation id for the '<em>Get Data Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMNIZER_COLUMN_OCL___GET_DATA_TYPE = COLUMNIZER_COLUMN___GET_DATA_TYPE;
+
+	/**
 	 * The number of operations of the '<em>Columnizer Column Ocl</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1657,23 +3913,374 @@ public interface DatatoolsPackage extends EPackage {
 	int COLUMNIZER_COLUMN_OCL_OPERATION_COUNT = COLUMNIZER_COLUMN_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.NavigationPathImpl <em>Navigation Path</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.CategoryFactory <em>Category Factory</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.NavigationPathImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getNavigationPath()
+	 * @see com.misc.common.moplaf.datatools.CategoryFactory
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategoryFactory()
 	 * @generated
 	 */
-	int NAVIGATION_PATH = 24;
+	int CATEGORY_FACTORY = 32;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * The number of structural features of the '<em>Category Factory</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_PATH__ELEMENTS = 0;
+	int CATEGORY_FACTORY_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Construct Category</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_FACTORY___CONSTRUCT_CATEGORY = 0;
+
+	/**
+	 * The operation id for the '<em>Set Leaf Category</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_FACTORY___SET_LEAF_CATEGORY__EOBJECT_CATEGORYABSTRACT = 1;
+
+	/**
+	 * The number of operations of the '<em>Category Factory</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_FACTORY_OPERATION_COUNT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Nb Elements</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_ABSTRACT__NB_ELEMENTS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Sub Categories</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_ABSTRACT__SUB_CATEGORIES = 1;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_ABSTRACT__ELEMENTS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Super Category</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_ABSTRACT__SUPER_CATEGORY = 3;
+
+	/**
+	 * The feature id for the '<em><b>Root Category</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_ABSTRACT__ROOT_CATEGORY = 4;
+
+	/**
+	 * The number of structural features of the '<em>Category Abstract</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_ABSTRACT_FEATURE_COUNT = 5;
+
+	/**
+	 * The operation id for the '<em>Get Subcategory</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT = 0;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_ABSTRACT___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT = 1;
+
+	/**
+	 * The operation id for the '<em>Is In</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_ABSTRACT___IS_IN__CATEGORYABSTRACT = 2;
+
+	/**
+	 * The number of operations of the '<em>Category Abstract</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_ABSTRACT_OPERATION_COUNT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Nb Elements</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__NB_ELEMENTS = CATEGORY_ABSTRACT__NB_ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Sub Categories</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__SUB_CATEGORIES = CATEGORY_ABSTRACT__SUB_CATEGORIES;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__ELEMENTS = CATEGORY_ABSTRACT__ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Super Category</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__SUPER_CATEGORY = CATEGORY_ABSTRACT__SUPER_CATEGORY;
+
+	/**
+	 * The feature id for the '<em><b>Root Category</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__ROOT_CATEGORY = CATEGORY_ABSTRACT__ROOT_CATEGORY;
+
+	/**
+	 * The feature id for the '<em><b>Category Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__CATEGORY_LABEL = CATEGORY_ABSTRACT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Category Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__CATEGORY_VALUE = CATEGORY_ABSTRACT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Category</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_FEATURE_COUNT = CATEGORY_ABSTRACT_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Subcategory</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY___GET_SUBCATEGORY__EOBJECT = CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT = CATEGORY_ABSTRACT___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT;
+
+	/**
+	 * The operation id for the '<em>Is In</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY___IS_IN__CATEGORYABSTRACT = CATEGORY_ABSTRACT___IS_IN__CATEGORYABSTRACT;
+
+	/**
+	 * The number of operations of the '<em>Category</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY_OPERATION_COUNT = CATEGORY_ABSTRACT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER__CONTEXT = DATA_TOOL__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER__DESCRIPTION = DATA_TOOL__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER__NAME = DATA_TOOL__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Categorizer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER_FEATURE_COUNT = DATA_TOOL_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER___GET_TYPE = DATA_TOOL___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Clone</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER___CLONE = DATA_TOOL___CLONE;
+
+	/**
+	 * The operation id for the '<em>Get Category Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER___GET_CATEGORY_VALUE__EOBJECT = DATA_TOOL_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Category Label</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER___GET_CATEGORY_LABEL__OBJECT = DATA_TOOL_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Is Valid Element Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER___IS_VALID_ELEMENT_TYPE__ECLASS = DATA_TOOL_OPERATION_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Categorizer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER_OPERATION_COUNT = DATA_TOOL_OPERATION_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER_STRUCTURAL_FEATURE__CONTEXT = CATEGORIZER__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER_STRUCTURAL_FEATURE__DESCRIPTION = CATEGORIZER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER_STRUCTURAL_FEATURE__NAME = CATEGORIZER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Path Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER_STRUCTURAL_FEATURE__PATH_ELEMENTS = CATEGORIZER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source Type</b></em>' reference.
@@ -1682,7 +4289,7 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_PATH__SOURCE_TYPE = 1;
+	int CATEGORIZER_STRUCTURAL_FEATURE__SOURCE_TYPE = CATEGORIZER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Target Type</b></em>' reference.
@@ -1691,182 +4298,282 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_PATH__TARGET_TYPE = 2;
+	int CATEGORIZER_STRUCTURAL_FEATURE__TARGET_TYPE = CATEGORIZER_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Navigation Path</em>' class.
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_PATH_FEATURE_COUNT = 3;
+	int CATEGORIZER_STRUCTURAL_FEATURE__MANY = CATEGORIZER_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of operations of the '<em>Navigation Path</em>' class.
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_PATH_OPERATION_COUNT = 0;
+	int CATEGORIZER_STRUCTURAL_FEATURE__PATH = CATEGORIZER_FEATURE_COUNT + 4;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.NavigationAxisImpl <em>Navigation Axis</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.NavigationAxisImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getNavigationAxis()
-	 * @generated
-	 */
-	int NAVIGATION_AXIS = 27;
-
-	/**
-	 * The feature id for the '<em><b>Source Type</b></em>' reference.
+	 * The feature id for the '<em><b>Feature</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_AXIS__SOURCE_TYPE = 0;
+	int CATEGORIZER_STRUCTURAL_FEATURE__FEATURE = CATEGORIZER_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Target Type</b></em>' reference.
+	 * The feature id for the '<em><b>Categorized Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_AXIS__TARGET_TYPE = 1;
+	int CATEGORIZER_STRUCTURAL_FEATURE__CATEGORIZED_TYPE = CATEGORIZER_FEATURE_COUNT + 6;
 
 	/**
-	 * The number of structural features of the '<em>Navigation Axis</em>' class.
+	 * The number of structural features of the '<em>Categorizer Structural Feature</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_AXIS_FEATURE_COUNT = 2;
+	int CATEGORIZER_STRUCTURAL_FEATURE_FEATURE_COUNT = CATEGORIZER_FEATURE_COUNT + 7;
 
 	/**
-	 * The number of operations of the '<em>Navigation Axis</em>' class.
+	 * The operation id for the '<em>Get Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_AXIS_OPERATION_COUNT = 0;
+	int CATEGORIZER_STRUCTURAL_FEATURE___GET_TYPE = CATEGORIZER___GET_TYPE;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.NavigationReferenceImpl <em>Navigation Reference</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.NavigationReferenceImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getNavigationReference()
-	 * @generated
-	 */
-	int NAVIGATION_REFERENCE = 25;
-
-	/**
-	 * The feature id for the '<em><b>Source Type</b></em>' reference.
+	 * The operation id for the '<em>Clone</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_REFERENCE__SOURCE_TYPE = NAVIGATION_AXIS__SOURCE_TYPE;
+	int CATEGORIZER_STRUCTURAL_FEATURE___CLONE = CATEGORIZER___CLONE;
 
 	/**
-	 * The feature id for the '<em><b>Target Type</b></em>' reference.
+	 * The operation id for the '<em>Get Category Value</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_REFERENCE__TARGET_TYPE = NAVIGATION_AXIS__TARGET_TYPE;
+	int CATEGORIZER_STRUCTURAL_FEATURE___GET_CATEGORY_VALUE__EOBJECT = CATEGORIZER___GET_CATEGORY_VALUE__EOBJECT;
 
 	/**
-	 * The feature id for the '<em><b>Reference</b></em>' reference.
+	 * The operation id for the '<em>Get Category Label</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_REFERENCE__REFERENCE = NAVIGATION_AXIS_FEATURE_COUNT + 0;
+	int CATEGORIZER_STRUCTURAL_FEATURE___GET_CATEGORY_LABEL__OBJECT = CATEGORIZER___GET_CATEGORY_LABEL__OBJECT;
 
 	/**
-	 * The number of structural features of the '<em>Navigation Reference</em>' class.
+	 * The operation id for the '<em>Is Valid Element Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_REFERENCE_FEATURE_COUNT = NAVIGATION_AXIS_FEATURE_COUNT + 1;
+	int CATEGORIZER_STRUCTURAL_FEATURE___IS_VALID_ELEMENT_TYPE__ECLASS = CATEGORIZER___IS_VALID_ELEMENT_TYPE__ECLASS;
 
 	/**
-	 * The number of operations of the '<em>Navigation Reference</em>' class.
+	 * The number of operations of the '<em>Categorizer Structural Feature</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_REFERENCE_OPERATION_COUNT = NAVIGATION_AXIS_OPERATION_COUNT + 0;
+	int CATEGORIZER_STRUCTURAL_FEATURE_OPERATION_COUNT = CATEGORIZER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.impl.NavigationDowncastImpl <em>Navigation Downcast</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datatools.impl.NavigationDowncastImpl
-	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getNavigationDowncast()
-	 * @generated
-	 */
-	int NAVIGATION_DOWNCAST = 26;
-
-	/**
-	 * The feature id for the '<em><b>Source Type</b></em>' reference.
+	 * The feature id for the '<em><b>Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_DOWNCAST__SOURCE_TYPE = NAVIGATION_AXIS__SOURCE_TYPE;
+	int CATEGORIZER_OCL__CONTEXT = CATEGORIZER__CONTEXT;
 
 	/**
-	 * The feature id for the '<em><b>Target Type</b></em>' reference.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_DOWNCAST__TARGET_TYPE = NAVIGATION_AXIS__TARGET_TYPE;
+	int CATEGORIZER_OCL__DESCRIPTION = CATEGORIZER__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Downcast Type</b></em>' reference.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_DOWNCAST__DOWNCAST_TYPE = NAVIGATION_AXIS_FEATURE_COUNT + 0;
+	int CATEGORIZER_OCL__NAME = CATEGORIZER__NAME;
 
 	/**
-	 * The number of structural features of the '<em>Navigation Downcast</em>' class.
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_DOWNCAST_FEATURE_COUNT = NAVIGATION_AXIS_FEATURE_COUNT + 1;
+	int CATEGORIZER_OCL__EXPRESSION = CATEGORIZER_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Navigation Downcast</em>' class.
+	 * The number of structural features of the '<em>Categorizer Ocl</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAVIGATION_DOWNCAST_OPERATION_COUNT = NAVIGATION_AXIS_OPERATION_COUNT + 0;
+	int CATEGORIZER_OCL_FEATURE_COUNT = CATEGORIZER_FEATURE_COUNT + 1;
 
+	/**
+	 * The operation id for the '<em>Get Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER_OCL___GET_TYPE = CATEGORIZER___GET_TYPE;
+
+	/**
+	 * The operation id for the '<em>Clone</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER_OCL___CLONE = CATEGORIZER___CLONE;
+
+	/**
+	 * The operation id for the '<em>Get Category Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER_OCL___GET_CATEGORY_VALUE__EOBJECT = CATEGORIZER___GET_CATEGORY_VALUE__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Category Label</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER_OCL___GET_CATEGORY_LABEL__OBJECT = CATEGORIZER___GET_CATEGORY_LABEL__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Is Valid Element Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER_OCL___IS_VALID_ELEMENT_TYPE__ECLASS = CATEGORIZER___IS_VALID_ELEMENT_TYPE__ECLASS;
+
+	/**
+	 * The number of operations of the '<em>Categorizer Ocl</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER_OCL_OPERATION_COUNT = CATEGORIZER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.CategorizerSubject <em>Categorizer Subject</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.CategorizerSubject
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategorizerSubject()
+	 * @generated
+	 */
+	int CATEGORIZER_SUBJECT = 38;
+
+	/**
+	 * The number of structural features of the '<em>Categorizer Subject</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER_SUBJECT_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Get Subject</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER_SUBJECT___GET_SUBJECT = 0;
+
+	/**
+	 * The number of operations of the '<em>Categorizer Subject</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORIZER_SUBJECT_OPERATION_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.DataToolType <em>Data Tool Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.DataToolType
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getDataToolType()
+	 * @generated
+	 */
+	int DATA_TOOL_TYPE = 39;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.datatools.AggregationType <em>Aggregation Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.AggregationType
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getAggregationType()
+	 * @generated
+	 */
+	int AGGREGATION_TYPE = 40;
+
+	/**
+	 * The meta object id for the '<em>EObjects Set</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.datatools.util.ObjectSet
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getEObjectsSet()
+	 * @generated
+	 */
+	int EOBJECTS_SET = 41;
+
+	/**
+	 * The meta object id for the '<em>IProperties Provider</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.common.IPropertiesProvider
+	 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getIPropertiesProvider()
+	 * @generated
+	 */
+	int IPROPERTIES_PROVIDER = 42;
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Categorizer <em>Categorizer</em>}'.
@@ -1879,35 +4586,34 @@ public interface DatatoolsPackage extends EPackage {
 	EClass getCategorizer();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.datatools.Categorizer#getCriteria <em>Criteria</em>}'.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Categorizer#getCategoryValue(org.eclipse.emf.ecore.EObject) <em>Get Category Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Criteria</em>'.
-	 * @see com.misc.common.moplaf.datatools.Categorizer#getCriteria()
-	 * @see #getCategorizer()
+	 * @return the meta object for the '<em>Get Category Value</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.Categorizer#getCategoryValue(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EReference getCategorizer_Criteria();
+	EOperation getCategorizer__GetCategoryValue__EObject();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Categorizer#isValidRoot(org.eclipse.emf.ecore.EObject) <em>Is Valid Root</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Categorizer#getCategoryLabel(java.lang.Object) <em>Get Category Label</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Valid Root</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.Categorizer#isValidRoot(org.eclipse.emf.ecore.EObject)
+	 * @return the meta object for the '<em>Get Category Label</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.Categorizer#getCategoryLabel(java.lang.Object)
 	 * @generated
 	 */
-	EOperation getCategorizer__IsValidRoot__EObject();
+	EOperation getCategorizer__GetCategoryLabel__Object();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Categorizer#refreshCats(org.eclipse.emf.ecore.EObject) <em>Refresh Cats</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Categorizer#isValidElementType(org.eclipse.emf.ecore.EClass) <em>Is Valid Element Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Refresh Cats</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.Categorizer#refreshCats(org.eclipse.emf.ecore.EObject)
+	 * @return the meta object for the '<em>Is Valid Element Type</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.Categorizer#isValidElementType(org.eclipse.emf.ecore.EClass)
 	 * @generated
 	 */
-	EOperation getCategorizer__RefreshCats__EObject();
+	EOperation getCategorizer__IsValidElementType__EClass();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Category <em>Category</em>}'.
@@ -1920,56 +4626,26 @@ public interface DatatoolsPackage extends EPackage {
 	EClass getCategory();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.Category#getCriteria <em>Criteria</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.Category#getCategoryLabel <em>Category Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Criteria</em>'.
-	 * @see com.misc.common.moplaf.datatools.Category#getCriteria()
+	 * @return the meta object for the attribute '<em>Category Label</em>'.
+	 * @see com.misc.common.moplaf.datatools.Category#getCategoryLabel()
 	 * @see #getCategory()
 	 * @generated
 	 */
-	EReference getCategory_Criteria();
+	EAttribute getCategory_CategoryLabel();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.Category#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.Category#getCategoryValue <em>Category Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see com.misc.common.moplaf.datatools.Category#getValue()
+	 * @return the meta object for the attribute '<em>Category Value</em>'.
+	 * @see com.misc.common.moplaf.datatools.Category#getCategoryValue()
 	 * @see #getCategory()
 	 * @generated
 	 */
-	EAttribute getCategory_Value();
-
-	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.CategoryCriteria <em>Category Criteria</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Category Criteria</em>'.
-	 * @see com.misc.common.moplaf.datatools.CategoryCriteria
-	 * @generated
-	 */
-	EClass getCategoryCriteria();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryCriteria#getCategoryValue(org.eclipse.emf.ecore.EObject) <em>Get Category Value</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Category Value</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.CategoryCriteria#getCategoryValue(org.eclipse.emf.ecore.EObject)
-	 * @generated
-	 */
-	EOperation getCategoryCriteria__GetCategoryValue__EObject();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryCriteria#constructCategory() <em>Construct Category</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Construct Category</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.CategoryCriteria#constructCategory()
-	 * @generated
-	 */
-	EOperation getCategoryCriteria__ConstructCategory();
+	EAttribute getCategory_CategoryValue();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Extractor <em>Extractor</em>}'.
@@ -1982,14 +4658,36 @@ public interface DatatoolsPackage extends EPackage {
 	EClass getExtractor();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Extractor#refreshOuts(org.eclipse.emf.common.util.EList) <em>Refresh Outs</em>}' operation.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.Extractor#getExtractedType <em>Extracted Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Refresh Outs</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.Extractor#refreshOuts(org.eclipse.emf.common.util.EList)
+	 * @return the meta object for the reference '<em>Extracted Type</em>'.
+	 * @see com.misc.common.moplaf.datatools.Extractor#getExtractedType()
+	 * @see #getExtractor()
 	 * @generated
 	 */
-	EOperation getExtractor__RefreshOuts__EList();
+	EReference getExtractor_ExtractedType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.datatools.Extractor#getFilter <em>Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Filter</em>'.
+	 * @see com.misc.common.moplaf.datatools.Extractor#getFilter()
+	 * @see #getExtractor()
+	 * @generated
+	 */
+	EReference getExtractor_Filter();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Extractor#extract(com.misc.common.moplaf.datatools.util.ObjectSet, int) <em>Extract</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Extract</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.Extractor#extract(com.misc.common.moplaf.datatools.util.ObjectSet, int)
+	 * @generated
+	 */
+	EOperation getExtractor__Extract__ObjectSet_int();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Extractor#isValidRoot(org.eclipse.emf.ecore.EObject) <em>Is Valid Root</em>}' operation.
@@ -2012,79 +4710,140 @@ public interface DatatoolsPackage extends EPackage {
 	EClass getColumnizer();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.CategoryAbstract <em>Category Abstract</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.datatools.Columnizer#getColumns <em>Columns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Category Abstract</em>'.
-	 * @see com.misc.common.moplaf.datatools.CategoryAbstract
+	 * @return the meta object for the containment reference list '<em>Columns</em>'.
+	 * @see com.misc.common.moplaf.datatools.Columnizer#getColumns()
+	 * @see #getColumnizer()
 	 * @generated
 	 */
-	EClass getCategoryAbstract();
+	EReference getColumnizer_Columns();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getSubCategories <em>Sub Categories</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.Columnizer#getColumnizedType <em>Columnized Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Sub Categories</em>'.
-	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getSubCategories()
-	 * @see #getCategoryAbstract()
+	 * @return the meta object for the reference '<em>Columnized Type</em>'.
+	 * @see com.misc.common.moplaf.datatools.Columnizer#getColumnizedType()
+	 * @see #getColumnizer()
 	 * @generated
 	 */
-	EReference getCategoryAbstract_SubCategories();
+	EReference getColumnizer_ColumnizedType();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getElements <em>Elements</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.Columnizer#getSheetName <em>Sheet Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Elements</em>'.
-	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getElements()
-	 * @see #getCategoryAbstract()
+	 * @return the meta object for the attribute '<em>Sheet Name</em>'.
+	 * @see com.misc.common.moplaf.datatools.Columnizer#getSheetName()
+	 * @see #getColumnizer()
 	 * @generated
 	 */
-	EReference getCategoryAbstract_Elements();
+	EAttribute getColumnizer_SheetName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getNbElements <em>Nb Elements</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.CategorizerStructuralFeature <em>Categorizer Structural Feature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Nb Elements</em>'.
-	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getNbElements()
-	 * @see #getCategoryAbstract()
+	 * @return the meta object for class '<em>Categorizer Structural Feature</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategorizerStructuralFeature
 	 * @generated
 	 */
-	EAttribute getCategoryAbstract_NbElements();
+	EClass getCategorizerStructuralFeature();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.CategorizerStructuralFeature#getFeature <em>Feature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getDescription()
-	 * @see #getCategoryAbstract()
+	 * @return the meta object for the reference '<em>Feature</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategorizerStructuralFeature#getFeature()
+	 * @see #getCategorizerStructuralFeature()
 	 * @generated
 	 */
-	EAttribute getCategoryAbstract_Description();
+	EReference getCategorizerStructuralFeature_Feature();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getColumnizer <em>Columnizer</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.CategorizerStructuralFeature#getCategorizedType <em>Categorized Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Columnizer</em>'.
-	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getColumnizer()
-	 * @see #getCategoryAbstract()
+	 * @return the meta object for the reference '<em>Categorized Type</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategorizerStructuralFeature#getCategorizedType()
+	 * @see #getCategorizerStructuralFeature()
 	 * @generated
 	 */
-	EReference getCategoryAbstract_Columnizer();
+	EReference getCategorizerStructuralFeature_CategorizedType();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getSubcategory(org.eclipse.emf.ecore.EObject) <em>Get Subcategory</em>}' operation.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.CategorizerOcl <em>Categorizer Ocl</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Subcategory</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getSubcategory(org.eclipse.emf.ecore.EObject)
+	 * @return the meta object for class '<em>Categorizer Ocl</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategorizerOcl
 	 * @generated
 	 */
-	EOperation getCategoryAbstract__GetSubcategory__EObject();
+	EClass getCategorizerOcl();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.CategorizerOcl#getExpression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Expression</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategorizerOcl#getExpression()
+	 * @see #getCategorizerOcl()
+	 * @generated
+	 */
+	EAttribute getCategorizerOcl_Expression();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.CategorizerSubject <em>Categorizer Subject</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Categorizer Subject</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategorizerSubject
+	 * @generated
+	 */
+	EClass getCategorizerSubject();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategorizerSubject#getSubject() <em>Get Subject</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Subject</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.CategorizerSubject#getSubject()
+	 * @generated
+	 */
+	EOperation getCategorizerSubject__GetSubject();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.CategoryFactory <em>Category Factory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Category Factory</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategoryFactory
+	 * @generated
+	 */
+	EClass getCategoryFactory();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryFactory#constructCategory() <em>Construct Category</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Construct Category</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.CategoryFactory#constructCategory()
+	 * @generated
+	 */
+	EOperation getCategoryFactory__ConstructCategory();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryFactory#setLeafCategory(org.eclipse.emf.ecore.EObject, com.misc.common.moplaf.datatools.CategoryAbstract) <em>Set Leaf Category</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Leaf Category</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.CategoryFactory#setLeafCategory(org.eclipse.emf.ecore.EObject, com.misc.common.moplaf.datatools.CategoryAbstract)
+	 * @generated
+	 */
+	EOperation getCategoryFactory__SetLeafCategory__EObject_CategoryAbstract();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorType <em>Extractor Type</em>}'.
@@ -2129,14 +4888,14 @@ public interface DatatoolsPackage extends EPackage {
 	EReference getExtractorCompound_Extractors();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractatorPipe <em>Extractator Pipe</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorPipe <em>Extractor Pipe</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Extractator Pipe</em>'.
-	 * @see com.misc.common.moplaf.datatools.ExtractatorPipe
+	 * @return the meta object for class '<em>Extractor Pipe</em>'.
+	 * @see com.misc.common.moplaf.datatools.ExtractorPipe
 	 * @generated
 	 */
-	EClass getExtractatorPipe();
+	EClass getExtractorPipe();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorLogic <em>Extractor Logic</em>}'.
@@ -2169,6 +4928,58 @@ public interface DatatoolsPackage extends EPackage {
 	EClass getExtractorIntersection();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ColumnizerAbstract <em>Columnizer Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Columnizer Abstract</em>'.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerAbstract
+	 * @generated
+	 */
+	EClass getColumnizerAbstract();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.ColumnizerAbstract#getSheetLabel <em>Sheet Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sheet Label</em>'.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerAbstract#getSheetLabel()
+	 * @see #getColumnizerAbstract()
+	 * @generated
+	 */
+	EAttribute getColumnizerAbstract_SheetLabel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.ColumnizerAbstract#isAggregation <em>Aggregation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Aggregation</em>'.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerAbstract#isAggregation()
+	 * @see #getColumnizerAbstract()
+	 * @generated
+	 */
+	EAttribute getColumnizerAbstract_Aggregation();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.ColumnizerAbstract#isValidElementType(org.eclipse.emf.ecore.EClass) <em>Is Valid Element Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid Element Type</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerAbstract#isValidElementType(org.eclipse.emf.ecore.EClass)
+	 * @generated
+	 */
+	EOperation getColumnizerAbstract__IsValidElementType__EClass();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.ColumnizerAbstract#getPropertiesProvider() <em>Get Properties Provider</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Properties Provider</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerAbstract#getPropertiesProvider()
+	 * @generated
+	 */
+	EOperation getColumnizerAbstract__GetPropertiesProvider();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorPath <em>Extractor Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2177,6 +4988,17 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getExtractorPath();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.ExtractorPath#getRootType <em>Root Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Root Type</em>'.
+	 * @see com.misc.common.moplaf.datatools.ExtractorPath#getRootType()
+	 * @see #getExtractorPath()
+	 * @generated
+	 */
+	EReference getExtractorPath_RootType();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorOcl <em>Extractor Ocl</em>}'.
@@ -2200,181 +5022,223 @@ public interface DatatoolsPackage extends EPackage {
 	EAttribute getExtractorOcl_Expression();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorFilter <em>Extractor Filter</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Filter <em>Filter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Extractor Filter</em>'.
-	 * @see com.misc.common.moplaf.datatools.ExtractorFilter
+	 * @return the meta object for class '<em>Filter</em>'.
+	 * @see com.misc.common.moplaf.datatools.Filter
 	 * @generated
 	 */
-	EClass getExtractorFilter();
+	EClass getFilter();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.ExtractorFilter#isFiltered(org.eclipse.emf.ecore.EObject) <em>Is Filtered</em>}' operation.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.Filter#isEnabled <em>Enabled</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Filtered</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.ExtractorFilter#isFiltered(org.eclipse.emf.ecore.EObject)
+	 * @return the meta object for the attribute '<em>Enabled</em>'.
+	 * @see com.misc.common.moplaf.datatools.Filter#isEnabled()
+	 * @see #getFilter()
 	 * @generated
 	 */
-	EOperation getExtractorFilter__IsFiltered__EObject();
+	EAttribute getFilter_Enabled();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorFilterAttribute <em>Extractor Filter Attribute</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.Filter#isNegated <em>Negated</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Extractor Filter Attribute</em>'.
-	 * @see com.misc.common.moplaf.datatools.ExtractorFilterAttribute
+	 * @return the meta object for the attribute '<em>Negated</em>'.
+	 * @see com.misc.common.moplaf.datatools.Filter#isNegated()
+	 * @see #getFilter()
 	 * @generated
 	 */
-	EClass getExtractorFilterAttribute();
+	EAttribute getFilter_Negated();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.ExtractorFilterAttribute#getAttribute <em>Attribute</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.Filter#getFilteredType <em>Filtered Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Filtered Type</em>'.
+	 * @see com.misc.common.moplaf.datatools.Filter#getFilteredType()
+	 * @see #getFilter()
+	 * @generated
+	 */
+	EReference getFilter_FilteredType();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.Filter#satisfiesFilter(org.eclipse.emf.ecore.EObject) <em>Satisfies Filter</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Satisfies Filter</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.Filter#satisfiesFilter(org.eclipse.emf.ecore.EObject)
+	 * @generated
+	 */
+	EOperation getFilter__SatisfiesFilter__EObject();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.FilterAttribute <em>Filter Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Filter Attribute</em>'.
+	 * @see com.misc.common.moplaf.datatools.FilterAttribute
+	 * @generated
+	 */
+	EClass getFilterAttribute();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.FilterAttribute#getAttribute <em>Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Attribute</em>'.
-	 * @see com.misc.common.moplaf.datatools.ExtractorFilterAttribute#getAttribute()
-	 * @see #getExtractorFilterAttribute()
+	 * @see com.misc.common.moplaf.datatools.FilterAttribute#getAttribute()
+	 * @see #getFilterAttribute()
 	 * @generated
 	 */
-	EReference getExtractorFilterAttribute_Attribute();
+	EReference getFilterAttribute_Attribute();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.ExtractorFilterAttribute#getAttributeValue() <em>Get Attribute Value</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.FilterAttribute#getAttributeValue(org.eclipse.emf.ecore.EObject) <em>Get Attribute Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Attribute Value</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.ExtractorFilterAttribute#getAttributeValue()
+	 * @see com.misc.common.moplaf.datatools.FilterAttribute#getAttributeValue(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getExtractorFilterAttribute__GetAttributeValue();
+	EOperation getFilterAttribute__GetAttributeValue__EObject();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorFilterAttributeInt <em>Extractor Filter Attribute Int</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.FilterAttributeString <em>Filter Attribute String</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Extractor Filter Attribute Int</em>'.
-	 * @see com.misc.common.moplaf.datatools.ExtractorFilterAttributeInt
+	 * @return the meta object for class '<em>Filter Attribute String</em>'.
+	 * @see com.misc.common.moplaf.datatools.FilterAttributeString
 	 * @generated
 	 */
-	EClass getExtractorFilterAttributeInt();
+	EClass getFilterAttributeString();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.ExtractorFilterAttributeInt#getMinValue <em>Min Value</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.FilterRegex <em>Filter Regex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Filter Regex</em>'.
+	 * @see com.misc.common.moplaf.datatools.FilterRegex
+	 * @generated
+	 */
+	EClass getFilterRegex();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.FilterRegex#getPattern <em>Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Pattern</em>'.
+	 * @see com.misc.common.moplaf.datatools.FilterRegex#getPattern()
+	 * @see #getFilterRegex()
+	 * @generated
+	 */
+	EAttribute getFilterRegex_Pattern();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.FilterAttributeInt <em>Filter Attribute Int</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Filter Attribute Int</em>'.
+	 * @see com.misc.common.moplaf.datatools.FilterAttributeInt
+	 * @generated
+	 */
+	EClass getFilterAttributeInt();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.FilterAttributeIntRange <em>Filter Attribute Int Range</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Filter Attribute Int Range</em>'.
+	 * @see com.misc.common.moplaf.datatools.FilterAttributeIntRange
+	 * @generated
+	 */
+	EClass getFilterAttributeIntRange();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.FilterAttributeIntRange#getMinValue <em>Min Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Min Value</em>'.
-	 * @see com.misc.common.moplaf.datatools.ExtractorFilterAttributeInt#getMinValue()
-	 * @see #getExtractorFilterAttributeInt()
+	 * @see com.misc.common.moplaf.datatools.FilterAttributeIntRange#getMinValue()
+	 * @see #getFilterAttributeIntRange()
 	 * @generated
 	 */
-	EAttribute getExtractorFilterAttributeInt_MinValue();
+	EAttribute getFilterAttributeIntRange_MinValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.ExtractorFilterAttributeInt#getMaxValue <em>Max Value</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.FilterAttributeIntRange#getMaxValue <em>Max Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Max Value</em>'.
-	 * @see com.misc.common.moplaf.datatools.ExtractorFilterAttributeInt#getMaxValue()
-	 * @see #getExtractorFilterAttributeInt()
+	 * @see com.misc.common.moplaf.datatools.FilterAttributeIntRange#getMaxValue()
+	 * @see #getFilterAttributeIntRange()
 	 * @generated
 	 */
-	EAttribute getExtractorFilterAttributeInt_MaxValue();
+	EAttribute getFilterAttributeIntRange_MaxValue();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ExtractorFilterOcl <em>Extractor Filter Ocl</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.FilterOcl <em>Filter Ocl</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Extractor Filter Ocl</em>'.
-	 * @see com.misc.common.moplaf.datatools.ExtractorFilterOcl
+	 * @return the meta object for class '<em>Filter Ocl</em>'.
+	 * @see com.misc.common.moplaf.datatools.FilterOcl
 	 * @generated
 	 */
-	EClass getExtractorFilterOcl();
+	EClass getFilterOcl();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.ExtractorFilterOcl#getExpression <em>Expression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Expression</em>'.
-	 * @see com.misc.common.moplaf.datatools.ExtractorFilterOcl#getExpression()
-	 * @see #getExtractorFilterOcl()
-	 * @generated
-	 */
-	EAttribute getExtractorFilterOcl_Expression();
-
-	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.CategoryCriteriaAttribute <em>Category Criteria Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Category Criteria Attribute</em>'.
-	 * @see com.misc.common.moplaf.datatools.CategoryCriteriaAttribute
-	 * @generated
-	 */
-	EClass getCategoryCriteriaAttribute();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.CategoryCriteriaAttribute#getAttribute <em>Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Attribute</em>'.
-	 * @see com.misc.common.moplaf.datatools.CategoryCriteriaAttribute#getAttribute()
-	 * @see #getCategoryCriteriaAttribute()
-	 * @generated
-	 */
-	EReference getCategoryCriteriaAttribute_Attribute();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryCriteriaAttribute#getAttributeValue() <em>Get Attribute Value</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Attribute Value</em>' operation.
-	 * @see com.misc.common.moplaf.datatools.CategoryCriteriaAttribute#getAttributeValue()
-	 * @generated
-	 */
-	EOperation getCategoryCriteriaAttribute__GetAttributeValue();
-
-	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.CategoryCriteriaOcl <em>Category Criteria Ocl</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Category Criteria Ocl</em>'.
-	 * @see com.misc.common.moplaf.datatools.CategoryCriteriaOcl
-	 * @generated
-	 */
-	EClass getCategoryCriteriaOcl();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.CategoryCriteriaOcl#getExpression <em>Expression</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.FilterOcl#getExpression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Expression</em>'.
-	 * @see com.misc.common.moplaf.datatools.CategoryCriteriaOcl#getExpression()
-	 * @see #getCategoryCriteriaOcl()
+	 * @see com.misc.common.moplaf.datatools.FilterOcl#getExpression()
+	 * @see #getFilterOcl()
 	 * @generated
 	 */
-	EAttribute getCategoryCriteriaOcl_Expression();
+	EAttribute getFilterOcl_Expression();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ColumnizerExplicit <em>Columnizer Explicit</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.FilterCompound <em>Filter Compound</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Columnizer Explicit</em>'.
-	 * @see com.misc.common.moplaf.datatools.ColumnizerExplicit
+	 * @return the meta object for class '<em>Filter Compound</em>'.
+	 * @see com.misc.common.moplaf.datatools.FilterCompound
 	 * @generated
 	 */
-	EClass getColumnizerExplicit();
+	EClass getFilterCompound();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.datatools.ColumnizerExplicit#getColumns <em>Columns</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.datatools.FilterCompound#getFilters <em>Filters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Columns</em>'.
-	 * @see com.misc.common.moplaf.datatools.ColumnizerExplicit#getColumns()
-	 * @see #getColumnizerExplicit()
+	 * @return the meta object for the containment reference list '<em>Filters</em>'.
+	 * @see com.misc.common.moplaf.datatools.FilterCompound#getFilters()
+	 * @see #getFilterCompound()
 	 * @generated
 	 */
-	EReference getColumnizerExplicit_Columns();
+	EReference getFilterCompound_Filters();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.FilterAND <em>Filter AND</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Filter AND</em>'.
+	 * @see com.misc.common.moplaf.datatools.FilterAND
+	 * @generated
+	 */
+	EClass getFilterAND();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.FilterOR <em>Filter OR</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Filter OR</em>'.
+	 * @see com.misc.common.moplaf.datatools.FilterOR
+	 * @generated
+	 */
+	EClass getFilterOR();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ColumnizerColumn <em>Columnizer Column</em>}'.
@@ -2387,26 +5251,59 @@ public interface DatatoolsPackage extends EPackage {
 	EClass getColumnizerColumn();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnName <em>Column Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.misc.common.moplaf.datatools.ColumnizerColumn#getName()
+	 * @return the meta object for the attribute '<em>Column Name</em>'.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnName()
 	 * @see #getColumnizerColumn()
 	 * @generated
 	 */
-	EAttribute getColumnizerColumn_Name();
+	EAttribute getColumnizerColumn_ColumnName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getWidth <em>Width</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnWidth <em>Column Width</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Width</em>'.
-	 * @see com.misc.common.moplaf.datatools.ColumnizerColumn#getWidth()
+	 * @return the meta object for the attribute '<em>Column Width</em>'.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnWidth()
 	 * @see #getColumnizerColumn()
 	 * @generated
 	 */
-	EAttribute getColumnizerColumn_Width();
+	EAttribute getColumnizerColumn_ColumnWidth();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnizer <em>Columnizer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Columnizer</em>'.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerColumn#getColumnizer()
+	 * @see #getColumnizerColumn()
+	 * @generated
+	 */
+	EReference getColumnizerColumn_Columnizer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getAggregationType <em>Aggregation Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Aggregation Type</em>'.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerColumn#getAggregationType()
+	 * @see #getColumnizerColumn()
+	 * @generated
+	 */
+	EAttribute getColumnizerColumn_AggregationType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#isKey <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key</em>'.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerColumn#isKey()
+	 * @see #getColumnizerColumn()
+	 * @generated
+	 */
+	EAttribute getColumnizerColumn_Key();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getValue(org.eclipse.emf.ecore.EObject) <em>Get Value</em>}' operation.
@@ -2417,6 +5314,16 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getColumnizerColumn__GetValue__EObject();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.ColumnizerColumn#getDataType() <em>Get Data Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Data Type</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerColumn#getDataType()
+	 * @generated
+	 */
+	EOperation getColumnizerColumn__GetDataType();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.ColumnizerColumnAttribute <em>Columnizer Column Attribute</em>}'.
@@ -2471,15 +5378,15 @@ public interface DatatoolsPackage extends EPackage {
 	EClass getNavigationPath();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.datatools.NavigationPath#getElements <em>Elements</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.datatools.NavigationPath#getPathElements <em>Path Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Elements</em>'.
-	 * @see com.misc.common.moplaf.datatools.NavigationPath#getElements()
+	 * @return the meta object for the containment reference list '<em>Path Elements</em>'.
+	 * @see com.misc.common.moplaf.datatools.NavigationPath#getPathElements()
 	 * @see #getNavigationPath()
 	 * @generated
 	 */
-	EReference getNavigationPath_Elements();
+	EReference getNavigationPath_PathElements();
 
 	/**
 	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.NavigationPath#getSourceType <em>Source Type</em>}'.
@@ -2502,6 +5409,28 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNavigationPath_TargetType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.NavigationPath#isMany <em>Many</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Many</em>'.
+	 * @see com.misc.common.moplaf.datatools.NavigationPath#isMany()
+	 * @see #getNavigationPath()
+	 * @generated
+	 */
+	EAttribute getNavigationPath_Many();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.NavigationPath#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Path</em>'.
+	 * @see com.misc.common.moplaf.datatools.NavigationPath#getPath()
+	 * @see #getNavigationPath()
+	 * @generated
+	 */
+	EAttribute getNavigationPath_Path();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.NavigationReference <em>Navigation Reference</em>}'.
@@ -2546,6 +5475,26 @@ public interface DatatoolsPackage extends EPackage {
 	EReference getNavigationDowncast_DowncastType();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.DataToolContext <em>Data Tool Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Tool Context</em>'.
+	 * @see com.misc.common.moplaf.datatools.DataToolContext
+	 * @generated
+	 */
+	EClass getDataToolContext();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.DataToolContext#getDomainTypes() <em>Get Domain Types</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Domain Types</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.DataToolContext#getDomainTypes()
+	 * @generated
+	 */
+	EOperation getDataToolContext__GetDomainTypes();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.NavigationAxis <em>Navigation Axis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2576,6 +5525,301 @@ public interface DatatoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNavigationAxis_TargetType();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.datatools.NavigationAxis#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Path</em>'.
+	 * @see com.misc.common.moplaf.datatools.NavigationAxis#getPath()
+	 * @see #getNavigationAxis()
+	 * @generated
+	 */
+	EReference getNavigationAxis_Path();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.NavigationAxis#getPrevious <em>Previous</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Previous</em>'.
+	 * @see com.misc.common.moplaf.datatools.NavigationAxis#getPrevious()
+	 * @see #getNavigationAxis()
+	 * @generated
+	 */
+	EReference getNavigationAxis_Previous();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.NavigationAxis#getPathElement <em>Path Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Path Element</em>'.
+	 * @see com.misc.common.moplaf.datatools.NavigationAxis#getPathElement()
+	 * @see #getNavigationAxis()
+	 * @generated
+	 */
+	EAttribute getNavigationAxis_PathElement();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.NavigationAxis#getNext <em>Next</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Next</em>'.
+	 * @see com.misc.common.moplaf.datatools.NavigationAxis#getNext()
+	 * @see #getNavigationAxis()
+	 * @generated
+	 */
+	EReference getNavigationAxis_Next();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.NavigationAxis#navigate(org.eclipse.emf.ecore.EObject) <em>Navigate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Navigate</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.NavigationAxis#navigate(org.eclipse.emf.ecore.EObject)
+	 * @generated
+	 */
+	EOperation getNavigationAxis__Navigate__EObject();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.NavigationAxis#navigateMany(org.eclipse.emf.ecore.EObject) <em>Navigate Many</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Navigate Many</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.NavigationAxis#navigateMany(org.eclipse.emf.ecore.EObject)
+	 * @generated
+	 */
+	EOperation getNavigationAxis__NavigateMany__EObject();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.Columnizers <em>Columnizers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Columnizers</em>'.
+	 * @see com.misc.common.moplaf.datatools.Columnizers
+	 * @generated
+	 */
+	EClass getColumnizers();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.datatools.Columnizers#getColumnizers <em>Columnizers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Columnizers</em>'.
+	 * @see com.misc.common.moplaf.datatools.Columnizers#getColumnizers()
+	 * @see #getColumnizers()
+	 * @generated
+	 */
+	EReference getColumnizers_Columnizers();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.CategoryAbstract <em>Category Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Category Abstract</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract
+	 * @generated
+	 */
+	EClass getCategoryAbstract();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getNbElements <em>Nb Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Nb Elements</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getNbElements()
+	 * @see #getCategoryAbstract()
+	 * @generated
+	 */
+	EAttribute getCategoryAbstract_NbElements();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getSubCategories <em>Sub Categories</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sub Categories</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getSubCategories()
+	 * @see #getCategoryAbstract()
+	 * @generated
+	 */
+	EReference getCategoryAbstract_SubCategories();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getElements <em>Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Elements</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getElements()
+	 * @see #getCategoryAbstract()
+	 * @generated
+	 */
+	EReference getCategoryAbstract_Elements();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getSuperCategory <em>Super Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Super Category</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getSuperCategory()
+	 * @see #getCategoryAbstract()
+	 * @generated
+	 */
+	EReference getCategoryAbstract_SuperCategory();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getRootCategory <em>Root Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Root Category</em>'.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getRootCategory()
+	 * @see #getCategoryAbstract()
+	 * @generated
+	 */
+	EReference getCategoryAbstract_RootCategory();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getSubcategory(org.eclipse.emf.ecore.EObject) <em>Get Subcategory</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Subcategory</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#getSubcategory(org.eclipse.emf.ecore.EObject)
+	 * @generated
+	 */
+	EOperation getCategoryAbstract__GetSubcategory__EObject();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#refresh(com.misc.common.moplaf.datatools.CategoryFactory, com.misc.common.moplaf.datatools.util.ObjectSet, org.eclipse.emf.common.util.EList, int) <em>Refresh</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#refresh(com.misc.common.moplaf.datatools.CategoryFactory, com.misc.common.moplaf.datatools.util.ObjectSet, org.eclipse.emf.common.util.EList, int)
+	 * @generated
+	 */
+	EOperation getCategoryAbstract__Refresh__CategoryFactory_ObjectSet_EList_int();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#isIn(com.misc.common.moplaf.datatools.CategoryAbstract) <em>Is In</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is In</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract#isIn(com.misc.common.moplaf.datatools.CategoryAbstract)
+	 * @generated
+	 */
+	EOperation getCategoryAbstract__IsIn__CategoryAbstract();
+
+	/**
+	 * Returns the meta object for enum '{@link com.misc.common.moplaf.datatools.DataToolType <em>Data Tool Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Data Tool Type</em>'.
+	 * @see com.misc.common.moplaf.datatools.DataToolType
+	 * @generated
+	 */
+	EEnum getDataToolType();
+
+	/**
+	 * Returns the meta object for enum '{@link com.misc.common.moplaf.datatools.AggregationType <em>Aggregation Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Aggregation Type</em>'.
+	 * @see com.misc.common.moplaf.datatools.AggregationType
+	 * @generated
+	 */
+	EEnum getAggregationType();
+
+	/**
+	 * Returns the meta object for data type '{@link com.misc.common.moplaf.datatools.util.ObjectSet <em>EObjects Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>EObjects Set</em>'.
+	 * @see com.misc.common.moplaf.datatools.util.ObjectSet
+	 * @model instanceClass="com.misc.common.moplaf.datatools.util.ObjectSet" serializeable="false"
+	 * @generated
+	 */
+	EDataType getEObjectsSet();
+
+	/**
+	 * Returns the meta object for data type '{@link com.misc.common.moplaf.common.IPropertiesProvider <em>IProperties Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>IProperties Provider</em>'.
+	 * @see com.misc.common.moplaf.common.IPropertiesProvider
+	 * @model instanceClass="com.misc.common.moplaf.common.IPropertiesProvider"
+	 * @generated
+	 */
+	EDataType getIPropertiesProvider();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.DataTool <em>Data Tool</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Tool</em>'.
+	 * @see com.misc.common.moplaf.datatools.DataTool
+	 * @generated
+	 */
+	EClass getDataTool();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.DataTool#clone() <em>Clone</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Clone</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.DataTool#clone()
+	 * @generated
+	 */
+	EOperation getDataTool__Clone();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.datatools.DataToolAbstract <em>Data Tool Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Tool Abstract</em>'.
+	 * @see com.misc.common.moplaf.datatools.DataToolAbstract
+	 * @generated
+	 */
+	EClass getDataToolAbstract();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.datatools.DataToolAbstract#getContext <em>Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Context</em>'.
+	 * @see com.misc.common.moplaf.datatools.DataToolAbstract#getContext()
+	 * @see #getDataToolAbstract()
+	 * @generated
+	 */
+	EReference getDataToolAbstract_Context();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.DataToolAbstract#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.datatools.DataToolAbstract#getDescription()
+	 * @see #getDataToolAbstract()
+	 * @generated
+	 */
+	EAttribute getDataToolAbstract_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.datatools.DataToolAbstract#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.datatools.DataToolAbstract#getName()
+	 * @see #getDataToolAbstract()
+	 * @generated
+	 */
+	EAttribute getDataToolAbstract_Name();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.datatools.DataToolAbstract#getType() <em>Get Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Type</em>' operation.
+	 * @see com.misc.common.moplaf.datatools.DataToolAbstract#getType()
+	 * @generated
+	 */
+	EOperation getDataToolAbstract__GetType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2611,28 +5855,28 @@ public interface DatatoolsPackage extends EPackage {
 		EClass CATEGORIZER = eINSTANCE.getCategorizer();
 
 		/**
-		 * The meta object literal for the '<em><b>Criteria</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Get Category Value</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CATEGORIZER__CRITERIA = eINSTANCE.getCategorizer_Criteria();
+		EOperation CATEGORIZER___GET_CATEGORY_VALUE__EOBJECT = eINSTANCE.getCategorizer__GetCategoryValue__EObject();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Valid Root</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Category Label</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation CATEGORIZER___IS_VALID_ROOT__EOBJECT = eINSTANCE.getCategorizer__IsValidRoot__EObject();
+		EOperation CATEGORIZER___GET_CATEGORY_LABEL__OBJECT = eINSTANCE.getCategorizer__GetCategoryLabel__Object();
 
 		/**
-		 * The meta object literal for the '<em><b>Refresh Cats</b></em>' operation.
+		 * The meta object literal for the '<em><b>Is Valid Element Type</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation CATEGORIZER___REFRESH_CATS__EOBJECT = eINSTANCE.getCategorizer__RefreshCats__EObject();
+		EOperation CATEGORIZER___IS_VALID_ELEMENT_TYPE__ECLASS = eINSTANCE.getCategorizer__IsValidElementType__EClass();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.CategoryImpl <em>Category</em>}' class.
@@ -2645,46 +5889,20 @@ public interface DatatoolsPackage extends EPackage {
 		EClass CATEGORY = eINSTANCE.getCategory();
 
 		/**
-		 * The meta object literal for the '<em><b>Criteria</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Category Label</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CATEGORY__CRITERIA = eINSTANCE.getCategory_Criteria();
+		EAttribute CATEGORY__CATEGORY_LABEL = eINSTANCE.getCategory_CategoryLabel();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Category Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CATEGORY__VALUE = eINSTANCE.getCategory_Value();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaImpl <em>Category Criteria</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.datatools.impl.CategoryCriteriaImpl
-		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategoryCriteria()
-		 * @generated
-		 */
-		EClass CATEGORY_CRITERIA = eINSTANCE.getCategoryCriteria();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Category Value</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation CATEGORY_CRITERIA___GET_CATEGORY_VALUE__EOBJECT = eINSTANCE.getCategoryCriteria__GetCategoryValue__EObject();
-
-		/**
-		 * The meta object literal for the '<em><b>Construct Category</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation CATEGORY_CRITERIA___CONSTRUCT_CATEGORY = eINSTANCE.getCategoryCriteria__ConstructCategory();
+		EAttribute CATEGORY__CATEGORY_VALUE = eINSTANCE.getCategory_CategoryValue();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorImpl <em>Extractor</em>}' class.
@@ -2697,12 +5915,28 @@ public interface DatatoolsPackage extends EPackage {
 		EClass EXTRACTOR = eINSTANCE.getExtractor();
 
 		/**
-		 * The meta object literal for the '<em><b>Refresh Outs</b></em>' operation.
+		 * The meta object literal for the '<em><b>Extracted Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation EXTRACTOR___REFRESH_OUTS__ELIST = eINSTANCE.getExtractor__RefreshOuts__EList();
+		EReference EXTRACTOR__EXTRACTED_TYPE = eINSTANCE.getExtractor_ExtractedType();
+
+		/**
+		 * The meta object literal for the '<em><b>Filter</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXTRACTOR__FILTER = eINSTANCE.getExtractor_Filter();
+
+		/**
+		 * The meta object literal for the '<em><b>Extract</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EXTRACTOR___EXTRACT__OBJECTSET_INT = eINSTANCE.getExtractor__Extract__ObjectSet_int();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Valid Root</b></em>' operation.
@@ -2723,62 +5957,116 @@ public interface DatatoolsPackage extends EPackage {
 		EClass COLUMNIZER = eINSTANCE.getColumnizer();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl <em>Category Abstract</em>}' class.
+		 * The meta object literal for the '<em><b>Columns</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl
-		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategoryAbstract()
 		 * @generated
 		 */
-		EClass CATEGORY_ABSTRACT = eINSTANCE.getCategoryAbstract();
+		EReference COLUMNIZER__COLUMNS = eINSTANCE.getColumnizer_Columns();
 
 		/**
-		 * The meta object literal for the '<em><b>Sub Categories</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Columnized Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CATEGORY_ABSTRACT__SUB_CATEGORIES = eINSTANCE.getCategoryAbstract_SubCategories();
+		EReference COLUMNIZER__COLUMNIZED_TYPE = eINSTANCE.getColumnizer_ColumnizedType();
 
 		/**
-		 * The meta object literal for the '<em><b>Elements</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Sheet Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CATEGORY_ABSTRACT__ELEMENTS = eINSTANCE.getCategoryAbstract_Elements();
+		EAttribute COLUMNIZER__SHEET_NAME = eINSTANCE.getColumnizer_SheetName();
 
 		/**
-		 * The meta object literal for the '<em><b>Nb Elements</b></em>' attribute feature.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.CategorizerStructuralFeatureImpl <em>Categorizer Structural Feature</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.CategorizerStructuralFeatureImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategorizerStructuralFeature()
 		 * @generated
 		 */
-		EAttribute CATEGORY_ABSTRACT__NB_ELEMENTS = eINSTANCE.getCategoryAbstract_NbElements();
+		EClass CATEGORIZER_STRUCTURAL_FEATURE = eINSTANCE.getCategorizerStructuralFeature();
 
 		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Feature</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CATEGORY_ABSTRACT__DESCRIPTION = eINSTANCE.getCategoryAbstract_Description();
+		EReference CATEGORIZER_STRUCTURAL_FEATURE__FEATURE = eINSTANCE.getCategorizerStructuralFeature_Feature();
 
 		/**
-		 * The meta object literal for the '<em><b>Columnizer</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Categorized Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CATEGORY_ABSTRACT__COLUMNIZER = eINSTANCE.getCategoryAbstract_Columnizer();
+		EReference CATEGORIZER_STRUCTURAL_FEATURE__CATEGORIZED_TYPE = eINSTANCE.getCategorizerStructuralFeature_CategorizedType();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Subcategory</b></em>' operation.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.CategorizerOclImpl <em>Categorizer Ocl</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.CategorizerOclImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategorizerOcl()
+		 * @generated
+		 */
+		EClass CATEGORIZER_OCL = eINSTANCE.getCategorizerOcl();
+
+		/**
+		 * The meta object literal for the '<em><b>Expression</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT = eINSTANCE.getCategoryAbstract__GetSubcategory__EObject();
+		EAttribute CATEGORIZER_OCL__EXPRESSION = eINSTANCE.getCategorizerOcl_Expression();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.CategorizerSubject <em>Categorizer Subject</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.CategorizerSubject
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategorizerSubject()
+		 * @generated
+		 */
+		EClass CATEGORIZER_SUBJECT = eINSTANCE.getCategorizerSubject();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Subject</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CATEGORIZER_SUBJECT___GET_SUBJECT = eINSTANCE.getCategorizerSubject__GetSubject();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.CategoryFactory <em>Category Factory</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.CategoryFactory
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategoryFactory()
+		 * @generated
+		 */
+		EClass CATEGORY_FACTORY = eINSTANCE.getCategoryFactory();
+
+		/**
+		 * The meta object literal for the '<em><b>Construct Category</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CATEGORY_FACTORY___CONSTRUCT_CATEGORY = eINSTANCE.getCategoryFactory__ConstructCategory();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Leaf Category</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CATEGORY_FACTORY___SET_LEAF_CATEGORY__EOBJECT_CATEGORYABSTRACT = eINSTANCE.getCategoryFactory__SetLeafCategory__EObject_CategoryAbstract();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorTypeImpl <em>Extractor Type</em>}' class.
@@ -2817,14 +6105,14 @@ public interface DatatoolsPackage extends EPackage {
 		EReference EXTRACTOR_COMPOUND__EXTRACTORS = eINSTANCE.getExtractorCompound_Extractors();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractatorPipeImpl <em>Extractator Pipe</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorPipeImpl <em>Extractor Pipe</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.datatools.impl.ExtractatorPipeImpl
-		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractatorPipe()
+		 * @see com.misc.common.moplaf.datatools.impl.ExtractorPipeImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorPipe()
 		 * @generated
 		 */
-		EClass EXTRACTATOR_PIPE = eINSTANCE.getExtractatorPipe();
+		EClass EXTRACTOR_PIPE = eINSTANCE.getExtractorPipe();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorLogicImpl <em>Extractor Logic</em>}' class.
@@ -2857,6 +6145,48 @@ public interface DatatoolsPackage extends EPackage {
 		EClass EXTRACTOR_INTERSECTION = eINSTANCE.getExtractorIntersection();
 
 		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerAbstractImpl <em>Columnizer Abstract</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.ColumnizerAbstractImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerAbstract()
+		 * @generated
+		 */
+		EClass COLUMNIZER_ABSTRACT = eINSTANCE.getColumnizerAbstract();
+
+		/**
+		 * The meta object literal for the '<em><b>Sheet Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMNIZER_ABSTRACT__SHEET_LABEL = eINSTANCE.getColumnizerAbstract_SheetLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>Aggregation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMNIZER_ABSTRACT__AGGREGATION = eINSTANCE.getColumnizerAbstract_Aggregation();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Valid Element Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COLUMNIZER_ABSTRACT___IS_VALID_ELEMENT_TYPE__ECLASS = eINSTANCE.getColumnizerAbstract__IsValidElementType__EClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Properties Provider</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COLUMNIZER_ABSTRACT___GET_PROPERTIES_PROVIDER = eINSTANCE.getColumnizerAbstract__GetPropertiesProvider();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorPathImpl <em>Extractor Path</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2865,6 +6195,14 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass EXTRACTOR_PATH = eINSTANCE.getExtractorPath();
+
+		/**
+		 * The meta object literal for the '<em><b>Root Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXTRACTOR_PATH__ROOT_TYPE = eINSTANCE.getExtractorPath_RootType();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorOclImpl <em>Extractor Ocl</em>}' class.
@@ -2885,32 +6223,56 @@ public interface DatatoolsPackage extends EPackage {
 		EAttribute EXTRACTOR_OCL__EXPRESSION = eINSTANCE.getExtractorOcl_Expression();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterImpl <em>Extractor Filter</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.FilterImpl <em>Filter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.datatools.impl.ExtractorFilterImpl
-		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilter()
+		 * @see com.misc.common.moplaf.datatools.impl.FilterImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getFilter()
 		 * @generated
 		 */
-		EClass EXTRACTOR_FILTER = eINSTANCE.getExtractorFilter();
+		EClass FILTER = eINSTANCE.getFilter();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Filtered</b></em>' operation.
+		 * The meta object literal for the '<em><b>Enabled</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation EXTRACTOR_FILTER___IS_FILTERED__EOBJECT = eINSTANCE.getExtractorFilter__IsFiltered__EObject();
+		EAttribute FILTER__ENABLED = eINSTANCE.getFilter_Enabled();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeImpl <em>Extractor Filter Attribute</em>}' class.
+		 * The meta object literal for the '<em><b>Negated</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeImpl
-		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterAttribute()
 		 * @generated
 		 */
-		EClass EXTRACTOR_FILTER_ATTRIBUTE = eINSTANCE.getExtractorFilterAttribute();
+		EAttribute FILTER__NEGATED = eINSTANCE.getFilter_Negated();
+
+		/**
+		 * The meta object literal for the '<em><b>Filtered Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FILTER__FILTERED_TYPE = eINSTANCE.getFilter_FilteredType();
+
+		/**
+		 * The meta object literal for the '<em><b>Satisfies Filter</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation FILTER___SATISFIES_FILTER__EOBJECT = eINSTANCE.getFilter__SatisfiesFilter__EObject();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.FilterAttributeImpl <em>Filter Attribute</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.FilterAttributeImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getFilterAttribute()
+		 * @generated
+		 */
+		EClass FILTER_ATTRIBUTE = eINSTANCE.getFilterAttribute();
 
 		/**
 		 * The meta object literal for the '<em><b>Attribute</b></em>' reference feature.
@@ -2918,7 +6280,7 @@ public interface DatatoolsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EXTRACTOR_FILTER_ATTRIBUTE__ATTRIBUTE = eINSTANCE.getExtractorFilterAttribute_Attribute();
+		EReference FILTER_ATTRIBUTE__ATTRIBUTE = eINSTANCE.getFilterAttribute_Attribute();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Attribute Value</b></em>' operation.
@@ -2926,17 +6288,55 @@ public interface DatatoolsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation EXTRACTOR_FILTER_ATTRIBUTE___GET_ATTRIBUTE_VALUE = eINSTANCE.getExtractorFilterAttribute__GetAttributeValue();
+		EOperation FILTER_ATTRIBUTE___GET_ATTRIBUTE_VALUE__EOBJECT = eINSTANCE.getFilterAttribute__GetAttributeValue__EObject();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeIntImpl <em>Extractor Filter Attribute Int</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.FilterAttributeStringImpl <em>Filter Attribute String</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.datatools.impl.ExtractorFilterAttributeIntImpl
-		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterAttributeInt()
+		 * @see com.misc.common.moplaf.datatools.impl.FilterAttributeStringImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getFilterAttributeString()
 		 * @generated
 		 */
-		EClass EXTRACTOR_FILTER_ATTRIBUTE_INT = eINSTANCE.getExtractorFilterAttributeInt();
+		EClass FILTER_ATTRIBUTE_STRING = eINSTANCE.getFilterAttributeString();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.FilterRegexImpl <em>Filter Regex</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.FilterRegexImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getFilterRegex()
+		 * @generated
+		 */
+		EClass FILTER_REGEX = eINSTANCE.getFilterRegex();
+
+		/**
+		 * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FILTER_REGEX__PATTERN = eINSTANCE.getFilterRegex_Pattern();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.FilterAttributeIntImpl <em>Filter Attribute Int</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.FilterAttributeIntImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getFilterAttributeInt()
+		 * @generated
+		 */
+		EClass FILTER_ATTRIBUTE_INT = eINSTANCE.getFilterAttributeInt();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.FilterAttributeIntRangeImpl <em>Filter Attribute Int Range</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.FilterAttributeIntRangeImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getFilterAttributeIntRange()
+		 * @generated
+		 */
+		EClass FILTER_ATTRIBUTE_INT_RANGE = eINSTANCE.getFilterAttributeIntRange();
 
 		/**
 		 * The meta object literal for the '<em><b>Min Value</b></em>' attribute feature.
@@ -2944,7 +6344,7 @@ public interface DatatoolsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EXTRACTOR_FILTER_ATTRIBUTE_INT__MIN_VALUE = eINSTANCE.getExtractorFilterAttributeInt_MinValue();
+		EAttribute FILTER_ATTRIBUTE_INT_RANGE__MIN_VALUE = eINSTANCE.getFilterAttributeIntRange_MinValue();
 
 		/**
 		 * The meta object literal for the '<em><b>Max Value</b></em>' attribute feature.
@@ -2952,61 +6352,17 @@ public interface DatatoolsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EXTRACTOR_FILTER_ATTRIBUTE_INT__MAX_VALUE = eINSTANCE.getExtractorFilterAttributeInt_MaxValue();
+		EAttribute FILTER_ATTRIBUTE_INT_RANGE__MAX_VALUE = eINSTANCE.getFilterAttributeIntRange_MaxValue();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ExtractorFilterOclImpl <em>Extractor Filter Ocl</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.FilterOclImpl <em>Filter Ocl</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.datatools.impl.ExtractorFilterOclImpl
-		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getExtractorFilterOcl()
+		 * @see com.misc.common.moplaf.datatools.impl.FilterOclImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getFilterOcl()
 		 * @generated
 		 */
-		EClass EXTRACTOR_FILTER_OCL = eINSTANCE.getExtractorFilterOcl();
-
-		/**
-		 * The meta object literal for the '<em><b>Expression</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXTRACTOR_FILTER_OCL__EXPRESSION = eINSTANCE.getExtractorFilterOcl_Expression();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaAttributeImpl <em>Category Criteria Attribute</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.datatools.impl.CategoryCriteriaAttributeImpl
-		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategoryCriteriaAttribute()
-		 * @generated
-		 */
-		EClass CATEGORY_CRITERIA_ATTRIBUTE = eINSTANCE.getCategoryCriteriaAttribute();
-
-		/**
-		 * The meta object literal for the '<em><b>Attribute</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CATEGORY_CRITERIA_ATTRIBUTE__ATTRIBUTE = eINSTANCE.getCategoryCriteriaAttribute_Attribute();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Attribute Value</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation CATEGORY_CRITERIA_ATTRIBUTE___GET_ATTRIBUTE_VALUE = eINSTANCE.getCategoryCriteriaAttribute__GetAttributeValue();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.CategoryCriteriaOclImpl <em>Category Criteria Ocl</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.datatools.impl.CategoryCriteriaOclImpl
-		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategoryCriteriaOcl()
-		 * @generated
-		 */
-		EClass CATEGORY_CRITERIA_OCL = eINSTANCE.getCategoryCriteriaOcl();
+		EClass FILTER_OCL = eINSTANCE.getFilterOcl();
 
 		/**
 		 * The meta object literal for the '<em><b>Expression</b></em>' attribute feature.
@@ -3014,25 +6370,45 @@ public interface DatatoolsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CATEGORY_CRITERIA_OCL__EXPRESSION = eINSTANCE.getCategoryCriteriaOcl_Expression();
+		EAttribute FILTER_OCL__EXPRESSION = eINSTANCE.getFilterOcl_Expression();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerExplicitImpl <em>Columnizer Explicit</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.FilterCompoundImpl <em>Filter Compound</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.datatools.impl.ColumnizerExplicitImpl
-		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizerExplicit()
+		 * @see com.misc.common.moplaf.datatools.impl.FilterCompoundImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getFilterCompound()
 		 * @generated
 		 */
-		EClass COLUMNIZER_EXPLICIT = eINSTANCE.getColumnizerExplicit();
+		EClass FILTER_COMPOUND = eINSTANCE.getFilterCompound();
 
 		/**
-		 * The meta object literal for the '<em><b>Columns</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Filters</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COLUMNIZER_EXPLICIT__COLUMNS = eINSTANCE.getColumnizerExplicit_Columns();
+		EReference FILTER_COMPOUND__FILTERS = eINSTANCE.getFilterCompound_Filters();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.FilterANDImpl <em>Filter AND</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.FilterANDImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getFilterAND()
+		 * @generated
+		 */
+		EClass FILTER_AND = eINSTANCE.getFilterAND();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.FilterORImpl <em>Filter OR</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.FilterORImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getFilterOR()
+		 * @generated
+		 */
+		EClass FILTER_OR = eINSTANCE.getFilterOR();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnImpl <em>Columnizer Column</em>}' class.
@@ -3045,20 +6421,44 @@ public interface DatatoolsPackage extends EPackage {
 		EClass COLUMNIZER_COLUMN = eINSTANCE.getColumnizerColumn();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Column Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COLUMNIZER_COLUMN__NAME = eINSTANCE.getColumnizerColumn_Name();
+		EAttribute COLUMNIZER_COLUMN__COLUMN_NAME = eINSTANCE.getColumnizerColumn_ColumnName();
 
 		/**
-		 * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Column Width</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COLUMNIZER_COLUMN__WIDTH = eINSTANCE.getColumnizerColumn_Width();
+		EAttribute COLUMNIZER_COLUMN__COLUMN_WIDTH = eINSTANCE.getColumnizerColumn_ColumnWidth();
+
+		/**
+		 * The meta object literal for the '<em><b>Columnizer</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLUMNIZER_COLUMN__COLUMNIZER = eINSTANCE.getColumnizerColumn_Columnizer();
+
+		/**
+		 * The meta object literal for the '<em><b>Aggregation Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMNIZER_COLUMN__AGGREGATION_TYPE = eINSTANCE.getColumnizerColumn_AggregationType();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMNIZER_COLUMN__KEY = eINSTANCE.getColumnizerColumn_Key();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Value</b></em>' operation.
@@ -3067,6 +6467,14 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation COLUMNIZER_COLUMN___GET_VALUE__EOBJECT = eINSTANCE.getColumnizerColumn__GetValue__EObject();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Data Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COLUMNIZER_COLUMN___GET_DATA_TYPE = eINSTANCE.getColumnizerColumn__GetDataType();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizerColumnAttributeImpl <em>Columnizer Column Attribute</em>}' class.
@@ -3115,12 +6523,12 @@ public interface DatatoolsPackage extends EPackage {
 		EClass NAVIGATION_PATH = eINSTANCE.getNavigationPath();
 
 		/**
-		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Path Elements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NAVIGATION_PATH__ELEMENTS = eINSTANCE.getNavigationPath_Elements();
+		EReference NAVIGATION_PATH__PATH_ELEMENTS = eINSTANCE.getNavigationPath_PathElements();
 
 		/**
 		 * The meta object literal for the '<em><b>Source Type</b></em>' reference feature.
@@ -3137,6 +6545,22 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NAVIGATION_PATH__TARGET_TYPE = eINSTANCE.getNavigationPath_TargetType();
+
+		/**
+		 * The meta object literal for the '<em><b>Many</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAVIGATION_PATH__MANY = eINSTANCE.getNavigationPath_Many();
+
+		/**
+		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAVIGATION_PATH__PATH = eINSTANCE.getNavigationPath_Path();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.NavigationReferenceImpl <em>Navigation Reference</em>}' class.
@@ -3175,6 +6599,24 @@ public interface DatatoolsPackage extends EPackage {
 		EReference NAVIGATION_DOWNCAST__DOWNCAST_TYPE = eINSTANCE.getNavigationDowncast_DowncastType();
 
 		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.DataToolContextImpl <em>Data Tool Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.DataToolContextImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getDataToolContext()
+		 * @generated
+		 */
+		EClass DATA_TOOL_CONTEXT = eINSTANCE.getDataToolContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Domain Types</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DATA_TOOL_CONTEXT___GET_DOMAIN_TYPES = eINSTANCE.getDataToolContext__GetDomainTypes();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.NavigationAxisImpl <em>Navigation Axis</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3199,6 +6641,246 @@ public interface DatatoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NAVIGATION_AXIS__TARGET_TYPE = eINSTANCE.getNavigationAxis_TargetType();
+
+		/**
+		 * The meta object literal for the '<em><b>Path</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NAVIGATION_AXIS__PATH = eINSTANCE.getNavigationAxis_Path();
+
+		/**
+		 * The meta object literal for the '<em><b>Previous</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NAVIGATION_AXIS__PREVIOUS = eINSTANCE.getNavigationAxis_Previous();
+
+		/**
+		 * The meta object literal for the '<em><b>Path Element</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAVIGATION_AXIS__PATH_ELEMENT = eINSTANCE.getNavigationAxis_PathElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Next</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NAVIGATION_AXIS__NEXT = eINSTANCE.getNavigationAxis_Next();
+
+		/**
+		 * The meta object literal for the '<em><b>Navigate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NAVIGATION_AXIS___NAVIGATE__EOBJECT = eINSTANCE.getNavigationAxis__Navigate__EObject();
+
+		/**
+		 * The meta object literal for the '<em><b>Navigate Many</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NAVIGATION_AXIS___NAVIGATE_MANY__EOBJECT = eINSTANCE.getNavigationAxis__NavigateMany__EObject();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.ColumnizersImpl <em>Columnizers</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.ColumnizersImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getColumnizers()
+		 * @generated
+		 */
+		EClass COLUMNIZERS = eINSTANCE.getColumnizers();
+
+		/**
+		 * The meta object literal for the '<em><b>Columnizers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLUMNIZERS__COLUMNIZERS = eINSTANCE.getColumnizers_Columnizers();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl <em>Category Abstract</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.CategoryAbstractImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getCategoryAbstract()
+		 * @generated
+		 */
+		EClass CATEGORY_ABSTRACT = eINSTANCE.getCategoryAbstract();
+
+		/**
+		 * The meta object literal for the '<em><b>Nb Elements</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CATEGORY_ABSTRACT__NB_ELEMENTS = eINSTANCE.getCategoryAbstract_NbElements();
+
+		/**
+		 * The meta object literal for the '<em><b>Sub Categories</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CATEGORY_ABSTRACT__SUB_CATEGORIES = eINSTANCE.getCategoryAbstract_SubCategories();
+
+		/**
+		 * The meta object literal for the '<em><b>Elements</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CATEGORY_ABSTRACT__ELEMENTS = eINSTANCE.getCategoryAbstract_Elements();
+
+		/**
+		 * The meta object literal for the '<em><b>Super Category</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CATEGORY_ABSTRACT__SUPER_CATEGORY = eINSTANCE.getCategoryAbstract_SuperCategory();
+
+		/**
+		 * The meta object literal for the '<em><b>Root Category</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CATEGORY_ABSTRACT__ROOT_CATEGORY = eINSTANCE.getCategoryAbstract_RootCategory();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Subcategory</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CATEGORY_ABSTRACT___GET_SUBCATEGORY__EOBJECT = eINSTANCE.getCategoryAbstract__GetSubcategory__EObject();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CATEGORY_ABSTRACT___REFRESH__CATEGORYFACTORY_OBJECTSET_ELIST_INT = eINSTANCE.getCategoryAbstract__Refresh__CategoryFactory_ObjectSet_EList_int();
+
+		/**
+		 * The meta object literal for the '<em><b>Is In</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CATEGORY_ABSTRACT___IS_IN__CATEGORYABSTRACT = eINSTANCE.getCategoryAbstract__IsIn__CategoryAbstract();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.DataToolType <em>Data Tool Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.DataToolType
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getDataToolType()
+		 * @generated
+		 */
+		EEnum DATA_TOOL_TYPE = eINSTANCE.getDataToolType();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.AggregationType <em>Aggregation Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.AggregationType
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getAggregationType()
+		 * @generated
+		 */
+		EEnum AGGREGATION_TYPE = eINSTANCE.getAggregationType();
+
+		/**
+		 * The meta object literal for the '<em>EObjects Set</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.util.ObjectSet
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getEObjectsSet()
+		 * @generated
+		 */
+		EDataType EOBJECTS_SET = eINSTANCE.getEObjectsSet();
+
+		/**
+		 * The meta object literal for the '<em>IProperties Provider</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.common.IPropertiesProvider
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getIPropertiesProvider()
+		 * @generated
+		 */
+		EDataType IPROPERTIES_PROVIDER = eINSTANCE.getIPropertiesProvider();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.DataToolImpl <em>Data Tool</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.DataToolImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getDataTool()
+		 * @generated
+		 */
+		EClass DATA_TOOL = eINSTANCE.getDataTool();
+
+		/**
+		 * The meta object literal for the '<em><b>Clone</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DATA_TOOL___CLONE = eINSTANCE.getDataTool__Clone();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.datatools.impl.DataToolAbstractImpl <em>Data Tool Abstract</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.datatools.impl.DataToolAbstractImpl
+		 * @see com.misc.common.moplaf.datatools.impl.DatatoolsPackageImpl#getDataToolAbstract()
+		 * @generated
+		 */
+		EClass DATA_TOOL_ABSTRACT = eINSTANCE.getDataToolAbstract();
+
+		/**
+		 * The meta object literal for the '<em><b>Context</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_TOOL_ABSTRACT__CONTEXT = eINSTANCE.getDataToolAbstract_Context();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_TOOL_ABSTRACT__DESCRIPTION = eINSTANCE.getDataToolAbstract_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_TOOL_ABSTRACT__NAME = eINSTANCE.getDataToolAbstract_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DATA_TOOL_ABSTRACT___GET_TYPE = eINSTANCE.getDataToolAbstract__GetType();
 
 	}
 

@@ -5,13 +5,19 @@ package com.misc.common.moplaf.datatools.impl;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.NavigationAxis;
 
+import com.misc.common.moplaf.datatools.NavigationPath;
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,30 +29,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationAxisImpl#getSourceType <em>Source Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationAxisImpl#getTargetType <em>Target Type</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationAxisImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationAxisImpl#getPrevious <em>Previous</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationAxisImpl#getPathElement <em>Path Element</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.impl.NavigationAxisImpl#getNext <em>Next</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class NavigationAxisImpl extends MinimalEObjectImpl.Container implements NavigationAxis {
+public abstract class NavigationAxisImpl extends MinimalEObjectImpl.Container implements NavigationAxis {
 	/**
-	 * The cached value of the '{@link #getSourceType() <em>Source Type</em>}' reference.
+	 * The default value of the '{@link #getPathElement() <em>Path Element</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSourceType()
+	 * @see #getPathElement()
 	 * @generated
 	 * @ordered
 	 */
-	protected EClass sourceType;
-
-	/**
-	 * The cached value of the '{@link #getTargetType() <em>Target Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargetType()
-	 * @generated
-	 * @ordered
-	 */
-	protected EClass targetType;
+	protected static final String PATH_ELEMENT_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -73,36 +73,18 @@ public class NavigationAxisImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	public EClass getSourceType() {
-		if (sourceType != null && sourceType.eIsProxy()) {
-			InternalEObject oldSourceType = (InternalEObject)sourceType;
-			sourceType = (EClass)eResolveProxy(oldSourceType);
-			if (sourceType != oldSourceType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatatoolsPackage.NAVIGATION_AXIS__SOURCE_TYPE, oldSourceType, sourceType));
-			}
-		}
-		return sourceType;
+		EClass sourceType = basicGetSourceType();
+		return sourceType != null && sourceType.eIsProxy() ? (EClass)eResolveProxy((InternalEObject)sourceType) : sourceType;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EClass basicGetSourceType() {
-		return sourceType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSourceType(EClass newSourceType) {
-		EClass oldSourceType = sourceType;
-		sourceType = newSourceType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.NAVIGATION_AXIS__SOURCE_TYPE, oldSourceType, sourceType));
+		NavigationAxis previous = this.getPrevious();
+		NavigationPath path = this.getPath();
+		return previous==null ? path.getSourceType() : previous.getTargetType();
 	}
 
 	/**
@@ -111,24 +93,17 @@ public class NavigationAxisImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	public EClass getTargetType() {
-		if (targetType != null && targetType.eIsProxy()) {
-			InternalEObject oldTargetType = (InternalEObject)targetType;
-			targetType = (EClass)eResolveProxy(oldTargetType);
-			if (targetType != oldTargetType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DatatoolsPackage.NAVIGATION_AXIS__TARGET_TYPE, oldTargetType, targetType));
-			}
-		}
-		return targetType;
+		EClass targetType = basicGetTargetType();
+		return targetType != null && targetType.eIsProxy() ? (EClass)eResolveProxy((InternalEObject)targetType) : targetType;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EClass basicGetTargetType() {
-		return targetType;
+		// must be overridden by the specialization
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -136,11 +111,163 @@ public class NavigationAxisImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTargetType(EClass newTargetType) {
-		EClass oldTargetType = targetType;
-		targetType = newTargetType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.NAVIGATION_AXIS__TARGET_TYPE, oldTargetType, targetType));
+	public NavigationPath getPath() {
+		if (eContainerFeatureID() != DatatoolsPackage.NAVIGATION_AXIS__PATH) return null;
+		return (NavigationPath)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPath(NavigationPath newPath, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newPath, DatatoolsPackage.NAVIGATION_AXIS__PATH, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPath(NavigationPath newPath) {
+		if (newPath != eInternalContainer() || (eContainerFeatureID() != DatatoolsPackage.NAVIGATION_AXIS__PATH && newPath != null)) {
+			if (EcoreUtil.isAncestor(this, newPath))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newPath != null)
+				msgs = ((InternalEObject)newPath).eInverseAdd(this, DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS, NavigationPath.class, msgs);
+			msgs = basicSetPath(newPath, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatoolsPackage.NAVIGATION_AXIS__PATH, newPath, newPath));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NavigationAxis getPrevious() {
+		NavigationAxis previous = basicGetPrevious();
+		return previous != null && previous.eIsProxy() ? (NavigationAxis)eResolveProxy((InternalEObject)previous) : previous;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public NavigationAxis basicGetPrevious() {
+		NavigationPath path = this.getPath();
+		int index_this_element = path.getPathElements().indexOf(this);
+		if ( index_this_element==0 ) {
+			return null;
+		}
+		return path.getPathElements().get(index_this_element-1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getPathElement() {
+		// TODO: implement this method to return the 'Path Element' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NavigationAxis getNext() {
+		NavigationAxis next = basicGetNext();
+		return next != null && next.eIsProxy() ? (NavigationAxis)eResolveProxy((InternalEObject)next) : next;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public NavigationAxis basicGetNext() {
+		NavigationPath path = this.getPath();
+		int index_this_element = path.getPathElements().indexOf(this);
+		if ( index_this_element==path.getPathElements().size()-1 ) {
+			return null;
+		}
+		return path.getPathElements().get(index_this_element+1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EObject navigate(EObject in) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<EObject> navigateMany(EObject in) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DatatoolsPackage.NAVIGATION_AXIS__PATH:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetPath((NavigationPath)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DatatoolsPackage.NAVIGATION_AXIS__PATH:
+				return basicSetPath(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case DatatoolsPackage.NAVIGATION_AXIS__PATH:
+				return eInternalContainer().eInverseRemove(this, DatatoolsPackage.NAVIGATION_PATH__PATH_ELEMENTS, NavigationPath.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -157,6 +284,16 @@ public class NavigationAxisImpl extends MinimalEObjectImpl.Container implements 
 			case DatatoolsPackage.NAVIGATION_AXIS__TARGET_TYPE:
 				if (resolve) return getTargetType();
 				return basicGetTargetType();
+			case DatatoolsPackage.NAVIGATION_AXIS__PATH:
+				return getPath();
+			case DatatoolsPackage.NAVIGATION_AXIS__PREVIOUS:
+				if (resolve) return getPrevious();
+				return basicGetPrevious();
+			case DatatoolsPackage.NAVIGATION_AXIS__PATH_ELEMENT:
+				return getPathElement();
+			case DatatoolsPackage.NAVIGATION_AXIS__NEXT:
+				if (resolve) return getNext();
+				return basicGetNext();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -169,11 +306,8 @@ public class NavigationAxisImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DatatoolsPackage.NAVIGATION_AXIS__SOURCE_TYPE:
-				setSourceType((EClass)newValue);
-				return;
-			case DatatoolsPackage.NAVIGATION_AXIS__TARGET_TYPE:
-				setTargetType((EClass)newValue);
+			case DatatoolsPackage.NAVIGATION_AXIS__PATH:
+				setPath((NavigationPath)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -187,11 +321,8 @@ public class NavigationAxisImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DatatoolsPackage.NAVIGATION_AXIS__SOURCE_TYPE:
-				setSourceType((EClass)null);
-				return;
-			case DatatoolsPackage.NAVIGATION_AXIS__TARGET_TYPE:
-				setTargetType((EClass)null);
+			case DatatoolsPackage.NAVIGATION_AXIS__PATH:
+				setPath((NavigationPath)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -206,11 +337,35 @@ public class NavigationAxisImpl extends MinimalEObjectImpl.Container implements 
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DatatoolsPackage.NAVIGATION_AXIS__SOURCE_TYPE:
-				return sourceType != null;
+				return basicGetSourceType() != null;
 			case DatatoolsPackage.NAVIGATION_AXIS__TARGET_TYPE:
-				return targetType != null;
+				return basicGetTargetType() != null;
+			case DatatoolsPackage.NAVIGATION_AXIS__PATH:
+				return getPath() != null;
+			case DatatoolsPackage.NAVIGATION_AXIS__PREVIOUS:
+				return basicGetPrevious() != null;
+			case DatatoolsPackage.NAVIGATION_AXIS__PATH_ELEMENT:
+				return PATH_ELEMENT_EDEFAULT == null ? getPathElement() != null : !PATH_ELEMENT_EDEFAULT.equals(getPathElement());
+			case DatatoolsPackage.NAVIGATION_AXIS__NEXT:
+				return basicGetNext() != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case DatatoolsPackage.NAVIGATION_AXIS___NAVIGATE__EOBJECT:
+				return navigate((EObject)arguments.get(0));
+			case DatatoolsPackage.NAVIGATION_AXIS___NAVIGATE_MANY__EOBJECT:
+				return navigateMany((EObject)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //NavigationAxisImpl

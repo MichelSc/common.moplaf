@@ -2,8 +2,7 @@
  */
 package com.misc.common.moplaf.datatools;
 
-import org.eclipse.emf.common.util.EList;
-
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -11,41 +10,19 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Categorizer</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link com.misc.common.moplaf.datatools.Categorizer#getCriteria <em>Criteria</em>}</li>
- * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategorizer()
- * @model
+ * @model abstract="true"
  * @generated
  */
-public interface Categorizer extends CategoryAbstract {
-	/**
-	 * Returns the value of the '<em><b>Criteria</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.datatools.CategoryCriteria}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Criteria</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Criteria</em>' containment reference list.
-	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategorizer_Criteria()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<CategoryCriteria> getCriteria();
-
+public interface Categorizer extends DataTool {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model docRequired="true"
+	 * @model
 	 * @generated
 	 */
-	boolean isValidRoot(EObject doc);
+	Object getCategoryValue(EObject object);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -53,6 +30,14 @@ public interface Categorizer extends CategoryAbstract {
 	 * @model
 	 * @generated
 	 */
-	EList<EObject> refreshCats(EObject ins);
+	String getCategoryLabel(Object object);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model typeRequired="true"
+	 * @generated
+	 */
+	boolean isValidElementType(EClass type);
 
 } // Categorizer

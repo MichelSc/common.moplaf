@@ -150,7 +150,9 @@ public interface IItemTimePlotsProvider {
 	 * @param moment
 	 * @return
 	 */
-	Date getMoment (Object element, Object timeplot, Object event, Object moment); 
+	default Date getMoment (Object element, Object timeplot, Object event, Object moment) {
+		return null;
+	}
 	
 	/**
 	 * Return the amount value of a given moment of a given event
@@ -160,7 +162,9 @@ public interface IItemTimePlotsProvider {
 	 * @param moment
 	 * @return
 	 */
-	float getAmount (Object element, Object timeplot, Object event, Object moment); // the amount before of the event for the timePlot
+	default float getAmount (Object element, Object timeplot, Object event, Object moment) {
+		return 0.0f;
+	}
 };
 
 

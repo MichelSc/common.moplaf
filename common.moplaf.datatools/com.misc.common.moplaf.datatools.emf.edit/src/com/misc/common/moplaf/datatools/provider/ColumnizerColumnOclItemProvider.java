@@ -68,19 +68,8 @@ public class ColumnizerColumnOclItemProvider extends ColumnizerColumnItemProvide
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
 				 null));
-	}
-
-	/**
-	 * This returns ColumnizerColumnOcl.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ColumnizerColumnOcl"));
 	}
 
 	/**
@@ -91,7 +80,7 @@ public class ColumnizerColumnOclItemProvider extends ColumnizerColumnItemProvide
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ColumnizerColumnOcl)object).getName();
+		String label = ((ColumnizerColumnOcl)object).getColumnName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ColumnizerColumnOcl_type") :
 			getString("_UI_ColumnizerColumnOcl_type") + " " + label;

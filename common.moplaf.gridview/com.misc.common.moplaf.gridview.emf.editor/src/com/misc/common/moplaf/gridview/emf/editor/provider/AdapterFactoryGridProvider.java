@@ -28,9 +28,13 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
 
+import com.misc.common.moplaf.common.util.Util;
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayContentProvider;
+import com.misc.common.moplaf.gridview.TablesProvider;
 import com.misc.common.moplaf.gridview.Wrapper;
 import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
+import com.misc.common.moplaf.gridview.TableColumnProvider;
+import com.misc.common.moplaf.gridview.TableRowProvider; 
 
 
 /**
@@ -44,7 +48,7 @@ import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
  * @author michel
  *
  */
-public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvider {
+public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvider implements TablesProvider{
 	private Color foregroundColor = null;
 	private Color backgroundColor = null;
 
@@ -70,78 +74,18 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 		return color;
 	}
 	
-	private String getTextFromValue(Object cellValue, int cellType, String format) {
-		if ( format!=null) {
-			return String.format(format, cellValue);
-		} else {
-			switch ( cellType ) {
-			case IItemGridsProvider.CELL_TYPE_STRING: 
-				return cellValue == null ? "" : (String)cellValue;
-			case IItemGridsProvider.CELL_TYPE_DATE: 
-				return String.format("%1$tF %1$tT", cellValue);
-			case IItemGridsProvider.CELL_TYPE_FLOAT:
-			case IItemGridsProvider.CELL_TYPE_DOUBLE:
-				return String.format("%1$.2f", cellValue);
-			case IItemGridsProvider.CELL_TYPE_INT:
-			case IItemGridsProvider.CELL_TYPE_LONG:
-				return String.format("%1$d", cellValue);
-			case IItemGridsProvider.CELL_TYPE_BOOLEAN:
-				return String.format("%1$b", cellValue);
-			default: 
-				return "";
-			}
-		}
-	}
-
-	/**
-	 * Specified by ITreeContentProvider 
-	 */
-	@Override
-	public Object[] getChildren(Object object) {
-		// super children
-		Object[] super_children = super.getChildren(object);
-		int nof_super_children = super_children.length;
-		// providers
-		ArrayList<?> providers = this.getTableProviders(object);
-		if ( providers==null){
-			return super_children;
-		}
-		// concatenate
-		Object[] children = new Object[providers.size()+nof_super_children];
-		System.arraycopy(super_children, 0, children, 0, nof_super_children);
-		int i = nof_super_children;
-		for ( Object provider : providers) {
-			children[i]= provider;
-			i++;
-		}
-		return children;
-	}
-
-	/**
-	 * Specified by ITreeContentProvider 
-	 */
-	@Override
-	public Object getParent(Object object) {
-		if ( object instanceof TableProvider){
-			TableProvider provider = (TableProvider) object;
-			return provider.element;
-		}
-			
-		return super.getParent(object);
-	}
-	
 	/**
 	 * Return a collection of object extending the private class  {@link TableProvider}, and implementing 
 	 * the interfaces  {@link IStructuredContentProvider}, {@link ITableColorProvider}, {@link ITableLabelProvider}, 
 	 * <p>
 	 */
-	private ArrayList<TableProvider> getTableProviders(Object element){
+	public ArrayList<com.misc.common.moplaf.gridview.TableProvider> getTableProviders(Object element){
 		AdapterFactory adapterFactory = this.getAdapterFactory();
 		IItemGridsProvider gridsProvider = (IItemGridsProvider) adapterFactory.adapt(element, IItemGridsProvider.class);
 		
 		if ( gridsProvider == null ){ return null; }
 		
-		ArrayList<TableProvider> providers = new ArrayList<TableProvider>();
+		ArrayList<com.misc.common.moplaf.gridview.TableProvider> providers = new ArrayList<com.misc.common.moplaf.gridview.TableProvider>();
 		
 		Object grids_asobject = gridsProvider.getGrids(element);
 		while ( grids_asobject instanceof IItemGridsProvider ) {
@@ -158,7 +102,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 			}
 		} else if ( grids_asobject!=null ){
 			// a single grid for the element
-			TableProvider provider = this.createTableProvider(element, null, gridsProvider);
+			TableProvider provider = this.createTableProvider(element, grids_asobject, gridsProvider);
 			providers.add(provider);
 		} 
 		
@@ -166,8 +110,8 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 	}
 	
 
-	private TableProvider createTableProvider(Object nativeObject, Object timePlotKey, IItemGridsProvider provider){
-			return new TableProvider(nativeObject, timePlotKey, provider);
+	private TableProvider createTableProvider(Object element, Object grid, IItemGridsProvider provider){
+			return new TableProvider(element, grid, provider);
 	}
 
 
@@ -177,19 +121,8 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 	 * @author michel
 	 *
 	 */
-	public class TableProvider implements IStructuredContentProvider, ITableLabelProvider, ITableColorProvider {
-		/**
-		 * 
-		 * @author michel
-		 *
-		 */
-		public abstract class TableRowProvider  {
-			public abstract String getText(Object columnObject);
-			public abstract Object getForeground(Object columnObject);
-			public abstract Object getBackground(Object columnObject); 
-			public abstract Object getRowObject();
-		};
-		public class TableRowData extends TableRowProvider implements Wrapper {
+	private class TableProvider implements com.misc.common.moplaf.gridview.TableProvider {
+		public class TableRowData implements TableRowProvider, Wrapper {
 			private Object gridRow;
 			public TableRowData(Object gridRow) {
 				super();
@@ -203,10 +136,10 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 					String text =  provider.gridsProvider.getRowText(provider.element, provider.grid, this.gridRow);
 					return text==null ? "" : text;
 				}
-				Object cellValue  = provider.gridsProvider.getCellValue(provider.element, provider.grid, this.gridRow, columnObject);
-				int    cellType   = provider.gridsProvider.getCellType(provider.element, provider.grid, this.gridRow, columnObject);
+				Object cellValue  = provider.gridsProvider.getCellValue (provider.element, provider.grid, this.gridRow, columnObject);
+				int    cellType   = provider.gridsProvider.getCellType  (provider.element, provider.grid, this.gridRow, columnObject);
 				String cellFormat = provider.gridsProvider.getCellFormat(provider.element, provider.grid, this.gridRow, columnObject);
-				return AdapterFactoryGridProvider.this.getTextFromValue(cellValue, cellType, cellFormat);
+				return Util.getTextFromValue(cellValue, cellType, cellFormat);
 			}
 			
 			@Override
@@ -240,20 +173,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 			}
 			
 		}
-		/**
-		 * 
-		 * @author michel
-		 *
-		 */
-		public abstract class TableColumnProvider  {
-			public abstract String getText(TableRowProvider row);
-			public abstract int getWidth();
-			public abstract Color getForeground(TableRowProvider row);
-			public abstract Color getBackground(TableRowProvider row); 
-			public abstract int compare(TableRowProvider row1, TableRowProvider row2, boolean ascending);
-			public abstract int getAlignemet();
-		};
-		private class TableColumnHeader extends TableColumnProvider {
+		private class TableColumnHeader implements TableColumnProvider {
 			public TableColumnHeader() {
 				
 			};
@@ -291,7 +211,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 				return SWT.LEFT;
 			}
 		};
-		private class TableColumnData extends TableColumnProvider {
+		private class TableColumnData implements TableColumnProvider {
 			private Object gridColumn;
 			public TableColumnData(Object gridColummn) {
 				super();
@@ -346,9 +266,9 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 				TableRowProvider arbitrary_row = table.indexToRow[nofRows-1]; // last row is a better exemplar
 				int alignemnt = table.gridsProvider.getCellALignment(table.element, table.grid, arbitrary_row.getRowObject(), this.gridColumn);
 				switch ( alignemnt) {
-				case IItemGridsProvider.HORIZONTAl_ALIGN_LEFT: return SWT.LEFT;
-				case IItemGridsProvider.HORIZONTAl_ALIGN_CENTER: return SWT.CENTER;
-				case IItemGridsProvider.HORIZONTAl_ALIGN_RIGHT: return SWT.RIGHT;
+				case IItemGridsProvider.HORIZONTAL_ALIGN_LEFT: return SWT.LEFT;
+				case IItemGridsProvider.HORIZONTAL_ALIGN_CENTER: return SWT.CENTER;
+				case IItemGridsProvider.HORIZONTAL_ALIGN_RIGHT: return SWT.RIGHT;
 				}
 				return 0;
 			}

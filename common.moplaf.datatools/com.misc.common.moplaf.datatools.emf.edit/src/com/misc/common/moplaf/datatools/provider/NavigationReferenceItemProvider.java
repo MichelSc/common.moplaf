@@ -4,15 +4,22 @@ package com.misc.common.moplaf.datatools.provider;
 
 
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
+import com.misc.common.moplaf.datatools.NavigationPath;
+import com.misc.common.moplaf.datatools.NavigationReference;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.provider.EReferenceItemProvider;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.datatools.NavigationReference} object.
@@ -51,11 +58,10 @@ public class NavigationReferenceItemProvider extends NavigationAxisItemProvider 
 	 * This adds a property descriptor for the Reference feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected void addReferencePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
+			(new ItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_NavigationReference_Reference_feature"),
@@ -65,19 +71,41 @@ public class NavigationReferenceItemProvider extends NavigationAxisItemProvider 
 				 false,
 				 true,
 				 null,
-				 null,
-				 null));
+				 getString("_UI__20ConfigSetUpPropertyCategory"),
+				 null) {
+
+					@Override
+					public Collection<?> getChoiceOfValues(Object object) {
+						NavigationReference this_element = (NavigationReference) object;
+						NavigationPath path = this_element.getPath();
+						EClass source_type = this_element.getSourceType();
+						if ( source_type==null ) {
+							return null;
+						}
+						List<EReference> to_return = source_type.getEAllReferences()
+								.stream()
+								.filter(r -> !r.isMany() || path.isMany()) // only the many if the path requires them
+								.collect(Collectors.toList());
+						return to_return;
+					}
+				
+			});
 	}
 
 	/**
 	 * This returns NavigationReference.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NavigationReference"));
+		EReferenceItemProvider provider = new EReferenceItemProvider(this.getAdapterFactory());
+		NavigationReference navigation = (NavigationReference)object;
+		EReference reference = navigation.getReference();
+		if ( reference == null) { 
+			return super.getImage(object); 
+		}
+		return provider.getImage(reference);
 	}
 
 	/**
@@ -88,7 +116,10 @@ public class NavigationReferenceItemProvider extends NavigationAxisItemProvider 
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_NavigationReference_type");
+		String label = ((NavigationReference)object).getPathElement();
+		return label == null || label.length() == 0 ?
+			getString("_UI_NavigationReference_type") :
+			getString("_UI_NavigationReference_type") + " " + label;
 	}
 	
 
@@ -102,6 +133,12 @@ public class NavigationReferenceItemProvider extends NavigationAxisItemProvider 
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(NavigationReference.class)) {
+			case DatatoolsPackage.NAVIGATION_REFERENCE__REFERENCE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

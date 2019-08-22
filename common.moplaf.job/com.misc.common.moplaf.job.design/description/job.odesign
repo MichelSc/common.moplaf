@@ -169,6 +169,7 @@
       </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="com.misc.common.moplaf.job.design.Services"/>
+    <ownedJavaExtensions qualifiedClassName="com.misc.common.moplaf.job.util.JobServices"/>
   </ownedViewpoints>
   <extensions xsi:type="properties:ViewExtensionDescription" name="pr_doctasks">
     <metamodels href="../../com.misc.common.moplaf.job.emf/model/job.ecore#/"/>

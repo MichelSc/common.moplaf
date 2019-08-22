@@ -4,9 +4,11 @@ package com.misc.common.moplaf.job.provider;
 
 
 import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.emf.edit.command.CloneCommand;
 import com.misc.common.moplaf.emf.edit.command.FlushCommand;
 import com.misc.common.moplaf.job.Doc;
 import com.misc.common.moplaf.job.JobPackage;
+import com.misc.common.moplaf.job.command.DocCloneCommand;
 import com.misc.common.moplaf.job.command.DocFlushCommand;
 import java.util.Collection;
 import java.util.List;
@@ -77,7 +79,7 @@ public class DocItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10EnabledPropertyCategory"),
 				 null));
 	}
 
@@ -99,7 +101,7 @@ public class DocItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10EnabledPropertyCategory"),
 				 null));
 	}
 
@@ -235,6 +237,8 @@ public class DocItemProvider
 			CommandParameter commandParameter) {
 		if ( commandClass == FlushCommand.class){
 			return new DocFlushCommand((Doc) object); 
+		} else if ( commandClass == CloneCommand.class){
+			return new DocCloneCommand((Doc) object); 
 		}
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand

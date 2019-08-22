@@ -11,12 +11,23 @@
 package com.misc.common.moplaf.emf.editor;
 
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
 
+import org.eclipse.core.runtime.Adapters;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IContributionManager;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.graphics.RGB;
+import org.eclipse.ui.IViewReference;
+import org.eclipse.ui.IViewSite;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 
 import com.misc.common.moplaf.common.Color;
+import com.misc.common.moplaf.common.IMoplafObject;
 
 public class Util {
 
@@ -59,4 +70,60 @@ public class Util {
 		return anInt; 
 	}
 
+	/**
+	 * Returns the objects in the selections.
+	 * <p>
+	 * If the selected objects can be adapted to a IMoplafObject, then this IMoplafObject is returned.
+	 * @param selection
+	 * @return
+	 */
+	public static Object[] getSelectedObjects(ISelection selection) {
+		if (  !selection.isEmpty() && selection instanceof IStructuredSelection) {
+			IStructuredSelection structuredSelection = (IStructuredSelection)selection;
+			LinkedList<Object> objects_selected = new LinkedList<Object>();
+			@SuppressWarnings("rawtypes")
+			Iterator iterator = structuredSelection.iterator();
+			while (iterator.hasNext()) {
+				Object selected = iterator.next();
+				Object adapted = Adapters.adapt(selected, IMoplafObject.class);
+				if ( adapted != null ) {
+					objects_selected.add(adapted);
+				} else {
+					objects_selected.add(selected);
+				}
+			}
+			return objects_selected.toArray();
+		} // there is a selection
+		return null;
+	}
+	
+	public static int getMaxSecondaryIdFromView(String viewId) {
+		int result = 0;
+		for ( IViewReference vr : PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getViewReferences() )
+		{
+			if( vr.getView(false) != null ) {
+				IViewSite vs = vr.getView(false).getViewSite();
+				if( vs != null && vs.getId().equals(viewId) ) {
+					int sec_id = 0;
+					try {
+						sec_id = Integer.parseInt( vs.getSecondaryId() );
+					}
+					catch ( NumberFormatException e ) {
+						// do nothing
+					}
+					if( sec_id > result ) {
+						result = sec_id;
+					}
+				}
+			}
+		}
+		
+		return result;
+	}
+	
+	public static void showView(IWorkbenchPage page, String viewId) 
+			throws PartInitException {
+		int sec_id = Util.getMaxSecondaryIdFromView(viewId) + 1;
+		page.showView(viewId, Integer.toString(sec_id), IWorkbenchPage.VIEW_VISIBLE);
+	}
 }

@@ -5,6 +5,7 @@ package com.misc.common.moplaf.datatools.provider;
 
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
 
+import com.misc.common.moplaf.datatools.NavigationAxis;
 import java.util.Collection;
 import java.util.List;
 
@@ -20,7 +21,9 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.datatools.NavigationAxis} object.
@@ -59,6 +62,9 @@ public class NavigationAxisItemProvider
 
 			addSourceTypePropertyDescriptor(object);
 			addTargetTypePropertyDescriptor(object);
+			addPreviousPropertyDescriptor(object);
+			addPathElementPropertyDescriptor(object);
+			addNextPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -77,11 +83,11 @@ public class NavigationAxisItemProvider
 				 getString("_UI_NavigationAxis_SourceType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationAxis_SourceType_feature", "_UI_NavigationAxis_type"),
 				 DatatoolsPackage.Literals.NAVIGATION_AXIS__SOURCE_TYPE,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__25ConfigDetailPropertyCategory"),
 				 null));
 	}
 
@@ -99,11 +105,77 @@ public class NavigationAxisItemProvider
 				 getString("_UI_NavigationAxis_TargetType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationAxis_TargetType_feature", "_UI_NavigationAxis_type"),
 				 DatatoolsPackage.Literals.NAVIGATION_AXIS__TARGET_TYPE,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
+				 getString("_UI__25ConfigDetailPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Previous feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPreviousPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NavigationAxis_Previous_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationAxis_Previous_feature", "_UI_NavigationAxis_type"),
+				 DatatoolsPackage.Literals.NAVIGATION_AXIS__PREVIOUS,
+				 false,
+				 false,
+				 false,
 				 null,
+				 getString("_UI__25ConfigDetailPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Path Element feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPathElementPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NavigationAxis_PathElement_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationAxis_PathElement_feature", "_UI_NavigationAxis_type"),
+				 DatatoolsPackage.Literals.NAVIGATION_AXIS__PATH_ELEMENT,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__25ConfigDetailPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Next feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNextPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NavigationAxis_Next_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NavigationAxis_Next_feature", "_UI_NavigationAxis_type"),
+				 DatatoolsPackage.Literals.NAVIGATION_AXIS__NEXT,
+				 false,
+				 false,
+				 false,
+				 null,
+				 getString("_UI__25ConfigDetailPropertyCategory"),
 				 null));
 	}
 
@@ -126,7 +198,10 @@ public class NavigationAxisItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_NavigationAxis_type");
+		String label = ((NavigationAxis)object).getPathElement();
+		return label == null || label.length() == 0 ?
+			getString("_UI_NavigationAxis_type") :
+			getString("_UI_NavigationAxis_type") + " " + label;
 	}
 	
 
@@ -140,6 +215,12 @@ public class NavigationAxisItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(NavigationAxis.class)) {
+			case DatatoolsPackage.NAVIGATION_AXIS__PATH_ELEMENT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

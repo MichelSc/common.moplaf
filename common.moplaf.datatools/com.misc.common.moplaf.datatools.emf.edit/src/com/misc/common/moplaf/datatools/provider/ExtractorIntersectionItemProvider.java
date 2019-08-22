@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.datatools.provider;
 
 
+import com.misc.common.moplaf.datatools.ExtractorIntersection;
 import java.util.Collection;
 import java.util.List;
 
@@ -44,17 +45,6 @@ public class ExtractorIntersectionItemProvider extends ExtractorLogicItemProvide
 	}
 
 	/**
-	 * This returns ExtractorIntersection.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExtractorIntersection"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,7 +52,10 @@ public class ExtractorIntersectionItemProvider extends ExtractorLogicItemProvide
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ExtractorIntersection_type");
+		String label = ((ExtractorIntersection)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ExtractorIntersection_type") :
+			getString("_UI_ExtractorIntersection_type") + " " + label;
 	}
 	
 

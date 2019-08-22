@@ -6,8 +6,10 @@ import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.NavigationDowncast;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -80,6 +82,23 @@ public class NavigationDowncastImpl extends NavigationAxisImpl implements Naviga
 	public EClass basicGetDowncastType() {
 		return downcastType;
 	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EClass basicGetTargetType() {
+		return this.getDowncastType();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public String getPathElement() {
+		return this.getDowncastType()==null ? "null" : this.getDowncastType().getName();
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -151,5 +170,37 @@ public class NavigationDowncastImpl extends NavigationAxisImpl implements Naviga
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public EObject navigate(EObject in) {
+		EClass type = this.getDowncastType();
+		if ( type == null ) {
+			return null;
+		}
+		if ( !type.isInstance(in) ) {
+			return null;
+		}
+		return in;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public EList<EObject> navigateMany(EObject in) {
+		EObject out = this.navigate(in);
+		if( out==null) {
+			return null;
+		}
+		BasicEList<EObject> list = new BasicEList<EObject>();
+		list.add(out);
+		return list;
+	}
+
 
 } //NavigationDowncastImpl

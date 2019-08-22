@@ -5,14 +5,8 @@
 -->
 
 <plugin>
+   <extension-point id="datatool_factory" name="Datatool Factory" schema="schema/datatool_factory.exsd"/>
 
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated dataextractor -->
-      <package
-            uri="http://com.misc.common.moplaf.dataextractor"
-            class="com.misc.common.moplaf.dataextractor.DataextractorPackage"
-            genModel="model/dataextractor.genmodel"/>
-   </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated datatools -->

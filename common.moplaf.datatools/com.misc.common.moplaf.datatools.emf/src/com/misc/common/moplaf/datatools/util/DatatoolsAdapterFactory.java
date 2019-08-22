@@ -68,52 +68,40 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	protected DatatoolsSwitch<Adapter> modelSwitch =
 		new DatatoolsSwitch<Adapter>() {
 			@Override
-			public Adapter caseCategorizer(Categorizer object) {
-				return createCategorizerAdapter();
+			public Adapter caseNavigationPath(NavigationPath object) {
+				return createNavigationPathAdapter();
 			}
 			@Override
-			public Adapter caseCategory(Category object) {
-				return createCategoryAdapter();
+			public Adapter caseNavigationAxis(NavigationAxis object) {
+				return createNavigationAxisAdapter();
 			}
 			@Override
-			public Adapter caseCategoryCriteria(CategoryCriteria object) {
-				return createCategoryCriteriaAdapter();
+			public Adapter caseNavigationReference(NavigationReference object) {
+				return createNavigationReferenceAdapter();
+			}
+			@Override
+			public Adapter caseNavigationDowncast(NavigationDowncast object) {
+				return createNavigationDowncastAdapter();
+			}
+			@Override
+			public Adapter caseDataToolContext(DataToolContext object) {
+				return createDataToolContextAdapter();
+			}
+			@Override
+			public Adapter caseDataTool(DataTool object) {
+				return createDataToolAdapter();
+			}
+			@Override
+			public Adapter caseDataToolAbstract(DataToolAbstract object) {
+				return createDataToolAbstractAdapter();
 			}
 			@Override
 			public Adapter caseExtractor(Extractor object) {
 				return createExtractorAdapter();
 			}
 			@Override
-			public Adapter caseColumnizer(Columnizer object) {
-				return createColumnizerAdapter();
-			}
-			@Override
-			public Adapter caseCategoryAbstract(CategoryAbstract object) {
-				return createCategoryAbstractAdapter();
-			}
-			@Override
 			public Adapter caseExtractorType(ExtractorType object) {
 				return createExtractorTypeAdapter();
-			}
-			@Override
-			public Adapter caseExtractorCompound(ExtractorCompound object) {
-				return createExtractorCompoundAdapter();
-			}
-			@Override
-			public Adapter caseExtractatorPipe(ExtractatorPipe object) {
-				return createExtractatorPipeAdapter();
-			}
-			@Override
-			public Adapter caseExtractorLogic(ExtractorLogic object) {
-				return createExtractorLogicAdapter();
-			}
-			@Override
-			public Adapter caseExtractorUnion(ExtractorUnion object) {
-				return createExtractorUnionAdapter();
-			}
-			@Override
-			public Adapter caseExtractorIntersection(ExtractorIntersection object) {
-				return createExtractorIntersectionAdapter();
 			}
 			@Override
 			public Adapter caseExtractorPath(ExtractorPath object) {
@@ -124,32 +112,76 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 				return createExtractorOclAdapter();
 			}
 			@Override
-			public Adapter caseExtractorFilter(ExtractorFilter object) {
-				return createExtractorFilterAdapter();
+			public Adapter caseFilter(Filter object) {
+				return createFilterAdapter();
 			}
 			@Override
-			public Adapter caseExtractorFilterAttribute(ExtractorFilterAttribute object) {
-				return createExtractorFilterAttributeAdapter();
+			public Adapter caseFilterAttribute(FilterAttribute object) {
+				return createFilterAttributeAdapter();
 			}
 			@Override
-			public Adapter caseExtractorFilterAttributeInt(ExtractorFilterAttributeInt object) {
-				return createExtractorFilterAttributeIntAdapter();
+			public Adapter caseFilterAttributeString(FilterAttributeString object) {
+				return createFilterAttributeStringAdapter();
 			}
 			@Override
-			public Adapter caseExtractorFilterOcl(ExtractorFilterOcl object) {
-				return createExtractorFilterOclAdapter();
+			public Adapter caseFilterRegex(FilterRegex object) {
+				return createFilterRegexAdapter();
 			}
 			@Override
-			public Adapter caseCategoryCriteriaAttribute(CategoryCriteriaAttribute object) {
-				return createCategoryCriteriaAttributeAdapter();
+			public Adapter caseFilterAttributeInt(FilterAttributeInt object) {
+				return createFilterAttributeIntAdapter();
 			}
 			@Override
-			public Adapter caseCategoryCriteriaOcl(CategoryCriteriaOcl object) {
-				return createCategoryCriteriaOclAdapter();
+			public Adapter caseFilterAttributeIntRange(FilterAttributeIntRange object) {
+				return createFilterAttributeIntRangeAdapter();
 			}
 			@Override
-			public Adapter caseColumnizerExplicit(ColumnizerExplicit object) {
-				return createColumnizerExplicitAdapter();
+			public Adapter caseFilterOcl(FilterOcl object) {
+				return createFilterOclAdapter();
+			}
+			@Override
+			public Adapter caseFilterCompound(FilterCompound object) {
+				return createFilterCompoundAdapter();
+			}
+			@Override
+			public Adapter caseFilterAND(FilterAND object) {
+				return createFilterANDAdapter();
+			}
+			@Override
+			public Adapter caseFilterOR(FilterOR object) {
+				return createFilterORAdapter();
+			}
+			@Override
+			public Adapter caseExtractorCompound(ExtractorCompound object) {
+				return createExtractorCompoundAdapter();
+			}
+			@Override
+			public Adapter caseExtractorLogic(ExtractorLogic object) {
+				return createExtractorLogicAdapter();
+			}
+			@Override
+			public Adapter caseExtractorPipe(ExtractorPipe object) {
+				return createExtractorPipeAdapter();
+			}
+			@Override
+			public Adapter caseExtractorUnion(ExtractorUnion object) {
+				return createExtractorUnionAdapter();
+			}
+			@Override
+			public Adapter caseExtractorIntersection(ExtractorIntersection object) {
+				return createExtractorIntersectionAdapter();
+			}
+			@Override
+			public Adapter caseColumnizers(Columnizers object) {
+				return createColumnizersAdapter();
+			}
+			@Override
+			public Adapter caseColumnizerAbstract(ColumnizerAbstract object) {
+				return createColumnizerAbstractAdapter();
+			}
+			@Override
+			public Adapter caseColumnizer(Columnizer object) {
+				return createColumnizerAdapter();
 			}
 			@Override
 			public Adapter caseColumnizerColumn(ColumnizerColumn object) {
@@ -164,20 +196,32 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 				return createColumnizerColumnOclAdapter();
 			}
 			@Override
-			public Adapter caseNavigationPath(NavigationPath object) {
-				return createNavigationPathAdapter();
+			public Adapter caseCategoryFactory(CategoryFactory object) {
+				return createCategoryFactoryAdapter();
 			}
 			@Override
-			public Adapter caseNavigationReference(NavigationReference object) {
-				return createNavigationReferenceAdapter();
+			public Adapter caseCategoryAbstract(CategoryAbstract object) {
+				return createCategoryAbstractAdapter();
 			}
 			@Override
-			public Adapter caseNavigationDowncast(NavigationDowncast object) {
-				return createNavigationDowncastAdapter();
+			public Adapter caseCategory(Category object) {
+				return createCategoryAdapter();
 			}
 			@Override
-			public Adapter caseNavigationAxis(NavigationAxis object) {
-				return createNavigationAxisAdapter();
+			public Adapter caseCategorizer(Categorizer object) {
+				return createCategorizerAdapter();
+			}
+			@Override
+			public Adapter caseCategorizerStructuralFeature(CategorizerStructuralFeature object) {
+				return createCategorizerStructuralFeatureAdapter();
+			}
+			@Override
+			public Adapter caseCategorizerOcl(CategorizerOcl object) {
+				return createCategorizerOclAdapter();
+			}
+			@Override
+			public Adapter caseCategorizerSubject(CategorizerSubject object) {
+				return createCategorizerSubjectAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -228,20 +272,6 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.CategoryCriteria <em>Category Criteria</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datatools.CategoryCriteria
-	 * @generated
-	 */
-	public Adapter createCategoryCriteriaAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.Extractor <em>Extractor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -270,16 +300,58 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.CategoryAbstract <em>Category Abstract</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.CategorizerStructuralFeature <em>Categorizer Structural Feature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datatools.CategoryAbstract
+	 * @see com.misc.common.moplaf.datatools.CategorizerStructuralFeature
 	 * @generated
 	 */
-	public Adapter createCategoryAbstractAdapter() {
+	public Adapter createCategorizerStructuralFeatureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.CategorizerOcl <em>Categorizer Ocl</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.CategorizerOcl
+	 * @generated
+	 */
+	public Adapter createCategorizerOclAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.CategorizerSubject <em>Categorizer Subject</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.CategorizerSubject
+	 * @generated
+	 */
+	public Adapter createCategorizerSubjectAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.CategoryFactory <em>Category Factory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.CategoryFactory
+	 * @generated
+	 */
+	public Adapter createCategoryFactoryAdapter() {
 		return null;
 	}
 
@@ -312,16 +384,16 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.ExtractatorPipe <em>Extractator Pipe</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.ExtractorPipe <em>Extractor Pipe</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datatools.ExtractatorPipe
+	 * @see com.misc.common.moplaf.datatools.ExtractorPipe
 	 * @generated
 	 */
-	public Adapter createExtractatorPipeAdapter() {
+	public Adapter createExtractorPipeAdapter() {
 		return null;
 	}
 
@@ -368,6 +440,20 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.ColumnizerAbstract <em>Columnizer Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.ColumnizerAbstract
+	 * @generated
+	 */
+	public Adapter createColumnizerAbstractAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.ExtractorPath <em>Extractor Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -396,100 +482,142 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.ExtractorFilter <em>Extractor Filter</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.Filter <em>Filter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datatools.ExtractorFilter
+	 * @see com.misc.common.moplaf.datatools.Filter
 	 * @generated
 	 */
-	public Adapter createExtractorFilterAdapter() {
+	public Adapter createFilterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.ExtractorFilterAttribute <em>Extractor Filter Attribute</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.FilterAttribute <em>Filter Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datatools.ExtractorFilterAttribute
+	 * @see com.misc.common.moplaf.datatools.FilterAttribute
 	 * @generated
 	 */
-	public Adapter createExtractorFilterAttributeAdapter() {
+	public Adapter createFilterAttributeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.ExtractorFilterAttributeInt <em>Extractor Filter Attribute Int</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.FilterAttributeString <em>Filter Attribute String</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datatools.ExtractorFilterAttributeInt
+	 * @see com.misc.common.moplaf.datatools.FilterAttributeString
 	 * @generated
 	 */
-	public Adapter createExtractorFilterAttributeIntAdapter() {
+	public Adapter createFilterAttributeStringAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.ExtractorFilterOcl <em>Extractor Filter Ocl</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.FilterRegex <em>Filter Regex</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datatools.ExtractorFilterOcl
+	 * @see com.misc.common.moplaf.datatools.FilterRegex
 	 * @generated
 	 */
-	public Adapter createExtractorFilterOclAdapter() {
+	public Adapter createFilterRegexAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.CategoryCriteriaAttribute <em>Category Criteria Attribute</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.FilterAttributeInt <em>Filter Attribute Int</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datatools.CategoryCriteriaAttribute
+	 * @see com.misc.common.moplaf.datatools.FilterAttributeInt
 	 * @generated
 	 */
-	public Adapter createCategoryCriteriaAttributeAdapter() {
+	public Adapter createFilterAttributeIntAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.CategoryCriteriaOcl <em>Category Criteria Ocl</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.FilterAttributeIntRange <em>Filter Attribute Int Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datatools.CategoryCriteriaOcl
+	 * @see com.misc.common.moplaf.datatools.FilterAttributeIntRange
 	 * @generated
 	 */
-	public Adapter createCategoryCriteriaOclAdapter() {
+	public Adapter createFilterAttributeIntRangeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.ColumnizerExplicit <em>Columnizer Explicit</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.FilterOcl <em>Filter Ocl</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datatools.ColumnizerExplicit
+	 * @see com.misc.common.moplaf.datatools.FilterOcl
 	 * @generated
 	 */
-	public Adapter createColumnizerExplicitAdapter() {
+	public Adapter createFilterOclAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.FilterCompound <em>Filter Compound</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.FilterCompound
+	 * @generated
+	 */
+	public Adapter createFilterCompoundAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.FilterAND <em>Filter AND</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.FilterAND
+	 * @generated
+	 */
+	public Adapter createFilterANDAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.FilterOR <em>Filter OR</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.FilterOR
+	 * @generated
+	 */
+	public Adapter createFilterORAdapter() {
 		return null;
 	}
 
@@ -578,6 +706,20 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.DataToolContext <em>Data Tool Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.DataToolContext
+	 * @generated
+	 */
+	public Adapter createDataToolContextAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.NavigationAxis <em>Navigation Axis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -588,6 +730,62 @@ public class DatatoolsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNavigationAxisAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.Columnizers <em>Columnizers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.Columnizers
+	 * @generated
+	 */
+	public Adapter createColumnizersAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.CategoryAbstract <em>Category Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.CategoryAbstract
+	 * @generated
+	 */
+	public Adapter createCategoryAbstractAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.DataTool <em>Data Tool</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.DataTool
+	 * @generated
+	 */
+	public Adapter createDataToolAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datatools.DataToolAbstract <em>Data Tool Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.datatools.DataToolAbstract
+	 * @generated
+	 */
+	public Adapter createDataToolAbstractAdapter() {
 		return null;
 	}
 

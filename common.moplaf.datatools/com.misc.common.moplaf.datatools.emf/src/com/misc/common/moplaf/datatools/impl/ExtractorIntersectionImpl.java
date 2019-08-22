@@ -3,7 +3,9 @@
 package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
+import com.misc.common.moplaf.datatools.Extractor;
 import com.misc.common.moplaf.datatools.ExtractorIntersection;
+import com.misc.common.moplaf.datatools.util.ObjectSet;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -33,5 +35,35 @@ public class ExtractorIntersectionImpl extends ExtractorLogicImpl implements Ext
 	protected EClass eStaticClass() {
 		return DatatoolsPackage.Literals.EXTRACTOR_INTERSECTION;
 	}
+	
+	/**
+	 * 
+	 */
+	@Override
+	protected String getTypeDescription() {
+		return "Extractor Intersection";
+	}
+
+
+	/**
+	 * 
+	 */
+	@Override
+	protected ObjectSet extractImpl(ObjectSet ins, int max_elements) {
+		ObjectSet outs = null;
+		boolean complete = ins.isComplete();
+		for( Extractor extractor: this.getExtractors()) {
+			ObjectSet extracted = extractor.extract(ins, max_elements);
+			if ( outs==null ) {
+				outs = extracted; 
+			} else {
+				outs.retainAll(extracted);
+			}
+			complete = complete && extracted.isComplete();
+		}
+		outs.setComplete(complete);
+		return outs;
+	}
+
 
 } //ExtractorIntersectionImpl

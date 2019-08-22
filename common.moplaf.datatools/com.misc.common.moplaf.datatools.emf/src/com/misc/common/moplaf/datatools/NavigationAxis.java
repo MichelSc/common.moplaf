@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.datatools;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
@@ -16,10 +17,14 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.datatools.NavigationAxis#getSourceType <em>Source Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.NavigationAxis#getTargetType <em>Target Type</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.NavigationAxis#getPath <em>Path</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.NavigationAxis#getPrevious <em>Previous</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.NavigationAxis#getPathElement <em>Path Element</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.NavigationAxis#getNext <em>Next</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getNavigationAxis()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface NavigationAxis extends EObject {
@@ -32,22 +37,11 @@ public interface NavigationAxis extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source Type</em>' reference.
-	 * @see #setSourceType(EClass)
 	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getNavigationAxis_SourceType()
-	 * @model
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	EClass getSourceType();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.NavigationAxis#getSourceType <em>Source Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source Type</em>' reference.
-	 * @see #getSourceType()
-	 * @generated
-	 */
-	void setSourceType(EClass value);
 
 	/**
 	 * Returns the value of the '<em><b>Target Type</b></em>' reference.
@@ -58,21 +52,99 @@ public interface NavigationAxis extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target Type</em>' reference.
-	 * @see #setTargetType(EClass)
 	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getNavigationAxis_TargetType()
-	 * @model
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	EClass getTargetType();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.NavigationAxis#getTargetType <em>Target Type</em>}' reference.
+	 * Returns the value of the '<em><b>Path</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.datatools.NavigationPath#getPathElements <em>Path Elements</em>}'.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Path</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Target Type</em>' reference.
-	 * @see #getTargetType()
+	 * @return the value of the '<em>Path</em>' container reference.
+	 * @see #setPath(NavigationPath)
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getNavigationAxis_Path()
+	 * @see com.misc.common.moplaf.datatools.NavigationPath#getPathElements
+	 * @model opposite="PathElements" required="true" transient="false"
 	 * @generated
 	 */
-	void setTargetType(EClass value);
+	NavigationPath getPath();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.NavigationAxis#getPath <em>Path</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Path</em>' container reference.
+	 * @see #getPath()
+	 * @generated
+	 */
+	void setPath(NavigationPath value);
+
+	/**
+	 * Returns the value of the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Previous</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Previous</em>' reference.
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getNavigationAxis_Previous()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	NavigationAxis getPrevious();
+
+	/**
+	 * Returns the value of the '<em><b>Path Element</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Path Element</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Path Element</em>' attribute.
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getNavigationAxis_PathElement()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getPathElement();
+
+	/**
+	 * Returns the value of the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Next</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Next</em>' reference.
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getNavigationAxis_Next()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	NavigationAxis getNext();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EObject navigate(EObject in);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EList<EObject> navigateMany(EObject in);
 
 } // NavigationAxis

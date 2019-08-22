@@ -68,19 +68,8 @@ public class ExtractorOclItemProvider extends ExtractorItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ConfigPropertyCategory"),
 				 null));
-	}
-
-	/**
-	 * This returns ExtractorOcl.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExtractorOcl"));
 	}
 
 	/**
@@ -91,7 +80,7 @@ public class ExtractorOclItemProvider extends ExtractorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ExtractorOcl)object).getExpression();
+		String label = ((ExtractorOcl)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ExtractorOcl_type") :
 			getString("_UI_ExtractorOcl_type") + " " + label;

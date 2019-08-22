@@ -2,9 +2,10 @@
  */
 package com.misc.common.moplaf.datatools.impl;
 
+import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.datatools.*;
-
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -56,26 +57,25 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case DatatoolsPackage.CATEGORIZER: return createCategorizer();
-			case DatatoolsPackage.CATEGORY: return createCategory();
-			case DatatoolsPackage.EXTRACTOR_TYPE: return createExtractorType();
-			case DatatoolsPackage.EXTRACTOR_COMPOUND: return createExtractorCompound();
-			case DatatoolsPackage.EXTRACTATOR_PIPE: return createExtractatorPipe();
-			case DatatoolsPackage.EXTRACTOR_UNION: return createExtractorUnion();
-			case DatatoolsPackage.EXTRACTOR_INTERSECTION: return createExtractorIntersection();
-			case DatatoolsPackage.EXTRACTOR_PATH: return createExtractorPath();
-			case DatatoolsPackage.EXTRACTOR_OCL: return createExtractorOcl();
-			case DatatoolsPackage.EXTRACTOR_FILTER_ATTRIBUTE_INT: return createExtractorFilterAttributeInt();
-			case DatatoolsPackage.EXTRACTOR_FILTER_OCL: return createExtractorFilterOcl();
-			case DatatoolsPackage.CATEGORY_CRITERIA_ATTRIBUTE: return createCategoryCriteriaAttribute();
-			case DatatoolsPackage.CATEGORY_CRITERIA_OCL: return createCategoryCriteriaOcl();
-			case DatatoolsPackage.COLUMNIZER_EXPLICIT: return createColumnizerExplicit();
-			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE: return createColumnizerColumnAttribute();
-			case DatatoolsPackage.COLUMNIZER_COLUMN_OCL: return createColumnizerColumnOcl();
-			case DatatoolsPackage.NAVIGATION_PATH: return createNavigationPath();
 			case DatatoolsPackage.NAVIGATION_REFERENCE: return createNavigationReference();
 			case DatatoolsPackage.NAVIGATION_DOWNCAST: return createNavigationDowncast();
-			case DatatoolsPackage.NAVIGATION_AXIS: return createNavigationAxis();
+			case DatatoolsPackage.DATA_TOOL_CONTEXT: return createDataToolContext();
+			case DatatoolsPackage.EXTRACTOR_TYPE: return createExtractorType();
+			case DatatoolsPackage.EXTRACTOR_PATH: return createExtractorPath();
+			case DatatoolsPackage.FILTER_REGEX: return createFilterRegex();
+			case DatatoolsPackage.FILTER_ATTRIBUTE_INT_RANGE: return createFilterAttributeIntRange();
+			case DatatoolsPackage.FILTER_AND: return createFilterAND();
+			case DatatoolsPackage.FILTER_OR: return createFilterOR();
+			case DatatoolsPackage.EXTRACTOR_COMPOUND: return createExtractorCompound();
+			case DatatoolsPackage.EXTRACTOR_PIPE: return createExtractorPipe();
+			case DatatoolsPackage.EXTRACTOR_UNION: return createExtractorUnion();
+			case DatatoolsPackage.EXTRACTOR_INTERSECTION: return createExtractorIntersection();
+			case DatatoolsPackage.COLUMNIZERS: return createColumnizers();
+			case DatatoolsPackage.COLUMNIZER_ABSTRACT: return createColumnizerAbstract();
+			case DatatoolsPackage.COLUMNIZER: return createColumnizer();
+			case DatatoolsPackage.COLUMNIZER_COLUMN_ATTRIBUTE: return createColumnizerColumnAttribute();
+			case DatatoolsPackage.CATEGORY: return createCategory();
+			case DatatoolsPackage.CATEGORIZER_STRUCTURAL_FEATURE: return createCategorizerStructuralFeature();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -86,9 +86,37 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Categorizer createCategorizer() {
-		CategorizerImpl categorizer = new CategorizerImpl();
-		return categorizer;
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case DatatoolsPackage.DATA_TOOL_TYPE:
+				return createDataToolTypeFromString(eDataType, initialValue);
+			case DatatoolsPackage.AGGREGATION_TYPE:
+				return createAggregationTypeFromString(eDataType, initialValue);
+			case DatatoolsPackage.IPROPERTIES_PROVIDER:
+				return createIPropertiesProviderFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case DatatoolsPackage.DATA_TOOL_TYPE:
+				return convertDataToolTypeToString(eDataType, instanceValue);
+			case DatatoolsPackage.AGGREGATION_TYPE:
+				return convertAggregationTypeToString(eDataType, instanceValue);
+			case DatatoolsPackage.IPROPERTIES_PROVIDER:
+				return convertIPropertiesProviderToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
 	}
 
 	/**
@@ -99,6 +127,16 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	public Category createCategory() {
 		CategoryImpl category = new CategoryImpl();
 		return category;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CategorizerStructuralFeature createCategorizerStructuralFeature() {
+		CategorizerStructuralFeatureImpl categorizerStructuralFeature = new CategorizerStructuralFeatureImpl();
+		return categorizerStructuralFeature;
 	}
 
 	/**
@@ -126,9 +164,9 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExtractatorPipe createExtractatorPipe() {
-		ExtractatorPipeImpl extractatorPipe = new ExtractatorPipeImpl();
-		return extractatorPipe;
+	public ExtractorPipe createExtractorPipe() {
+		ExtractorPipeImpl extractorPipe = new ExtractorPipeImpl();
+		return extractorPipe;
 	}
 
 	/**
@@ -156,6 +194,26 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ColumnizerAbstract createColumnizerAbstract() {
+		ColumnizerAbstractImpl columnizerAbstract = new ColumnizerAbstractImpl();
+		return columnizerAbstract;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Columnizer createColumnizer() {
+		ColumnizerImpl columnizer = new ColumnizerImpl();
+		return columnizer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ExtractorPath createExtractorPath() {
 		ExtractorPathImpl extractorPath = new ExtractorPathImpl();
 		return extractorPath;
@@ -166,9 +224,9 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExtractorOcl createExtractorOcl() {
-		ExtractorOclImpl extractorOcl = new ExtractorOclImpl();
-		return extractorOcl;
+	public FilterRegex createFilterRegex() {
+		FilterRegexImpl filterRegex = new FilterRegexImpl();
+		return filterRegex;
 	}
 
 	/**
@@ -176,9 +234,9 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExtractorFilterAttributeInt createExtractorFilterAttributeInt() {
-		ExtractorFilterAttributeIntImpl extractorFilterAttributeInt = new ExtractorFilterAttributeIntImpl();
-		return extractorFilterAttributeInt;
+	public FilterAttributeIntRange createFilterAttributeIntRange() {
+		FilterAttributeIntRangeImpl filterAttributeIntRange = new FilterAttributeIntRangeImpl();
+		return filterAttributeIntRange;
 	}
 
 	/**
@@ -186,9 +244,9 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExtractorFilterOcl createExtractorFilterOcl() {
-		ExtractorFilterOclImpl extractorFilterOcl = new ExtractorFilterOclImpl();
-		return extractorFilterOcl;
+	public FilterAND createFilterAND() {
+		FilterANDImpl filterAND = new FilterANDImpl();
+		return filterAND;
 	}
 
 	/**
@@ -196,29 +254,9 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CategoryCriteriaAttribute createCategoryCriteriaAttribute() {
-		CategoryCriteriaAttributeImpl categoryCriteriaAttribute = new CategoryCriteriaAttributeImpl();
-		return categoryCriteriaAttribute;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CategoryCriteriaOcl createCategoryCriteriaOcl() {
-		CategoryCriteriaOclImpl categoryCriteriaOcl = new CategoryCriteriaOclImpl();
-		return categoryCriteriaOcl;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ColumnizerExplicit createColumnizerExplicit() {
-		ColumnizerExplicitImpl columnizerExplicit = new ColumnizerExplicitImpl();
-		return columnizerExplicit;
+	public FilterOR createFilterOR() {
+		FilterORImpl filterOR = new FilterORImpl();
+		return filterOR;
 	}
 
 	/**
@@ -229,26 +267,6 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	public ColumnizerColumnAttribute createColumnizerColumnAttribute() {
 		ColumnizerColumnAttributeImpl columnizerColumnAttribute = new ColumnizerColumnAttributeImpl();
 		return columnizerColumnAttribute;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ColumnizerColumnOcl createColumnizerColumnOcl() {
-		ColumnizerColumnOclImpl columnizerColumnOcl = new ColumnizerColumnOclImpl();
-		return columnizerColumnOcl;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NavigationPath createNavigationPath() {
-		NavigationPathImpl navigationPath = new NavigationPathImpl();
-		return navigationPath;
 	}
 
 	/**
@@ -276,9 +294,77 @@ public class DatatoolsFactoryImpl extends EFactoryImpl implements DatatoolsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NavigationAxis createNavigationAxis() {
-		NavigationAxisImpl navigationAxis = new NavigationAxisImpl();
-		return navigationAxis;
+	public DataToolContext createDataToolContext() {
+		DataToolContextImpl dataToolContext = new DataToolContextImpl();
+		return dataToolContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Columnizers createColumnizers() {
+		ColumnizersImpl columnizers = new ColumnizersImpl();
+		return columnizers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataToolType createDataToolTypeFromString(EDataType eDataType, String initialValue) {
+		DataToolType result = DataToolType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDataToolTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AggregationType createAggregationTypeFromString(EDataType eDataType, String initialValue) {
+		AggregationType result = AggregationType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertAggregationTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IPropertiesProvider createIPropertiesProviderFromString(EDataType eDataType, String initialValue) {
+		return (IPropertiesProvider)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertIPropertiesProviderToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

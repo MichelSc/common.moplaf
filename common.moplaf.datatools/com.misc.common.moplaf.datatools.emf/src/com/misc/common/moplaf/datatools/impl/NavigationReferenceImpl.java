@@ -6,8 +6,10 @@ import com.misc.common.moplaf.datatools.DatatoolsPackage;
 import com.misc.common.moplaf.datatools.NavigationReference;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -85,6 +87,28 @@ public class NavigationReferenceImpl extends NavigationAxisImpl implements Navig
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public EClass basicGetTargetType() {
+		EReference reference = this.getReference();
+		if ( reference == null ) {
+			return null;
+		}
+		return reference.getEReferenceType();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public String getPathElement() {
+		return this.getReference()==null ? "null" : this.getReference().getName();
+	}
+
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setReference(EReference newReference) {
@@ -153,4 +177,48 @@ public class NavigationReferenceImpl extends NavigationAxisImpl implements Navig
 		return super.eIsSet(featureID);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public EObject navigate(EObject in) {
+		EReference reference = this.getReference();
+		if ( reference==null ) {
+			return null;
+		} else if ( reference.isMany() ) {
+			return null;
+		} else if ( in ==null) {
+			return null;
+		}
+		
+		EObject out = (EObject) in.eGet(this.getReference());
+		return out;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public EList<EObject> navigateMany(EObject in) {
+		EReference reference = this.getReference();
+		if ( reference==null ) {
+			return null;
+		} else if ( in ==null ) {
+			return null;
+		}
+		Object value = in.eGet(reference);
+		if ( reference.isMany()) {
+			EList<EObject> outs = (EList<EObject>)value;
+			return outs;
+		} else {
+			if ( value!=null) {
+				BasicEList<EObject> list = new BasicEList<EObject>();
+				list.add((EObject) value);
+				return list;
+			}
+		}
+		return null;
+	}
 } //NavigationReferenceImpl

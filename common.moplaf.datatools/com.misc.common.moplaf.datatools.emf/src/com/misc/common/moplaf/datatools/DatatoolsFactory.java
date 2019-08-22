@@ -22,15 +22,6 @@ public interface DatatoolsFactory extends EFactory {
 	DatatoolsFactory eINSTANCE = com.misc.common.moplaf.datatools.impl.DatatoolsFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Categorizer</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Categorizer</em>'.
-	 * @generated
-	 */
-	Categorizer createCategorizer();
-
-	/**
 	 * Returns a new object of class '<em>Category</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38,6 +29,15 @@ public interface DatatoolsFactory extends EFactory {
 	 * @generated
 	 */
 	Category createCategory();
+
+	/**
+	 * Returns a new object of class '<em>Categorizer Structural Feature</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Categorizer Structural Feature</em>'.
+	 * @generated
+	 */
+	CategorizerStructuralFeature createCategorizerStructuralFeature();
 
 	/**
 	 * Returns a new object of class '<em>Extractor Type</em>'.
@@ -58,13 +58,13 @@ public interface DatatoolsFactory extends EFactory {
 	ExtractorCompound createExtractorCompound();
 
 	/**
-	 * Returns a new object of class '<em>Extractator Pipe</em>'.
+	 * Returns a new object of class '<em>Extractor Pipe</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Extractator Pipe</em>'.
+	 * @return a new object of class '<em>Extractor Pipe</em>'.
 	 * @generated
 	 */
-	ExtractatorPipe createExtractatorPipe();
+	ExtractorPipe createExtractorPipe();
 
 	/**
 	 * Returns a new object of class '<em>Extractor Union</em>'.
@@ -85,6 +85,24 @@ public interface DatatoolsFactory extends EFactory {
 	ExtractorIntersection createExtractorIntersection();
 
 	/**
+	 * Returns a new object of class '<em>Columnizer Abstract</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Columnizer Abstract</em>'.
+	 * @generated
+	 */
+	ColumnizerAbstract createColumnizerAbstract();
+
+	/**
+	 * Returns a new object of class '<em>Columnizer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Columnizer</em>'.
+	 * @generated
+	 */
+	Columnizer createColumnizer();
+
+	/**
 	 * Returns a new object of class '<em>Extractor Path</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -94,58 +112,40 @@ public interface DatatoolsFactory extends EFactory {
 	ExtractorPath createExtractorPath();
 
 	/**
-	 * Returns a new object of class '<em>Extractor Ocl</em>'.
+	 * Returns a new object of class '<em>Filter Regex</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Extractor Ocl</em>'.
+	 * @return a new object of class '<em>Filter Regex</em>'.
 	 * @generated
 	 */
-	ExtractorOcl createExtractorOcl();
+	FilterRegex createFilterRegex();
 
 	/**
-	 * Returns a new object of class '<em>Extractor Filter Attribute Int</em>'.
+	 * Returns a new object of class '<em>Filter Attribute Int Range</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Extractor Filter Attribute Int</em>'.
+	 * @return a new object of class '<em>Filter Attribute Int Range</em>'.
 	 * @generated
 	 */
-	ExtractorFilterAttributeInt createExtractorFilterAttributeInt();
+	FilterAttributeIntRange createFilterAttributeIntRange();
 
 	/**
-	 * Returns a new object of class '<em>Extractor Filter Ocl</em>'.
+	 * Returns a new object of class '<em>Filter AND</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Extractor Filter Ocl</em>'.
+	 * @return a new object of class '<em>Filter AND</em>'.
 	 * @generated
 	 */
-	ExtractorFilterOcl createExtractorFilterOcl();
+	FilterAND createFilterAND();
 
 	/**
-	 * Returns a new object of class '<em>Category Criteria Attribute</em>'.
+	 * Returns a new object of class '<em>Filter OR</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Category Criteria Attribute</em>'.
+	 * @return a new object of class '<em>Filter OR</em>'.
 	 * @generated
 	 */
-	CategoryCriteriaAttribute createCategoryCriteriaAttribute();
-
-	/**
-	 * Returns a new object of class '<em>Category Criteria Ocl</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Category Criteria Ocl</em>'.
-	 * @generated
-	 */
-	CategoryCriteriaOcl createCategoryCriteriaOcl();
-
-	/**
-	 * Returns a new object of class '<em>Columnizer Explicit</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Columnizer Explicit</em>'.
-	 * @generated
-	 */
-	ColumnizerExplicit createColumnizerExplicit();
+	FilterOR createFilterOR();
 
 	/**
 	 * Returns a new object of class '<em>Columnizer Column Attribute</em>'.
@@ -155,24 +155,6 @@ public interface DatatoolsFactory extends EFactory {
 	 * @generated
 	 */
 	ColumnizerColumnAttribute createColumnizerColumnAttribute();
-
-	/**
-	 * Returns a new object of class '<em>Columnizer Column Ocl</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Columnizer Column Ocl</em>'.
-	 * @generated
-	 */
-	ColumnizerColumnOcl createColumnizerColumnOcl();
-
-	/**
-	 * Returns a new object of class '<em>Navigation Path</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Navigation Path</em>'.
-	 * @generated
-	 */
-	NavigationPath createNavigationPath();
 
 	/**
 	 * Returns a new object of class '<em>Navigation Reference</em>'.
@@ -193,13 +175,22 @@ public interface DatatoolsFactory extends EFactory {
 	NavigationDowncast createNavigationDowncast();
 
 	/**
-	 * Returns a new object of class '<em>Navigation Axis</em>'.
+	 * Returns a new object of class '<em>Data Tool Context</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Navigation Axis</em>'.
+	 * @return a new object of class '<em>Data Tool Context</em>'.
 	 * @generated
 	 */
-	NavigationAxis createNavigationAxis();
+	DataToolContext createDataToolContext();
+
+	/**
+	 * Returns a new object of class '<em>Columnizers</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Columnizers</em>'.
+	 * @generated
+	 */
+	Columnizers createColumnizers();
 
 	/**
 	 * Returns the package supported by this factory.

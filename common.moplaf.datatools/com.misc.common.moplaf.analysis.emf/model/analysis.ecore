@@ -2,9 +2,136 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="analysis" nsURI="http://www.misc.com/common/moplaf/analysis/model/0.1"
     nsPrefix="analysis">
-  <eClassifiers xsi:type="ecore:EClass" name="DocAnalysis" eSuperTypes="../../com.misc.common.moplaf.job.emf/model/job.ecore#//DocRef">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Extractor" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Extractor"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Categorizer" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Categorizer"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Columnizer" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Columnizer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Analysis" eSuperTypes="../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//CategoryAbstract ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataToolContext ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Columnizers ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//CategoryFactory">
+    <eOperations name="flush"/>
+    <eOperations name="refresh"/>
+    <eOperations name="addTool">
+      <eParameters name="tool" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataTool"/>
+    </eOperations>
+    <eOperations name="isValidInput" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback">
+      <eParameters name="doc" eType="ecore:EClass ../../com.misc.common.moplaf.job.emf/model/job.ecore#//Doc"/>
+    </eOperations>
+    <eOperations name="addDoc">
+      <eParameters name="doc" eType="ecore:EClass ../../com.misc.common.moplaf.job.emf/model/job.ecore#//Doc"/>
+    </eOperations>
+    <eOperations name="addElement">
+      <eParameters name="element" eType="#//AnalysisElement"/>
+    </eOperations>
+    <eOperations name="removeElement">
+      <eParameters name="element" eType="#//AnalysisElement"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Categorizers" upperBound="-1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Categorizer"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Extractor" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Extractor"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Complete" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxElements" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1000000"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DataTools" upperBound="-1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataTool"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Domain" lowerBound="1"
+        eType="#//AnalysisDomain" eOpposite="#//AnalysisDomain/Analyses"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RefreshFeedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Remarks" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Docs" upperBound="-1" eType="#//AnalysisDoc"
+        containment="true" eOpposite="#//AnalysisDoc/Analysis"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Sheets" upperBound="-1"
+        eType="#//AnalysisSheet" containment="true" eOpposite="#//AnalysisSheet/Analysis"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AnalysisDomain" eSuperTypes="../../com.misc.common.moplaf.job.emf/model/job.ecore#//TaskDomain ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataToolContext">
+    <eOperations name="getNewDataTools" upperBound="-1" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataTool">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Return an exemplar of every task type supported by this TaskDomain."/>
+      </eAnnotations>
+      <eParameters name="type" eType="ecore:EEnum ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataToolType"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SuperDomain" eType="#//AnalysisDomain"
+        eOpposite="#//AnalysisDomain/SubDomains"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SubDomains" upperBound="-1"
+        eType="#//AnalysisDomain" containment="true" eOpposite="#//AnalysisDomain/SuperDomain"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Analyses" upperBound="-1"
+        eType="#//Analysis" containment="true" eOpposite="#//Analysis/Domain"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DataTools" upperBound="-1"
+        eType="#//DataTools" containment="true" eOpposite="#//DataTools/Domain"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataTools" eSuperTypes="../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataToolContext">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Domain" lowerBound="1"
+        eType="#//AnalysisDomain" eOpposite="#//AnalysisDomain/DataTools"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DataTools" upperBound="-1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//DataTool"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AnalysisDoc" eSuperTypes="../../com.misc.common.moplaf.job.emf/model/job.ecore#//DocRef">
+    <eOperations name="getElements" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject">
+      <eParameters name="category" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//CategoryAbstract"/>
+    </eOperations>
+    <eOperations name="flush"/>
+    <eOperations name="getPropertyAggregation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
+      <eParameters name="provider" eType="ecore:EDataType ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//IPropertiesProvider"/>
+      <eParameters name="property" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="category" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//CategoryAbstract"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Analysis" lowerBound="1"
+        eType="#//Analysis" eOpposite="#//Analysis/Docs"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
+        eType="#//AnalysisElement" containment="true" eOpposite="#//AnalysisElement/Doc"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Complete" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="NbElements" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DocIndex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AnalysisElement" eSuperTypes="../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//CategorizerSubject">
+    <eOperations name="isInCategory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="category" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//CategoryAbstract"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Doc" lowerBound="1" eType="#//AnalysisDoc"
+        eOpposite="#//AnalysisDoc/Elements"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Key" lowerBound="1" eType="#//AnalysisElementKey"
+        eOpposite="#//AnalysisElementKey/Docs"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Element" lowerBound="1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Category" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//CategoryAbstract"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AnalysisElementKey">
+    <eOperations name="getKeyValue" eType="#//ElementKey"/>
+    <eOperations name="getElement" eType="#//AnalysisElement">
+      <eParameters name="doc" eType="#//AnalysisDoc"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Sheet" lowerBound="1" eType="#//AnalysisSheet"
+        eOpposite="#//AnalysisSheet/Keys"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Docs" upperBound="-1" eType="#//AnalysisElement"
+        eOpposite="#//AnalysisElement/Key"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IndexKey" eType="#//ElementKey"
+        transient="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AnalysisSheet">
+    <eOperations name="addElement">
+      <eParameters name="element" eType="#//AnalysisElement"/>
+    </eOperations>
+    <eOperations name="removeElement">
+      <eParameters name="element" eType="#//AnalysisElement"/>
+    </eOperations>
+    <eOperations name="getKeyValue" eType="#//ElementKey">
+      <eParameters name="element" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+    <eOperations name="flush"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Keys" upperBound="-1" eType="#//AnalysisElementKey"
+        containment="true" eOpposite="#//AnalysisElementKey/Sheet"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Analysis" lowerBound="1"
+        eType="#//Analysis" eOpposite="#//Analysis/Sheets"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Columnizer" eType="ecore:EClass ../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//ColumnizerAbstract"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AnalysisCategory" eSuperTypes="../../com.misc.common.moplaf.datatools.emf/model/datatools.ecore#//Category">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Analysis" lowerBound="1"
+        eType="#//Analysis" changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="ElementKey" instanceClassName="com.misc.common.moplaf.analysis.ElementKey"/>
 </ecore:EPackage>

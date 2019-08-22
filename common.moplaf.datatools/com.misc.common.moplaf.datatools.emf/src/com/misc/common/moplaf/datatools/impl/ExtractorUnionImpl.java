@@ -3,7 +3,9 @@
 package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
+import com.misc.common.moplaf.datatools.Extractor;
 import com.misc.common.moplaf.datatools.ExtractorUnion;
+import com.misc.common.moplaf.datatools.util.ObjectSet;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -32,6 +34,32 @@ public class ExtractorUnionImpl extends ExtractorLogicImpl implements ExtractorU
 	@Override
 	protected EClass eStaticClass() {
 		return DatatoolsPackage.Literals.EXTRACTOR_UNION;
+	}
+
+	/**
+	 * 
+	 */
+	@Override
+	protected String getTypeDescription() {
+		return "Extractor Union";
+	}
+
+
+	/**
+	 * 
+	 */
+	@Override
+	protected ObjectSet extractImpl(ObjectSet ins, int max_elements) {
+		ObjectSet outs = new ObjectSet();
+		boolean complete = ins.isComplete();
+		for( Extractor extractor: this.getExtractors()) {
+			ObjectSet out_this_extractor = extractor.extract(ins, max_elements); 
+			outs.addAll(out_this_extractor);
+			complete = complete && out_this_extractor.isComplete();
+		}
+		
+		outs.setComplete(complete);
+		return outs;
 	}
 
 } //ExtractorUnionImpl

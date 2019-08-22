@@ -82,7 +82,12 @@ public class AdapterFactoryAmountEventProvider extends AdapterFactoryArrayConten
 		if ( timePlotsProvider == null ){ return null; }
 		
 		ArrayList<Object> providers = new ArrayList<Object>();
+
 		Object timeplot_asobject = timePlotsProvider.getTimePlots(element);
+		while ( timeplot_asobject instanceof IItemTimePlotsProvider ) {
+			timePlotsProvider = (IItemTimePlotsProvider)timeplot_asobject;
+			timeplot_asobject = timePlotsProvider.getTimePlots(element);
+		}
 		if ( timeplot_asobject == null ) {
 			// no time plot for the element
 		} 

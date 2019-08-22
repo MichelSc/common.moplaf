@@ -5,13 +5,11 @@ package com.misc.common.moplaf.datatools.provider;
 
 import com.misc.common.moplaf.datatools.Category;
 import com.misc.common.moplaf.datatools.DatatoolsPackage;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -34,64 +32,63 @@ public class CategoryItemProvider extends CategoryAbstractItemProvider {
 		super(adapterFactory);
 	}
 
+
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addCriteriaPropertyDescriptor(object);
-			addValuePropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
+		this.itemPropertyDescriptors = null;
+		super.getPropertyDescriptors(object);
+		addCategoryLabelPropertyDescriptor(object);
+		addCategoryValuePropertyDescriptor(object);
+		return this.itemPropertyDescriptors;
 	}
 
+
 	/**
-	 * This adds a property descriptor for the Criteria feature.
+	 * This adds a property descriptor for the Category Label feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCriteriaPropertyDescriptor(Object object) {
+	protected void addCategoryLabelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Category_Criteria_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Category_Criteria_feature", "_UI_Category_type"),
-				 DatatoolsPackage.Literals.CATEGORY__CRITERIA,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Value feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Category_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Category_value_feature", "_UI_Category_type"),
-				 DatatoolsPackage.Literals.CATEGORY__VALUE,
+				 getString("_UI_Category_CategoryLabel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Category_CategoryLabel_feature", "_UI_Category_type"),
+				 DatatoolsPackage.Literals.CATEGORY__CATEGORY_LABEL,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10CategoryPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Category Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCategoryValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Category_CategoryValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Category_CategoryValue_feature", "_UI_Category_type"),
+				 DatatoolsPackage.Literals.CATEGORY__CATEGORY_VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__10CategoryPropertyCategory"),
 				 null));
 	}
 
@@ -99,11 +96,10 @@ public class CategoryItemProvider extends CategoryAbstractItemProvider {
 	 * This returns Category.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Category"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/moplaf_category.png"));
 	}
 
 	/**
@@ -114,8 +110,10 @@ public class CategoryItemProvider extends CategoryAbstractItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Category category = (Category)object;
-		return getString("_UI_Category_type") + " " + category.getNbElements();
+		String label = ((Category)object).getCategoryLabel();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Category_type") :
+			getString("_UI_Category_type") + " " + label;
 	}
 	
 
@@ -131,7 +129,8 @@ public class CategoryItemProvider extends CategoryAbstractItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Category.class)) {
-			case DatatoolsPackage.CATEGORY__VALUE:
+			case DatatoolsPackage.CATEGORY__CATEGORY_LABEL:
+			case DatatoolsPackage.CATEGORY__CATEGORY_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -2,7 +2,6 @@
  */
 package com.misc.common.moplaf.datatools;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Category</b></em>'.
@@ -12,8 +11,8 @@ package com.misc.common.moplaf.datatools;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.datatools.Category#getCriteria <em>Criteria</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.Category#getValue <em>Value</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.Category#getCategoryLabel <em>Category Label</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.Category#getCategoryValue <em>Category Value</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategory()
@@ -21,56 +20,56 @@ package com.misc.common.moplaf.datatools;
  * @generated
  */
 public interface Category extends CategoryAbstract {
-	/**
-	 * Returns the value of the '<em><b>Criteria</b></em>' reference.
+ 	/**
+	 * Returns the value of the '<em><b>Category Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Criteria</em>' reference isn't clear,
+	 * If the meaning of the '<em>Category Label</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Criteria</em>' reference.
-	 * @see #setCriteria(CategoryCriteria)
-	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategory_Criteria()
-	 * @model required="true"
+	 * @return the value of the '<em>Category Label</em>' attribute.
+	 * @see #setCategoryLabel(String)
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategory_CategoryLabel()
+	 * @model ordered="false"
 	 * @generated
 	 */
-	CategoryCriteria getCriteria();
+	String getCategoryLabel();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.Category#getCriteria <em>Criteria</em>}' reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.Category#getCategoryLabel <em>Category Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Criteria</em>' reference.
-	 * @see #getCriteria()
+	 * @param value the new value of the '<em>Category Label</em>' attribute.
+	 * @see #getCategoryLabel()
 	 * @generated
 	 */
-	void setCriteria(CategoryCriteria value);
+	void setCategoryLabel(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Value</b></em>' attribute.
+	 * Returns the value of the '<em><b>Category Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Value</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Category Value</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(Object)
-	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategory_Value()
+	 * @return the value of the '<em>Category Value</em>' attribute.
+	 * @see #setCategoryValue(Object)
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategory_CategoryValue()
 	 * @model
 	 * @generated
 	 */
-	Object getValue();
+	Object getCategoryValue();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.Category#getValue <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.Category#getCategoryValue <em>Category Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value</em>' attribute.
-	 * @see #getValue()
+	 * @param value the new value of the '<em>Category Value</em>' attribute.
+	 * @see #getCategoryValue()
 	 * @generated
 	 */
-	void setValue(Object value);
+	void setCategoryValue(Object value);
 
 } // Category

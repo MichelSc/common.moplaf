@@ -11,74 +11,22 @@
 package com.misc.common.moplaf.timeview.emf.editor.views;
 
 
-import org.eclipse.ui.part.ViewPart;
-import org.eclipse.ui.views.properties.IPropertySheetPage;
-import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.core.resources.IResourceChangeEvent;
-import org.eclipse.core.resources.IResourceChangeListener;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
-import org.eclipse.jface.viewers.*;
-import org.eclipse.jface.action.*;
-import org.eclipse.ui.*;
-import org.eclipse.swt.widgets.Menu;
 
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayLabelProvider;
+import com.misc.common.moplaf.emf.editor.viewers.ViewerAbstract;
+import com.misc.common.moplaf.emf.editor.views.ViewAbstract;
 import com.misc.common.moplaf.timeview.emf.editor.provider.AdapterFactoryIntervalEventProvider;
 import com.misc.common.moplaf.timeview.viewers.GanttViewerAbstract;
 
 
-public abstract class GanttViewAbstract extends ViewPart {
+public abstract class GanttViewAbstract extends ViewAbstract {
 
 	/**
 	 * The ID of the view as specified by the extension.
 	 */
 	public static final String ID = "com.misc.common.moplaf.timeview.views.GanttView";
-
-	private GanttViewerAbstract viewer;
-	private Action action1;
-	private Action action2;
-	//private Action doubleClickAction;
-	private ISelectionListener selectionListener;
-	private IResourceChangeListener resourceListener;
-	private ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-//	private AdapterFactoryIntervalEventProvider intervalEventProvider;
-
-	/**
-	 * Implement the interface ISelectionListener
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	class SiteSelectionListener implements ISelectionListener {
-		@Override
-		public void selectionChanged(IWorkbenchPart part, ISelection selection) {
-			
-			if (  GanttViewAbstract.this.viewer != null && part!= GanttViewAbstract.this) {
-				if (  !selection.isEmpty() 
-				  && selection instanceof IStructuredSelection) {
-					IStructuredSelection structuredSelection = (IStructuredSelection)selection;
-					GanttViewAbstract.this.viewer.setInput(structuredSelection.toArray());
-				} // there is a selection
-				else {
-					GanttViewAbstract.this.viewer.setInput(null);
-				}
-			} // there is a viewer
-		}
-	}
-
-	/**
-	 * The constructor.
-	 */
-	public GanttViewAbstract() {
-	}
-	
-	/**
-	 * Create the viewer, abstract
-	 */
-	protected abstract GanttViewerAbstract createViewer(Composite parent);
-	
+		
 	/**
 	 * This is a callback that will allow us
 	 * to create the viewer and initialize it.
@@ -87,166 +35,21 @@ public abstract class GanttViewAbstract extends ViewPart {
         //GridData gd = new GridData(GridData.FILL_BOTH);
 		AdapterFactoryIntervalEventProvider contentProvider = new AdapterFactoryIntervalEventProvider(this.adapterFactory);
 		//this.intervalEventProvider = new AdapterFactoryIntervalEventProvider(this.adapterFactory);
-        this.viewer = this.createViewer(parent);
-		this.viewer.setIntervalEventProvider(contentProvider);
-        this.viewer.setContentProvider      (contentProvider);
-		this.viewer.setLabelProvider        (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));
-		this.viewer.setColorProvider        (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));
+		GanttViewerAbstract viewer = (GanttViewerAbstract)this.createViewer(parent);
+		viewer.setIntervalEventProvider(contentProvider);
+        viewer.setContentProvider      (contentProvider);
+		viewer.setLabelProvider        (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));
+		viewer.setColorProvider        (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));
+		this.setViewer(viewer);
 
-        //viewer.setLayoutData(gd);
-		//PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "com.misc.common.moplaf.timeview.jaret.viewer");
-		//makeActions();
-		//hookContextMenu();
-		//hookDoubleClickAction();
-		//contributeToActionBars();
-		
-		// register the selection listener
-		this.selectionListener = new SiteSelectionListener();
-		IWorkbenchPartSite site = getSite();
-		IWorkbenchWindow window = site.getWorkbenchWindow();
-		window.getSelectionService().addSelectionListener(selectionListener);
-		site.setSelectionProvider(this.viewer);
-
-		// resource change listening
-		this.resourceListener = new IResourceChangeListener() {
-		      public void resourceChanged(IResourceChangeEvent event) {
-		         System.out.println("Something changed in some resoure: "+event.toString());
-		      }
-		   };
-	   ResourcesPlugin.getWorkspace().addResourceChangeListener(this.resourceListener);
+		this.setSelectionListener();
+		this.contributeToActionBars();
+		this.hookContextMenu();
 	} // createControl method
-
-	/**
-	 * This is how the framework determines which interfaces we implement.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	@SuppressWarnings("rawtypes")
+	
 	@Override
-	public Object getAdapter(Class key) {
-		if (key.equals(IPropertySheetPage.class)) {
-			return getPropertySheetPage();
-		}
-		else {
-			return super.getAdapter(key);
-		}
+	protected void setViewer(ViewerAbstract viewer) {
+		super.setViewer(viewer);
+		this.getViewer().refresh();
 	}
-
-	/**
-	 * This creates a property sheet. Question: should we cache it?
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public IPropertySheetPage getPropertySheetPage() {
-		PropertySheetPage propertySheetPage = new PropertySheetPage();
-		AdapterFactoryContentProvider sourcePropertyProvider = new AdapterFactoryContentProvider(this.adapterFactory);
-		propertySheetPage.setPropertySourceProvider(sourcePropertyProvider);
-		return propertySheetPage;
-	}
-
-	private void hookContextMenu() {
-		MenuManager menuMgr = new MenuManager("#PopupMenu");
-		menuMgr.setRemoveAllWhenShown(true);
-		menuMgr.addMenuListener(new IMenuListener() {
-			public void menuAboutToShow(IMenuManager manager) {
-				GanttViewAbstract.this.fillContextMenu(manager);
-			}
-		});
-		Menu menu = menuMgr.createContextMenu(viewer.getControl());
-		viewer.getControl().setMenu(menu);
-		getSite().registerContextMenu(menuMgr, viewer);
-	}
-
-	private void contributeToActionBars() {
-		IActionBars bars = getViewSite().getActionBars();
-		fillLocalPullDown(bars.getMenuManager());
-		fillLocalToolBar(bars.getToolBarManager());
-	}
-
-	private void fillLocalPullDown(IMenuManager manager) {
-		manager.add(action1);
-		manager.add(new Separator());
-		manager.add(action2);
-	}
-
-	private void fillContextMenu(IMenuManager manager) {
-		manager.add(action1);
-		manager.add(action2);
-		// Other plug-ins can contribute there actions here
-		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
-	}
-	
-	private void fillLocalToolBar(IToolBarManager manager) {
-		manager.add(action1);
-		manager.add(action2);
-	}
-
-	private void makeActions() {
-		action1 = new Action() {
-			public void run() {
-				showMessage("Action 1 executed");
-			}
-		};
-		action1.setText("Action 1");
-		action1.setToolTipText("Action 1 tooltip");
-		action1.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
-			getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
-		
-		action2 = new Action() {
-			public void run() {
-				showMessage("Action 2 executed");
-			}
-		};
-		action2.setText("Action 2");
-		action2.setToolTipText("Action 2 tooltip");
-		action2.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
-				getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
-//		doubleClickAction = new Action() {
-//		
-//			public void run() {
-//				ISelection selection = viewer.getSelection();
-//				Object obj = ((IStructuredSelection)selection).getFirstElement();
-//				showMessage("Double-click detected on "+obj.toString());
-//			}
-//		};
-	}
-
-	private void hookDoubleClickAction() {
-//		viewer.addDoubleClickListener(new IDoubleClickListener() {
-//			public void doubleClick(DoubleClickEvent event) {
-//				doubleClickAction.run();
-//			}
-//		});
-	}
-	private void showMessage(String message) {
-//		MessageDialog.openInformation(
-//			viewer.getControl().getShell(),
-//			"Gantt View",
-//			message);
-	}
-	
-
-
-	/**
-	 * Passing the focus request to the viewer's control.
-	 */
-	public void setFocus() {
-		viewer.getControl().setFocus();
-	}
-
-	public void dispose(){
-		// unregister the selection listener
-		IWorkbenchPartSite site = getSite();
-		IWorkbenchWindow window = site.getWorkbenchWindow();
-		window.getSelectionService().removeSelectionListener(this.selectionListener);
-		this.selectionListener = null;
-		
-		// unregister the resource change listener
-		ResourcesPlugin.getWorkspace().removeResourceChangeListener(this.resourceListener);
-		this.resourceListener = null;
-		
-		// done, dispose other things
-		super.dispose();
-	}
-
 }

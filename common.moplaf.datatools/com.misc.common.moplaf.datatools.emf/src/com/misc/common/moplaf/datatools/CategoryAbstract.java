@@ -6,6 +6,10 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
+import com.misc.common.moplaf.common.IPropertiesProvider;
+import com.misc.common.moplaf.common.util.PropertiesProvider;
+import com.misc.common.moplaf.datatools.util.ObjectSet;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Category Abstract</b></em>'.
@@ -15,11 +19,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getNbElements <em>Nb Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getSubCategories <em>Sub Categories</em>}</li>
  *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getElements <em>Elements</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getNbElements <em>Nb Elements</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getDescription <em>Description</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getColumnizer <em>Columnizer</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getSuperCategory <em>Super Category</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.datatools.CategoryAbstract#getRootCategory <em>Root Category</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract()
@@ -27,12 +31,31 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface CategoryAbstract extends EObject {
+	static IPropertiesProvider PROPERTIES = new PropertiesProvider() {{
+		addProperty(DatatoolsPackage.Literals.CATEGORY_ABSTRACT__NB_ELEMENTS, 70);
+	}};
+
+	/**
+	 * Returns the value of the '<em><b>Nb Elements</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Nb Elements</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Nb Elements</em>' attribute.
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract_NbElements()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	int getNbElements();
+
 	/**
 	 * Returns the value of the '<em><b>Sub Categories</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.datatools.Category}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Sub Categories</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Sub Categories</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -60,60 +83,34 @@ public interface CategoryAbstract extends EObject {
 	EList<EObject> getElements();
 
 	/**
-	 * Returns the value of the '<em><b>Nb Elements</b></em>' attribute.
+	 * Returns the value of the '<em><b>Super Category</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Nb Elements</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Super Category</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Nb Elements</em>' attribute.
-	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract_NbElements()
+	 * @return the value of the '<em>Super Category</em>' reference.
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract_SuperCategory()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	int getNbElements();
+	CategoryAbstract getSuperCategory();
 
 	/**
-	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * Returns the value of the '<em><b>Root Category</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Root Category</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' attribute.
-	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract_Description()
+	 * @return the value of the '<em>Root Category</em>' reference.
+	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract_RootCategory()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	String getDescription();
-
-	/**
-	 * Returns the value of the '<em><b>Columnizer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Columnizer</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Columnizer</em>' reference.
-	 * @see #setColumnizer(Columnizer)
-	 * @see com.misc.common.moplaf.datatools.DatatoolsPackage#getCategoryAbstract_Columnizer()
-	 * @model
-	 * @generated
-	 */
-	Columnizer getColumnizer();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.datatools.CategoryAbstract#getColumnizer <em>Columnizer</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Columnizer</em>' reference.
-	 * @see #getColumnizer()
-	 * @generated
-	 */
-	void setColumnizer(Columnizer value);
+	CategoryAbstract getRootCategory();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,6 +118,22 @@ public interface CategoryAbstract extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void getSubcategory(EObject value);
+	Category getSubcategory(EObject value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model els_tobeDataType="com.misc.common.moplaf.datatools.EObjectsSet" categorizersMany="true"
+	 * @generated
+	 */
+	void refresh(CategoryFactory factory, ObjectSet els_tobe, EList<Categorizer> categorizers, int level);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean isIn(CategoryAbstract super_category);
 
 } // CategoryAbstract
