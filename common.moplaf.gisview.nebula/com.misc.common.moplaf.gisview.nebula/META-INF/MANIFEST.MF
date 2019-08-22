@@ -8,8 +8,8 @@ Bundle-Vendor: MISC
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  com.misc.common.moplaf.gisview;bundle-version="1.0.0",
- org.eclipse.nebula.widgets.geomap;bundle-version="0.1.0",
- com.misc.common.moplaf.gisview.emf.editor;bundle-version="1.0.0"
+ com.misc.common.moplaf.gisview.emf.editor;bundle-version="1.0.0",
+ org.eclipse.nebula.widgets.geomap;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .
