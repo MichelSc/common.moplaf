@@ -1,5 +1,8 @@
 package com.misc.common.moplaf.emf.editor.menus;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
@@ -52,41 +55,50 @@ public class ActionContributionMenu  extends ActionContributionItem {
 		super(action);
 	}
 	
+	public static Collection<IAction> getDefaultActions(IWorkbenchPart part, ISelection selection) {
+		Collection<IAction> actions = new ArrayList<IAction>();
+		actions.add(new AcceptAction        	(part, selection));
+		actions.add(new AppendAction        	(part, selection));
+		actions.add(new CancelAction        	(part, selection));
+		actions.add(new ClearAction        		(part, selection));
+		actions.add(new CloneAction         	(part, selection));
+		actions.add(new CloseAction         	(part, selection));
+		actions.add(new CommitAction        	(part, selection));
+		actions.add(new ConnectAction       	(part, selection));
+		actions.add(new DisableAction       	(part, selection));
+		actions.add(new DisconnectAction    	(part, selection));
+		actions.add(new DoAction         		(part, selection));
+		actions.add(new EnableAction        	(part, selection));
+		actions.add(new ExportAction        	(part, selection));
+		actions.add(new FinalizeAction      	(part, selection));
+		actions.add(new FlushAction         	(part, selection));
+		actions.add(new GarbageCollectAction	(part, selection));
+		actions.add(new ImportAction        	(part, selection));
+		actions.add(new InitializeAction    	(part, selection));
+		actions.add(new ReadAction          	(part, selection));
+		actions.add(new RefreshAction       	(part, selection));
+		actions.add(new RefreshMetaDataAction	(part, selection));
+		actions.add(new ResetAction         	(part, selection));
+		actions.add(new RollbackAction      	(part, selection));
+		actions.add(new RunAction           	(part, selection));
+		actions.add(new RunBackgroundAction 	(part, selection));
+		actions.add(new SaveAction         		(part, selection));
+		actions.add(new SelectAction        	(part, selection));
+		actions.add(new SortAction         		(part, selection));
+		actions.add(new StartAction         	(part, selection));
+		actions.add(new StopAction				(part, selection));
+		actions.add(new SynchDownAction			(part, selection));
+		actions.add(new SynchUpAction			(part, selection));
+		actions.add(new TestAction				(part, selection));
+		actions.add(new UndoAction				(part, selection));
+		actions.add(new WriteAction         	(part, selection));		
+		return actions;
+	}
+	
 	public static void fillDefaultMenu(IMenuManager manager, IWorkbenchPart part, ISelection selection) {
-		manager.add(new ActionContributionMenu(new AcceptAction        	(part, selection)));
-		manager.add(new ActionContributionMenu(new AppendAction        	(part, selection)));
-		manager.add(new ActionContributionMenu(new CancelAction        	(part, selection)));
-		manager.add(new ActionContributionMenu(new ClearAction        	(part, selection)));
-		manager.add(new ActionContributionMenu(new CloneAction         	(part, selection)));
-		manager.add(new ActionContributionMenu(new CloseAction         	(part, selection)));
-		manager.add(new ActionContributionMenu(new CommitAction        	(part, selection)));
-		manager.add(new ActionContributionMenu(new ConnectAction       	(part, selection)));
-		manager.add(new ActionContributionMenu(new DisableAction       	(part, selection)));
-		manager.add(new ActionContributionMenu(new DisconnectAction    	(part, selection)));
-		manager.add(new ActionContributionMenu(new DoAction         	(part, selection)));
-		manager.add(new ActionContributionMenu(new EnableAction        	(part, selection)));
-		manager.add(new ActionContributionMenu(new ExportAction        	(part, selection)));
-		manager.add(new ActionContributionMenu(new FinalizeAction      	(part, selection)));
-		manager.add(new ActionContributionMenu(new FlushAction         	(part, selection)));
-		manager.add(new ActionContributionMenu(new GarbageCollectAction	(part, selection)));
-		manager.add(new ActionContributionMenu(new ImportAction        	(part, selection)));
-		manager.add(new ActionContributionMenu(new InitializeAction    	(part, selection)));
-		manager.add(new ActionContributionMenu(new ReadAction          	(part, selection)));
-		manager.add(new ActionContributionMenu(new RefreshAction       	(part, selection)));
-		manager.add(new ActionContributionMenu(new RefreshMetaDataAction(part, selection)));
-		manager.add(new ActionContributionMenu(new ResetAction         	(part, selection)));
-		manager.add(new ActionContributionMenu(new RollbackAction      	(part, selection)));
-		manager.add(new ActionContributionMenu(new RunAction           	(part, selection)));
-		manager.add(new ActionContributionMenu(new RunBackgroundAction 	(part, selection)));
-		manager.add(new ActionContributionMenu(new SaveAction         	(part, selection)));
-		manager.add(new ActionContributionMenu(new SelectAction        	(part, selection)));
-		manager.add(new ActionContributionMenu(new SortAction         	(part, selection)));
-		manager.add(new ActionContributionMenu(new StartAction         	(part, selection)));
-		manager.add(new ActionContributionMenu(new StopAction			(part, selection)));
-		manager.add(new ActionContributionMenu(new SynchDownAction		(part, selection)));
-		manager.add(new ActionContributionMenu(new SynchUpAction		(part, selection)));
-		manager.add(new ActionContributionMenu(new TestAction			(part, selection)));
-		manager.add(new ActionContributionMenu(new UndoAction			(part, selection)));
-		manager.add(new ActionContributionMenu(new WriteAction         	(part, selection)));		
+		Collection<IAction> actions = ActionContributionMenu.getDefaultActions(part, selection);
+		for ( IAction action : actions) {
+			manager.add(new ActionContributionMenu(action));
+		}
 	}
 }
