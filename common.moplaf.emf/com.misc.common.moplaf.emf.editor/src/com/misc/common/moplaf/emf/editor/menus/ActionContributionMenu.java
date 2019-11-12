@@ -10,6 +10,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchPart;
 
 import com.misc.common.moplaf.emf.editor.action.AcceptAction;
+import com.misc.common.moplaf.emf.editor.action.AddAction;
 import com.misc.common.moplaf.emf.editor.action.AppendAction;
 import com.misc.common.moplaf.emf.editor.action.CancelAction;
 import com.misc.common.moplaf.emf.editor.action.ClearAction;
@@ -58,6 +59,7 @@ public class ActionContributionMenu  extends ActionContributionItem {
 	public static Collection<IAction> getDefaultActions(IWorkbenchPart part, ISelection selection) {
 		Collection<IAction> actions = new ArrayList<IAction>();
 		actions.add(new AcceptAction        	(part, selection));
+		actions.add(new AddAction            	(part, selection));
 		actions.add(new AppendAction        	(part, selection));
 		actions.add(new CancelAction        	(part, selection));
 		actions.add(new ClearAction        		(part, selection));
