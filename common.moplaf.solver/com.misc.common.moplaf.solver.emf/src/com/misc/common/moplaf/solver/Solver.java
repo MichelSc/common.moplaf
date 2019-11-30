@@ -29,6 +29,8 @@ import org.eclipse.emf.common.util.EList;
  * A Solver produces one or several {@link Solution} for the problem, as specified by its super class {@link SolutionProvider}.
  * <p>
  * To launch the run, call the method {@link #solve()}.
+ * <p>
+ * Solver factories can be registered with the extension com.misc.common.moplaf.solver.solver_factory and the interface {@link com.misc.common.moplaf.solver.util.SolverFactory}
  * 
  * <!-- end-user-doc -->
  *
