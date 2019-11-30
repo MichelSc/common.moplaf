@@ -18,7 +18,6 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
-import com.misc.common.moplaf.job.util.RunFactory;
 import com.misc.common.moplaf.solver.EnumLpVarType;
 import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
@@ -232,7 +231,7 @@ public class Util {
 			Object value;
 			try {
 				value = element.createExecutableExtension("class");
-				if ( value instanceof RunFactory) {
+				if ( value instanceof com.misc.common.moplaf.solver.util.SolverFactory) {
 					Solver newSolver = ((com.misc.common.moplaf.solver.util.SolverFactory)value).createSolver();
 					if ( newSolver!=null){
 						list.add(newSolver);
@@ -240,7 +239,7 @@ public class Util {
 				}
 			} catch (CoreException e) {
 				e.printStackTrace();
-				Plugin.INSTANCE.logError("com.misc.common.moplaf.job.Util.getNewSolvers: exception caught "+e.getMessage());
+				Plugin.INSTANCE.logError("com.misc.common.moplaf.solver.Util.getNewSolvers: exception caught "+e.getMessage());
 			}
 		}
 		return list;
