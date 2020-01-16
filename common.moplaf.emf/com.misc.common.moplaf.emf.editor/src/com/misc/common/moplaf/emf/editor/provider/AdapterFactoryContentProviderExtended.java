@@ -65,6 +65,9 @@ public class AdapterFactoryContentProviderExtended extends
 			super(object, itemPropertyDescriptor);
 		}
 		// create property editor
+		//   the very function of AdapterFactoryContentProvider: 
+		//     to provide alternative editors for specific data fields
+		@Override
 		public CellEditor createPropertyEditor(Composite composite) {
 		   EObject eObject = (EObject)object;
 		   // get the feature
