@@ -25,7 +25,9 @@ public class Color {
 	static public Color COLOR_BLUE    = new Color(  0,   0, 255);
 	static public Color COLOR_RED     = new Color(255,   0,   0);
 	static public Color COLOR_GREEN   = new Color(  0, 255,   0);
-	
+
+	static public Color COLOR_LIGHTBLUE    = new Color(128, 128, 255);
+
 	public Color(int rgb) {
 		super();
 		int b = rgb % 256;
@@ -51,21 +53,22 @@ public class Color {
 		this.b = (int) Math.floor(b*255.0f);
 	}
 	
-	public static Color colorFromHueSaturation(float hue, float saturation, float value){ 
+	/* parameters hue, saturation and lightness between 0.0 and 1.0 */
+	public static Color colorFromHueSaturation(float hue, float saturation, float lightness){ 
 		int h = (int)(hue * 6.0f);
 		float f = hue * 6.0f - h;
-		float p = value * (1.0f - saturation);
-		float q = value * (1.0f - f * saturation);
-		float t = value * (1.0f - (1.0f - f) * saturation);
+		float p = lightness * (1.0f - saturation);
+		float q = lightness * (1.0f - f * saturation);
+		float t = lightness * (1.0f - (1.0f - f) * saturation);
 		
 		switch (h) {
-		  case 0: return new Color(value, t, p);
-		  case 1: return new Color(q, value, p);
-		  case 2: return new Color(p, value, t);
-		  case 3: return new Color(p, q, value);
-		  case 4: return new Color(t, p, value);
-		  case 5: return new Color(value, p, q);
-		  default: throw new RuntimeException("Something went wrong when converting from HSV to RGB. Input was " + hue + ", " + saturation + ", " + value);
+		  case 0: return new Color(lightness, t, p);
+		  case 1: return new Color(q, lightness, p);
+		  case 2: return new Color(p, lightness, t);
+		  case 3: return new Color(p, q, lightness);
+		  case 4: return new Color(t, p, lightness);
+		  case 5: return new Color(lightness, p, q);
+		  default: throw new RuntimeException("Something went wrong when converting from HSV to RGB. Input was " + hue + ", " + saturation + ", " + lightness);
 		}
 	}
 
