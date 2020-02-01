@@ -49,9 +49,9 @@ public interface IItemTimePlotsProvider {
 	 * <ul>
 	 * <li> null: no timeplot for the element </li>
 	 * <li> Collection<?>: a collection of timeplots for the element</li>
-	 * <li> otherwise an Object: a single timeplots for the element </li>
+	 * <li> an Object NOT instanceof {@link IItemTimePlotsProvider} or this object: a single timeplots for the element </li>
+	 * <li> an Object instanceof {@link IItemTimePlotsProvider} and different from this object : the timeplot(s) provided by the Object </li>
 	 * </ul>
-	 * No collection may be returned. In that case, the consumer will expect one timeplot identified by the null object.
 	 * @param element
 	 * @return
 	 */

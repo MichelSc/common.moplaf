@@ -84,7 +84,7 @@ public class AdapterFactoryAmountEventProvider extends AdapterFactoryArrayConten
 		ArrayList<Object> providers = new ArrayList<Object>();
 
 		Object timeplot_asobject = timePlotsProvider.getTimePlots(element);
-		while ( timeplot_asobject instanceof IItemTimePlotsProvider ) {
+		while ( timeplot_asobject instanceof IItemTimePlotsProvider && timeplot_asobject!=timePlotsProvider) {
 			timePlotsProvider = (IItemTimePlotsProvider)timeplot_asobject;
 			timeplot_asobject = timePlotsProvider.getTimePlots(element);
 		}

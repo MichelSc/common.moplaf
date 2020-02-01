@@ -459,7 +459,7 @@ public class DistributionItemProvider
 
 	@Override
 	public Object getTimePlots(Object element) {
-		return this; // this Distribution is the Timeple
+		return this; // this Distribution is the Timeplot
 	}
 
 	@Override
