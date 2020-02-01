@@ -193,7 +193,8 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference job.ecore#//DocInDocsHolder/DocsHolder"/>
     </genClasses>
     <genClasses image="false" ecoreClass="job.ecore#//Task" labelFeature="#//job/Job/Description">
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//Task/CloneFeedback"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
+          ecoreFeature="ecore:EAttribute job.ecore#//Task/CloneFeedback"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference job.ecore#//Task/Inputs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference job.ecore#//Task/Outputs"/>
       <genOperations ecoreOperation="job.ecore#//Task/isValidInput">
