@@ -305,7 +305,7 @@
           </initialOperation>
         </controls>
       </groups>
-      <groups name="pr_group_enabled_analysis" label="Group Enabled Analysis" labelExpression="Enabled" domainClass="analysis::DocAnalysis" semanticCandidateExpression="var:self">
+      <groups name="pr_group_enabled_analysis" label="Group Enabled Analysis" labelExpression="Enabled" domainClass="analysis::Analysis" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="pr_group_enabled_refresh" label="Field RefreshEnabled" labelExpression="Refresh Enabled" helpExpression="Feedback about allowed to refresh the analysis" isEnabledExpression="aql:false" valueExpression="aql:self.RefreshFeedback">
           <initialOperation>
             <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
