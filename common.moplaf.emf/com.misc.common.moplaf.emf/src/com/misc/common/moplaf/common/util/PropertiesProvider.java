@@ -19,6 +19,25 @@ import org.eclipse.emf.ecore.EReference;
 
 import com.misc.common.moplaf.common.IPropertiesProvider;
 
+/**
+ * An implementation of the interface {@link IPropertiesProvider }
+ * <p>
+ * The implemented properties are EMF properties, specified by 
+ * <ul>
+ *   <li>a path (possibly empty) of EReferences</li>
+ *   <li>an EAttribute</li>
+ * </ul>
+ * </p>
+ * For every Property, this provider provides
+ * <ul>
+ *   <li>a text: String</li>
+ *   <li>a moplaf type: int</li>
+ *   <li>moplaf traits: int</li>
+ *   <li>getter for the property value: Object</li>
+ *   <li>an aggregation type: int</li>
+ *   <li>a display width: int</li>
+ * </ul>
+ */
 public class PropertiesProvider implements IPropertiesProvider {
 	private LinkedList<Property> properties = new LinkedList<Property>();
 	public interface Property {
@@ -28,7 +47,7 @@ public class PropertiesProvider implements IPropertiesProvider {
 		public int getPropertyTraits();
 		public Object getPropertyValue(Object element);
 		public int getPropertyAggregation();
-		public int getPropertyDispalyWidth();
+		public int getPropertyDisplayWidth();
 	};
 	
 	/**
@@ -68,7 +87,7 @@ public class PropertiesProvider implements IPropertiesProvider {
 		@Override
 		public int getPropertyType() {
 			EDataType attribute_type = this.attribute.getEAttributeType();
-			return IPropertiesProvider.toPropertyType(attribute_type);
+			return com.misc.common.moplaf.common.util.Util.toPropertyType(attribute_type);
 		}
 		
 		@Override 
@@ -102,7 +121,7 @@ public class PropertiesProvider implements IPropertiesProvider {
 		}
 		
 		@Override
-		public int getPropertyDispalyWidth() {
+		public int getPropertyDisplayWidth() {
 			return this.width;
 		}		
 		
@@ -215,7 +234,7 @@ public class PropertiesProvider implements IPropertiesProvider {
 	@Override
 	public int getPropertyDisplayWidth(Object property) {
 		Property this_property = (Property)property;
-		return this_property.getPropertyDispalyWidth();
+		return this_property.getPropertyDisplayWidth();
 	}
 	
 	/**

@@ -20,6 +20,9 @@ import org.eclipse.emf.ecore.EReference;
 import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 
+// code moved to com.misc.common.moplaf.common.util
+
+@Deprecated
 public class PropertiesProvider implements IPropertiesProvider {
 	private LinkedList<Property> properties = new LinkedList<Property>();
 	public interface Property {
@@ -62,7 +65,7 @@ public class PropertiesProvider implements IPropertiesProvider {
 		@Override
 		public int getPropertyType() {
 			EDataType attribute_type = this.attribute.getEAttributeType();
-			return IPropertiesProvider.toPropertyType(attribute_type);
+			return com.misc.common.moplaf.common.util.Util.toPropertyType(attribute_type);
 		}
 		
 		@Override 
@@ -109,7 +112,7 @@ public class PropertiesProvider implements IPropertiesProvider {
 	/*
 	 * Convenience methods for constructing PropertiesProvider
 	 */
-	static public PropertiesProvider constructPropertiesProvider(){
+	static private PropertiesProvider constructPropertiesProvider(){
 		return new PropertiesProvider();
 	};
 

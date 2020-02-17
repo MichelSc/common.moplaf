@@ -232,16 +232,6 @@ public interface IPropertiesProvider extends Constants{
 		}
 	}
 	
-	static int toPropertyType(EDataType data_type) {
-		if ( data_type==EcorePackage.Literals.ESTRING )         { return DATA_TYPE_STRING; }
-		if ( data_type==EcorePackage.Literals.EDATE )           { return DATA_TYPE_DATE; }
-		if ( data_type==EcorePackage.Literals.EFLOAT )          { return DATA_TYPE_FLOAT; }
-		if ( data_type==EcorePackage.Literals.EDOUBLE)          { return DATA_TYPE_DOUBLE; }
-		if ( data_type==EcorePackage.Literals.ELONG )           { return DATA_TYPE_DOUBLE; }
-		if ( data_type==EcorePackage.Literals.EINT )            { return DATA_TYPE_INT; }
-		if ( data_type==EcorePackage.Literals.EBOOLEAN_OBJECT ) { return DATA_TYPE_BOOLEAN; }
-		return DATA_TYPE_UNKOWN;
-	}
 	
 	/**
 	 * 

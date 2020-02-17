@@ -76,9 +76,9 @@ public interface IItemGridsProvider extends Constants {
 	 * The method may return 
 	 * <ul>
 	 * <li> null: no grid for the element </li>
-	 * <li> IItemGridsProvider: an object implementing this interface; in this case all the calls to this interface will be made through this object</li>
-	 * <li> Collection<?>: a collection of grids for the element</li>
-	 * <li> otherwise an Object: a single grid for the element </li>
+	 * <li> IItemGridsProvider: an object implementing this interface; in this case all the calls to this interface will be made through this latter object</li>
+	 * <li> Collection<?>: a collection of grids (or sheet) for the element</li>
+	 * <li> otherwise an Object: a single grid (or sheet) for the element </li>
 	 * </ul>
 	 * @param element
 	 * @return

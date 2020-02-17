@@ -15,7 +15,11 @@ import java.lang.reflect.Constructor;
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EEnumLiteral;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 
@@ -197,6 +201,9 @@ public class Util implements Constants {
 				return String.format("%1$d", cellValue);
 			case DATA_TYPE_BOOLEAN:
 				return String.format("%1$b", cellValue);
+			case DATA_TYPE_EMF_ENUM:
+				EEnumLiteral literal = (EEnumLiteral) cellValue;
+				return literal.getLiteral();
 			default: 
 				return "";
 			}
@@ -219,5 +226,17 @@ public class Util implements Constants {
 		default: 
 			return null;
 		}
+	}
+	
+	static public int toPropertyType(EDataType data_type) {
+		if ( data_type==EcorePackage.Literals.ESTRING )         { return DATA_TYPE_STRING; }
+		if ( data_type==EcorePackage.Literals.EDATE )           { return DATA_TYPE_DATE; }
+		if ( data_type==EcorePackage.Literals.EFLOAT )          { return DATA_TYPE_FLOAT; }
+		if ( data_type==EcorePackage.Literals.EDOUBLE)          { return DATA_TYPE_DOUBLE; }
+		if ( data_type==EcorePackage.Literals.ELONG )           { return DATA_TYPE_DOUBLE; }
+		if ( data_type==EcorePackage.Literals.EINT )            { return DATA_TYPE_INT; }
+		if ( data_type==EcorePackage.Literals.EBOOLEAN_OBJECT ) { return DATA_TYPE_BOOLEAN; }
+		if ( data_type instanceof EEnum )                       { return DATA_TYPE_EMF_ENUM; }
+		return DATA_TYPE_UNKOWN;
 	}
 }

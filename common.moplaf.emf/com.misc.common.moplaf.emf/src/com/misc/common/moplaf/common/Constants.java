@@ -21,14 +21,13 @@ public interface Constants {
 	static int AGGREGATE_MIN    =  64;
 	static int AGGREGATE_MAX    = 128;
 
-	static int DATA_TYPE_UNKOWN  = 0;
-	static int DATA_TYPE_STRING  = 1;
-	static int DATA_TYPE_DATE    = 2;
-	static int DATA_TYPE_FLOAT   = 3;
-	static int DATA_TYPE_DOUBLE  = 4;
-	static int DATA_TYPE_INT     = 5;
-	static int DATA_TYPE_LONG    = 6;
-	static int DATA_TYPE_BOOLEAN = 7;
-
-
+	static int DATA_TYPE_UNKOWN   = 0;
+	static int DATA_TYPE_STRING   = 1;
+	static int DATA_TYPE_DATE     = 2;
+	static int DATA_TYPE_FLOAT    = 3;
+	static int DATA_TYPE_DOUBLE   = 4;
+	static int DATA_TYPE_INT      = 5;
+	static int DATA_TYPE_LONG     = 6;
+	static int DATA_TYPE_BOOLEAN  = 7;
+	static int DATA_TYPE_EMF_ENUM = 8;
 }
