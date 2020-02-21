@@ -22,7 +22,30 @@ import com.misc.common.moplaf.common.Color;
 import com.misc.common.moplaf.common.IPropertiesProvider;
 import com.misc.common.moplaf.common.util.CompoundPropertiesProvider;
 import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
-
+/**
+ * An implementation of the interface {@link IItemGridsProvider}
+ * <p>
+ * The implemented sheets are specified by  
+ * <ul>
+ *   <li>attributes</li>
+ *   <ul>
+ *     <li>the text associated with the sheet</li>
+ *     <li>whether to show the aggregation line</li>
+ *     <li>traits (see {@link com.misc.common.moplaf.common.Constants})</li>
+ *   </ul>
+ *   <li>a set of rows</li>
+ *   <ul>
+ *     <li>either the set of EMF objects reached via a specified path, i.e. a possibly empty sequence of EReference and an EAttribute</li>
+ *     <li>or a given collection of objects</li>
+ *   </ul>
+ *   <li>a set of columns</li>
+ *   <ul>
+ *     <li>a set of properties specified by a PropertiesProvider (see {@link IPropertiesProvider })</li>
+ *   </ul>
+ * </ul>
+ * </p>
+ * 
+ */
 public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 	
 	/**
@@ -371,7 +394,7 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 	@Override
 	public int getGridTraits(Object element, Object grid) {
 		SheetDelegate delegate = (SheetDelegate)grid;
-		return delegate.   getSheetTraits();
+		return delegate.getSheetTraits();
 	}
 
 	@Override

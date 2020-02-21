@@ -1,6 +1,17 @@
 package com.misc.common.moplaf.common;
 
-public interface Constants {
+/**
+ * The Constant shared by all components of the Moplaf framework
+ * <p>
+ * <ul>
+ *   <li>traits values</li>
+ *   <li>horizontal/vertical alignment values</li>
+ *   <li>aggregation types</li>
+ *   <li>data types</li>
+ * </ul>
+ * </p>
+ * 
+ */public interface Constants {
 	
 	static int TRAITS_NONE      = 0;
 	static int TRAITS_BARCHART  = 1; // a bunch of rows with a few columns 

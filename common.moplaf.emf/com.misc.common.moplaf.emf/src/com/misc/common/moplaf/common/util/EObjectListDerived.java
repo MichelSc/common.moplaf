@@ -15,11 +15,12 @@ import org.eclipse.emf.ecore.util.EObjectEList;
 
 /**
  * List of objects used for returning values for derived relations.
- * It may be used for not notifying.
+ * <p>
+ * It may be used for not notifying (i.e. disabling notification)
  * 
  * @author michel
  *
- * @param <E>
+ * @param <E> the interface type of the objects in the list
  */
 public class EObjectListDerived<E> extends EObjectEList<E> {
 	/**
@@ -31,7 +32,12 @@ public class EObjectListDerived<E> extends EObjectEList<E> {
 		super(dataClass, owner, featureID);
 	}
 
-	public EObjectListDerived(Class<?> dataClass, InternalEObject owner, int featureID, boolean skipNotifications) {
+	/**
+	 * @param dataClass the type of the objects references in the lists
+	 * @param owner the object owning the list (i.e. owning the reference)
+	 * @param featureID the reference
+	 * @param skipNotifications whether to skip notifications (default is no skipping)
+	 */	public EObjectListDerived(Class<?> dataClass, InternalEObject owner, int featureID, boolean skipNotifications) {
 		super(dataClass, owner, featureID);
 		this.skipNotifications = skipNotifications;
 	}

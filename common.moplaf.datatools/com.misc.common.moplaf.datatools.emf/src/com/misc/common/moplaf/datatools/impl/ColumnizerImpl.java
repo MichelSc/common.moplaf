@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.datatools.impl;
 
 import com.misc.common.moplaf.common.IPropertiesProvider;
+import com.misc.common.moplaf.common.util.Util;
 import com.misc.common.moplaf.datatools.AggregationType;
 import com.misc.common.moplaf.datatools.Columnizer;
 import com.misc.common.moplaf.datatools.ColumnizerColumn;
@@ -365,7 +366,7 @@ public class ColumnizerImpl extends ColumnizerAbstractImpl implements Columnizer
 	public int getPropertyType(Object property) {
 		ColumnizerColumn column = (ColumnizerColumn)property;
 		EDataType data_type = column.getDataType();
-		return IPropertiesProvider.toPropertyType(data_type);
+		return Util.toPropertyType(data_type);
 	}
 
 	/**
