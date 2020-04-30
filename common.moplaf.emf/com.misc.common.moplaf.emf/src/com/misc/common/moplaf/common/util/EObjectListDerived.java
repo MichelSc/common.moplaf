@@ -37,7 +37,8 @@ public class EObjectListDerived<E> extends EObjectEList<E> {
 	 * @param owner the object owning the list (i.e. owning the reference)
 	 * @param featureID the reference
 	 * @param skipNotifications whether to skip notifications (default is no skipping)
-	 */	public EObjectListDerived(Class<?> dataClass, InternalEObject owner, int featureID, boolean skipNotifications) {
+	 */	
+	public EObjectListDerived(Class<?> dataClass, InternalEObject owner, int featureID, boolean skipNotifications) {
 		super(dataClass, owner, featureID);
 		this.skipNotifications = skipNotifications;
 	}

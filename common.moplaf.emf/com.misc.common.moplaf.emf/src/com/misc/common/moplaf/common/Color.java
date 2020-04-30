@@ -26,7 +26,17 @@ public class Color {
 	static public Color COLOR_RED     = new Color(255,   0,   0);
 	static public Color COLOR_GREEN   = new Color(  0, 255,   0);
 
-	static public Color COLOR_LIGHTBLUE    = new Color(128, 128, 255);
+	static public Color COLOR_LIGHTCORAL    = new Color(240, 128, 128);
+	static public Color COLOR_LIGHTSALMON   = new Color(255, 160, 122);
+	static public Color COLOR_LIGHTGREEN    = new Color(144, 238, 144);
+	static public Color COLOR_LIGHTSEAGREEN = new Color(32, 178, 170);
+	static public Color COLOR_LIGHTBLUE     = new Color(173, 216, 230);
+	static public Color COLOR_LIGHTPINK     = new Color(255, 182, 193);
+	static public Color COLOR_LIGHTGREY     = new Color(211, 211, 211);
+	
+	static public Color COLOR_SIRIUSYELLOW  = new Color(225, 225, 135);
+	static public Color COLOR_SIRIUSCYAN    = new Color(155, 199, 204);
+	static public Color COLOR_SIRIUSRED     = new Color(222, 164, 156);
 
 	public Color(int rgb) {
 		super();
