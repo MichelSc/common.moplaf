@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.util.EObjectEList;
  * List of objects used for returning values for derived relations.
  * <p>
  * It may be used for not notifying (i.e. disabling notification)
+ * Useful among other for Sirius, that does not like too much notifications
  * 
  * @author michel
  *
