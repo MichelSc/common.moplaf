@@ -184,11 +184,13 @@ public class ChartViewer extends ChartViewerAbstract {
 		public void mouseDown(MouseEvent e) {
 			int tabIndex = ChartViewer.this.tabFolder.getSelectionIndex();
 			String category_name = getCategoryName(tabIndex, e.x);
-			for( BarChartSerie serie : charts[tabIndex].series ) {
-				for( Object category : serie.categories ) {
-					String cat_to_test = getILabelProvider().getText(category);
-					if( cat_to_test.equals(category_name) ) {
-						setSelectedElement(category);
+			if ( category_name!=null ) {
+				for( BarChartSerie serie : charts[tabIndex].series ) {
+					for( Object category : serie.categories ) {
+						String cat_to_test = getILabelProvider().getText(category);
+						if( cat_to_test.equals(category_name) ) {
+							setSelectedElement(category);
+						}
 					}
 				}
 			}
