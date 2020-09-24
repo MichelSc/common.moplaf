@@ -234,14 +234,23 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		}
 		@Override
 		public Object getCellBackgroundColor(Object row, Object column) {
+			Color color = null;
 			if ( row != this && this.provider.isPropertyValueHighlightKey(row, column) ) {
-				return PropertiesProviderGridsProvider.this.highlight_color.toURI();
+				color = PropertiesProviderGridsProvider.this.highlight_color;
+			} else  {
+				color = this.provider.getPropertyBackgroundColor(column);
 			}
-			return null;
+			return color==null ? null : color.toURI();
 		}
 		@Override
 		public Object getCellForegroundColor(Object row, Object column) {
-			return null;
+			Color color = null;
+			if ( row != this && this.provider.isPropertyValueHighlightKey(row, column) ) {
+				color = PropertiesProviderGridsProvider.this.highlight_color;
+			} else  {
+				color = this.provider.getPropertyForegroundColor(column);
+			}
+			return color==null ? null : color.toURI();
 		}
 	}
 	
