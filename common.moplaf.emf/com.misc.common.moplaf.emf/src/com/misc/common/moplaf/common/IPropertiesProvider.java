@@ -5,8 +5,6 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.eclipse.emf.ecore.EDataType;
-import org.eclipse.emf.ecore.EcorePackage;
 
 
 /**
@@ -47,7 +45,7 @@ public interface IPropertiesProvider extends Constants{
 	 * <p>
 	 * @return
 	 */
-	default Collection<?> getProperties(){
+	default public Collection<?> getProperties(){
 		List<Integer> properties = new LinkedList<>();
 		for ( int i=0; i<this.getNrProperties(); i++) {
 			properties.add(i);
@@ -60,7 +58,7 @@ public interface IPropertiesProvider extends Constants{
 	 * Implementation must implement this method or method GetProperties, but not both.
 	 * <p>
 	 */
-	default int getNrProperties() {
+	default public int getNrProperties() {
 		return this.getProperties().size();
 	}
 	
@@ -69,7 +67,7 @@ public interface IPropertiesProvider extends Constants{
 	 * @param property
 	 * @return
 	 */
-	default String getPropertyText(Object property) {
+	default public String getPropertyText(Object property) {
 		return "";
 	}
 
@@ -79,7 +77,7 @@ public interface IPropertiesProvider extends Constants{
 	 * @param property
 	 * @return
 	 */
-	default Object getPropertyValue(Object element, Object property) {
+	default public Object getPropertyValue(Object element, Object property) {
 		return null;
 	}
 
@@ -89,7 +87,7 @@ public interface IPropertiesProvider extends Constants{
 	 * @param property
 	 * @return
 	 */
-	default int getPropertyValueTraits(Object element, Object property) {
+	default public int getPropertyValueTraits(Object element, Object property) {
 		return TRAITS_NONE;
 	}
 
@@ -98,7 +96,7 @@ public interface IPropertiesProvider extends Constants{
 	 * @param property
 	 * @return
 	 */
-	default int getPropertyType(Object property) {
+	default public int getPropertyType(Object property) {
 		return DATA_TYPE_UNKOWN;
 	}
 
@@ -107,7 +105,7 @@ public interface IPropertiesProvider extends Constants{
 	 * @param property
 	 * @return
 	 */
-	default int getPropertyTraits(Object property) {
+	default public int getPropertyTraits(Object property) {
 		return TRAITS_NONE; // no traits per default
 	}
 
@@ -116,7 +114,7 @@ public interface IPropertiesProvider extends Constants{
 	 * @param property
 	 * @return
 	 */
-	default int getPropertyAggregation(Object property) {
+	default public int getPropertyAggregation(Object property) {
 		return AGGREGATE_NONE;
 	}
 
@@ -129,7 +127,7 @@ public interface IPropertiesProvider extends Constants{
 	 * @param property
 	 * @return
 	 */
-	default int getPropertyDisplayWidth(Object property) {
+	default public int getPropertyDisplayWidth(Object property) {
 		return 200;
 	}
 	
@@ -138,7 +136,7 @@ public interface IPropertiesProvider extends Constants{
 	 * @param property
 	 * @return
 	 */
-	default int getPropertyDisplayAlignment (Object property) {
+	default public int getPropertyDisplayAlignment (Object property) {
 		int type = this.getPropertyType(property);
 		switch ( type ) {
 		case DATA_TYPE_STRING: 
@@ -155,19 +153,21 @@ public interface IPropertiesProvider extends Constants{
 
 	/**
 	 * Return the color used as foreground for the property
+	 * TODO: make the color depending on the object (the row)
 	 * @param property
 	 * @return
 	 */
-	default Color getPropertyForegroundColor(Object property) {
+	default public Color getPropertyForegroundColor(Object property) {
 		return null;
 	}
 
 	/**
 	 * Return the color used as background for the property
+	 * TODO: make the color depending on the object (the row)
 	 * @param property
 	 * @return
 	 */
-	default Color getPropertyBackgroundColor(Object property) {
+	default public Color getPropertyBackgroundColor(Object property) {
 		return null;
 	}
 
@@ -183,14 +183,14 @@ public interface IPropertiesProvider extends Constants{
 	 * @param ascending
 	 * @return
 	 */
-	default int compare(Object property, Object element1, Object element2, boolean ascending) {
+	default public int compare(Object property, Object element1, Object element2, boolean ascending) {
 		int type = this.getPropertyType(property);
 		Object value1 = this.getPropertyValue(element1, property);
 		Object value2 = this.getPropertyValue(element2, property);
 		return IPropertiesProvider.defaultCompareValues(value1, value2, type, ascending);
 	}
 
-	static int defaultCompareValues(Object value1, Object value2, int type, boolean ascending) {
+	public static int defaultCompareValues(Object value1, Object value2, int type, boolean ascending) {
 		int sense = ascending ? +1 : -1;
 		if ( value1==null) {
 			return -sense;

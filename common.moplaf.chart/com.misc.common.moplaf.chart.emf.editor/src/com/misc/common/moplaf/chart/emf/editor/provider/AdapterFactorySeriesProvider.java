@@ -18,6 +18,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.ExtendedColorRegistry;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.swt.graphics.Color;
@@ -32,13 +33,18 @@ import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
 
 
 /**
- * Implements the following interfaces
+ * Implements the interface {@link ISeriesProvider}
+ * <p>
+ * Inherits the following interfaces from {@link AdapterFactoryContentProvider}
  * <ul>
  * <li> {@link IPropertySourceProvider}</li>
  * <li> {@link INotifyChangedListener}</li>
  * <li> {@link ITreeContentProvider}</li>
  * </ul>
  * <p>
+ * An {@link AdapterFactorySeriesProvider} provides series for objects adaptable to the interface {@link IItemGridsProvider}.
+ * Every grid provided by the object will be converted to a Series provider.
+ * <p> 
  * @author michel
  *
  */
@@ -68,13 +74,9 @@ public class AdapterFactorySeriesProvider extends AdapterFactoryArrayContentProv
 		return color;
 	}
 	
-
-
 	private SeriesProvider createSeriesProvider(Object element, Object grid, IItemGridsProvider provider){
 			return new SeriesProvider(element, grid, provider);
 	}
-
-
 	
 	/**
 	 * Helper class for the conversion of an IItemGridsProvider (abstract) to ISeriesProvider providers 

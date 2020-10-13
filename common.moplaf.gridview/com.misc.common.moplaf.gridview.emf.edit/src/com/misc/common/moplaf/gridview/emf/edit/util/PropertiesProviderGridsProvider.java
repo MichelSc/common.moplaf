@@ -85,16 +85,19 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		private boolean aggregation = false;
 		private Collection<?> objects = null;
 		private Object element = null;
+		private EAttribute attribute;
 		
-		public SheetPropertiesProvider(String sheet_name, IPropertiesProvider provider, int traits) {
+		public SheetPropertiesProvider(String sheet_name, IPropertiesProvider provider, EAttribute attribute, int traits) {
 			this.provider = provider;
 			this.traits = traits;
 			this.sheet_name = sheet_name;
+			this.attribute = attribute;
 		}
-		public SheetPropertiesProvider(String sheet_name, IPropertiesProvider[] providers, int traits) {
+		public SheetPropertiesProvider(String sheet_name, IPropertiesProvider[] providers, EAttribute attribute, int traits) {
 			this.provider = new CompoundPropertiesProvider(providers);
 			this.traits = traits;
 			this.sheet_name = sheet_name;
+			this.attribute = attribute;
 		}
 		@Override
 		public SheetDelegate setSheetText(String text) {
@@ -196,9 +199,16 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 			return this.getObjectText(row);
 		}
 		
-		protected String getObjectText(Object object) {
-			return null;
-		}
+		public String getObjectText(Object object) {
+			if ( this.attribute==null ) {
+				return null;
+			}
+			if ( !(object instanceof EObject )) {
+				return null;
+			}
+			EObject e_object = (EObject)object;
+			return e_object.eGet(this.attribute).toString();
+		}	
 		
 		@Override
 		public Object getCellValue(Object row, Object column) {
@@ -224,31 +234,37 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		}
 		@Override
 		public Object getCellBackgroundColor(Object row, Object column) {
+			Color color = null;
 			if ( row != this && this.provider.isPropertyValueHighlightKey(row, column) ) {
-				return PropertiesProviderGridsProvider.this.highlight_color.toURI();
+				color = PropertiesProviderGridsProvider.this.highlight_color;
+			} else  {
+				color = this.provider.getPropertyBackgroundColor(column);
 			}
-			return null;
+			return color==null ? null : color.toURI();
 		}
 		@Override
 		public Object getCellForegroundColor(Object row, Object column) {
-			return null;
+			Color color = null;
+			if ( row != this && this.provider.isPropertyValueHighlightKey(row, column) ) {
+				color = PropertiesProviderGridsProvider.this.highlight_color;
+			} else  {
+				color = this.provider.getPropertyForegroundColor(column);
+			}
+			return color==null ? null : color.toURI();
 		}
 	}
 	
 	private class SheetFeature extends SheetPropertiesProvider{
 		
 		private EReference[] path;
-		private EAttribute attribute;
 		
 		public SheetFeature(String sheet_name, EReference[] path, EAttribute attribute, IPropertiesProvider provider, int traits) {
-			super(sheet_name, provider, traits);
+			super(sheet_name, provider, attribute, traits);
 			this.path = path;
-			this.attribute = attribute;
 		}
 		public SheetFeature(String sheet_name, EReference[] path, EAttribute attribute, IPropertiesProvider[] providers, int traits) {
-			super(sheet_name, providers, traits);
+			super(sheet_name, providers, attribute, traits);
 			this.path = path;
-			this.attribute = attribute;
 		}
 		@Override
 		public String getSheetText() {
@@ -307,17 +323,6 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		}
 		
 		
-		@Override
-		public String getObjectText(Object object) {
-			if ( this.attribute==null ) {
-				return null;
-			}
-			if ( !(object instanceof EObject )) {
-				return null;
-			}
-			EObject e_object = (EObject)object;
-			return e_object.eGet(this.attribute).toString();
-		}	
 
 	}
 
@@ -325,8 +330,8 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		
 		private Collection<?> rowSet;
 		
-		public SheetCollection(String sheet_name, Collection<?> rowSet, IPropertiesProvider provider, int traits) {
-			super(sheet_name, provider, traits);
+		public SheetCollection(String sheet_name, Collection<?> rowSet, IPropertiesProvider provider, EAttribute attribute, int traits) {
+			super(sheet_name, provider, attribute, traits);
 			this.rowSet = rowSet;
 		}
 		
@@ -372,8 +377,23 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		this.sheets.add(new_sheet);
 		return new_sheet;
 	}
+	public SheetDelegate addSheet(String sheet_name, Collection<?> rowSet, IPropertiesProvider provider, EAttribute attribute, int traits) {
+		SheetDelegate new_sheet = new SheetCollection(sheet_name, rowSet, provider, attribute, traits);
+		this.sheets.add(new_sheet);
+		return new_sheet;
+	}
+	public SheetDelegate addSheet(String sheet_name, Collection<?> rowSet, IPropertiesProvider provider, int traits) {
+		SheetDelegate new_sheet = new SheetCollection(sheet_name, rowSet, provider, null, traits);
+		this.sheets.add(new_sheet);
+		return new_sheet;
+	}
+	public SheetDelegate addSheet(String sheet_name, Collection<?> rowSet, IPropertiesProvider provider,EAttribute attribute) {
+		SheetDelegate new_sheet = new SheetCollection(sheet_name, rowSet, provider, attribute, TRAITS_NONE);
+		this.sheets.add(new_sheet);
+		return new_sheet;
+	}
 	public SheetDelegate addSheet(String sheet_name, Collection<?> rowSet, IPropertiesProvider provider) {
-		SheetDelegate new_sheet = new SheetCollection(sheet_name, rowSet, provider, TRAITS_NONE);
+		SheetDelegate new_sheet = new SheetCollection(sheet_name, rowSet, provider, null, TRAITS_NONE);
 		this.sheets.add(new_sheet);
 		return new_sheet;
 	}

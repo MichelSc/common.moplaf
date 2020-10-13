@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 
+import com.misc.common.moplaf.common.Color;
 import com.misc.common.moplaf.common.IPropertiesProvider;
 
 /**
@@ -40,14 +41,16 @@ import com.misc.common.moplaf.common.IPropertiesProvider;
  */
 public class PropertiesProvider implements IPropertiesProvider {
 	private LinkedList<Property> properties = new LinkedList<Property>();
+	
 	public interface Property {
-		public Property setPropertyTraits(int traits);
 		public String getPropertyText();
 		public int getPropertyType();
 		public int getPropertyTraits();
 		public Object getPropertyValue(Object element);
 		public int getPropertyAggregation();
 		public int getPropertyDisplayWidth();
+		public Color getForegroundColor();
+		public Color getBackgroundColor();
 	};
 	
 	/**
@@ -64,21 +67,26 @@ public class PropertiesProvider implements IPropertiesProvider {
 		private int aggregation;
 		private int width;
 		private int traits;
+		public Color foregroundColor;
+		public Color backgroundColor;
 		
-		public PropertyFeature(EReference[] path, EAttribute attribute, int width, int aggregation) {
+		public PropertyFeature(
+				EReference[] path, 
+				EAttribute attribute, 
+				int width, 
+				int aggregation,
+				int traits,
+				Color foregroundColor,
+				Color backgroundColor) {
 			this.path = path;
 			this.attribute = attribute;
 			this.aggregation = aggregation;
 			this.width = width;
-			this.traits = 0; // no traits
+			this.traits = traits; // no traits
+			this.foregroundColor = foregroundColor;
+			this.backgroundColor = backgroundColor;
 		}
 		
-		@Override
-		public Property setPropertyTraits(int traits) {
-			this.traits = traits;
-			return this;
-		}
-
 		@Override
 		public String getPropertyText() {
 			return attribute.getName();
@@ -94,7 +102,6 @@ public class PropertiesProvider implements IPropertiesProvider {
 		public int getPropertyTraits() {
 			return this.traits;
 		}
-
 
 		@Override
 		public Object getPropertyValue(Object element)  {
@@ -123,6 +130,16 @@ public class PropertiesProvider implements IPropertiesProvider {
 		@Override
 		public int getPropertyDisplayWidth() {
 			return this.width;
+		}
+
+		@Override
+		public Color getForegroundColor() {
+			return this.foregroundColor;
+		}
+
+		@Override
+		public Color getBackgroundColor() {
+			return this.backgroundColor;
 		}		
 		
 	}
@@ -141,11 +158,13 @@ public class PropertiesProvider implements IPropertiesProvider {
 	/*
 	 * Convenience methods for adding an path/attribute property
 	 */
-	public Property addProperty(EReference[] refs, EAttribute attribute, int width, int aggregation, int traits) {
-		PropertyFeature property_feature = new PropertyFeature(refs, attribute, width, aggregation);
-		property_feature.setPropertyTraits(traits);
+	public Property addProperty(EReference[] refs, EAttribute attribute, int width, int aggregation, int traits, Color foreground, Color background) {
+		PropertyFeature property_feature = new PropertyFeature(refs, attribute, width, aggregation, traits, foreground, background);
 		this.properties.add(property_feature);
 		return property_feature;
+	}
+	public Property addProperty(EReference[] refs, EAttribute attribute, int width, int aggregation, int traits) {
+		return this.addProperty(refs, attribute, width, aggregation, traits, null, null);
 	}
 	public Property addProperty(EReference[] refs, EAttribute attribute, int width, int aggregation) {
 		return this.addProperty(refs, attribute, width, aggregation, TRAITS_NONE);
@@ -153,7 +172,6 @@ public class PropertiesProvider implements IPropertiesProvider {
 	public Property addProperty(EReference[] refs, EAttribute attribute, int width) {
 		return this.addProperty(refs, attribute, width, AGGREGATE_NONE);
 	}
-
 	public Property addProperty(EReference[] refs, EAttribute attribute) {
 		return this.addProperty(refs, attribute, DEFAULT_WIDTH, AGGREGATE_NONE);
 	}
@@ -161,6 +179,10 @@ public class PropertiesProvider implements IPropertiesProvider {
 	/*
 	 * Convenience method for adding an attribute column
 	 */
+	public Property addProperty(EAttribute attribute, int width, int aggregation, int traits, Color foreground, Color background) {
+		EReference[] empty_path = {};
+		return this.addProperty(empty_path , attribute, width, aggregation, traits, foreground, background);
+	}
 	public Property addProperty(EAttribute attribute, int width, int aggregation, int traits) {
 		EReference[] empty_path = {};
 		return this.addProperty(empty_path , attribute, width, aggregation, traits);
@@ -254,5 +276,28 @@ public class PropertiesProvider implements IPropertiesProvider {
 		default: 
 			return NO_ALIGN;
 		}
+	}
+	/**
+	 * Specified by IPropertiesProvider
+	 * Return the color used as foreground for the property
+	 * @param property
+	 * @return
+	 */
+	@Override
+	public Color getPropertyForegroundColor(Object property) {
+		Property this_property = (Property)property;
+		return this_property.getForegroundColor();
+	}
+
+	/**
+	 * Specified by IPropertiesProvider
+	 * Return the color used as background for the property
+	 * @param property
+	 * @return
+	 */
+	@Override
+	public Color getPropertyBackgroundColor(Object property) {
+		Property this_property = (Property)property;
+		return this_property.getBackgroundColor();
 	}
 }
