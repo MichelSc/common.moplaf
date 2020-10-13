@@ -167,6 +167,7 @@ public class AdapterFactoryContentProviderExtended extends	AdapterFactoryContent
 	// FeatureSelector implementations
 	// the predicate, if present, is a necessary condition
 	abstract class FeatureSelector implements IFeatureSelector {
+		// predicate to be satisfied by the Object containing the feature
 		private Predicate<EObject> predicate = null;
 		// constructor
 		public FeatureSelector(Predicate<EObject> predicate) {
@@ -195,6 +196,19 @@ public class AdapterFactoryContentProviderExtended extends	AdapterFactoryContent
 		public boolean isFeatureSelected(EStructuralFeature feature, EObject object){
 			if ( !this.isObjectSelected(object)) { return false; }
 			return feature == this.structuralFeature;
+		}
+	}
+
+	class FeatureSelectorStructuralFeatureName extends FeatureSelector{
+		private String structuralFeature_name;
+		public FeatureSelectorStructuralFeatureName(String structuralFeature, Predicate<EObject> predicate){
+			super(predicate);
+			this.structuralFeature_name = structuralFeature;
+		}
+		@Override
+		public boolean isFeatureSelected(EStructuralFeature feature, EObject object){
+			if ( !this.isObjectSelected(object)) { return false; }
+			return feature.getName().equals(this.structuralFeature_name);
 		}
 	}
 
@@ -251,6 +265,12 @@ public class AdapterFactoryContentProviderExtended extends	AdapterFactoryContent
 		}
 		public void addSelector(EStructuralFeature feature, Predicate<EObject> predicate){
 			this.add(new FeatureSelectorStructuralFeature(feature, predicate));
+		}
+		public void addSelector(String feature){
+			this.add(new FeatureSelectorStructuralFeatureName(feature, null));
+		}
+		public void addSelector(String feature, Predicate<EObject> predicate){
+			this.add(new FeatureSelectorStructuralFeatureName(feature, predicate));
 		}
 		public void addSelector(EClass eclass){
 			this.add(new FeatureSelectorClass(eclass, null));
