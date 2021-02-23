@@ -40,8 +40,16 @@ import com.misc.common.moplaf.common.IPropertiesProvider;
  * </ul>
  */
 public class PropertiesProvider implements IPropertiesProvider {
+
+	private static final int DEFAULT_WIDTH = 200;
+
 	private LinkedList<Property> properties = new LinkedList<Property>();
 	
+	/**
+	 * Generic interface for a Property, can be used to implement the interface IPropertiesProvider
+	 * @author Michel.Schaffers
+	 *
+	 */
 	public interface Property {
 		public String getPropertyText();
 		public int getPropertyType();
@@ -54,32 +62,23 @@ public class PropertiesProvider implements IPropertiesProvider {
 	};
 	
 	/**
-	 * 
+	 * Abstract class that can be used as base class to implement the interface Property
+	 * @author Michel.Schaffers
+	 *
 	 */
-	private static final long serialVersionUID = 1L;
-	
-	private static final int DEFAULT_WIDTH = 200;
-
-	private class PropertyFeature implements Property {
-		
-		private EReference[] path;
-		private EAttribute attribute;
+	static public abstract class PropertyAbstract implements Property {
 		private int aggregation;
 		private int width;
 		private int traits;
 		public Color foregroundColor;
 		public Color backgroundColor;
 		
-		public PropertyFeature(
-				EReference[] path, 
-				EAttribute attribute, 
+		public PropertyAbstract(
 				int width, 
 				int aggregation,
 				int traits,
 				Color foregroundColor,
 				Color backgroundColor) {
-			this.path = path;
-			this.attribute = attribute;
 			this.aggregation = aggregation;
 			this.width = width;
 			this.traits = traits; // no traits
@@ -87,39 +86,9 @@ public class PropertiesProvider implements IPropertiesProvider {
 			this.backgroundColor = backgroundColor;
 		}
 		
-		@Override
-		public String getPropertyText() {
-			return attribute.getName();
-		}
-
-		@Override
-		public int getPropertyType() {
-			EDataType attribute_type = this.attribute.getEAttributeType();
-			return com.misc.common.moplaf.common.util.Util.toPropertyType(attribute_type);
-		}
-		
 		@Override 
 		public int getPropertyTraits() {
 			return this.traits;
-		}
-
-		@Override
-		public Object getPropertyValue(Object element)  {
-			EObject object = (EObject)element;
-			for ( int i=0; i<this.path.length && object!=null; i++) {
-				EReference ref = this.path[i];
-				if ( !ref.getEContainingClass().isSuperTypeOf(object.eClass())) {
-					// the reference is not implemented by the object
-					return null;
-				}
-				object  = (EObject) object.eGet(ref);
-			}
-			if ( object == null ) { return null; }
-			if ( !this.attribute.getEContainingClass().isSuperTypeOf(object.eClass())) {
-				// the attribute is not implemented by object
-				return null;
-			}
-			return object.eGet(this.attribute);
 		}
 
 		@Override
@@ -141,7 +110,58 @@ public class PropertiesProvider implements IPropertiesProvider {
 		public Color getBackgroundColor() {
 			return this.backgroundColor;
 		}		
+	} // class PropertyAbstract
+
+	/**
+	 * 
+	 */
+	static private class PropertyFeature extends PropertyAbstract {
+	
+		private EReference[] path;
+		private EAttribute attribute;
+
+		public PropertyFeature(
+				EReference[] path, 
+				EAttribute attribute, 
+				int width, 
+				int aggregation,
+				int traits,
+				Color foregroundColor,
+				Color backgroundColor) {
+			super(width, aggregation, traits, foregroundColor, backgroundColor);
+			this.path = path;
+			this.attribute = attribute;
+		}
 		
+		@Override
+		public String getPropertyText() {
+			return attribute.getName();
+		}
+
+		@Override
+		public int getPropertyType() {
+			EDataType attribute_type = this.attribute.getEAttributeType();
+			return com.misc.common.moplaf.common.util.Util.toPropertyType(attribute_type);
+		}
+		
+		@Override
+		public Object getPropertyValue(Object element)  {
+			EObject object = (EObject)element;
+			for ( int i=0; i<this.path.length && object!=null; i++) {
+				EReference ref = this.path[i];
+				if ( !ref.getEContainingClass().isSuperTypeOf(object.eClass())) {
+					// the reference is not implemented by the object
+					return null;
+				}
+				object  = (EObject) object.eGet(ref);
+			}
+			if ( object == null ) { return null; }
+			if ( !this.attribute.getEContainingClass().isSuperTypeOf(object.eClass())) {
+				// the attribute is not implemented by object
+				return null;
+			}
+			return object.eGet(this.attribute);
+		}
 	}
 	
 	public PropertiesProvider() {
@@ -156,8 +176,12 @@ public class PropertiesProvider implements IPropertiesProvider {
 	};
 
 	/*
-	 * Convenience methods for adding an path/attribute property
+	 * Convenience methods for adding an path/attribute property, or an abstract property
 	 */
+	public Property addProperty(Property property) {
+		this.properties.add(property);
+		return property;
+	}
 	public Property addProperty(EReference[] refs, EAttribute attribute, int width, int aggregation, int traits, Color foreground, Color background) {
 		PropertyFeature property_feature = new PropertyFeature(refs, attribute, width, aggregation, traits, foreground, background);
 		this.properties.add(property_feature);
