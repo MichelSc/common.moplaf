@@ -235,6 +235,7 @@ public class Util implements Constants {
 		if ( data_type==EcorePackage.Literals.EDOUBLE)          { return DATA_TYPE_DOUBLE; }
 		if ( data_type==EcorePackage.Literals.ELONG )           { return DATA_TYPE_DOUBLE; }
 		if ( data_type==EcorePackage.Literals.EINT )            { return DATA_TYPE_INT; }
+		if ( data_type==EcorePackage.Literals.EBOOLEAN )        { return DATA_TYPE_BOOLEAN; }
 		if ( data_type==EcorePackage.Literals.EBOOLEAN_OBJECT ) { return DATA_TYPE_BOOLEAN; }
 		if ( data_type instanceof EEnum )                       { return DATA_TYPE_EMF_ENUM; }
 		return DATA_TYPE_UNKOWN;
