@@ -19,7 +19,7 @@ public class ShowConsoleView extends AbstractHandler {
 			Util.showView(window.getActivePage(), "org.eclipse.ui.console.ConsoleView");
 		}
 		catch (PartInitException exception) {
-			Plugin.INSTANCE.logError("shiftcoverop.editor.showConsoleViewAction: exception " + exception.getMessage());
+			Plugin.INSTANCE.logError("com.misc.common.moplaf.emf.editor.commands.ShowConsoleView: exception " + exception.getMessage());
 		}
 
 		return null;
