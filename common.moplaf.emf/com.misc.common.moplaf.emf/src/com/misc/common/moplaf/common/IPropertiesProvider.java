@@ -92,6 +92,24 @@ public interface IPropertiesProvider extends Constants{
 	}
 
 	/**
+	 * Return the color used as foreground for the property
+	 * @param property
+	 * @return
+	 */
+	default public Color getPropertyValueForegroundColor(Object element, Object property) {
+		return null;
+	}
+
+	/**
+	 * Return the color used as background for the property
+	 * @param property
+	 * @return
+	 */
+	default public Color getPropertyValueBackgroundColor(Object element, Object property) {
+		return null;
+	}
+
+	/**
 	 * 
 	 * @param property
 	 * @return
@@ -149,26 +167,6 @@ public interface IPropertiesProvider extends Constants{
 		default: 
 			return NO_ALIGN;
 		}
-	}
-
-	/**
-	 * Return the color used as foreground for the property
-	 * TODO: make the color depending on the object (the row)
-	 * @param property
-	 * @return
-	 */
-	default public Color getPropertyForegroundColor(Object property) {
-		return null;
-	}
-
-	/**
-	 * Return the color used as background for the property
-	 * TODO: make the color depending on the object (the row)
-	 * @param property
-	 * @return
-	 */
-	default public Color getPropertyBackgroundColor(Object property) {
-		return null;
 	}
 
 	/**

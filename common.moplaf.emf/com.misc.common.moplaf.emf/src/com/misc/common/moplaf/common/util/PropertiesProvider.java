@@ -55,10 +55,10 @@ public class PropertiesProvider implements IPropertiesProvider {
 		public int getPropertyType();
 		public int getPropertyTraits();
 		public Object getPropertyValue(Object element);
+		public Color getPropertyValueForegroundColor(Object element);
+		public Color getPropertyValueBackgroundColor(Object element);
 		public int getPropertyAggregation();
 		public int getPropertyDisplayWidth();
-		public Color getForegroundColor();
-		public Color getBackgroundColor();
 	};
 	
 	/**
@@ -70,20 +70,14 @@ public class PropertiesProvider implements IPropertiesProvider {
 		private int aggregation;
 		private int width;
 		private int traits;
-		public Color foregroundColor;
-		public Color backgroundColor;
 		
 		public PropertyAbstract(
 				int width, 
 				int aggregation,
-				int traits,
-				Color foregroundColor,
-				Color backgroundColor) {
+				int traits) {
 			this.aggregation = aggregation;
 			this.width = width;
 			this.traits = traits; // no traits
-			this.foregroundColor = foregroundColor;
-			this.backgroundColor = backgroundColor;
 		}
 		
 		@Override 
@@ -102,13 +96,13 @@ public class PropertiesProvider implements IPropertiesProvider {
 		}
 
 		@Override
-		public Color getForegroundColor() {
-			return this.foregroundColor;
+		public Color getPropertyValueForegroundColor(Object element) {
+			return null;
 		}
 
 		@Override
-		public Color getBackgroundColor() {
-			return this.backgroundColor;
+		public Color getPropertyValueBackgroundColor(Object element) {
+			return null;
 		}		
 	} // class PropertyAbstract
 
@@ -125,10 +119,8 @@ public class PropertiesProvider implements IPropertiesProvider {
 				EAttribute attribute, 
 				int width, 
 				int aggregation,
-				int traits,
-				Color foregroundColor,
-				Color backgroundColor) {
-			super(width, aggregation, traits, foregroundColor, backgroundColor);
+				int traits) {
+			super(width, aggregation, traits);
 			this.path = path;
 			this.attribute = attribute;
 		}
@@ -182,13 +174,10 @@ public class PropertiesProvider implements IPropertiesProvider {
 		this.properties.add(property);
 		return property;
 	}
-	public Property addProperty(EReference[] refs, EAttribute attribute, int width, int aggregation, int traits, Color foreground, Color background) {
-		PropertyFeature property_feature = new PropertyFeature(refs, attribute, width, aggregation, traits, foreground, background);
+	public Property addProperty(EReference[] refs, EAttribute attribute, int width, int aggregation, int traits) {
+		PropertyFeature property_feature = new PropertyFeature(refs, attribute, width, aggregation, traits);
 		this.properties.add(property_feature);
 		return property_feature;
-	}
-	public Property addProperty(EReference[] refs, EAttribute attribute, int width, int aggregation, int traits) {
-		return this.addProperty(refs, attribute, width, aggregation, traits, null, null);
 	}
 	public Property addProperty(EReference[] refs, EAttribute attribute, int width, int aggregation) {
 		return this.addProperty(refs, attribute, width, aggregation, TRAITS_NONE);
@@ -203,10 +192,6 @@ public class PropertiesProvider implements IPropertiesProvider {
 	/*
 	 * Convenience method for adding an attribute column
 	 */
-	public Property addProperty(EAttribute attribute, int width, int aggregation, int traits, Color foreground, Color background) {
-		EReference[] empty_path = {};
-		return this.addProperty(empty_path , attribute, width, aggregation, traits, foreground, background);
-	}
 	public Property addProperty(EAttribute attribute, int width, int aggregation, int traits) {
 		EReference[] empty_path = {};
 		return this.addProperty(empty_path , attribute, width, aggregation, traits);
@@ -308,9 +293,9 @@ public class PropertiesProvider implements IPropertiesProvider {
 	 * @return
 	 */
 	@Override
-	public Color getPropertyForegroundColor(Object property) {
+	public Color getPropertyValueForegroundColor(Object element, Object property) {
 		Property this_property = (Property)property;
-		return this_property.getForegroundColor();
+		return this_property.getPropertyValueForegroundColor(element);
 	}
 
 	/**
@@ -320,8 +305,8 @@ public class PropertiesProvider implements IPropertiesProvider {
 	 * @return
 	 */
 	@Override
-	public Color getPropertyBackgroundColor(Object property) {
+	public Color getPropertyValueBackgroundColor(Object element, Object property) {
 		Property this_property = (Property)property;
-		return this_property.getBackgroundColor();
+		return this_property.getPropertyValueBackgroundColor(element);
 	}
 }

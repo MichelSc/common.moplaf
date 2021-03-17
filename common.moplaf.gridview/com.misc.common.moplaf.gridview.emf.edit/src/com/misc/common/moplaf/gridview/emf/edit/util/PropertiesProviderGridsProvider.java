@@ -143,19 +143,11 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		}
 		@Override
 		public Object getColumnForegroundColor(Object column) {
-			Color color = this.provider.getPropertyForegroundColor(column);
-			if ( color==null ) {
-				return null;
-			}
-			return color.toURI();
+			return null;
 		}
 		@Override
 		public Object getColumnBackgroundColor(Object column) {
-			Color color = this.provider.getPropertyBackgroundColor(column);
-			if ( color==null ) {
-				return null;
-			}
-			return color.toURI();
+			return null;
 		}
 		
 		@Override
@@ -238,7 +230,7 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 			if ( row != this && this.provider.isPropertyValueHighlightKey(row, column) ) {
 				color = PropertiesProviderGridsProvider.this.highlight_color;
 			} else  {
-				color = this.provider.getPropertyBackgroundColor(column);
+				color = this.provider.getPropertyValueBackgroundColor(row, column);
 			}
 			return color==null ? null : color.toURI();
 		}
@@ -248,7 +240,7 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 			if ( row != this && this.provider.isPropertyValueHighlightKey(row, column) ) {
 				color = PropertiesProviderGridsProvider.this.highlight_color;
 			} else  {
-				color = this.provider.getPropertyForegroundColor(column);
+				color = this.provider.getPropertyValueForegroundColor(row, column);
 			}
 			return color==null ? null : color.toURI();
 		}
