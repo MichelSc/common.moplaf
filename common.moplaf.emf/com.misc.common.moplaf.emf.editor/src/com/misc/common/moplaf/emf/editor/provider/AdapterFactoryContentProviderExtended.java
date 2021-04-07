@@ -87,7 +87,8 @@ public class AdapterFactoryContentProviderExtended extends	AdapterFactoryContent
 			if ( !(eType  instanceof EDataType)) {
 				return super.createPropertyEditor(composite);
 			}
-			Object value = eObject.eGet(eFeature);
+			//Object value = eObject.eGet(eFeature);
+			Object value = this.getItemPropertyDescriptor().getPropertyValue(eObject);
 			EDataType eDataType = (EDataType) eType;
 			if ( AdapterFactoryContentProviderExtended.this.editDates.isFeatureSelected(eFeature, eObject)
 					&& eDataType.getInstanceClass() == Date.class ){
