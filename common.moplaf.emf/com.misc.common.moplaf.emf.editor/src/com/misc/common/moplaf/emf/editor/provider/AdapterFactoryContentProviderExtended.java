@@ -24,6 +24,8 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor.PropertyValueWrapper;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.ExtendedColorRegistry;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
@@ -89,6 +91,10 @@ public class AdapterFactoryContentProviderExtended extends	AdapterFactoryContent
 			}
 			//Object value = eObject.eGet(eFeature);
 			Object value = this.getItemPropertyDescriptor().getPropertyValue(eObject);
+			if ( value instanceof ItemPropertyDescriptor.PropertyValueWrapper ) {
+				PropertyValueWrapper wrapper = (ItemPropertyDescriptor.PropertyValueWrapper)value;
+				value = wrapper.getEditableValue(eObject);
+			}
 			EDataType eDataType = (EDataType) eType;
 			if ( AdapterFactoryContentProviderExtended.this.editDates.isFeatureSelected(eFeature, eObject)
 					&& eDataType.getInstanceClass() == Date.class ){
