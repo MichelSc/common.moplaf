@@ -28,6 +28,7 @@ import com.misc.common.moplaf.emf.editor.action.FlushAction;
 import com.misc.common.moplaf.emf.editor.action.GarbageCollectAction;
 import com.misc.common.moplaf.emf.editor.action.ImportAction;
 import com.misc.common.moplaf.emf.editor.action.InitializeAction;
+import com.misc.common.moplaf.emf.editor.action.MigrateAction;
 import com.misc.common.moplaf.emf.editor.action.ReadAction;
 import com.misc.common.moplaf.emf.editor.action.RefreshAction;
 import com.misc.common.moplaf.emf.editor.action.RefreshMetaDataAction;
@@ -77,6 +78,7 @@ public class ActionContributionMenu  extends ActionContributionItem {
 		actions.add(new GarbageCollectAction	(part, selection));
 		actions.add(new ImportAction        	(part, selection));
 		actions.add(new InitializeAction    	(part, selection));
+		actions.add(new MigrateAction        	(part, selection));
 		actions.add(new ReadAction          	(part, selection));
 		actions.add(new RefreshAction       	(part, selection));
 		actions.add(new RefreshMetaDataAction	(part, selection));
