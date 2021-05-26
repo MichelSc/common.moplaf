@@ -106,11 +106,13 @@ public class TransientItemProviderAdapter extends ItemProviderAdapter
 	@Override
 	public Command createCommand(Object object, EditingDomain domain, Class<? extends Command> commandClass,
 			CommandParameter commandParameter) {
-		// owner is the owner of the command; this may be an EObject or a TransienItemProviderAdapter
+		// object is the owner of the command; this may be an EObject or a TransienItemProviderAdapter
 		// commandParameter.owner is the subject of the command: the object the command acts on
-//		commandParameter.owner=this.target;
+		//   commandParameter.owner  must be the EObject owning the to remove object
+		commandParameter.owner=this.target;
 //		return super.createCommand(this.target, domain, commandClass, commandParameter);
-		return super.createCommand(object, domain, commandClass, commandParameter);
+		Command c = super.createCommand(object, domain, commandClass, commandParameter);
+		return c;
 	}
 
 }
