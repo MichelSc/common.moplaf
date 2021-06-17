@@ -50,6 +50,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.ColumnImpl#getSheet <em>Sheet</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.ColumnImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.ColumnImpl#getColumnIndex <em>Column Index</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.ColumnImpl#getColumnName <em>Column Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -96,6 +97,26 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	protected int columnIndex = COLUMN_INDEX_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getColumnName() <em>Column Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColumnName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COLUMN_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getColumnName() <em>Column Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColumnName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String columnName = COLUMN_NAME_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -119,6 +140,7 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Cell> getCells() {
 		if (cells == null) {
 			cells = new EObjectWithInverseResolvingEList<Cell>(Cell.class, this, SpreadsheetPackage.COLUMN__CELLS, SpreadsheetPackage.CELL__COLUMN);
@@ -131,6 +153,7 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Sheet getSheet() {
 		if (eContainerFeatureID() != SpreadsheetPackage.COLUMN__SHEET) return null;
 		return (Sheet)eInternalContainer();
@@ -151,6 +174,7 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSheet(Sheet newSheet) {
 		if (newSheet != eInternalContainer() || (eContainerFeatureID() != SpreadsheetPackage.COLUMN__SHEET && newSheet != null)) {
 			if (EcoreUtil.isAncestor(this, newSheet))
@@ -172,7 +196,8 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	 * <!-- end-user-doc -->
 	 */
 	public String getDescription() {
-		String description = String.format("(%d)", this.getColumnIndex());
+		String name = this.getColumnName()== null ? "" : this.getColumnName();
+		String description = String.format("%s(%d)", name, this.getColumnIndex());
 		return description;
 	}
 
@@ -181,6 +206,7 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getColumnIndex() {
 		return columnIndex;
 	}
@@ -190,11 +216,35 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setColumnIndex(int newColumnIndex) {
 		int oldColumnIndex = columnIndex;
 		columnIndex = newColumnIndex;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SpreadsheetPackage.COLUMN__COLUMN_INDEX, oldColumnIndex, columnIndex));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getColumnName() {
+		return columnName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setColumnName(String newColumnName) {
+		String oldColumnName = columnName;
+		columnName = newColumnName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SpreadsheetPackage.COLUMN__COLUMN_NAME, oldColumnName, columnName));
 	}
 
 	/**
@@ -298,6 +348,8 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 				return getDescription();
 			case SpreadsheetPackage.COLUMN__COLUMN_INDEX:
 				return getColumnIndex();
+			case SpreadsheetPackage.COLUMN__COLUMN_NAME:
+				return getColumnName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -321,6 +373,9 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 			case SpreadsheetPackage.COLUMN__COLUMN_INDEX:
 				setColumnIndex((Integer)newValue);
 				return;
+			case SpreadsheetPackage.COLUMN__COLUMN_NAME:
+				setColumnName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -342,6 +397,9 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 			case SpreadsheetPackage.COLUMN__COLUMN_INDEX:
 				setColumnIndex(COLUMN_INDEX_EDEFAULT);
 				return;
+			case SpreadsheetPackage.COLUMN__COLUMN_NAME:
+				setColumnName(COLUMN_NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -362,6 +420,8 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case SpreadsheetPackage.COLUMN__COLUMN_INDEX:
 				return columnIndex != COLUMN_INDEX_EDEFAULT;
+			case SpreadsheetPackage.COLUMN__COLUMN_NAME:
+				return COLUMN_NAME_EDEFAULT == null ? columnName != null : !COLUMN_NAME_EDEFAULT.equals(columnName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -393,9 +453,11 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (ColumnIndex: ");
 		result.append(columnIndex);
+		result.append(", ColumnName: ");
+		result.append(columnName);
 		result.append(')');
 		return result.toString();
 	}

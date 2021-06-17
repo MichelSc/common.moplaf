@@ -275,6 +275,14 @@ public interface Sheet extends EObject {
 	 * @model
 	 * @generated
 	 */
+	Column getColumn(String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	Column createColumn(int index);
 
 	/**
@@ -283,7 +291,23 @@ public interface Sheet extends EObject {
 	 * @model
 	 * @generated
 	 */
+	Column createColumn(int index, String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	Column getOrCreateColumn(int index);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Column getOrCreateColumn(String name);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -31,8 +31,13 @@
       <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/getOrCreateSheet">
         <genParameters ecoreParameter="spreadsheet.ecore#//Spreadsheet/getOrCreateSheet/index"/>
       </genOperations>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/getOrCreateSheet.1">
+        <genParameters ecoreParameter="spreadsheet.ecore#//Spreadsheet/getOrCreateSheet.1/sheetname"/>
+      </genOperations>
       <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/addSheet"/>
       <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/flush"/>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/conformSheetIndex"/>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/conformAllIndices"/>
     </genClasses>
     <genClasses ecoreClass="spreadsheet.ecore#//Sheet">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Sheet/Rows"/>
@@ -59,11 +64,21 @@
       <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/getColumn">
         <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/getColumn/index"/>
       </genOperations>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/getColumn.1">
+        <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/getColumn.1/name"/>
+      </genOperations>
       <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/createColumn">
         <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/createColumn/index"/>
       </genOperations>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/createColumn.1">
+        <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/createColumn.1/index"/>
+        <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/createColumn.1/name"/>
+      </genOperations>
       <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/getOrCreateColumn">
         <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/getOrCreateColumn/index"/>
+      </genOperations>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/getOrCreateColumn.1">
+        <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/getOrCreateColumn.1/name"/>
       </genOperations>
       <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/addColumn"/>
       <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/getCell">
@@ -79,6 +94,8 @@
         <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/getOrCreateCell/column"/>
       </genOperations>
       <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/flush"/>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/conformColumnIndex"/>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/conformRowIndex"/>
     </genClasses>
     <genClasses ecoreClass="spreadsheet.ecore#//Row">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Row/Cells"/>
@@ -91,6 +108,9 @@
       <genOperations ecoreOperation="spreadsheet.ecore#//Row/getCell.1">
         <genParameters ecoreParameter="spreadsheet.ecore#//Row/getCell.1/column"/>
       </genOperations>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Row/getCell.2">
+        <genParameters ecoreParameter="spreadsheet.ecore#//Row/getCell.2/name"/>
+      </genOperations>
       <genOperations ecoreOperation="spreadsheet.ecore#//Row/lookUp">
         <genParameters ecoreParameter="spreadsheet.ecore#//Row/lookUp/value"/>
       </genOperations>
@@ -101,6 +121,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Column/Sheet"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Column/Description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Column/ColumnIndex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Column/ColumnName"/>
       <genOperations ecoreOperation="spreadsheet.ecore#//Column/getCell">
         <genParameters ecoreParameter="spreadsheet.ecore#//Column/getCell/rowindex"/>
       </genOperations>

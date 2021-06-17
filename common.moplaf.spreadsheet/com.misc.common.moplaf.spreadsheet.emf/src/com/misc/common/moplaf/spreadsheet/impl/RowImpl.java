@@ -119,6 +119,7 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Cell> getCells() {
 		if (cells == null) {
 			cells = new EObjectContainmentWithInverseEList<Cell>(Cell.class, this, SpreadsheetPackage.ROW__CELLS, SpreadsheetPackage.CELL__ROW);
@@ -131,6 +132,7 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Sheet getSheet() {
 		if (eContainerFeatureID() != SpreadsheetPackage.ROW__SHEET) return null;
 		return (Sheet)eInternalContainer();
@@ -151,6 +153,7 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSheet(Sheet newSheet) {
 		if (newSheet != eInternalContainer() || (eContainerFeatureID() != SpreadsheetPackage.ROW__SHEET && newSheet != null)) {
 			if (EcoreUtil.isAncestor(this, newSheet))
@@ -181,6 +184,7 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getRowIndex() {
 		return rowIndex;
 	}
@@ -190,6 +194,7 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRowIndex(int newRowIndex) {
 		int oldRowIndex = rowIndex;
 		rowIndex = newRowIndex;
@@ -202,12 +207,11 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	 * <!-- end-user-doc -->
 	 */
 	public Cell getCell(int columnindex) {
-		for ( Cell cell : this.getCells()){
-			if ( cell.getColumn().getColumnIndex()==columnindex){
-				return cell;
-			}
-		}
-		return null;
+		return this.getCells()
+				.stream()
+				.filter(c -> c.getColumn().getColumnIndex()==columnindex)
+				.findAny()
+				.orElse(null);
 	}
 
 	/**
@@ -215,7 +219,25 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	 * <!-- end-user-doc -->
 	 */
 	public Cell getCell(Column column) {
-		return this.getCell(column.getColumnIndex());
+		return this.getCells()
+				.stream()
+				.filter(c -> c.getColumn()==column)
+				.findAny()
+				.orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generatedNOT
+	 */
+	@Override
+	public Cell getCell(String name) {
+		return this.getCells()
+				.stream()
+				.filter(c -> c.getColumn().getColumnName().equals(name))
+				.findAny()
+				.orElse(null);
 	}
 
 	/**
@@ -378,6 +400,8 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 				return getCell((Integer)arguments.get(0));
 			case SpreadsheetPackage.ROW___GET_CELL__COLUMN:
 				return getCell((Column)arguments.get(0));
+			case SpreadsheetPackage.ROW___GET_CELL__STRING:
+				return getCell((String)arguments.get(0));
 			case SpreadsheetPackage.ROW___LOOK_UP__STRING:
 				return lookUp((String)arguments.get(0));
 		}
@@ -393,7 +417,7 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (RowIndex: ");
 		result.append(rowIndex);
 		result.append(')');

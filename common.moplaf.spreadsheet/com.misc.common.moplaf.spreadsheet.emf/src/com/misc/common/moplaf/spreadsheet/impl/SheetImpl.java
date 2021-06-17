@@ -222,6 +222,7 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Row> getRows() {
 		if (rows == null) {
 			rows = new EObjectContainmentWithInverseEList<Row>(Row.class, this, SpreadsheetPackage.SHEET__ROWS, SpreadsheetPackage.ROW__SHEET);
@@ -234,6 +235,7 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Column> getColumns() {
 		if (columns == null) {
 			columns = new EObjectContainmentWithInverseEList<Column>(Column.class, this, SpreadsheetPackage.SHEET__COLUMNS, SpreadsheetPackage.COLUMN__SHEET);
@@ -246,6 +248,7 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getSheetName() {
 		return sheetName;
 	}
@@ -255,6 +258,7 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSheetName(String newSheetName) {
 		String oldSheetName = sheetName;
 		sheetName = newSheetName;
@@ -267,6 +271,7 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getSheetIndex() {
 		return sheetIndex;
 	}
@@ -276,6 +281,7 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSheetIndex(int newSheetIndex) {
 		int oldSheetIndex = sheetIndex;
 		sheetIndex = newSheetIndex;
@@ -288,6 +294,7 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Spreadsheet getSpreadsheet() {
 		if (eContainerFeatureID() != SpreadsheetPackage.SHEET__SPREADSHEET) return null;
 		return (Spreadsheet)eInternalContainer();
@@ -308,6 +315,7 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSpreadsheet(Spreadsheet newSpreadsheet) {
 		if (newSpreadsheet != eInternalContainer() || (eContainerFeatureID() != SpreadsheetPackage.SHEET__SPREADSHEET && newSpreadsheet != null)) {
 			if (EcoreUtil.isAncestor(this, newSpreadsheet))
@@ -329,6 +337,7 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getTopRowsFrozen() {
 		return topRowsFrozen;
 	}
@@ -338,6 +347,7 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTopRowsFrozen(int newTopRowsFrozen) {
 		int oldTopRowsFrozen = topRowsFrozen;
 		topRowsFrozen = newTopRowsFrozen;
@@ -350,6 +360,7 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getBottomRowsFrozen() {
 		return bottomRowsFrozen;
 	}
@@ -359,6 +370,7 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setBottomRowsFrozen(int newBottomRowsFrozen) {
 		int oldBottomRowsFrozen = bottomRowsFrozen;
 		bottomRowsFrozen = newBottomRowsFrozen;
@@ -371,6 +383,7 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getLeftColumnsFrozen() {
 		return leftColumnsFrozen;
 	}
@@ -380,6 +393,7 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLeftColumnsFrozen(int newLeftColumnsFrozen) {
 		int oldLeftColumnsFrozen = leftColumnsFrozen;
 		leftColumnsFrozen = newLeftColumnsFrozen;
@@ -392,6 +406,7 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getRightColumnsFrozen() {
 		return rightColumnsFrozen;
 	}
@@ -401,6 +416,7 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRightColumnsFrozen(int newRightColumnsFrozen) {
 		int oldRightColumnsFrozen = rightColumnsFrozen;
 		rightColumnsFrozen = newRightColumnsFrozen;
@@ -413,12 +429,25 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 */
 	public Column getColumn(int columnindex) {
-		for ( Column column : this.getColumns()){
-			if ( column.getColumnIndex()==columnindex){
-				return column;
-			}
-		}
-		return null;
+		return this.getColumns()
+				.stream()
+				.filter(c->c.getColumnIndex()==columnindex)
+				.findAny()
+				.orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generatedNOT
+	 */
+	@Override
+	public Column getColumn(String name) {
+		return this.getColumns()
+				.stream()
+				.filter(c->c.getColumnName().equals(name))
+				.findAny()
+				.orElse(null);
 	}
 
 	/**
@@ -426,8 +455,19 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 */
 	public Column createColumn(int index) {
+		return this.createColumn(index, "");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generatedNOT
+	 */
+	@Override
+	public Column createColumn(int index, String name) {
 		Column column = SpreadsheetFactory.eINSTANCE.createColumn();
 		column.setColumnIndex(index);
+		column.setColumnName(name);
 		this.getColumns().add(column);
 		return column;
 	}
@@ -447,12 +487,32 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generatedNOT
 	 */
-	public Column addColumn() {
+	@Override
+	public Column getOrCreateColumn(String name) {
+		Column c = this.getColumn(name);
+		if ( c==null ) {
+			int new_index = this.getNewColumnIndex();
+			c = this.createColumn(new_index, name);
+		}
+		return c;
+	}
+	
+	private int getNewColumnIndex() {
 		Optional<Integer> max_index = this.getColumns().stream()
 				.map(c -> c.getColumnIndex())
 				.max(Comparator.naturalOrder());
 		int new_index = max_index.isPresent() ? max_index.get()+1 : 0;
+		return new_index;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Column addColumn() {
+		int new_index = this.getNewColumnIndex();
 		Column new_column = this.createColumn(new_index);
 		return new_column;
 	}
@@ -782,10 +842,16 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 				return addRow();
 			case SpreadsheetPackage.SHEET___GET_COLUMN__INT:
 				return getColumn((Integer)arguments.get(0));
+			case SpreadsheetPackage.SHEET___GET_COLUMN__STRING:
+				return getColumn((String)arguments.get(0));
 			case SpreadsheetPackage.SHEET___CREATE_COLUMN__INT:
 				return createColumn((Integer)arguments.get(0));
+			case SpreadsheetPackage.SHEET___CREATE_COLUMN__INT_STRING:
+				return createColumn((Integer)arguments.get(0), (String)arguments.get(1));
 			case SpreadsheetPackage.SHEET___GET_OR_CREATE_COLUMN__INT:
 				return getOrCreateColumn((Integer)arguments.get(0));
+			case SpreadsheetPackage.SHEET___GET_OR_CREATE_COLUMN__STRING:
+				return getOrCreateColumn((String)arguments.get(0));
 			case SpreadsheetPackage.SHEET___ADD_COLUMN:
 				return addColumn();
 			case SpreadsheetPackage.SHEET___GET_CELL__ROW_COLUMN:
@@ -816,7 +882,7 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (SheetName: ");
 		result.append(sheetName);
 		result.append(", SheetIndex: ");

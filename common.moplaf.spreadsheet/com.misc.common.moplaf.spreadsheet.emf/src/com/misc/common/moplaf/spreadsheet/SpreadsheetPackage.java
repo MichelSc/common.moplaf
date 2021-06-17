@@ -351,13 +351,31 @@ public interface SpreadsheetPackage extends EPackage {
 	int SHEET___GET_COLUMN__INT = 4;
 
 	/**
+	 * The operation id for the '<em>Get Column</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET___GET_COLUMN__STRING = 5;
+
+	/**
 	 * The operation id for the '<em>Create Column</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET___CREATE_COLUMN__INT = 5;
+	int SHEET___CREATE_COLUMN__INT = 6;
+
+	/**
+	 * The operation id for the '<em>Create Column</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET___CREATE_COLUMN__INT_STRING = 7;
 
 	/**
 	 * The operation id for the '<em>Get Or Create Column</em>' operation.
@@ -366,7 +384,16 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET___GET_OR_CREATE_COLUMN__INT = 6;
+	int SHEET___GET_OR_CREATE_COLUMN__INT = 8;
+
+	/**
+	 * The operation id for the '<em>Get Or Create Column</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET___GET_OR_CREATE_COLUMN__STRING = 9;
 
 	/**
 	 * The operation id for the '<em>Add Column</em>' operation.
@@ -375,7 +402,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET___ADD_COLUMN = 7;
+	int SHEET___ADD_COLUMN = 10;
 
 	/**
 	 * The operation id for the '<em>Get Cell</em>' operation.
@@ -384,7 +411,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET___GET_CELL__ROW_COLUMN = 8;
+	int SHEET___GET_CELL__ROW_COLUMN = 11;
 
 	/**
 	 * The operation id for the '<em>Create Cell</em>' operation.
@@ -393,7 +420,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET___CREATE_CELL__ROW_COLUMN = 9;
+	int SHEET___CREATE_CELL__ROW_COLUMN = 12;
 
 	/**
 	 * The operation id for the '<em>Get Or Create Cell</em>' operation.
@@ -402,7 +429,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET___GET_OR_CREATE_CELL__ROW_COLUMN = 10;
+	int SHEET___GET_OR_CREATE_CELL__ROW_COLUMN = 13;
 
 	/**
 	 * The operation id for the '<em>Flush</em>' operation.
@@ -411,7 +438,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET___FLUSH = 11;
+	int SHEET___FLUSH = 14;
 
 	/**
 	 * The operation id for the '<em>Conform Column Index</em>' operation.
@@ -420,7 +447,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET___CONFORM_COLUMN_INDEX = 12;
+	int SHEET___CONFORM_COLUMN_INDEX = 15;
 
 	/**
 	 * The operation id for the '<em>Conform Row Index</em>' operation.
@@ -429,7 +456,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET___CONFORM_ROW_INDEX = 13;
+	int SHEET___CONFORM_ROW_INDEX = 16;
 
 	/**
 	 * The number of operations of the '<em>Sheet</em>' class.
@@ -438,7 +465,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET_OPERATION_COUNT = 14;
+	int SHEET_OPERATION_COUNT = 17;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl <em>Row</em>}' class.
@@ -514,13 +541,22 @@ public interface SpreadsheetPackage extends EPackage {
 	int ROW___GET_CELL__COLUMN = 1;
 
 	/**
+	 * The operation id for the '<em>Get Cell</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROW___GET_CELL__STRING = 2;
+
+	/**
 	 * The operation id for the '<em>Look Up</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROW___LOOK_UP__STRING = 2;
+	int ROW___LOOK_UP__STRING = 3;
 
 	/**
 	 * The number of operations of the '<em>Row</em>' class.
@@ -529,7 +565,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROW_OPERATION_COUNT = 3;
+	int ROW_OPERATION_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.spreadsheet.impl.ColumnImpl <em>Column</em>}' class.
@@ -578,13 +614,22 @@ public interface SpreadsheetPackage extends EPackage {
 	int COLUMN__COLUMN_INDEX = 3;
 
 	/**
+	 * The feature id for the '<em><b>Column Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__COLUMN_NAME = 4;
+
+	/**
 	 * The number of structural features of the '<em>Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN_FEATURE_COUNT = 4;
+	int COLUMN_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Get Cell</em>' operation.
@@ -1158,6 +1203,16 @@ public interface SpreadsheetPackage extends EPackage {
 	EOperation getSheet__GetColumn__int();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#getColumn(java.lang.String) <em>Get Column</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Column</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getColumn(java.lang.String)
+	 * @generated
+	 */
+	EOperation getSheet__GetColumn__String();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#createColumn(int) <em>Create Column</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1168,6 +1223,16 @@ public interface SpreadsheetPackage extends EPackage {
 	EOperation getSheet__CreateColumn__int();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#createColumn(int, java.lang.String) <em>Create Column</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Column</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#createColumn(int, java.lang.String)
+	 * @generated
+	 */
+	EOperation getSheet__CreateColumn__int_String();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#getOrCreateColumn(int) <em>Get Or Create Column</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1176,6 +1241,16 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSheet__GetOrCreateColumn__int();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#getOrCreateColumn(java.lang.String) <em>Get Or Create Column</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Or Create Column</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getOrCreateColumn(java.lang.String)
+	 * @generated
+	 */
+	EOperation getSheet__GetOrCreateColumn__String();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#addColumn() <em>Add Column</em>}' operation.
@@ -1362,6 +1437,16 @@ public interface SpreadsheetPackage extends EPackage {
 	EOperation getRow__GetCell__Column();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Row#getCell(java.lang.String) <em>Get Cell</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Cell</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Row#getCell(java.lang.String)
+	 * @generated
+	 */
+	EOperation getRow__GetCell__String();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Row#lookUp(java.lang.String) <em>Look Up</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1424,6 +1509,17 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getColumn_ColumnIndex();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Column#getColumnName <em>Column Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Column Name</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Column#getColumnName()
+	 * @see #getColumn()
+	 * @generated
+	 */
+	EAttribute getColumn_ColumnName();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Column#getCell(int) <em>Get Cell</em>}' operation.
@@ -1815,6 +1911,14 @@ public interface SpreadsheetPackage extends EPackage {
 		EOperation SHEET___GET_COLUMN__INT = eINSTANCE.getSheet__GetColumn__int();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Column</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHEET___GET_COLUMN__STRING = eINSTANCE.getSheet__GetColumn__String();
+
+		/**
 		 * The meta object literal for the '<em><b>Create Column</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1823,12 +1927,28 @@ public interface SpreadsheetPackage extends EPackage {
 		EOperation SHEET___CREATE_COLUMN__INT = eINSTANCE.getSheet__CreateColumn__int();
 
 		/**
+		 * The meta object literal for the '<em><b>Create Column</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHEET___CREATE_COLUMN__INT_STRING = eINSTANCE.getSheet__CreateColumn__int_String();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Or Create Column</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation SHEET___GET_OR_CREATE_COLUMN__INT = eINSTANCE.getSheet__GetOrCreateColumn__int();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Or Create Column</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHEET___GET_OR_CREATE_COLUMN__STRING = eINSTANCE.getSheet__GetOrCreateColumn__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Column</b></em>' operation.
@@ -1977,6 +2097,14 @@ public interface SpreadsheetPackage extends EPackage {
 		EOperation ROW___GET_CELL__COLUMN = eINSTANCE.getRow__GetCell__Column();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Cell</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ROW___GET_CELL__STRING = eINSTANCE.getRow__GetCell__String();
+
+		/**
 		 * The meta object literal for the '<em><b>Look Up</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2025,6 +2153,14 @@ public interface SpreadsheetPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COLUMN__COLUMN_INDEX = eINSTANCE.getColumn_ColumnIndex();
+
+		/**
+		 * The meta object literal for the '<em><b>Column Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMN__COLUMN_NAME = eINSTANCE.getColumn_ColumnName();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Cell</b></em>' operation.

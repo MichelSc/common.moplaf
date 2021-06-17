@@ -145,6 +145,14 @@ public interface Row extends EObject {
 	 * @model
 	 * @generated
 	 */
+	Cell getCell(String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	Cell lookUp(String value);
 
 } // Row

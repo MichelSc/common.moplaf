@@ -206,6 +206,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Row getRow() {
 		if (eContainerFeatureID() != SpreadsheetPackage.CELL__ROW) return null;
 		return (Row)eInternalContainer();
@@ -226,6 +227,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRow(Row newRow) {
 		if (newRow != eInternalContainer() || (eContainerFeatureID() != SpreadsheetPackage.CELL__ROW && newRow != null)) {
 			if (EcoreUtil.isAncestor(this, newRow))
@@ -247,6 +249,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Column getColumn() {
 		if (column != null && column.eIsProxy()) {
 			InternalEObject oldColumn = (InternalEObject)column;
@@ -288,6 +291,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setColumn(Column newColumn) {
 		if (newColumn != column) {
 			NotificationChain msgs = null;
@@ -326,6 +330,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CellType getCellType() {
 		return cellType;
 	}
@@ -335,6 +340,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCellType(CellType newCellType) {
 		CellType oldCellType = cellType;
 		cellType = newCellType == null ? CELL_TYPE_EDEFAULT : newCellType;
@@ -347,6 +353,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getDoubleValue() {
 		return doubleValue;
 	}
@@ -356,6 +363,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDoubleValue(double newDoubleValue) {
 		double oldDoubleValue = doubleValue;
 		doubleValue = newDoubleValue;
@@ -368,6 +376,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getStringValue() {
 		return stringValue;
 	}
@@ -377,6 +386,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStringValue(String newStringValue) {
 		String oldStringValue = stringValue;
 		stringValue = newStringValue;
@@ -389,6 +399,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isBooleanValueSet() {
 		return booleanValueSet;
 	}
@@ -398,6 +409,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setBooleanValueSet(boolean newBooleanValueSet) {
 		boolean oldBooleanValueSet = booleanValueSet;
 		booleanValueSet = newBooleanValueSet;
@@ -410,6 +422,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Date getDateValue() {
 		return dateValue;
 	}
@@ -419,6 +432,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDateValue(Date newDateValue) {
 		Date oldDateValue = dateValue;
 		dateValue = newDateValue;
@@ -623,7 +637,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (CellType: ");
 		result.append(cellType);
 		result.append(", DoubleValue: ");
