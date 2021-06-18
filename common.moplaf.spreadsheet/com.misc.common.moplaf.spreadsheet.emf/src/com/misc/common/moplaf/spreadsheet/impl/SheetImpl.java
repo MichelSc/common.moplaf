@@ -27,6 +27,7 @@ import java.util.Optional;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -439,35 +440,10 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generatedNOT
-	 */
-	@Override
-	public Column getColumn(String name) {
-		return this.getColumns()
-				.stream()
-				.filter(c->c.getColumnName().equals(name))
-				.findAny()
-				.orElse(null);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	public Column createColumn(int index) {
-		return this.createColumn(index, "");
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generatedNOT
-	 */
-	@Override
-	public Column createColumn(int index, String name) {
 		Column column = SpreadsheetFactory.eINSTANCE.createColumn();
 		column.setColumnIndex(index);
-		column.setColumnName(name);
 		this.getColumns().add(column);
 		return column;
 	}
@@ -482,21 +458,6 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 			column = this.createColumn(index);
 		}
 		return column;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generatedNOT
-	 */
-	@Override
-	public Column getOrCreateColumn(String name) {
-		Column c = this.getColumn(name);
-		if ( c==null ) {
-			int new_index = this.getNewColumnIndex();
-			c = this.createColumn(new_index, name);
-		}
-		return c;
 	}
 	
 	private int getNewColumnIndex() {
@@ -522,12 +483,11 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 */
 	public Row getRow(int index) {
-		for ( Row row : this.getRows()){
-			if ( row.getRowIndex()==index){
-				return row;
-			}
-		}
-		return null;
+		return this.getRows()
+				.stream()
+				.filter(c->c.getRowIndex()==index)
+				.findAny()
+				.orElse(null);
 	}
 
 	/**
@@ -628,6 +588,28 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 			row.setRowIndex(rowIndex);
 			rowIndex++;
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generatedNOT
+	 */
+	@Override
+	public void sortColumns() {
+		EList<Column> cols = this.getColumns();
+		ECollections.sort(cols, Comparator.comparingInt(r->r.getColumnIndex()));
+			}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void sortRows() {
+		EList<Row> rows = this.getRows();
+		ECollections.sort(rows, Comparator.comparingInt(r->r.getRowIndex()));
 	}
 
 	/**
@@ -842,16 +824,10 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 				return addRow();
 			case SpreadsheetPackage.SHEET___GET_COLUMN__INT:
 				return getColumn((Integer)arguments.get(0));
-			case SpreadsheetPackage.SHEET___GET_COLUMN__STRING:
-				return getColumn((String)arguments.get(0));
 			case SpreadsheetPackage.SHEET___CREATE_COLUMN__INT:
 				return createColumn((Integer)arguments.get(0));
-			case SpreadsheetPackage.SHEET___CREATE_COLUMN__INT_STRING:
-				return createColumn((Integer)arguments.get(0), (String)arguments.get(1));
 			case SpreadsheetPackage.SHEET___GET_OR_CREATE_COLUMN__INT:
 				return getOrCreateColumn((Integer)arguments.get(0));
-			case SpreadsheetPackage.SHEET___GET_OR_CREATE_COLUMN__STRING:
-				return getOrCreateColumn((String)arguments.get(0));
 			case SpreadsheetPackage.SHEET___ADD_COLUMN:
 				return addColumn();
 			case SpreadsheetPackage.SHEET___GET_CELL__ROW_COLUMN:
@@ -868,6 +844,12 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 				return null;
 			case SpreadsheetPackage.SHEET___CONFORM_ROW_INDEX:
 				conformRowIndex();
+				return null;
+			case SpreadsheetPackage.SHEET___SORT_COLUMNS:
+				sortColumns();
+				return null;
+			case SpreadsheetPackage.SHEET___SORT_ROWS:
+				sortRows();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

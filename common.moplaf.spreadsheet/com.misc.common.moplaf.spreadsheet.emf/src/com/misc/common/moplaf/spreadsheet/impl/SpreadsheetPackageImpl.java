@@ -398,7 +398,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * @generated
 	 */
 	@Override
-	public EOperation getSheet__GetColumn__String() {
+	public EOperation getSheet__CreateColumn__int() {
 		return sheetEClass.getEOperations().get(5);
 	}
 
@@ -408,7 +408,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * @generated
 	 */
 	@Override
-	public EOperation getSheet__CreateColumn__int() {
+	public EOperation getSheet__GetOrCreateColumn__int() {
 		return sheetEClass.getEOperations().get(6);
 	}
 
@@ -418,38 +418,8 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * @generated
 	 */
 	@Override
-	public EOperation getSheet__CreateColumn__int_String() {
-		return sheetEClass.getEOperations().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getSheet__GetOrCreateColumn__int() {
-		return sheetEClass.getEOperations().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getSheet__GetOrCreateColumn__String() {
-		return sheetEClass.getEOperations().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getSheet__AddColumn() {
-		return sheetEClass.getEOperations().get(10);
+		return sheetEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -499,7 +469,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 */
 	@Override
 	public EOperation getSheet__GetCell__Row_Column() {
-		return sheetEClass.getEOperations().get(11);
+		return sheetEClass.getEOperations().get(8);
 	}
 
 	/**
@@ -509,7 +479,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 */
 	@Override
 	public EOperation getSheet__CreateCell__Row_Column() {
-		return sheetEClass.getEOperations().get(12);
+		return sheetEClass.getEOperations().get(9);
 	}
 
 	/**
@@ -519,7 +489,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 */
 	@Override
 	public EOperation getSheet__GetOrCreateCell__Row_Column() {
-		return sheetEClass.getEOperations().get(13);
+		return sheetEClass.getEOperations().get(10);
 	}
 
 	/**
@@ -529,7 +499,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 */
 	@Override
 	public EOperation getSheet__Flush() {
-		return sheetEClass.getEOperations().get(14);
+		return sheetEClass.getEOperations().get(11);
 	}
 
 	/**
@@ -539,7 +509,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 */
 	@Override
 	public EOperation getSheet__ConformColumnIndex() {
-		return sheetEClass.getEOperations().get(15);
+		return sheetEClass.getEOperations().get(12);
 	}
 
 	/**
@@ -549,7 +519,27 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 */
 	@Override
 	public EOperation getSheet__ConformRowIndex() {
-		return sheetEClass.getEOperations().get(16);
+		return sheetEClass.getEOperations().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getSheet__SortColumns() {
+		return sheetEClass.getEOperations().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getSheet__SortRows() {
+		return sheetEClass.getEOperations().get(15);
 	}
 
 	/**
@@ -600,6 +590,16 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	@Override
 	public EAttribute getRow_RowIndex() {
 		return (EAttribute)rowEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRow_RowName() {
+		return (EAttribute)rowEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -920,11 +920,8 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		createEOperation(sheetEClass, SHEET___GET_OR_CREATE_ROW__INT);
 		createEOperation(sheetEClass, SHEET___ADD_ROW);
 		createEOperation(sheetEClass, SHEET___GET_COLUMN__INT);
-		createEOperation(sheetEClass, SHEET___GET_COLUMN__STRING);
 		createEOperation(sheetEClass, SHEET___CREATE_COLUMN__INT);
-		createEOperation(sheetEClass, SHEET___CREATE_COLUMN__INT_STRING);
 		createEOperation(sheetEClass, SHEET___GET_OR_CREATE_COLUMN__INT);
-		createEOperation(sheetEClass, SHEET___GET_OR_CREATE_COLUMN__STRING);
 		createEOperation(sheetEClass, SHEET___ADD_COLUMN);
 		createEOperation(sheetEClass, SHEET___GET_CELL__ROW_COLUMN);
 		createEOperation(sheetEClass, SHEET___CREATE_CELL__ROW_COLUMN);
@@ -932,12 +929,15 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		createEOperation(sheetEClass, SHEET___FLUSH);
 		createEOperation(sheetEClass, SHEET___CONFORM_COLUMN_INDEX);
 		createEOperation(sheetEClass, SHEET___CONFORM_ROW_INDEX);
+		createEOperation(sheetEClass, SHEET___SORT_COLUMNS);
+		createEOperation(sheetEClass, SHEET___SORT_ROWS);
 
 		rowEClass = createEClass(ROW);
 		createEReference(rowEClass, ROW__CELLS);
 		createEReference(rowEClass, ROW__SHEET);
 		createEAttribute(rowEClass, ROW__DESCRIPTION);
 		createEAttribute(rowEClass, ROW__ROW_INDEX);
+		createEAttribute(rowEClass, ROW__ROW_NAME);
 		createEOperation(rowEClass, ROW___GET_CELL__INT);
 		createEOperation(rowEClass, ROW___GET_CELL__COLUMN);
 		createEOperation(rowEClass, ROW___GET_CELL__STRING);
@@ -1058,21 +1058,11 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		op = initEOperation(getSheet__GetColumn__int(), this.getColumn(), "getColumn", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "index", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getSheet__GetColumn__String(), this.getColumn(), "getColumn", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		op = initEOperation(getSheet__CreateColumn__int(), this.getColumn(), "createColumn", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "index", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getSheet__CreateColumn__int_String(), this.getColumn(), "createColumn", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "index", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		op = initEOperation(getSheet__GetOrCreateColumn__int(), this.getColumn(), "getOrCreateColumn", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "index", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getSheet__GetOrCreateColumn__String(), this.getColumn(), "getOrCreateColumn", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getSheet__AddColumn(), this.getColumn(), "addColumn", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1094,11 +1084,16 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 
 		initEOperation(getSheet__ConformRowIndex(), null, "conformRowIndex", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getSheet__SortColumns(), null, "sortColumns", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getSheet__SortRows(), null, "sortRows", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(rowEClass, Row.class, "Row", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRow_Cells(), this.getCell(), this.getCell_Row(), "Cells", null, 0, -1, Row.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRow_Sheet(), this.getSheet(), this.getSheet_Rows(), "Sheet", null, 1, 1, Row.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRow_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Row.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRow_RowIndex(), ecorePackage.getEInt(), "RowIndex", null, 0, 1, Row.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRow_RowName(), ecorePackage.getEString(), "RowName", null, 0, 1, Row.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getRow__GetCell__int(), this.getCell(), "getCell", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "columnindex", 0, 1, IS_UNIQUE, IS_ORDERED);

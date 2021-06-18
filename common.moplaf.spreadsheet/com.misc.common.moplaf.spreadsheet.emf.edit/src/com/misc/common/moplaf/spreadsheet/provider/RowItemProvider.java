@@ -76,6 +76,7 @@ public class RowItemProvider
 			addSheetPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addRowIndexPropertyDescriptor(object);
+			addRowNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -147,6 +148,28 @@ public class RowItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Row Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRowNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Row_RowName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Row_RowName_feature", "_UI_Row_type"),
+				 SpreadsheetPackage.Literals.ROW__ROW_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -194,7 +217,7 @@ public class RowItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Row)object).getDescription();
+		String label = ((Row)object).getRowName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Row_type") :
 			getString("_UI_Row_type") + " " + label;
@@ -214,6 +237,7 @@ public class RowItemProvider
 		switch (notification.getFeatureID(Row.class)) {
 			case SpreadsheetPackage.ROW__DESCRIPTION:
 			case SpreadsheetPackage.ROW__ROW_INDEX:
+			case SpreadsheetPackage.ROW__ROW_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SpreadsheetPackage.ROW__CELLS:

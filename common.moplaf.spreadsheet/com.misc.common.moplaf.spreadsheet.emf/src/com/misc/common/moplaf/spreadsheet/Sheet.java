@@ -275,14 +275,6 @@ public interface Sheet extends EObject {
 	 * @model
 	 * @generated
 	 */
-	Column getColumn(String name);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	Column createColumn(int index);
 
 	/**
@@ -291,23 +283,7 @@ public interface Sheet extends EObject {
 	 * @model
 	 * @generated
 	 */
-	Column createColumn(int index, String name);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	Column getOrCreateColumn(int index);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	Column getOrCreateColumn(String name);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -396,5 +372,21 @@ public interface Sheet extends EObject {
 	 * @generated
 	 */
 	void conformRowIndex();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void sortColumns();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void sortRows();
 
 } // Sheet
