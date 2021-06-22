@@ -27,6 +27,10 @@
             id="com.misc.common.moplaf.emf.editor.commands.ShowConsoleView"
             name="Show Console View">
       </command>
+      <command
+            id="com.misc.common.moplaf.emf.editor.commands.Refresh"
+            name="Refresh">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -53,6 +57,10 @@
       <handler
             class="com.misc.common.moplaf.emf.editor.handlers.ShowConsoleView"
             commandId="com.misc.common.moplaf.emf.editor.commands.ShowConsoleView">
+      </handler>
+      <handler
+            class="com.misc.common.moplaf.emf.editor.handlers.Refresh"
+            commandId="com.misc.common.moplaf.emf.editor.commands.Refresh">
       </handler>
    </extension>
    <extension
@@ -93,14 +101,20 @@
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
             sequence="M1+7">
       </key>
+      <key
+            commandId="com.misc.common.moplaf.emf.editor.commands.Refresh"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="CTRL+R">
+      </key>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
             locationURI="menu:org.eclipse.ui.main.menu?after=additions">
          <menu
-               id="com.misc.common.moplaf.emf.editor.menus.MoplafViewsMenu"
-               label="Moplaf Views"
+               id="com.misc.common.moplaf.emf.editor.menus.MoplafMenu"
+               label="Moplaf "
                mnemonic="M">
             <command
                   commandId="com.misc.common.moplaf.emf.editor.commands.ShowChartView"
@@ -130,6 +144,11 @@
             <command
                   commandId="com.misc.common.moplaf.emf.editor.commands.ShowConsoleView"
                   id="com.misc.common.moplaf.emf.editor.menus.ShowConsoleView"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.misc.common.moplaf.emf.editor.commands.Refresh"
+                  id="com.misc.common.moplaf.emf.editor.menus.Refresh"
                   style="push">
             </command>
          </menu>
