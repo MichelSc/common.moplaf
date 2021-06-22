@@ -373,4 +373,20 @@ public interface Sheet extends EObject {
 	 */
 	void conformRowIndex();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void sortColumns();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void sortRows();
+
 } // Sheet

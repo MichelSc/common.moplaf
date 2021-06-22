@@ -80,7 +80,6 @@ public class SheetItemProvider
 
 			addSheetNamePropertyDescriptor(object);
 			addSheetIndexPropertyDescriptor(object);
-			addSpreadsheetPropertyDescriptor(object);
 			addTopRowsFrozenPropertyDescriptor(object);
 			addBottomRowsFrozenPropertyDescriptor(object);
 			addLeftColumnsFrozenPropertyDescriptor(object);
@@ -130,28 +129,6 @@ public class SheetItemProvider
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 getString("_UI__10SheetPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Spreadsheet feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSpreadsheetPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Sheet_Spreadsheet_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Sheet_Spreadsheet_feature", "_UI_Sheet_type"),
-				 SpreadsheetPackage.Literals.SHEET__SPREADSHEET,
-				 false,
-				 false,
-				 true,
-				 null,
-				 null,
 				 null));
 	}
 

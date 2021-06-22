@@ -116,7 +116,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link SpreadsheetPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -130,7 +130,8 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		if (isInited) return (SpreadsheetPackage)EPackage.Registry.INSTANCE.getEPackage(SpreadsheetPackage.eNS_URI);
 
 		// Obtain or create and register package
-		SpreadsheetPackageImpl theSpreadsheetPackage = (SpreadsheetPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SpreadsheetPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new SpreadsheetPackageImpl());
+		Object registeredSpreadsheetPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		SpreadsheetPackageImpl theSpreadsheetPackage = registeredSpreadsheetPackage instanceof SpreadsheetPackageImpl ? (SpreadsheetPackageImpl)registeredSpreadsheetPackage : new SpreadsheetPackageImpl();
 
 		isInited = true;
 
@@ -146,7 +147,6 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		// Mark meta-data to indicate it can't be changed
 		theSpreadsheetPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(SpreadsheetPackage.eNS_URI, theSpreadsheetPackage);
 		return theSpreadsheetPackage;
@@ -157,6 +157,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSpreadsheet() {
 		return spreadsheetEClass;
 	}
@@ -166,6 +167,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSpreadsheet_Sheets() {
 		return (EReference)spreadsheetEClass.getEStructuralFeatures().get(0);
 	}
@@ -175,6 +177,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSpreadsheet_Name() {
 		return (EAttribute)spreadsheetEClass.getEStructuralFeatures().get(1);
 	}
@@ -184,6 +187,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSpreadsheet_Files() {
 		return (EReference)spreadsheetEClass.getEStructuralFeatures().get(2);
 	}
@@ -193,6 +197,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSpreadsheet__GetSheet__String() {
 		return spreadsheetEClass.getEOperations().get(0);
 	}
@@ -202,6 +207,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSpreadsheet__GetSheet__int() {
 		return spreadsheetEClass.getEOperations().get(1);
 	}
@@ -211,6 +217,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSpreadsheet__CreateSheet__int() {
 		return spreadsheetEClass.getEOperations().get(2);
 	}
@@ -220,6 +227,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSpreadsheet__GetOrCreateSheet__int() {
 		return spreadsheetEClass.getEOperations().get(3);
 	}
@@ -229,6 +237,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSpreadsheet__GetOrCreateSheet__String() {
 		return spreadsheetEClass.getEOperations().get(4);
 	}
@@ -238,6 +247,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSpreadsheet__AddSheet() {
 		return spreadsheetEClass.getEOperations().get(5);
 	}
@@ -247,6 +257,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSpreadsheet__Flush() {
 		return spreadsheetEClass.getEOperations().get(6);
 	}
@@ -256,6 +267,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSpreadsheet__ConformSheetIndex() {
 		return spreadsheetEClass.getEOperations().get(7);
 	}
@@ -265,6 +277,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSpreadsheet__ConformAllIndices() {
 		return spreadsheetEClass.getEOperations().get(8);
 	}
@@ -274,6 +287,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSheet() {
 		return sheetEClass;
 	}
@@ -283,6 +297,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSheet_Rows() {
 		return (EReference)sheetEClass.getEStructuralFeatures().get(0);
 	}
@@ -292,6 +307,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSheet_Columns() {
 		return (EReference)sheetEClass.getEStructuralFeatures().get(1);
 	}
@@ -301,6 +317,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSheet_SheetName() {
 		return (EAttribute)sheetEClass.getEStructuralFeatures().get(2);
 	}
@@ -310,6 +327,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSheet_SheetIndex() {
 		return (EAttribute)sheetEClass.getEStructuralFeatures().get(3);
 	}
@@ -319,6 +337,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSheet_Spreadsheet() {
 		return (EReference)sheetEClass.getEStructuralFeatures().get(4);
 	}
@@ -328,6 +347,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSheet_TopRowsFrozen() {
 		return (EAttribute)sheetEClass.getEStructuralFeatures().get(5);
 	}
@@ -337,6 +357,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSheet_BottomRowsFrozen() {
 		return (EAttribute)sheetEClass.getEStructuralFeatures().get(6);
 	}
@@ -346,6 +367,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSheet_LeftColumnsFrozen() {
 		return (EAttribute)sheetEClass.getEStructuralFeatures().get(7);
 	}
@@ -355,6 +377,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getSheet_RightColumnsFrozen() {
 		return (EAttribute)sheetEClass.getEStructuralFeatures().get(8);
 	}
@@ -364,6 +387,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSheet__GetColumn__int() {
 		return sheetEClass.getEOperations().get(4);
 	}
@@ -373,6 +397,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSheet__CreateColumn__int() {
 		return sheetEClass.getEOperations().get(5);
 	}
@@ -382,6 +407,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSheet__GetOrCreateColumn__int() {
 		return sheetEClass.getEOperations().get(6);
 	}
@@ -391,6 +417,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSheet__AddColumn() {
 		return sheetEClass.getEOperations().get(7);
 	}
@@ -400,6 +427,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSheet__GetRow__int() {
 		return sheetEClass.getEOperations().get(0);
 	}
@@ -409,6 +437,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSheet__CreateRow__int() {
 		return sheetEClass.getEOperations().get(1);
 	}
@@ -418,6 +447,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSheet__GetOrCreateRow__int() {
 		return sheetEClass.getEOperations().get(2);
 	}
@@ -427,6 +457,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSheet__AddRow() {
 		return sheetEClass.getEOperations().get(3);
 	}
@@ -436,6 +467,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSheet__GetCell__Row_Column() {
 		return sheetEClass.getEOperations().get(8);
 	}
@@ -445,6 +477,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSheet__CreateCell__Row_Column() {
 		return sheetEClass.getEOperations().get(9);
 	}
@@ -454,6 +487,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSheet__GetOrCreateCell__Row_Column() {
 		return sheetEClass.getEOperations().get(10);
 	}
@@ -463,6 +497,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSheet__Flush() {
 		return sheetEClass.getEOperations().get(11);
 	}
@@ -472,6 +507,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSheet__ConformColumnIndex() {
 		return sheetEClass.getEOperations().get(12);
 	}
@@ -481,6 +517,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getSheet__ConformRowIndex() {
 		return sheetEClass.getEOperations().get(13);
 	}
@@ -490,6 +527,27 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EOperation getSheet__SortColumns() {
+		return sheetEClass.getEOperations().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getSheet__SortRows() {
+		return sheetEClass.getEOperations().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getRow() {
 		return rowEClass;
 	}
@@ -499,6 +557,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRow_Cells() {
 		return (EReference)rowEClass.getEStructuralFeatures().get(0);
 	}
@@ -508,6 +567,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRow_Sheet() {
 		return (EReference)rowEClass.getEStructuralFeatures().get(1);
 	}
@@ -517,6 +577,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRow_Description() {
 		return (EAttribute)rowEClass.getEStructuralFeatures().get(2);
 	}
@@ -526,6 +587,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRow_RowIndex() {
 		return (EAttribute)rowEClass.getEStructuralFeatures().get(3);
 	}
@@ -535,6 +597,17 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EAttribute getRow_RowName() {
+		return (EAttribute)rowEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getRow__GetCell__int() {
 		return rowEClass.getEOperations().get(0);
 	}
@@ -544,6 +617,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getRow__GetCell__Column() {
 		return rowEClass.getEOperations().get(1);
 	}
@@ -553,7 +627,8 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRow__LookUp__String() {
+	@Override
+	public EOperation getRow__GetCell__String() {
 		return rowEClass.getEOperations().get(2);
 	}
 
@@ -562,6 +637,17 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EOperation getRow__LookUp__String() {
+		return rowEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getColumn() {
 		return columnEClass;
 	}
@@ -571,6 +657,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getColumn_Cells() {
 		return (EReference)columnEClass.getEStructuralFeatures().get(0);
 	}
@@ -580,6 +667,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getColumn_Sheet() {
 		return (EReference)columnEClass.getEStructuralFeatures().get(1);
 	}
@@ -589,6 +677,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getColumn_Description() {
 		return (EAttribute)columnEClass.getEStructuralFeatures().get(2);
 	}
@@ -598,6 +687,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getColumn_ColumnIndex() {
 		return (EAttribute)columnEClass.getEStructuralFeatures().get(3);
 	}
@@ -607,6 +697,17 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EAttribute getColumn_ColumnName() {
+		return (EAttribute)columnEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getColumn__GetCell__int() {
 		return columnEClass.getEOperations().get(0);
 	}
@@ -616,6 +717,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getColumn__GetCell__Row() {
 		return columnEClass.getEOperations().get(1);
 	}
@@ -625,6 +727,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getColumn__LookUp__String() {
 		return columnEClass.getEOperations().get(2);
 	}
@@ -634,6 +737,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCell() {
 		return cellEClass;
 	}
@@ -643,6 +747,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getCell_Row() {
 		return (EReference)cellEClass.getEStructuralFeatures().get(0);
 	}
@@ -652,6 +757,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getCell_Column() {
 		return (EReference)cellEClass.getEStructuralFeatures().get(1);
 	}
@@ -661,6 +767,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCell_ValueFormatted() {
 		return (EAttribute)cellEClass.getEStructuralFeatures().get(3);
 	}
@@ -670,6 +777,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCell_CellType() {
 		return (EAttribute)cellEClass.getEStructuralFeatures().get(4);
 	}
@@ -679,6 +787,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCell_DoubleValue() {
 		return (EAttribute)cellEClass.getEStructuralFeatures().get(5);
 	}
@@ -688,6 +797,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCell_StringValue() {
 		return (EAttribute)cellEClass.getEStructuralFeatures().get(6);
 	}
@@ -697,6 +807,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCell_BooleanValueSet() {
 		return (EAttribute)cellEClass.getEStructuralFeatures().get(7);
 	}
@@ -706,6 +817,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCell_DateValue() {
 		return (EAttribute)cellEClass.getEStructuralFeatures().get(8);
 	}
@@ -715,6 +827,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSpreadsheetReaderWriter() {
 		return spreadsheetReaderWriterEClass;
 	}
@@ -724,6 +837,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSpreadsheetReaderWriter_Spreadsheet() {
 		return (EReference)spreadsheetReaderWriterEClass.getEStructuralFeatures().get(0);
 	}
@@ -733,6 +847,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCell_Description() {
 		return (EAttribute)cellEClass.getEStructuralFeatures().get(2);
 	}
@@ -742,6 +857,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getCellType() {
 		return cellTypeEEnum;
 	}
@@ -751,6 +867,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SpreadsheetFactory getSpreadsheetFactory() {
 		return (SpreadsheetFactory)getEFactoryInstance();
 	}
@@ -812,14 +929,18 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		createEOperation(sheetEClass, SHEET___FLUSH);
 		createEOperation(sheetEClass, SHEET___CONFORM_COLUMN_INDEX);
 		createEOperation(sheetEClass, SHEET___CONFORM_ROW_INDEX);
+		createEOperation(sheetEClass, SHEET___SORT_COLUMNS);
+		createEOperation(sheetEClass, SHEET___SORT_ROWS);
 
 		rowEClass = createEClass(ROW);
 		createEReference(rowEClass, ROW__CELLS);
 		createEReference(rowEClass, ROW__SHEET);
 		createEAttribute(rowEClass, ROW__DESCRIPTION);
 		createEAttribute(rowEClass, ROW__ROW_INDEX);
+		createEAttribute(rowEClass, ROW__ROW_NAME);
 		createEOperation(rowEClass, ROW___GET_CELL__INT);
 		createEOperation(rowEClass, ROW___GET_CELL__COLUMN);
+		createEOperation(rowEClass, ROW___GET_CELL__STRING);
 		createEOperation(rowEClass, ROW___LOOK_UP__STRING);
 
 		columnEClass = createEClass(COLUMN);
@@ -827,6 +948,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		createEReference(columnEClass, COLUMN__SHEET);
 		createEAttribute(columnEClass, COLUMN__DESCRIPTION);
 		createEAttribute(columnEClass, COLUMN__COLUMN_INDEX);
+		createEAttribute(columnEClass, COLUMN__COLUMN_NAME);
 		createEOperation(columnEClass, COLUMN___GET_CELL__INT);
 		createEOperation(columnEClass, COLUMN___GET_CELL__ROW);
 		createEOperation(columnEClass, COLUMN___LOOK_UP__STRING);
@@ -962,17 +1084,25 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 
 		initEOperation(getSheet__ConformRowIndex(), null, "conformRowIndex", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getSheet__SortColumns(), null, "sortColumns", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getSheet__SortRows(), null, "sortRows", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(rowEClass, Row.class, "Row", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRow_Cells(), this.getCell(), this.getCell_Row(), "Cells", null, 0, -1, Row.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRow_Sheet(), this.getSheet(), this.getSheet_Rows(), "Sheet", null, 1, 1, Row.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRow_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Row.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRow_RowIndex(), ecorePackage.getEInt(), "RowIndex", null, 0, 1, Row.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRow_RowName(), ecorePackage.getEString(), "RowName", null, 0, 1, Row.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getRow__GetCell__int(), this.getCell(), "getCell", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "columnindex", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getRow__GetCell__Column(), this.getCell(), "getCell", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getColumn(), "column", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getRow__GetCell__String(), this.getCell(), "getCell", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getRow__LookUp__String(), this.getCell(), "lookUp", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -982,6 +1112,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		initEReference(getColumn_Sheet(), this.getSheet(), this.getSheet_Columns(), "Sheet", null, 1, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColumn_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Column.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColumn_ColumnIndex(), ecorePackage.getEInt(), "ColumnIndex", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColumn_ColumnName(), ecorePackage.getEString(), "ColumnName", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getColumn__GetCell__int(), this.getCell(), "getCell", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "rowindex", 0, 1, IS_UNIQUE, IS_ORDERED);

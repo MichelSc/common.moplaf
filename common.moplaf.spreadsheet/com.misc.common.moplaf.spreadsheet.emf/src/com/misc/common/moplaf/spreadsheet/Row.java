@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Row#getSheet <em>Sheet</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Row#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Row#getRowIndex <em>Row Index</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.Row#getRowName <em>Row Name</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getRow()
@@ -124,6 +125,28 @@ public interface Row extends EObject {
 	void setRowIndex(int value);
 
 	/**
+	 * Returns the value of the '<em><b>Row Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Row Name</em>' attribute.
+	 * @see #setRowName(String)
+	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getRow_RowName()
+	 * @model
+	 * @generated
+	 */
+	String getRowName();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.spreadsheet.Row#getRowName <em>Row Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Row Name</em>' attribute.
+	 * @see #getRowName()
+	 * @generated
+	 */
+	void setRowName(String value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
@@ -138,6 +161,14 @@ public interface Row extends EObject {
 	 * @generated
 	 */
 	Cell getCell(Column column);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Cell getCell(String name);
 
 	/**
 	 * <!-- begin-user-doc -->

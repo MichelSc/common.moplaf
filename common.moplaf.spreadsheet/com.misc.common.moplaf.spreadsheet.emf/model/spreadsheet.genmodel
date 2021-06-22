@@ -31,15 +31,20 @@
       <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/getOrCreateSheet">
         <genParameters ecoreParameter="spreadsheet.ecore#//Spreadsheet/getOrCreateSheet/index"/>
       </genOperations>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/getOrCreateSheet.1">
+        <genParameters ecoreParameter="spreadsheet.ecore#//Spreadsheet/getOrCreateSheet.1/sheetname"/>
+      </genOperations>
       <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/addSheet"/>
       <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/flush"/>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/conformSheetIndex"/>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/conformAllIndices"/>
     </genClasses>
     <genClasses ecoreClass="spreadsheet.ecore#//Sheet">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Sheet/Rows"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Sheet/Columns"/>
       <genFeatures createChild="false" propertyCategory="10 Sheet" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Sheet/SheetName"/>
       <genFeatures createChild="false" propertyCategory="10 Sheet" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Sheet/SheetIndex"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference spreadsheet.ecore#//Sheet/Spreadsheet"/>
       <genFeatures createChild="false" propertyCategory="20 Frozen" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Sheet/TopRowsFrozen"/>
       <genFeatures createChild="false" propertyCategory="20 Frozen" propertyDescription=""
@@ -79,17 +84,25 @@
         <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/getOrCreateCell/column"/>
       </genOperations>
       <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/flush"/>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/conformColumnIndex"/>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/conformRowIndex"/>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/sortColumns"/>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/sortRows"/>
     </genClasses>
     <genClasses ecoreClass="spreadsheet.ecore#//Row">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Row/Cells"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Row/Sheet"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Row/Description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Row/RowIndex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Row/RowName"/>
       <genOperations ecoreOperation="spreadsheet.ecore#//Row/getCell">
         <genParameters ecoreParameter="spreadsheet.ecore#//Row/getCell/columnindex"/>
       </genOperations>
       <genOperations ecoreOperation="spreadsheet.ecore#//Row/getCell.1">
         <genParameters ecoreParameter="spreadsheet.ecore#//Row/getCell.1/column"/>
+      </genOperations>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Row/getCell.2">
+        <genParameters ecoreParameter="spreadsheet.ecore#//Row/getCell.2/name"/>
       </genOperations>
       <genOperations ecoreOperation="spreadsheet.ecore#//Row/lookUp">
         <genParameters ecoreParameter="spreadsheet.ecore#//Row/lookUp/value"/>
@@ -101,6 +114,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Column/Sheet"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Column/Description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Column/ColumnIndex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Column/ColumnName"/>
       <genOperations ecoreOperation="spreadsheet.ecore#//Column/getCell">
         <genParameters ecoreParameter="spreadsheet.ecore#//Column/getCell/rowindex"/>
       </genOperations>

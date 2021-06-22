@@ -117,6 +117,7 @@ public class SpreadsheetImpl extends MinimalEObjectImpl.Container implements Spr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Sheet> getSheets() {
 		if (sheets == null) {
 			sheets = new EObjectContainmentWithInverseEList<Sheet>(Sheet.class, this, SpreadsheetPackage.SPREADSHEET__SHEETS, SpreadsheetPackage.SHEET__SPREADSHEET);
@@ -129,6 +130,7 @@ public class SpreadsheetImpl extends MinimalEObjectImpl.Container implements Spr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -138,6 +140,7 @@ public class SpreadsheetImpl extends MinimalEObjectImpl.Container implements Spr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -150,6 +153,7 @@ public class SpreadsheetImpl extends MinimalEObjectImpl.Container implements Spr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SpreadsheetReaderWriter> getFiles() {
 		if (files == null) {
 			files = new EObjectContainmentWithInverseEList<SpreadsheetReaderWriter>(SpreadsheetReaderWriter.class, this, SpreadsheetPackage.SPREADSHEET__FILES, SpreadsheetPackage.SPREADSHEET_READER_WRITER__SPREADSHEET);
@@ -420,7 +424,7 @@ public class SpreadsheetImpl extends MinimalEObjectImpl.Container implements Spr
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (Name: ");
 		result.append(name);
 		result.append(')');

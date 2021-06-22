@@ -66,6 +66,7 @@ public abstract class SpreadsheetReaderWriterImpl extends FileReaderWriterImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Spreadsheet getSpreadsheet() {
 		if (eContainerFeatureID() != SpreadsheetPackage.SPREADSHEET_READER_WRITER__SPREADSHEET) return null;
 		return (Spreadsheet)eInternalContainer();
@@ -86,6 +87,7 @@ public abstract class SpreadsheetReaderWriterImpl extends FileReaderWriterImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSpreadsheet(Spreadsheet newSpreadsheet) {
 		if (newSpreadsheet != eInternalContainer() || (eContainerFeatureID() != SpreadsheetPackage.SPREADSHEET_READER_WRITER__SPREADSHEET && newSpreadsheet != null)) {
 			if (EcoreUtil.isAncestor(this, newSpreadsheet))

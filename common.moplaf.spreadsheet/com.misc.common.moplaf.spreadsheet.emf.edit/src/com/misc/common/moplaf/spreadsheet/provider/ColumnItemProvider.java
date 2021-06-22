@@ -74,6 +74,7 @@ public class ColumnItemProvider
 			addSheetPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addColumnIndexPropertyDescriptor(object);
+			addColumnNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -167,6 +168,28 @@ public class ColumnItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Column Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addColumnNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Column_ColumnName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Column_ColumnName_feature", "_UI_Column_type"),
+				 SpreadsheetPackage.Literals.COLUMN__COLUMN_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -214,7 +237,7 @@ public class ColumnItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Column)object).getDescription();
+		String label = ((Column)object).getColumnName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Column_type") :
 			getString("_UI_Column_type") + " " + label;
@@ -234,6 +257,7 @@ public class ColumnItemProvider
 		switch (notification.getFeatureID(Column.class)) {
 			case SpreadsheetPackage.COLUMN__DESCRIPTION:
 			case SpreadsheetPackage.COLUMN__COLUMN_INDEX:
+			case SpreadsheetPackage.COLUMN__COLUMN_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

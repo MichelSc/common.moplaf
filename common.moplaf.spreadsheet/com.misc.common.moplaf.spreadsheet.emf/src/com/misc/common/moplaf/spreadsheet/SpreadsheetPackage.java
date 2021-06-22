@@ -432,13 +432,31 @@ public interface SpreadsheetPackage extends EPackage {
 	int SHEET___CONFORM_ROW_INDEX = 13;
 
 	/**
+	 * The operation id for the '<em>Sort Columns</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET___SORT_COLUMNS = 14;
+
+	/**
+	 * The operation id for the '<em>Sort Rows</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET___SORT_ROWS = 15;
+
+	/**
 	 * The number of operations of the '<em>Sheet</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET_OPERATION_COUNT = 14;
+	int SHEET_OPERATION_COUNT = 16;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl <em>Row</em>}' class.
@@ -487,13 +505,22 @@ public interface SpreadsheetPackage extends EPackage {
 	int ROW__ROW_INDEX = 3;
 
 	/**
+	 * The feature id for the '<em><b>Row Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROW__ROW_NAME = 4;
+
+	/**
 	 * The number of structural features of the '<em>Row</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROW_FEATURE_COUNT = 4;
+	int ROW_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Get Cell</em>' operation.
@@ -514,13 +541,22 @@ public interface SpreadsheetPackage extends EPackage {
 	int ROW___GET_CELL__COLUMN = 1;
 
 	/**
+	 * The operation id for the '<em>Get Cell</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROW___GET_CELL__STRING = 2;
+
+	/**
 	 * The operation id for the '<em>Look Up</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROW___LOOK_UP__STRING = 2;
+	int ROW___LOOK_UP__STRING = 3;
 
 	/**
 	 * The number of operations of the '<em>Row</em>' class.
@@ -529,7 +565,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROW_OPERATION_COUNT = 3;
+	int ROW_OPERATION_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.spreadsheet.impl.ColumnImpl <em>Column</em>}' class.
@@ -578,13 +614,22 @@ public interface SpreadsheetPackage extends EPackage {
 	int COLUMN__COLUMN_INDEX = 3;
 
 	/**
+	 * The feature id for the '<em><b>Column Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__COLUMN_NAME = 4;
+
+	/**
 	 * The number of structural features of the '<em>Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN_FEATURE_COUNT = 4;
+	int COLUMN_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Get Cell</em>' operation.
@@ -1288,6 +1333,26 @@ public interface SpreadsheetPackage extends EPackage {
 	EOperation getSheet__ConformRowIndex();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#sortColumns() <em>Sort Columns</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Sort Columns</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#sortColumns()
+	 * @generated
+	 */
+	EOperation getSheet__SortColumns();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#sortRows() <em>Sort Rows</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Sort Rows</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#sortRows()
+	 * @generated
+	 */
+	EOperation getSheet__SortRows();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.spreadsheet.Row <em>Row</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1342,6 +1407,17 @@ public interface SpreadsheetPackage extends EPackage {
 	EAttribute getRow_RowIndex();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Row#getRowName <em>Row Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Row Name</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Row#getRowName()
+	 * @see #getRow()
+	 * @generated
+	 */
+	EAttribute getRow_RowName();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Row#getCell(int) <em>Get Cell</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1360,6 +1436,16 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getRow__GetCell__Column();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Row#getCell(java.lang.String) <em>Get Cell</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Cell</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Row#getCell(java.lang.String)
+	 * @generated
+	 */
+	EOperation getRow__GetCell__String();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Row#lookUp(java.lang.String) <em>Look Up</em>}' operation.
@@ -1424,6 +1510,17 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getColumn_ColumnIndex();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Column#getColumnName <em>Column Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Column Name</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Column#getColumnName()
+	 * @see #getColumn()
+	 * @generated
+	 */
+	EAttribute getColumn_ColumnName();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Column#getCell(int) <em>Get Cell</em>}' operation.
@@ -1919,6 +2016,22 @@ public interface SpreadsheetPackage extends EPackage {
 		EOperation SHEET___CONFORM_ROW_INDEX = eINSTANCE.getSheet__ConformRowIndex();
 
 		/**
+		 * The meta object literal for the '<em><b>Sort Columns</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHEET___SORT_COLUMNS = eINSTANCE.getSheet__SortColumns();
+
+		/**
+		 * The meta object literal for the '<em><b>Sort Rows</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHEET___SORT_ROWS = eINSTANCE.getSheet__SortRows();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl <em>Row</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1961,6 +2074,14 @@ public interface SpreadsheetPackage extends EPackage {
 		EAttribute ROW__ROW_INDEX = eINSTANCE.getRow_RowIndex();
 
 		/**
+		 * The meta object literal for the '<em><b>Row Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROW__ROW_NAME = eINSTANCE.getRow_RowName();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Cell</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1975,6 +2096,14 @@ public interface SpreadsheetPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ROW___GET_CELL__COLUMN = eINSTANCE.getRow__GetCell__Column();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Cell</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ROW___GET_CELL__STRING = eINSTANCE.getRow__GetCell__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Look Up</b></em>' operation.
@@ -2025,6 +2154,14 @@ public interface SpreadsheetPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COLUMN__COLUMN_INDEX = eINSTANCE.getColumn_ColumnIndex();
+
+		/**
+		 * The meta object literal for the '<em><b>Column Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMN__COLUMN_NAME = eINSTANCE.getColumn_ColumnName();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Cell</b></em>' operation.

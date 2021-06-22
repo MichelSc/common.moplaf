@@ -50,6 +50,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl#getSheet <em>Sheet</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl#getRowIndex <em>Row Index</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl#getRowName <em>Row Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -96,6 +97,26 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	protected int rowIndex = ROW_INDEX_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getRowName() <em>Row Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRowName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ROW_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getRowName() <em>Row Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRowName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String rowName = ROW_NAME_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -119,6 +140,7 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Cell> getCells() {
 		if (cells == null) {
 			cells = new EObjectContainmentWithInverseEList<Cell>(Cell.class, this, SpreadsheetPackage.ROW__CELLS, SpreadsheetPackage.CELL__ROW);
@@ -131,6 +153,7 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Sheet getSheet() {
 		if (eContainerFeatureID() != SpreadsheetPackage.ROW__SHEET) return null;
 		return (Sheet)eInternalContainer();
@@ -151,6 +174,7 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSheet(Sheet newSheet) {
 		if (newSheet != eInternalContainer() || (eContainerFeatureID() != SpreadsheetPackage.ROW__SHEET && newSheet != null)) {
 			if (EcoreUtil.isAncestor(this, newSheet))
@@ -172,7 +196,8 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	 * <!-- end-user-doc -->
 	 */
 	public String getDescription() {
-		String description = String.format("(%d)", this.getRowIndex());
+		String name = this.getRowName()== null ? "" : this.getRowName();
+		String description = String.format("%s(%d)", name, this.getRowIndex());
 		return description;
 	}
 
@@ -181,6 +206,7 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getRowIndex() {
 		return rowIndex;
 	}
@@ -190,6 +216,7 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRowIndex(int newRowIndex) {
 		int oldRowIndex = rowIndex;
 		rowIndex = newRowIndex;
@@ -200,14 +227,36 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getRowName() {
+		return rowName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRowName(String newRowName) {
+		String oldRowName = rowName;
+		rowName = newRowName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SpreadsheetPackage.ROW__ROW_NAME, oldRowName, rowName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public Cell getCell(int columnindex) {
-		for ( Cell cell : this.getCells()){
-			if ( cell.getColumn().getColumnIndex()==columnindex){
-				return cell;
-			}
-		}
-		return null;
+		return this.getCells()
+				.stream()
+				.filter(c -> c.getColumn().getColumnIndex()==columnindex)
+				.findAny()
+				.orElse(null);
 	}
 
 	/**
@@ -215,7 +264,25 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	 * <!-- end-user-doc -->
 	 */
 	public Cell getCell(Column column) {
-		return this.getCell(column.getColumnIndex());
+		return this.getCells()
+				.stream()
+				.filter(c -> c.getColumn()==column)
+				.findAny()
+				.orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generatedNOT
+	 */
+	@Override
+	public Cell getCell(String name) {
+		return this.getCells()
+				.stream()
+				.filter(c -> c.getColumn().getColumnName().equals(name))
+				.findAny()
+				.orElse(null);
 	}
 
 	/**
@@ -298,6 +365,8 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 				return getDescription();
 			case SpreadsheetPackage.ROW__ROW_INDEX:
 				return getRowIndex();
+			case SpreadsheetPackage.ROW__ROW_NAME:
+				return getRowName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -321,6 +390,9 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 			case SpreadsheetPackage.ROW__ROW_INDEX:
 				setRowIndex((Integer)newValue);
 				return;
+			case SpreadsheetPackage.ROW__ROW_NAME:
+				setRowName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -342,6 +414,9 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 			case SpreadsheetPackage.ROW__ROW_INDEX:
 				setRowIndex(ROW_INDEX_EDEFAULT);
 				return;
+			case SpreadsheetPackage.ROW__ROW_NAME:
+				setRowName(ROW_NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -362,6 +437,8 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case SpreadsheetPackage.ROW__ROW_INDEX:
 				return rowIndex != ROW_INDEX_EDEFAULT;
+			case SpreadsheetPackage.ROW__ROW_NAME:
+				return ROW_NAME_EDEFAULT == null ? rowName != null : !ROW_NAME_EDEFAULT.equals(rowName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -378,6 +455,8 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 				return getCell((Integer)arguments.get(0));
 			case SpreadsheetPackage.ROW___GET_CELL__COLUMN:
 				return getCell((Column)arguments.get(0));
+			case SpreadsheetPackage.ROW___GET_CELL__STRING:
+				return getCell((String)arguments.get(0));
 			case SpreadsheetPackage.ROW___LOOK_UP__STRING:
 				return lookUp((String)arguments.get(0));
 		}
@@ -393,9 +472,11 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (RowIndex: ");
 		result.append(rowIndex);
+		result.append(", RowName: ");
+		result.append(rowName);
 		result.append(')');
 		return result.toString();
 	}

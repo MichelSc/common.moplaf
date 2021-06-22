@@ -64,6 +64,8 @@
     <eOperations name="flush"/>
     <eOperations name="conformColumnIndex"/>
     <eOperations name="conformRowIndex"/>
+    <eOperations name="sortColumns"/>
+    <eOperations name="sortRows"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Rows" upperBound="-1" eType="#//Row"
         containment="true" eOpposite="#//Row/Sheet"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Columns" upperBound="-1"
@@ -84,6 +86,9 @@
     <eOperations name="getCell" eType="#//Cell">
       <eParameters name="column" eType="#//Column"/>
     </eOperations>
+    <eOperations name="getCell" eType="#//Cell">
+      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eOperations name="lookUp" eType="#//Cell">
       <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
@@ -94,6 +99,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RowIndex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RowName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Column">
     <eOperations name="getCell" eType="#//Cell">
@@ -112,6 +118,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ColumnIndex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ColumnName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Cell">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Row" lowerBound="1" eType="#//Row"
