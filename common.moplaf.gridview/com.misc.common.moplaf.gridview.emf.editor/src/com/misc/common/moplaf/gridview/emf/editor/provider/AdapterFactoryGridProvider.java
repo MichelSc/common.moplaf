@@ -79,6 +79,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 	 * the interfaces  {@link IStructuredContentProvider}, {@link ITableColorProvider}, {@link ITableLabelProvider}, 
 	 * <p>
 	 */
+	@Override
 	public ArrayList<com.misc.common.moplaf.gridview.TableProvider> getTableProviders(Object element){
 		AdapterFactory adapterFactory = this.getAdapterFactory();
 		IItemGridsProvider gridsProvider = (IItemGridsProvider) adapterFactory.adapt(element, IItemGridsProvider.class);
@@ -204,7 +205,12 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
 			}
 			@Override
 			public int compare(TableRowProvider row1, TableRowProvider row2, boolean ascending) {
-				return 0;
+				TableProvider provider = TableProvider.this; 
+				return provider.gridsProvider.compareRow(provider.element,
+   							                             provider.grid,
+								                         row1.getRowObject(), 
+												         row2.getRowObject(), 
+												         ascending);
 			}
 			@Override
 			public int getAlignemet() {

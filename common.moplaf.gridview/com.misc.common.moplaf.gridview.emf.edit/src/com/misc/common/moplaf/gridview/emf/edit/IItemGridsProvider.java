@@ -180,6 +180,21 @@ public interface IItemGridsProvider extends Constants {
 	}
 	
 	/**
+	 * Compares 2 rows according (not considering a given column)
+	 * @param element
+	 * @param grid
+	 * @param row1
+	 * @param row2
+	 * @param ascending
+	 * @return
+	 */
+	default int compareRow(Object element, Object grid, Object row1, Object row2, boolean ascending) {
+		String value1 = this.getRowText(element, grid, row1);
+		String value2 = this.getRowText(element, grid, row2);
+		return IItemGridsProvider.defaultCompareValues(value1, DATA_TYPE_STRING, value2, DATA_TYPE_STRING, ascending);
+	}
+	
+	/**
 	 * Returns the collections of objects representing the columns of a grid published by an element.
 	 * <p>
 	 * If no collection is returned, then the number of columns is given by {@link #getNrColumns(Object, Object)}
