@@ -210,6 +210,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryArrayContentProvid
    							                             provider.grid,
 								                         row1.getRowObject(), 
 												         row2.getRowObject(), 
+												         null, // column
 												         ascending);
 			}
 			@Override

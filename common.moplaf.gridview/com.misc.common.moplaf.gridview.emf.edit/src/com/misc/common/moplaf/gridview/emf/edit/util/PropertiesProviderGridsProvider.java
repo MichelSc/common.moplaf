@@ -44,6 +44,8 @@ import com.misc.common.moplaf.gridview.emf.edit.IItemGridsProvider;
  *   </ul>
  * </ul>
  * </p>
+ * <p>
+ * The sheets implementation provides an optional aggregation row. See {@link SheetPropertiesProvider.aggregation}
  * 
  */
 public class PropertiesProviderGridsProvider implements IItemGridsProvider {
@@ -56,6 +58,11 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 	
 	private Color highlight_color = Color.COLOR_YELLOW;
 
+	public interface ExtraRow {
+		public String getRowText();
+	}
+	public interface HeaderRow extends ExtraRow {}
+	public interface FooterRow extends ExtraRow {}
 	public interface SheetDelegate {
 		public SheetDelegate setSheetText(String text);
 		public SheetDelegate setSheetTraits(int traits);
@@ -86,6 +93,22 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		private Collection<?> objects = null;
 		private Object element = null;
 		private EAttribute attribute;
+		
+		protected boolean isHeaderRow(Object row) {
+			if ( row instanceof HeaderRow ) {
+				return true;
+			}
+			return false;
+		}
+		protected boolean isFooterRow(Object row) {
+			if ( row instanceof FooterRow ) {
+				return true;
+			}
+			if ( row == this ) {
+				// aggregation row
+			}
+			return false;
+		}
 		
 		public SheetPropertiesProvider(String sheet_name, IPropertiesProvider provider, EAttribute attribute, int traits) {
 			this.provider = provider;
@@ -187,6 +210,8 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		public String getRowText(Object row) {
 			if ( row == this) {
 				return "aggregation";
+			} else if ( row instanceof ExtraRow ) {
+				return ((ExtraRow)row).getRowText();
 			}
 			return this.getObjectText(row);
 		}
@@ -220,8 +245,16 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		}
 		@Override
 		public int compareRows(Object row1, Object row2, Object column, boolean ascending) {
-			if ( row1==this) { return +1; }
-			if ( row2==this) { return -1; }
+			if ( this.isFooterRow(row1) ) { return +1; }
+			if ( this.isFooterRow(row2) ) { return -1; }
+			if ( this.isHeaderRow(row1) ) { return -1; }
+			if ( this.isHeaderRow(row2) ) { return +1; }
+			if ( column==null ) {
+				// this is the header column
+				String value1 = this.getRowText(row1);
+				String value2 = this.getRowText(row2);
+				return IItemGridsProvider.defaultCompareValues(value1, DATA_TYPE_STRING, value2, DATA_TYPE_STRING, ascending);
+			}
 			return this.provider.compare(column, row1, row2, ascending);
 		}
 		@Override
@@ -313,9 +346,6 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 			
 			return result;
 		}
-		
-		
-
 	}
 
 	private class SheetCollection extends SheetPropertiesProvider{
@@ -331,6 +361,7 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		protected Collection<?> doGetObjects(Object element) {
 			return this.rowSet;
 		}
+		
 	}
 
 	public PropertiesProviderGridsProvider() {

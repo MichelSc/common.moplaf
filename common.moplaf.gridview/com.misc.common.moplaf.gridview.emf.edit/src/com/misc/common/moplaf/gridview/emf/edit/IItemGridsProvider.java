@@ -162,7 +162,9 @@ public interface IItemGridsProvider extends Constants {
 	}
 
 	/**
-	 * Compares 2 rows according to a given column.
+	 * Compares 2 rows according 
+	 *   according to a column if specified
+	 *   otherwise, according to the row text
 	 * @param element
 	 * @param grid
 	 * @param row1
@@ -172,26 +174,17 @@ public interface IItemGridsProvider extends Constants {
 	 * @return
 	 */
 	default int compareRow(Object element, Object grid, Object row1, Object row2, Object column, boolean ascending) {
-		int type1 = this.getCellType(element, grid, row1, column);
-		int type2 = this.getCellType(element, grid, row2, column);
-		Object value1 = this.getCellValue(element, grid, row1, column);
-		Object value2 = this.getCellValue(element, grid, row2, column);
-		return IItemGridsProvider.defaultCompareValues(value1, type1, value2, type2, ascending);
-	}
-	
-	/**
-	 * Compares 2 rows according (not considering a given column)
-	 * @param element
-	 * @param grid
-	 * @param row1
-	 * @param row2
-	 * @param ascending
-	 * @return
-	 */
-	default int compareRow(Object element, Object grid, Object row1, Object row2, boolean ascending) {
-		String value1 = this.getRowText(element, grid, row1);
-		String value2 = this.getRowText(element, grid, row2);
-		return IItemGridsProvider.defaultCompareValues(value1, DATA_TYPE_STRING, value2, DATA_TYPE_STRING, ascending);
+		if ( column == null ) {
+			String value1 = this.getRowText(element, grid, row1);
+			String value2 = this.getRowText(element, grid, row2);
+			return IItemGridsProvider.defaultCompareValues(value1, DATA_TYPE_STRING, value2, DATA_TYPE_STRING, ascending);
+		} else {
+			int type1 = this.getCellType(element, grid, row1, column);
+			int type2 = this.getCellType(element, grid, row2, column);
+			Object value1 = this.getCellValue(element, grid, row1, column);
+			Object value2 = this.getCellValue(element, grid, row2, column);
+			return IItemGridsProvider.defaultCompareValues(value1, type1, value2, type2, ascending);
+		}
 	}
 	
 	/**
