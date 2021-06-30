@@ -106,6 +106,7 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 			}
 			if ( row == this ) {
 				// aggregation row
+				return true;
 			}
 			return false;
 		}
