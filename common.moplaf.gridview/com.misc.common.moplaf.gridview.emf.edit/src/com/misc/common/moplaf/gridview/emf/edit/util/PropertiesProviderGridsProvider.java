@@ -225,7 +225,11 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 				return null;
 			}
 			EObject e_object = (EObject)object;
-			return e_object.eGet(this.attribute).toString();
+			Object value = e_object.eGet(this.attribute);
+			if ( value==null ) {
+				return "";
+			}
+			return value.toString();
 		}	
 		
 		@Override
