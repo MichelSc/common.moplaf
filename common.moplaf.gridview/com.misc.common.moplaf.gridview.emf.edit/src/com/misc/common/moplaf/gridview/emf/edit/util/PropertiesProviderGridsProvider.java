@@ -11,6 +11,7 @@
 package com.misc.common.moplaf.gridview.emf.edit.util;
 
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.LinkedList;
 
@@ -67,6 +68,7 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		public SheetDelegate setSheetText(String text);
 		public SheetDelegate setSheetTraits(int traits);
 		public SheetDelegate setAggregation(boolean enabled);
+		public SheetDelegate setRowComparator(Comparator<Object> c);
 		public String getSheetText();
 		public int    getSheetTraits();
 		public Collection<?> getSheetRows(Object element);
@@ -93,6 +95,12 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 		private Collection<?> objects = null;
 		private Object element = null;
 		private EAttribute attribute;
+		private Comparator<Object> comparator = (e1, e2)->{
+			// this is the header column
+			String value1 = this.getRowText(e1);
+			String value2 = this.getRowText(e2);
+			return IItemGridsProvider.defaultCompareValues(value1, DATA_TYPE_STRING, value2, DATA_TYPE_STRING, true);
+		};
 		
 		protected boolean isHeaderRow(Object row) {
 			if ( row instanceof HeaderRow ) {
@@ -138,6 +146,12 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 			this.aggregation = enabled;
 			return this;
 		}
+		@Override 		
+		public SheetDelegate setRowComparator(Comparator<Object> c) {
+			this.comparator = c;
+			return this;
+		}
+
 		@Override
 		public String getSheetText() {
 			if ( this.sheet_name!=null ) {
@@ -256,9 +270,8 @@ public class PropertiesProviderGridsProvider implements IItemGridsProvider {
 			if ( this.isHeaderRow(row2) ) { return +1; }
 			if ( column==null ) {
 				// this is the header column
-				String value1 = this.getRowText(row1);
-				String value2 = this.getRowText(row2);
-				return IItemGridsProvider.defaultCompareValues(value1, DATA_TYPE_STRING, value2, DATA_TYPE_STRING, ascending);
+				int comparison = this.comparator.compare(row1, row2);
+				return ascending ? comparison : -comparison;
 			}
 			return this.provider.compare(column, row1, row2, ascending);
 		}
