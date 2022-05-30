@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.IItemColorProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
@@ -126,12 +127,17 @@ public class AdapterFactoryContentProviderExtended extends	AdapterFactoryContent
 		@Override
 		public ILabelProvider getLabelProvider() {
 			
-			EStructuralFeature eFeature = (EStructuralFeature) this.itemPropertyDescriptor.getFeature(this.object);
 			Object bg_color = null;
-			for ( FeatureBackgroundColor background : featureColors) {
-				if ( background.isFeatureSelected(eFeature, (EObject)this.object) ) {
-					bg_color = background.getBackgroundColor();
-					break;
+			if ( this.itemPropertyDescriptor instanceof IItemColorProvider ) {
+				IItemColorProvider color_provider = (IItemColorProvider) this.itemPropertyDescriptor;
+				bg_color = color_provider.getBackground(this.object);
+			} else {
+				EStructuralFeature eFeature = (EStructuralFeature) this.itemPropertyDescriptor.getFeature(this.object);
+				for ( FeatureBackgroundColor background : featureColors) {
+					if ( background.isFeatureSelected(eFeature, (EObject)this.object) ) {
+						bg_color = background.getBackgroundColor();
+						break;
+					}
 				}
 			}
 			return new LabelProvider2(bg_color);
